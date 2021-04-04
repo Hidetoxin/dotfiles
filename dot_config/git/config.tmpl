@@ -1,0 +1,11 @@
+[user]
+    name   = Fernando Becerra Méndez
+    {{- if eq .chezmoi.hostname "hidetoxin" }}
+    email  = github@hidetox.in
+    {{- else }}
+    email  = {{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}
+    {{- end }}
+[core]
+    editor = nvim
+[github]
+    user = hidetoxin
