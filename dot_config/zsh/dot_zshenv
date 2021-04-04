@@ -1,0 +1,55 @@
+# SETUP XDG BASE DIRECTORIES
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# SETUP XDG USER DIRECTORIES
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_VIDEOS_DIR="$HOME/videos"
+export XDG_DESKTOP_DIR="$HOME/desktop"
+export XDG_PICTURES_DIR="$HOME/pictures"
+export XDG_DOWNLOAD_DIR="$HOME/downloads"
+export XDG_DOCUMENTS_DIR="$HOME/documents"
+export XDG_TEMPLATES_DIR="$HOME/templates"
+export XDG_PUBLICSHARE_DIR="$HOME/public"
+
+# SETUP ZSH CONFIG PATH
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# SETUP ZSH PLUGIN MANAGER
+declare -A ZINIT
+ZINIT[BIN_DIR]="$XDG_DATA_HOME/zinit/bin"
+ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
+ZINIT[PLUGINS_DIR]="$XDG_DATA_HOME/zinit/plugins"
+ZINIT[SNIPPETS_DIR]="$XDG_DATA_HOME/zinit/snippets"
+# ZINIT[COMPINIT_OPTS]
+ZINIT[MUTE_WARNINGS]=0
+ZINIT[ZCOMPDUMP_PATH]="$XDG_DATA_HOME/zinit/dump"
+ZINIT[COMPLETIONS_DIR]="$XDG_DATA_HOME/zinit/completions"
+ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
+export ZPFX="$XDG_DATA_HOME/zinit/polaris"
+
+# ADD BREW TO PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# CONFIG CLI TOOLS
+export EDITOR="nvim"
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgrep.conf"
+
+export FZF_DEFAULT_OPTS="                                                 \
+  --prompt='~ '                                                           \
+  --pointer='▶'                                                           \
+  --marker='✗'                                                            \
+  --border                                                                \
+  --height=80%                                                            \
+  --layout=reverse                                                        \
+  --inline-info                                                           \
+  --preview                                                               \
+    '([[ -f {} ]] &&                                                      \
+    (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && \
+    (exa --tree --icons --color=always {} | less)) || echo {} 2> /dev/null | head -200'"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_COMPLETION_TRIGGER="**"

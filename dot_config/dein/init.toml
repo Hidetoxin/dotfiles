@@ -1,0 +1,83 @@
+# VIM PLUGIN MANAGER
+[[plugins]]
+repo       = "shougo/dein.vim"
+
+# VIM WORKING TOOLSET
+[[plugins]]
+repo       = "junegunn/fzf"
+build      = "./install"
+
+[[plugins]]
+repo       = "junegunn/fzf.vim"
+depends_on = ["junegunn/fzf"]
+hook_add   = """
+    let g:fzf_preview_window = 'right:60%'
+    nnoremap <leader>f    :Files<CR>
+    nnoremap <leader>gf   :GFiles<CR>
+    nnoremap <leader>li   :Lines<CR>
+    nnoremap <leader>hh   :History<CR>
+    nnoremap <leader><CR> :Buffers<CR>
+    nnoremap <leader>rg   :Rg!<CR>
+"""
+[[plugins]]
+repo       = "scrooloose/nerdcommenter"
+hook_add   = """
+    let g:NERDSpaceDelims = 1
+"""
+
+[[plugins]]
+repo       = "haya14busa/incsearch-easymotion.vim"
+hook_add   = """
+    map z/ <Plug>(incsearch-easymotion-/)
+    map z? <Plug>(incsearch-easymotion-?)
+    map zg/ <Plug>(incsearch-easymotion-stay)
+"""
+
+# VIM VISUAL AID TOOLS
+[[plugins]]
+repo       = "haya14busa/incsearch.vim"
+hook_add   = """
+    map g/ <Plug>(incsearch-stay)
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+"""
+
+[[plugins]]
+repo       = "yggdroot/indentline"
+hook_add   = """
+    let g:indentline_char_list = ['|', '¦', '┆', '┊'] 
+"""
+
+[[plugins]]
+repo       = "machakann/vim-highlightedyank"
+hook_add   = """
+    let g:highlightedyank_highlight_duration = -1
+"""
+
+[[plugins]]
+repo       = "ryanoasis/vim-devicons"
+
+[[plugins]]
+repo       = "blueyed/vim-diminactive"
+
+[[plugins]]
+repo       = "vim-airline/vim-airline"
+depends_on = ["morhertz/gruvbox"]
+hook_add   = """
+    let g:airline_theme           = 'gruvbox'
+    let g:airline_powerline_fonts = 1
+"""
+
+[[plugins]]
+repo       = "mhinz/vim-startify"
+hook_add   = """
+    let g:startify_files_number        = 15
+    let g:startify_change_to_dir       = 1
+    let g:startify_fortune_use_unicode = 1
+"""
+
+[[plugins]]
+repo       = "morhetz/gruvbox"
+hook_add   = """
+    let g:gruvbox_contrast_dark = 'hard'
+"""

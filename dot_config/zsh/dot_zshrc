@@ -1,0 +1,48 @@
+# INSTALL ZSH PLUGIN MANAGER
+if [ ! -d "$XDG_CACHE_HOME/zinit/bin" ]; then
+    git clone                                \
+        https://github.com/zdharma/zinit.git \
+        "$XDG_CACHE_HOME/zinit/bin"
+fi
+
+# INSTALL TMUX PLUGIN MANAGER
+if [ ! -d "$XDG_CACHE_HOME/tpm/tpm" ]; then
+    git clone                                   \
+        https://github.com/tmux-plugins/tpm.git \
+        "$XDG_CACHE_HOME/tpm/tpm"
+fi
+
+# INSTALL NVIM PLUGIN MANAGER
+if [ ! -d "$XDG_CACHE_HOME/dein" ]; then
+    git clone                                  \
+        https://github.com/shougo/dein.vim.git \
+        "$XDG_CACHE_HOME/dein/repos/github.com/shougo/dein.vim"
+fi
+
+# SOURCE ZINIT PLUGIN MANAGER
+source "$XDG_CACHE_HOME/zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+zinit light-mode for         \
+    zinit-zsh/z-a-rust       \
+    zinit-zsh/z-a-patch-dl   \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-bin-gem-node
+
+# SOURCE ZINIT SETTINGS
+if [ -d "$XDG_CONFIG_HOME/zinit" ]; then
+    for file in "$XDG_CONFIG_HOME"/zinit/*.zsh; do
+        source "$file"
+    done
+fi
+
+# SOURCE SHELL SETTINGS
+if [ -d "$XDG_CONFIG_HOME/shell" ]; then
+    for file in "$XDG_CONFIG_HOME"/shell/*.sh; do
+        source "$file"
+    done
+fi
+
+# SOURCE P10K POWERLINE SETTINGS
+[ -f "$XDG_CONFIG_HOME/p10k/p10k.zsh" ] \
+    && source "$XDG_CONFIG_HOME/p10k/p10k.zsh"
