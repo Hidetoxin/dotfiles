@@ -22,6 +22,7 @@ zinit snippet OMZ::plugins/osx/osx.plugin.zsh
 
 {{- if (eq .chezmoi.os "linux") }}
 # LINUX PLUGINS
+zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 {{- end }}
 {{- if (eq .chezmoi.osRelease.id "ubuntu") }}
 zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
