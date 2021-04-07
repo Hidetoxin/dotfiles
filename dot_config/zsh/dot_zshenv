@@ -1,4 +1,28 @@
-# # vim: syntax=zsh
+# vim: syntax=zsh
+
+DEBUG=1
+function debug_info () {
+    [ "$DEBUG" -eq 1 ]                             \
+        && reset="$(tput sgr0)"                    \
+        && green="$(tput setaf 2)"                 \
+        && printf "${green}[INFO] ${@} ${reset}\n" \
+        >&2
+    return 0
+}
+
+# # LOGGING MESSAGE SETTINGS
+# INFO="[INFO]"
+# ERROR="[ERROR]"
+# DEBUG="[DEBUG]"
+# WARNING="[WARNING]"
+# DELIMITER="★ ★ ★ ★ ★"
+
+# # LOGGING COLOR SETTINGS
+# RED="$(tput setaf 1)"
+# BOLD="$(tput bold)"
+# BLUE="$(tput setaf 4)"
+# RESET="$(tput sgr0)"
+# YELLOW="$(tput setaf 3)"
 
 # SETUP XDG BASE DIRECTORIES
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -32,7 +56,8 @@ ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
 export ZPFX="$XDG_DATA_HOME/zinit/polaris"
 
 # ADD BREW TO PATH
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # CONFIG CLI TOOLS
 export EDITOR="nvim"

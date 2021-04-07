@@ -17,13 +17,10 @@ zinit light michaelaquilina/zsh-you-should-use
 
 {{- if (eq .chezmoi.os "darwin") }}
 # MACOS PLUGINS
-zinit snippet OMZ::plugins/osx/osx.plugin.zsh
+#zinit snippet OMZ::plugins/osx/osx.plugin.zsh
 {{- end }}
 
 {{- if (eq .chezmoi.os "linux") }}
 # LINUX PLUGINS
 zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
-{{- end }}
-{{- if (eq .chezmoi.osRelease.id "ubuntu") }}
-zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
 {{- end }}

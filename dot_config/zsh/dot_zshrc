@@ -1,3 +1,5 @@
+# vim: syntax=zsh
+
 # INSTALL ZSH PLUGIN MANAGER
 if [ ! -d "$XDG_CACHE_HOME/zinit/bin" ]; then
     git clone                                \
@@ -20,7 +22,8 @@ if [ ! -d "$XDG_CACHE_HOME/dein" ]; then
 fi
 
 # SOURCE ZINIT PLUGIN MANAGER
-source "$XDG_CACHE_HOME/zinit/bin/zinit.zsh"
+source "$XDG_CACHE_HOME/zinit/bin/zinit.zsh" \
+    && debug_info "Sourcing file '$XDG_CACHE_HOME/zinit/bin/zinit.zsh'"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 zinit light-mode for         \
@@ -32,6 +35,7 @@ zinit light-mode for         \
 # SOURCE ZINIT SETTINGS
 if [ -d "$XDG_CONFIG_HOME/zinit" ]; then
     for file in "$XDG_CONFIG_HOME"/zinit/*.zsh; do
+        debug_info "Sourcing file '$file'"
         source "$file"
     done
 fi
@@ -39,10 +43,12 @@ fi
 # SOURCE SHELL SETTINGS
 if [ -d "$XDG_CONFIG_HOME/shell" ]; then
     for file in "$XDG_CONFIG_HOME"/shell/*.sh; do
+        debug_info "Sourcing file '$file'"
         source "$file"
     done
 fi
 
 # SOURCE P10K POWERLINE SETTINGS
-[ -f "$XDG_CONFIG_HOME/p10k/p10k.zsh" ] \
-    && source "$XDG_CONFIG_HOME/p10k/p10k.zsh"
+[ -f "$XDG_CONFIG_HOME/p10k/p10k.zsh" ]        \
+    && source "$XDG_CONFIG_HOME/p10k/p10k.zsh" \
+    && debug_info "Sourcing file '$XDG_CONFIG_HOME/p10k/p10k.zsh'"

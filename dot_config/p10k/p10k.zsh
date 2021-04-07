@@ -43,6 +43,8 @@
     vi_mode                 # vi mode status
     vim_shell               # vim shell indicator (:sh)
     user                    # login user
+    terraform               # terraform workspace (https://www.terraform.io)
+    aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
 
     # =========================[ Line #3 ]=========================
     newline                 # \n
@@ -60,8 +62,6 @@
 
     # =========================[ Line #2 ]=========================
     newline
-    terraform               # terraform workspace (https://www.terraform.io)
-    aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     pyenv                   # python environment (https://github.com/pyenv/pyenv)
     rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
     goenv                   # go environment (https://github.com/syndbg/goenv)
@@ -1179,8 +1179,8 @@
       # '*prod*'  PROD    # These values are examples that are unlikely
       # '*test*'  TEST    # to match your needs. Customize them as needed.
       '*'       DEFAULT)
-  typeset -g POWERLEVEL9K_TERRAFORM_DEFAULT_FOREGROUND=4
-  typeset -g POWERLEVEL9K_TERRAFORM_DEFAULT_BACKGROUND=0
+  typeset -g POWERLEVEL9K_TERRAFORM_DEFAULT_FOREGROUND='black'
+  typeset -g POWERLEVEL9K_TERRAFORM_DEFAULT_BACKGROUND='magenta'
   # typeset -g POWERLEVEL9K_TERRAFORM_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
