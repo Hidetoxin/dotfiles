@@ -1,3 +1,5 @@
+# vim: syntax=zsh
+
 # DISPLAYS STATIC ON THE TERMINAL
 static() {
   P=( " " █ ░ ▒ ▓ )

@@ -1,3 +1,5 @@
+# vim: syntax=zsh
+
 # LOAD OMZ PLUGINS
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
 # zinit snippet OMZ::plugins/fasd/fasd.plugin.zsh
@@ -11,4 +13,15 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
 zinit light zdharma/history-search-multi-word
 zinit light michaelaquilina/zsh-you-should-use
-zinit light zsh-users/zsh-history-substring-search
+# zinit light zsh-users/zsh-history-substring-search
+
+{{ if (eq .chezmoi.os "darwin") }}
+# MACOS PLUGINS
+zinit snippet OMZ::plugins/osx/osx.plugin.zsh
+
+{{ else if (eq .chezmoi.os "linux" ) }}
+# LINUX PLUGINS
+zinit snippet OMZ::plugins/ubuntu/ubuntu.plugin.zsh
+
+{{ else }}
+{{ end }}

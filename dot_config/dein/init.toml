@@ -1,3 +1,5 @@
+# vim: syntax=toml
+
 # VIM PLUGIN MANAGER
 [[plugins]]
 repo       = "shougo/dein.vim"

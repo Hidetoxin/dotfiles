@@ -1,3 +1,5 @@
+# vim: syntax=toml
+
 [[plugins]]
 repo  = "fatih/vim-go"
 on_ft = ["go"]

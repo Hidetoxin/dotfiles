@@ -1,3 +1,5 @@
+# # vim: syntax=zsh
+
 # SETUP XDG BASE DIRECTORIES
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -38,6 +40,9 @@ export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgrep.conf"
+
+# INITIALIZE SHELL SCRIPTS
+eval "$(fasd --init auto)"
 
 export FZF_DEFAULT_OPTS="                                                 \
   --prompt='~ '                                                           \

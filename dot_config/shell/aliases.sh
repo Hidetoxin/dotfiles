@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # VIM LIKE ALIASES
 alias :q="exit 0"
 alias :wq="exit 0"
