@@ -70,10 +70,17 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && debug_info "Initializing functions for 'brew'"
 {{ end }}
 
-#debug_info "OVER HERE $(command -v fasd)"
 [ -n "$(command -v fasd)" ]                           \
     && debug_info "Initializing functions for 'fasd'" \
     && eval "$(fasd --init auto)"
+
+[ -n "$(command -v goenv)" ]                           \
+    && debug_info "Initializing functions for 'goenv'" \
+    && eval "$(goenv init -)"
+
+[ -n "$(command -v pyenv)" ]                           \
+    && debug_info "Initializing functions for 'pyenv'" \
+    && eval "$(pyenv init -)"
 
 # CLI TOOLS SETTINGS
 [ -n "$(command -v rg)" ]                                                 \
