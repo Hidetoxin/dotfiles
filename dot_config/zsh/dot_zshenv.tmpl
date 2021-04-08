@@ -1,7 +1,7 @@
 # vim: syntax=zsh
 
 # ENABLE DEBUGGING
-DEBUG=1
+DEBUG=0
 function debug_info () {
     [ "$DEBUG" -eq 1 ]                             \
         && reset="$(tput sgr0)"                    \
@@ -91,6 +91,8 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && debug_info "Exporting BAT_CONFIG_PATH='$BAT_CONFIG_PATH'"
 
 [ -n "$(command -v fzf)" ]                                                                       \
+    && export FZF_FASD_OPTS="--prompt='fasd_cd'"                                                 \
+    && export FZF_TMUX_HEIGHT="80"                                                               \
     && export FZF_DEFAULT_OPTS="                                                  \
         --prompt='~ '                                                             \
         --height=80                                                               \
@@ -105,8 +107,10 @@ debug_info "Exporting ZPFX='$ZPFX'"
             (exa --tree --icons --color=always {} | less)) || echo {} 2> /dev/null | head -200'" \
     && export FZF_DEFAULT_COMMAND="fd --type f"                                                  \
     && export FZF_COMPLETION_TRIGGER="**"                                                        \
-    && debug_info "Exporting FZF_DEFAULT_OPTS='$FZF_DEFAULT_OPTS'" \
-    && debug_info "Exporting FZF_DEFAULT_COMMAND='$FZF_DEFAULT_COMMAND'" \
+    && debug_info "Exporting FZF_FASD_OPTS='$FZF_FASD_OPTS'"                                     \
+    && debug_info "Exporting FZF_TMUX_HEIGHT='$FZF_TMUX_HEIGHT'"                                 \
+    && debug_info "Exporting FZF_DEFAULT_OPTS='$FZF_DEFAULT_OPTS'"                               \
+    && debug_info "Exporting FZF_DEFAULT_COMMAND='$FZF_DEFAULT_COMMAND'"                         \
     && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
 
 [ -n "$(command -v nvim)" ] \

@@ -1,13 +1,29 @@
 # vim: syntax=zsh
 
-# LOAD OMZ PLUGINS
+# LOAD OMZ SNIPPETS
+# zinit snippet OMZ::plugins/fd/_fd
+zinit snippet OMZ::plugins/aws/aws.plugin.zsh
 zinit snippet OMZ::plugins/fzf/fzf.plugin.zsh
+zinit snippet OMZ::plugins/tig/tig.plugin.zsh
 zinit snippet OMZ::plugins/fasd/fasd.plugin.zsh
+zinit snippet OMZ::plugins/httpie/httpie.plugin.zsh
+# zinit snippet OMZ::plugins/ripgrep/_ripgrep
+zinit snippet OMZ::plugins/vi-mode/vi-mode.plugin.zsh
+zinit snippet OMZ::plugins/extract/extract.plugin.zsh
 zinit snippet OMZ::plugins/thefuck/thefuck.plugin.zsh
+zinit snippet OMZ::plugins/terraform/terraform.plugin.zsh
+zinit snippet OMZ::plugins/tmuxinator/tmuxinator.plugin.zsh
+zinit snippet OMZ::plugins/fancy-ctrl-z/fancy-ctrl-z.plugin.zsh
+zinit snippet OMZ::plugins/zsh-interactive-cd/zsh-interactive-cd.plugin.zsh
+zinit snippet OMZ::plugins/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
-# LOAD CUSTOM PLUGINS
+# LOAD PLUGINS FROM GITHUB
 zinit light wfxr/forgit
-# zinit light wookayin/fzf-fasd
+zinit light zpm-zsh/clipboard
+zinit light b4b4r07/emoji-cli
+zinit light wookayin/fzf-fasd
+zinit light wakeful/zsh-packer
+zinit light zdharma/zsh-startify
 zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
@@ -16,11 +32,13 @@ zinit light michaelaquilina/zsh-you-should-use
 # zinit light zsh-users/zsh-history-substring-search
 
 {{- if (eq .chezmoi.os "darwin") }}
-# MACOS PLUGINS
+# LOAD MACOS SPECIFIC PLUGINS
 #zinit snippet OMZ::plugins/osx/osx.plugin.zsh
+zinit snippet OMZ::plugins/xcode/xcode.plugin.zsh
+zinit snippet OMZ::plugins/iterm2/iterm2.plugin.zsh
 {{- end }}
 
 {{- if (eq .chezmoi.os "linux") }}
-# LINUX PLUGINS
+# LOAD LINUX SPECIFIC PLUGINS
 zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
 {{- end }}

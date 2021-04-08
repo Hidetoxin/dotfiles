@@ -70,6 +70,11 @@ debug_info "Adding aliases for 'exit'"
     && alias cmap="chezmoi apply --verbose" \
     && debug_info "Adding aliases for 'chezmoi'"
 
+# IF LAZYGIT IS INSTALLED
+[ -n "$(command -v lazygit)" ] \
+    && alias lgit="lazygit"    \
+    && debug_info "Adding aliases for 'lazygit'"
+
 # IF MOLECULE IS INSTALLED
 [ -n "$(command -v molecule)" ]       \
     && alias mol="molecule"           \

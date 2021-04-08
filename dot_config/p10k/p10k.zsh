@@ -42,9 +42,9 @@
     newline                 # \n
     vi_mode                 # vi mode status
     vim_shell               # vim shell indicator (:sh)
+    aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     user                    # login user
     terraform               # terraform workspace (https://www.terraform.io)
-    aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
 
     # =========================[ Line #3 ]=========================
     newline                 # \n
