@@ -1,0 +1,114 @@
+# vim: syntax=zsh
+
+# ENABLE DEBUGGING
+DEBUG=1
+function debug_info () {
+    [ "$DEBUG" -eq 1 ]                             \
+        && reset="$(tput sgr0)"                    \
+        && green="$(tput setaf 2)"                 \
+        && printf "${green}[INFO] ${@} ${reset}\n" \
+        >&2
+    return 0
+}
+
+# SETUP XDG BASE DIRECTORIES
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+debug_info "Exporting XDG_DATA_HOME='$XDG_DATA_HOME'"
+debug_info "Exporting XDG_CACHE_HOME='$XDG_CACHE_HOME'"
+debug_info "Exporting XDG_CONFIG_HOME='$XDG_CONFIG_HOME'"
+
+# SETUP XDG USER DIRECTORIES
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_VIDEOS_DIR="$HOME/videos"
+export XDG_DESKTOP_DIR="$HOME/desktop"
+export XDG_PICTURES_DIR="$HOME/pictures"
+export XDG_DOWNLOAD_DIR="$HOME/downloads"
+export XDG_DOCUMENTS_DIR="$HOME/documents"
+export XDG_TEMPLATES_DIR="$HOME/templates"
+export XDG_PUBLICSHARE_DIR="$HOME/public"
+
+debug_info "Exporting XDG_MUSIC_DIR='$XDG_MUSIC_DIR'"
+debug_info "Exporting XDG_VIDEOS_DIR='$XDG_VIDEOS_DIR'"
+debug_info "Exporting XDG_DESKTOP_DIR='$XDG_DESKTOP_DIR'"
+debug_info "Exporting XDG_PICTURES_DIR='$XDG_PICTURES_DIR'"
+debug_info "Exporting XDG_DOWNLOAD_DIR='$XDG_DOWNLOAD_DIR'"
+debug_info "Exporting XDG_DOCUMENTS_DIR='$XDG_DOCUMENTS_DIR'"
+debug_info "Exporting XDG_TEMPLATES_DIR='$XDG_TEMPLATES_DIR'"
+debug_info "Exporting XDG_PUBLICSHARE_DIR='$XDG_PUBLICSHARE_DIR'"
+
+# SETUP ZSH CONFIG PATH
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+debug_info "Exporting ZDOTDIR='$ZDOTDIR'"
+
+# SETUP ZSH PLUGIN MANAGER
+declare -A ZINIT
+ZINIT[BIN_DIR]="$XDG_DATA_HOME/zinit/bin"
+ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
+ZINIT[PLUGINS_DIR]="$XDG_DATA_HOME/zinit/plugins"
+ZINIT[SNIPPETS_DIR]="$XDG_DATA_HOME/zinit/snippets"
+# ZINIT[COMPINIT_OPTS]
+ZINIT[MUTE_WARNINGS]=0
+ZINIT[ZCOMPDUMP_PATH]="$XDG_DATA_HOME/zinit/dump"
+ZINIT[COMPLETIONS_DIR]="$XDG_DATA_HOME/zinit/completions"
+ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
+export ZPFX="$XDG_DATA_HOME/zinit/polaris"
+
+debug_info "Exporting ZINIT='$ZINIT'"
+debug_info "Exporting ZPFX='$ZPFX'"
+
+# INITIALIZE CLI TOOLS FUNCTIONS
+{{ if (eq .chezmoi.os "darwin") }}
+[ -n "$(command -v /usr/local/bin/brew)" ]    \
+    && eval "$(/usr/local/bin/brew shellenv)" \
+    && debug_info "Initializing functions for 'brew'"
+{{ else }}
+[ -n "$(command -v /home/linuxbrew/.linuxbrew/bin/brew)" ]    \
+    && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
+    && debug_info "Initializing functions for 'brew'"
+{{ end }}
+
+#debug_info "OVER HERE $(command -v fasd)"
+[ -n "$(command -v fasd)" ]                           \
+    && debug_info "Initializing functions for 'fasd'" \
+    && eval "$(fasd --init auto)"
+
+# CLI TOOLS SETTINGS
+[ -n "$(command -v rg)" ]                                                 \
+    && export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgrep.conf" \
+    && debug_info "Exporting RIPGREP_CONFIG_PATH='$RIPGREP_CONFIG_PATH'"
+
+[ -n "$(command -v aws)" ]                                                   \
+    && export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"                  \
+    && export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials" \
+    && debug_info "Exporting AWS_CONFIG_FILE='$AWS_CONFIG_FILE'"             \
+    && debug_info "Exporting AWS_SHARED_CREDENTIALS_FILE='$AWS_SHARED_CREDENTIALS_FILE'"
+
+[ -n "$(command -v bat)" ]                                    \
+    && export BAT_CONFIG_PATH="$XDG_CONFIG_HOME/bat/bat.conf" \
+    && debug_info "Exporting BAT_CONFIG_PATH='$BAT_CONFIG_PATH'"
+
+[ -n "$(command -v fzf)" ]                                                                       \
+    && export FZF_DEFAULT_OPTS="                                                  \
+        --prompt='~ '                                                             \
+        --height=80                                                               \
+        --marker='✗'                                                              \
+        --layout=reverse                                                          \
+        --pointer='▶'                                                             \
+        --border                                                                  \
+        --inline-info                                                             \
+        --preview                                                                 \
+            '([[ -f {} ]] &&                                                      \
+            (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && \
+            (exa --tree --icons --color=always {} | less)) || echo {} 2> /dev/null | head -200'" \
+    && export FZF_DEFAULT_COMMAND="fd --type f"                                                  \
+    && export FZF_COMPLETION_TRIGGER="**"                                                        \
+    && debug_info "Exporting FZF_DEFAULT_OPTS='$FZF_DEFAULT_OPTS'" \
+    && debug_info "Exporting FZF_DEFAULT_COMMAND='$FZF_DEFAULT_COMMAND'" \
+    && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
+
+[ -n "$(command -v nvim)" ] \
+    && export EDITOR="nvim" \
+    && debug_info "Exporting EDITOR='$EDITOR'"
