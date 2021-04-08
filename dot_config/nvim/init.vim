@@ -3,6 +3,10 @@ if &compatible
     set nocompatible
 endif
 
+" SET LEADER BEFORE THE PLUGINS
+let mapleader=","
+let g:mapleader=","
+
 " SET THE RUNTIME PATH TO INCLUDE DEIN AND INITIALIZE
 set runtimepath+=~/.cache/dein/repos/github.com/shougo/dein.vim
 
@@ -31,10 +35,6 @@ endif
 " SET TABBING
 set tabstop=4
 set expandtab
-
-" SET LEADER
-let mapleader=","
-let g:mapleader=","
 
 " SET VISUAL GUIDES
 set list
