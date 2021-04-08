@@ -1,0 +1,8 @@
+# vim: syntax=gitignore
+
+# EXCLUDE BACKUP FILES
+*.bak
+
+# EXCLUDE LIBRARIES ON MACOS
+/Library/**
+/Users/Library/**
