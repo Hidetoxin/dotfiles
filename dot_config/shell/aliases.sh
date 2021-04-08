@@ -1,22 +1,39 @@
 # vim: syntax=sh
 
+# CD ALAISES
+alias .-="cd -"
+alias ..="cd .."
+alias .2="cd ../.."
+alias .3="cd ../../.."
+alias .4="cd ../../../.."
+alias .5="cd ../../../../.."
+debug_info "Adding aliases for 'cd'"
+
 # VIM LIKE ALIASES
 alias :q="exit 0"
 alias :wq="exit 0"
 alias :!q="exit 0"
+debug_info "Adding aliases for 'exit'"
+
 
 # IF EXA IS INSTALLED
-[ -n "$(command -v exa)" ]                   \
-    && alias ls="exa --git --icons"          \
-    && alias ll="exa --git --icons"          \
-    && alias l1="exa --git --icons"          \
-    && alias tree="exa --git --tree --icons" \
-    && debug_info "Adding 'exa' aliases"
+[ -n "$(command -v exa)" ]                               \
+    && alias ls="exa -FG --git --icons"                  \
+    && alias ll="exa -Flh --git --icons"                 \
+    && alias lg="exa -FlhG --git --icons"                \
+    && alias lt="exa -Flht --git --icons"                \
+    && alias l1="exa -Flah --git --icons .."             \
+    && alias l2="exa -Flah --git --icons ../.."          \
+    && alias l3="exa -Flah --git --icons ../../.."       \
+    && alias l4="exa -Flah --git --icons ../../../.."    \
+    && alias l5="exa -Flah --git --icons ../../../../.." \
+    && alias tree="exa --git --tree --icons"             \
+    && debug_info "Adding aliases for 'exa'"
 
 # IF TMUX IS INSTALLED
 [ -n "$(command -v tmux)" ]                  \
     && alias tmux="TERM=xterm-256color tmux" \
-    && debug_info "Adding 'tmux' aliases"
+    && debug_info "Adding aliases for 'tmux'"
 
 # IF NEOVIM IS INSTALLED
 [ -n "$(command -v nvim)" ]   \
@@ -24,7 +41,7 @@ alias :!q="exit 0"
     && alias svi="sudo vi"    \
     && alias vim="nvim"       \
     && alias svim="sudo nvim" \
-    && debug_info "Adding 'nvim' aliases"
+    && debug_info "Adding aliases for 'nvim'"
 
 # IF PACKER IS INSTALLED
 [ -n "$(command -v packer)" ]       \
@@ -33,17 +50,25 @@ alias :!q="exit 0"
     && alias pkrc="packer console"  \
     && alias pkri="packer inspect"  \
     && alias pkrv="packer validate" \
-    && debug_info "Adding 'packer' aliases"
+    && debug_info "Adding aliases for 'packer'"
+
+# IF AWSUME IS INSTALLED
+[ -n "$(command -v awsume)" ]  \
+    && alias awsume=". awsume" \
+    && debug_info "Adding aliases for 'awsume'"
 
 # IF CHEZMOI IS INSTALLED
-[ -n "$(command -v chezmoi)" ]              \
-    && alias cm="chezmoi"                   \
-    && alias cmc="chezmoi cd"               \
-    && alias cma="chezmoi add"              \
-    && alias cmd="chezmoi diff"             \
-    && alias cme="chezmoi edit"             \
-    && alias cme="chezmoi execute-template" \
-    && debug_info "Adding 'chezmoi' aliases"
+[ -n "$(command -v chezmoi)" ]               \
+    && alias cm="chezmoi"                    \
+    && alias cma="chezmoi add"               \
+    && alias cmi="chezmoi init"              \
+    && alias cmd="chezmoi diff"              \
+    && alias cme="chezmoi edit"              \
+    && alias cmcd="chezmoi cd"               \
+    && alias cmat="chezmoi add --template"   \
+    && alias cmet="chezmoi execute-template" \
+    && alias cmap="chezmoi apply --verbose" \
+    && debug_info "Adding aliases for 'chezmoi'"
 
 # IF MOLECULE IS INSTALLED
 [ -n "$(command -v molecule)" ]       \
@@ -55,7 +80,7 @@ alias :!q="exit 0"
     && alias molc="molecule create"   \
     && alias mold="molecule destroy"  \
     && alias molc="molecule converge" \
-    && debug_info "Adding 'molecule' aliases"
+    && debug_info "Adding aliases for 'molecule'"
 
 # IF TERRAFORM IS INSTALLED
 [ -n "$(command -v terraform)" ]                    \
@@ -72,9 +97,9 @@ alias :!q="exit 0"
     &&  alias tfv="terraform validate"              \
     &&  alias tfw="terraform workspace"             \
     &&  alias tfu="terraform force-unlock"          \
+    &&  alias tfwn="terraform workspace new"        \
     &&  alias tfwl="terraform workspace list"       \
-    &&  alias tfws="terraform worcspace select"     \
-    &&  alias tfwc="terraform worcspace create"     \
+    &&  alias tfws="terraform workspace select"     \
     &&  alias tfa!="terraform apply -auto-aprove"   \
     &&  alias tfd!="terraform destroy -auto-aprove" \
-    && debug_info "Adding 'terraform' aliases"
+    && debug_info "Adding aliases for 'terraform'"
