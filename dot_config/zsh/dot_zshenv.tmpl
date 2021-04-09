@@ -12,6 +12,7 @@ function debug_info () {
 }
 
 # SETUP XDG BASE DIRECTORIES
+# https://wiki.archlinux.org/index.php/XDG_Base_Directory
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -98,11 +99,11 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && debug_info "Exporting BAT_CONFIG_PATH='$BAT_CONFIG_PATH'"
 
 [ -n "$(command -v fzf)" ]                                                                       \
-    && export FZF_FASD_OPTS="--prompt='fasd_cd'"                                                 \
-    && export FZF_TMUX_HEIGHT="80"                                                               \
+    && export FZF_FASD_OPTS="--prompt=' ❯ '"                                                    \
+    && export FZF_TMUX_HEIGHT="80%"                                                              \
     && export FZF_DEFAULT_OPTS="                                                  \
-        --prompt='~ '                                                             \
-        --height=80                                                               \
+        --prompt='~ ❯ '                                                           \
+        --height='80%'                                                            \
         --marker='✗'                                                              \
         --layout=reverse                                                          \
         --pointer='▶'                                                             \
@@ -123,3 +124,21 @@ debug_info "Exporting ZPFX='$ZPFX'"
 [ -n "$(command -v nvim)" ] \
     && export EDITOR="nvim" \
     && debug_info "Exporting EDITOR='$EDITOR'"
+
+# [ -n "$(command -v vivid)" ]                                  \
+#     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox)" \
+#     && debug_info "Exporting LS_COLORS='$LS_COLORS'"
+
+[ -n "$(command -v packer)" ] \
+    && export PACKER_CONFIG="$XDG_CONFIG_HOME/packer.json"       \
+    && export PACKER_HOME_DIR="$XDG_CACHE_HOME/packer"           \
+    && export PACKER_LOG_PATH="$XDG_CACHE_HOME/packer/logs"      \
+    && debug_info "Exporting PACKER_CONFIG='$PACKER_CONFIG'"     \
+    && debug_info "Exporting PACKER_HOME_DIR='$PACKER_HOME_DIR'" \
+    && debug_info "Exporting PACKER_LOG_PATH='$PACKER_LOG_PATH'"
+
+[ -n "$(command -v terraform)" ]                                           \
+    && export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/terraform.tf" \
+    && export TF_PLUGIN_CACHE_DIR="$XDG_CACHE_HOME/terraform/plugin-cache" \
+    && debug_info "Exporting TF_CLI_CONFIG_FILE='$TF_CLI_CONFIG_FILE'"     \
+    && debug_info "Exporting TF_PLUGIN_CACHE_DIR='$TF_PLUGIN_CACHE_DIR'"
