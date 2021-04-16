@@ -1,0 +1,64 @@
+# vim: syntax=yaml
+---
+
+# The theme colours can be an rgb string of the form "255, 255, 255" or a
+# string that references the colours from your terminal theme: Reset, Black,
+# Red, Green, Yellow, Blue, Magenta, Cyan, Gray, DarkGray, LightRed, LightGreen,
+# LightYellow, LightBlue, LightMagenta, LightCyan, White.
+theme:
+  text: "255, 255, 255"  # text in panes
+  hint: "Yellow"  # hint text in errors
+  header: "White"  # header text in panes (e.g. 'Title', 'Artist', etc.)
+  active: "Cyan"  # current playing song in list
+  banner: "LightCyan"  # the "spotify-tui" banner on launch
+  hovered: "Magenta"  # hovered pane border
+  selected: "LightCyan"  # selected pane, hovered item in list, track title
+  inactive: "Gray"  # borders of inactive panes
+  error_text: "LightRed"  # error message text
+  error_border: "Red"  # error dialog border
+  playbar_text: "White"  # artist name in player pane
+  playbar_background: "Black"  # background of progress bar
+  playbar_progress: "LightCyan"  # filled-in part of the progress bar
+  playbar_progress_text: "Cyan"  # song length and time played/left indicator
+
+behavior:
+  liked_icon: "♥"
+  paused_icon: "⏸"
+  shuffle_icon: "🔀"
+  playing_icon: "▶"
+  volume_increment: 5
+  repeat_track_icon: "🔂"
+  seek_milliseconds: 5000
+  repeat_context_icon: "🔁"
+  enable_text_emphasis: true
+  show_loading_indicator: true
+  tick_rate_milliseconds: 80  # frames per second
+  enforce_wide_search_bar: true
+
+# Key stroke can be used if it only uses two keys:
+# ctrl-q works,
+# ctrl-alt-q doesn't.
+# Shift modifiers use a capital letter (also applies with other modifier keys
+# like ctrl-A)
+keybindings:
+  back: "ctrl-q"
+  help: "?"
+  repeat: "r"
+  search: "/"
+  shuffle: "ctrl-s"
+  basic_view: "B"
+  next_track: "n"
+  jump_to_album: "a"
+  copy_song_url: "c"
+  seek_forwards: ">"
+  seek_backwards: "<"
+  manage_devices: "d"
+  copy_album_url: "C"
+  previous_track: "p"
+  audio_analysis: "v"
+  jump_to_context: "o"
+  decrease_volume: "-"
+  increase_volume: "+"
+  toggle_playback: " "
+  add_item_to_queue: "z"
+  jump_to_artist_album: "A"
