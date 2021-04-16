@@ -1,5 +1,7 @@
 # vim: syntax=toml
 
+# PLUGINS TO ADD ON FILE LOAD
+
 [[plugins]]
 repo  = "fatih/vim-go"
 on_ft = ["go"]
@@ -7,3 +9,15 @@ on_ft = ["go"]
 [[plugins]]
 repo  = "cespare/vim-toml"
 on_ft = ["toml"]
+
+[[plugins]]
+repo  = "jvirtanen/vim-hcl"
+on_ft = ["hcl"]
+
+[[plugins]]
+repo  = "hashivim/vim-terraform"
+on_ft = ["tf", "tfvars", "tfstate"]
+
+[[plugins]]
+repo  = "pearofducks/ansible-vim"
+on_ft = ["yml", "yaml"]

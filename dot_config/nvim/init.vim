@@ -7,6 +7,10 @@ endif
 let mapleader=","
 let g:mapleader=","
 
+" SET PYTHON SETTINGS
+let g:python_host_prog  = expand('~/.pyenv/versions/nvim/bin/python')
+let g:python3_host_prog = expand('~/.pyenv/versions/nvim/bin/python3')
+
 " SET THE RUNTIME PATH TO INCLUDE DEIN AND INITIALIZE
 set runtimepath+=~/.cache/dein/repos/github.com/shougo/dein.vim
 

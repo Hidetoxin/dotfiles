@@ -1,13 +1,62 @@
-# vim: syntax=toml
+#Floaterm vim: syntax=toml
+
+# PLUGINS TO LOAD AT START
 
 # VIM PLUGIN MANAGER
 [[plugins]]
 repo       = "shougo/dein.vim"
 
+[[plugins]]
+repo       = "wsdjeg/dein-ui.vim"
+depends_on = ["shougo/dein.vim"]
+
+# COMPLITION AND LINTING
+[[plugins]]
+repo       = "neoclide/coc.nvim"
+hook_add   = """
+    let g:coc_global_extensions = [
+    \ 'coc-go',
+    \ 'coc-sh',
+    \ 'coc-git',
+    \ 'coc-java',
+    \ 'coc-toml',
+    \ 'coc-yaml',
+    \ 'coc-pyright',
+    \ 'coc-floaterm',
+    \ 'coc-highlight',
+    \ 'coc-fzf-preview'
+    \ ]
+"""
+
+[[plugins]]
+repo       = "dense-analysis/ale"
+hook_add   = """
+    let g:ale_linters              = {
+    \ 'go': [],
+    \ 'python': ['flake8']
+    \ }
+    let g:ale_lint_on_enter        = 1
+    let g:ale_lint_on_text_changed = 'never'
+"""
+
 # VIM WORKING TOOLSET
 [[plugins]]
 repo       = "junegunn/fzf"
 build      = "./install"
+
+[[plugins]]
+repo       = "voldikss/vim-floaterm"
+hook_add   = """
+    hi Floaterm guibg=black
+    hi FloatermBorder guibg=gray guifg=green
+    let g:floaterm_title = '  $1/$2 '
+    nnoremap  <leader>ft   :FloatermFirst<CR>
+    nnoremap  <leader>ftn  :FloatermNew<CR>
+    tnoremap <silent><F12> <C-\\><C-n>:FloatermToggle<CR>
+"""
+
+[[plugins]]
+repo       = "liuchengxu/vista.vim"
 
 [[plugins]]
 repo       = "junegunn/fzf.vim"
@@ -21,6 +70,27 @@ hook_add   = """
     nnoremap <leader><CR> :Buffers<CR>
     nnoremap <leader>rg   :Rg!<CR>
 """
+
+[[plugins]]
+repo       = "shougo/defx.nvim"
+
+[[plugins]]
+repo       = "tpope/vim-fugitive"
+
+# [[plugins]]
+# repo       = "airblade/vim-gitgutter"
+
+[[plugins]]
+repo       = "psliwka/vim-smoothie"
+
+# [[plugins]]
+# repo       = "wfxr/minimap.vim"
+# hook_add   = """
+    # let g:minimap_width                = 10
+    # let g:minimap_auto_start           = 1
+    # let g:minimap_auto_start_win_enter = 1
+# """
+
 [[plugins]]
 repo       = "scrooloose/nerdcommenter"
 hook_add   = """
@@ -47,7 +117,7 @@ hook_add   = """
 [[plugins]]
 repo       = "yggdroot/indentline"
 hook_add   = """
-    let g:indentline_char_list = ['|', '¦', '┆', '┊'] 
+    let g:indentline_char_list = ['|', '¦', '┆', '┊']
 """
 
 [[plugins]]
