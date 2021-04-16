@@ -4,12 +4,14 @@
 set -g @plugin "wfxr/tmux-power"
     set -g @tmux_power_theme "#98971a"
     set -g @tmux_power_date_format "%d-%b-%Y"
-    # set -g @tmux_power_show_upload_speed true
-    # set -g @tmux_power_show_web_reachable true
-    # set -g @tmux_power_show_download_speed true
+    set -g @tmux_power_show_upload_speed true
+    set -g @tmux_power_show_web_reachable true
+    set -g @tmux_power_show_download_speed true
     set -g @tmux_power_prefix_highlight_pos "LR"
 set -g @plugin "tmux-plugins/tpm"
+set -g @plugin "wfxr/tmux-net-speed"
 set -g @plugin "morantron/tmux-fingers"
+set -g @plugin "wfxr/tmux-web-reachable"
 set -g @plugin "alkindi42/tmux-bitwarden"
     set -g @bw-key "u"
     set -g @bw-session "BW_SESSION"

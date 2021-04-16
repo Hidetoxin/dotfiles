@@ -52,3 +52,9 @@ fi
 [ -f "$XDG_CONFIG_HOME/p10k/p10k.zsh" ]        \
     && source "$XDG_CONFIG_HOME/p10k/p10k.zsh" \
     && debug_info "Sourcing file '$XDG_CONFIG_HOME/p10k/p10k.zsh'"
+
+# SETUP KEYBINDINGS
+bindkey "ç" fzf-cd-widget                           \
+    && bindkey "^[[A" history-substring-search-up   \
+    && bindkey "^[[B" history-substring-search-down \
+    && debug_info "Setting keybindings for 'zsh'"
