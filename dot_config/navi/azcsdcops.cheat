@@ -1,0 +1,12 @@
+% aws, awsume, azcsdcops, terraform
+# Re-initiaize an azcsdcops-<env> repository on a different workspace
+. awsume "azcsdcops-<env>-keys" \
+    && terraform init --backend_config="backend_<env>.tfvars" \
+    && terraform workspace select "<env>" \
+    && terraform plan
+
+% packer, azcsdcops, terraform
+# Setup variables for packer, terraform and ansible <env>
+export TF_VAR_updated_by="$USER" \
+    && export PKR_VAR_updated_by="$USER" \
+    && export PKR_VAR_workspace="<env>"

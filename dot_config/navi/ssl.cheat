@@ -1,0 +1,24 @@
+% ssl
+# Generate cacert from domain for the JVM
+openssl s_client \
+    -verify 9 \
+    -showcerts -connect <record>.<subdomain>.astrazeneca.com:<port>
+
+% ssl, python
+# Export ssl variables for python to pick up
+; # https://stackoverflow.com/questions/40684543/how-to-make-python-use-ca-certificates-from-mac-os-truststore
+export SSL_CERT_FILE="<path>" && export REQUESTS_CA_BUNDLE="<path>"
+
+% ssl, macosx, keychain
+# Add a certificate to the keychanin
+; https://apple.stackexchange.com/questions/80623/import-certificates-into-the-system-keychain-via-the-command-line
+sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain "<path>"
+
+%ssl, macosx, keychain
+# Create certificate with all the certificates on the keychain
+; https://akrabat.com/syncing-macos-keychain-certificates-with-homebrews-openssl/
+security find-certificate -a -p \
+  /System/Library/Keychains/SystemRootCertificates.keychain \
+  /Library/Keychains/System.keychain \
+  ~/Library/Keychains/login.keychain-db \
+> "<file>"

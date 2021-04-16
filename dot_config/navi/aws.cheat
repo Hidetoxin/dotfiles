@@ -1,0 +1,5 @@
+% aws, secretsmanager
+# Set a secret value on AWS through a text/json file
+aws secretsmanager put-secret-value \
+    --secret-id "<id>" \
+    --secret-string file://<file>

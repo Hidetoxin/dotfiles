@@ -1,0 +1,19 @@
+% java, keytool
+
+# Check cacerts works on JVM
+[ !-f httpclienttest-1.0.2.jar ] \
+    && wget https://bitbucket.org/atlassianlabs/httpclienttest/downloads/httpclienttest-1.0.2.jar
+    && java \
+       -Djavax.net.debug=all \
+       -Djavax.net.ssl.trustStore=\"/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/security/cacerts\" \
+       -jar httpclienttest-1.0.2.jar https://<alias>.<subdomain>.astrazeneca.com \
+    > /tmp/httpclienttest 2>&1
+
+# Add cacerts into the JVM
+  sudo keytool \
+      -import \
+      -alias <alias> \
+      -file <file> \
+      -keystore "Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/security/cacerts" \
+      -storepass "changeit" \
+      -trustcacerts
