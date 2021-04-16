@@ -11,10 +11,34 @@ debug_info "Adding aliases for 'cd'"
 
 # VIM LIKE ALIASES
 alias :q="exit 0"
+alias :qa="exit 0"
 alias :wq="exit 0"
 alias :!q="exit 0"
 debug_info "Adding aliases for 'exit'"
 
+# ADD FUN ALIASES
+alias sw='telnet towel.blinkenlights.nl'
+alias map="telnet mapscii.me"
+alias wrk="curl wrk.ist?q=devops"
+alias cht="curl cht.sh"
+alias joke="curl https://icanhazdadjoke.com"
+alias news="curl getnews.tech"
+alias chat="ssh chat.shazow.net"
+alias race="curl node-web-console.glitch.me"
+alias tron="ssh sshtron.zachlatta.com"
+alias wttr="curl wttr.in/gdl"
+alias pong="telnet milek7.gq"
+alias bpsh="curl https://gist.githubusercontent.com/aaronNGi/a9212f36a8e0c2bc0674e259563ad952/raw/b0b86302d07b5b8a3c154a100bf41d98097c44d0/newscript.sh"
+alias dance="nc rya.nc 1987"
+alias chess="telnet freechess.org"
+alias covid="curl -L covid19.trackercli.com/history/mx"
+alias mines="sshpas -p 'play' ssh play@anonymine-demo.oskog97.com -p 2222"
+alias parrot="curl parrot.live"
+alias netris="ssh netris.rocketnine.space"
+alias corona="curl https://corona-stats.online/mx"
+alias forrest="curl ascii.live/forrest"
+alias tictactoe="telnet pixelomer.com"
+debug_info "Adding aliases for 'fun'"
 
 # IF EXA IS INSTALLED
 [ -n "$(command -v exa)" ]                               \
@@ -110,26 +134,20 @@ debug_info "Adding aliases for 'exit'"
     &&  alias tfd!="terraform destroy -auto-approve" \
     && debug_info "Adding aliases for 'terraform'"
 
-# ADD FUN ALIASES
-alias sw='telnet towel.blinkenlights.nl'
-alias map="telnet mapscii.me"
-alias wrk="curl wrk.ist?q=devops"
-alias cht="curl cht.sh"
-alias joke="curl https://icanhazdadjoke.com"
-alias news="curl getnews.tech"
-alias chat="ssh chat.shazow.net"
-alias race="curl node-web-console.glitch.me"
-alias tron="ssh sshtron.zachlatta.com"
-alias wttr="curl wttr.in/gdl"
-alias pong="telnet milek7.gq"
-alias bpsh="curl https://gist.githubusercontent.com/aaronNGi/a9212f36a8e0c2bc0674e259563ad952/raw/b0b86302d07b5b8a3c154a100bf41d98097c44d0/newscript.sh"
-alias dance="nc rya.nc 1987"
-alias chess="telnet freechess.org"
-alias covid="curl -L covid19.trackercli.com/history/mx"
-alias mines="sshpas -p 'play' ssh play@anonymine-demo.oskog97.com -p 2222"
-alias parrot="curl parrot.live"
-alias netris="ssh netris.rocketnine.space"
-alias corona="curl https://corona-stats.online/mx"
-alias forrest="curl ascii.live/forrest"
-alias tictactoe="telnet pixelomer.com"
-debug_info "Adding aliases for 'fun'"
+# IF TMUXINATOR IS INSTALLED
+[ -n "$(command -v tmuxinator)" ]                 \
+    &&  alias tx="tmuxinator"                     \
+    &&  alias txn="tmuxinator new"                \
+    &&  alias txo="tmuxinator open"               \
+    &&  alias txl="tmuxinator list"               \
+    &&  alias txk="tmuxinator stop"               \
+    &&  alias txs="tmuxinator start"              \
+    &&  alias dots="tmuxinator start dotfiles"    \
+    &&  alias board="tmuxinator start dashboard"  \
+    &&  alias media="tmuxinator start multimedia" \
+    && debug_info "Adding aliases for 'tmuxinator'"
+
+# IF PRE-COMMIT IS INSTALLED
+[ -n "$(command -v pre-commit)" ]         \
+    && alias pca="pre-commit --all-files" \
+    && debug_info "Adding aliases for 'pre-commit'"

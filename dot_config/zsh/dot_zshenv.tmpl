@@ -40,6 +40,10 @@ debug_info "Exporting XDG_DOCUMENTS_DIR='$XDG_DOCUMENTS_DIR'"
 debug_info "Exporting XDG_TEMPLATES_DIR='$XDG_TEMPLATES_DIR'"
 debug_info "Exporting XDG_PUBLICSHARE_DIR='$XDG_PUBLICSHARE_DIR'"
 
+# SETUP LANGUAGE SETTINGS
+export LANG="en_US.UTF-8" 
+debug_info "Exporting LANG='$LANG'"
+
 # SETUP ZSH CONFIG PATH
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 debug_info "Exporting ZDOTDIR='$ZDOTDIR'"
@@ -74,6 +78,10 @@ debug_info "Exporting ZPFX='$ZPFX'"
 [ -n "$(command -v fasd)" ]                           \
     && debug_info "Initializing functions for 'fasd'" \
     && eval "$(fasd --init auto)"
+
+[ -n "$(command -v navi)" ]                           \
+    && debug_info "Initializing functions for 'navi'" \
+    && eval "$(navi widget zsh)"
 
 [ -n "$(command -v goenv)" ]                           \
     && debug_info "Initializing functions for 'goenv'" \
@@ -120,6 +128,10 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && debug_info "Exporting FZF_DEFAULT_OPTS='$FZF_DEFAULT_OPTS'"                               \
     && debug_info "Exporting FZF_DEFAULT_COMMAND='$FZF_DEFAULT_COMMAND'"                         \
     && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
+
+[ -n "$(command -v navi)" ]                     \
+    && export NAVI_PATH="$XDG_CONFIG_HOME/navi" \
+    && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
 
 [ -n "$(command -v nvim)" ] \
     && export EDITOR="nvim" \
