@@ -1,0 +1,34 @@
+# vim: syntax=gitignore
+# https://gist.github.com/octocat/9257657
+
+# COMPILED SOURCE
+*.o
+*.so
+*.com
+*.dll
+*.exe
+*.class
+
+# BINARY ARCHIVE FILES
+*.7z
+*.gz
+*.dmg
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# LOGS AND DATABASES
+*.log
+*.sql
+*.sqlite
+
+# OS RELATED FILES
+._*
+.Trashes
+Thumbs.db
+.DS_Store
+.DS_Store?
+ehthumbs.db
+.Spotlight-V100
