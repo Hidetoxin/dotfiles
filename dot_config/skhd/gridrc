@@ -1,0 +1,52 @@
+# vim: syntax=sh
+
+# CREATE DESKTOP AND FOLLOW FOCUS
+grid < w : yabai -m space --create;                            \
+    id=$(yabai -m query --displays --display | grep "spaces"); \
+    yabai -m space --focus $(echo ${id:10:${#id}-10})
+
+# DESTORY DESKTOP
+grid < d : yabai -m space --destroy
+
+# MAKE FLOAT WINDOW FILL SCREEN
+grid < k : yabai -m window --grid 1:1:0:0:1:1
+
+# MAKE FLOAT WINDOW FILL LEFT HALF OF SCREEN
+grid < h : yabai -m window --grid 1:2:0:0:1:1
+
+# MAKE FLOAT WINDOW FILL RIGHT :HALF OF SCREEN
+grid < l : yabai -m window --grid 1:2:1:0:1:1
+
+# FLOAT / UNFLOAT WINDOW AND CENTER ON SCREEN
+grid < t : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
+
+# TOGGLE STICKY, FLOAT AND RESIZE TO PICTURE-IN-PICTURE SIZE
+grid < p : yabai -m window --toggle sticky; yabai -m window --grid 5:5:4:0:1:1
+
+# BALANCE SIZE OF WINDOWS
+grid < b : yabai -m space --balance
+
+# TOGGLE DESKTOP PADDING
+grid < a : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# TOGGLE WINDOW PARENT ZOOM
+grid < z : yabai -m window --toggle zoom-parent
+
+# TOGGLE WINDOW FULLSCREEN ZOOM
+grid < c : yabai -m window --toggle zoom-fullscreen
+
+# toggle window native fullscreen
+grid < n : yabai -m window --toggle native-fullscreen
+
+# TOGGLE WINDOW BORDER
+grid < shift - b: yabai -m window --toggle border
+
+# TOGGLE WINDOW SPLIT TYPE
+grid < e : yabai -m window --toggle split
+
+# TOGGLE STICKY
+grid < shift - s : yabai -m window --toggle sticky
+
+# CHANGE LAYOUT OF DESKTOP
+grid < shift - a : yabai -m space --layout bsp
+grid < shift - d : yabai -m space --layout float

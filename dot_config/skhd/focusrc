@@ -1,0 +1,62 @@
+# vim: syntax=sh
+
+# FOCUS SPACES
+focus < down             : yabai -m space --focus last
+focus < left             : yabai -m space --focus prev
+focus < right            : yabai -m space --focus next
+focus < cmd + lalt   - 1 : yabai -m space --focus 1
+focus < cmd + lalt   - 2 : yabai -m space --focus 2
+focus < cmd + lalt   - 3 : yabai -m space --focus 3
+focus < cmd + lalt   - 4 : yabai -m space --focus 4
+focus < cmd + lalt   - 5 : yabai -m space --focus 5
+focus < cmd + lalt   - 6 : yabai -m space --focus 6
+focus < cmd + lalt   - 7 : yabai -m space --focus 7
+focus < cmd + lalt   - 8 : yabai -m space --focus 8
+focus < cmd + lalt   - 9 : yabai -m space --focus 9
+focus < cmd + lalt   - 0 : yabai -m space --focus 10
+focus < cmd + lshift - 1 : yabai -m space --focus 11
+focus < cmd + lshift - 2 : yabai -m space --focus 12
+focus < cmd + lshift - 3 : yabai -m space --focus 13
+focus < cmd + lshift - 4 : yabai -m space --focus 14
+focus < cmd + lshift - 5 : yabai -m space --focus 15
+focus < cmd + lshift - 6 : yabai -m space --focus 16
+focus < cmd + lshift - 7 : yabai -m space --focus 17
+focus < cmd + lshift - 8 : yabai -m space --focus 18
+focus < cmd + lshift - 9 : yabai -m space --focus 19
+focus < cmd + lshift - 0 : yabai -m space --focus 20
+focus < cmd + ralt   - 1 : yabai -m space --focus 21
+focus < cmd + ralt   - 2 : yabai -m space --focus 22
+focus < cmd + ralt   - 3 : yabai -m space --focus 23
+focus < cmd + ralt   - 4 : yabai -m space --focus 24
+focus < cmd + ralt   - 5 : yabai -m space --focus 25
+focus < cmd + ralt   - 6 : yabai -m space --focus 26
+focus < cmd + ralt   - 7 : yabai -m space --focus 27
+focus < cmd + ralt   - 8 : yabai -m space --focus 28
+focus < cmd + ralt   - 9 : yabai -m space --focus 29
+focus < cmd + ralt   - 0 : yabai -m space --focus 30
+focus < cmd + rshift - 1 : yabai -m space --focus 31
+focus < cmd + rshift - 2 : yabai -m space --focus 32
+focus < cmd + rshift - 3 : yabai -m space --focus 33
+focus < cmd + rshift - 4 : yabai -m space --focus 34
+focus < cmd + rshift - 5 : yabai -m space --focus 35
+focus < cmd + rshift - 6 : yabai -m space --focus 36
+focus < cmd + rshift - 7 : yabai -m space --focus 37
+focus < cmd + rshift - 8 : yabai -m space --focus 38
+focus < cmd + rshift - 9 : yabai -m space --focus 39
+focus < cmd + rshift - 0 : yabai -m space --focus 40
+
+# FOCUS WINDOWS
+focus < h : yabai -m window --focus west
+focus < j : yabai -m window --focus south
+focus < k : yabai -m window --focus north
+focus < l : yabai -m window --focus east
+
+# FOCUS MONITORS
+focus < x : yabai -m display --focus last
+focus < z : yabai -m display --focus prev
+focus < c : yabai -m display --focus next
+focus < 1 : yabai -m display --focus 1
+focus < 2 : yabai -m display --focus 2
+focus < 3 : yabai -m display --focus 3
+focus < 4 : yabai -m display --focus 4
+focus < 5 : yabai -m display --focus 5

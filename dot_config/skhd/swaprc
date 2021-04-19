@@ -1,0 +1,12 @@
+# vim: syntax=sh
+
+# SWAP WINDOWS
+swap < h : yabai -m window --swap west
+swap < j : yabai -m window --swap south
+swap < k : yabai -m window --swap north
+swap < l : yabai -m window --swap east
+
+# ROTATE WINDOWS
+swap < a : yabai -m space --rotate 90  # around
+swap < x : yabai -m space --mirror y-axis
+swap < y : yabai -m space --mirror x-axis

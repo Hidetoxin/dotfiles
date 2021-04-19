@@ -1,0 +1,7 @@
+# vim: syntax=sh
+
+# WARP WINDOWS
+warp < h : yabai -m window --warp west
+warp < j : yabai -m window --warp south
+warp < k : yabai -m window --warp north
+warp < l : yabai -m window --warp east

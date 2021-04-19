@@ -1,0 +1,25 @@
+# vim syntax=sh
+
+# https://gist.github.com/pkazmier/213d9dce6b1ea313eaf0a17b017c2b08
+
+# MODALS DECLARATION
+:: default  : spacebar -m config background_color "0x801d2021"  # black
+:: focus  @ : spacebar -m config background_color "0x8098971a"  # green
+:: grid   @ : spacebar -m config background_color "0x80d79921"  # yellow
+:: swap   @ : spacebar -m config background_color "0x80458588"  # blue
+:: warp   @ : spacebar -m config background_color "0x80b16286"  # purple
+:: move   @ : spacebar -m config background_color "0x80d65d0e"  # orange
+:: resize @ : spacebar -m config background_color "0x80689d6a"  # aqua
+
+# ALT + SPACE AS MODAL TOGGLE
+default                               < alt - space ; focus
+focus, grid, swap, warp, move, resize < alt - space ; default
+focus, grid, swap, warp, move, resize < escape      ; default
+
+# ONCE IN FOCUS SWITCH MODE WITH A SINGLE KEY
+focus, grid, swap, warp, move, resize < f ; focus
+focus, grid, swap, warp, move, resize < g ; grid
+focus, grid, swap, warp, move, resize < s ; swap
+focus, grid, swap, warp, move, resize < r ; resize
+focus, grid, swap, warp, move, resize < w ; warp
+focus, grid, swap, warp, move, resize < m ; move
