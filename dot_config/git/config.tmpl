@@ -1,18 +1,14 @@
 # vim: syntax=gitconfig
 
 [user]
-    name   = Fernando Becerra Méndez
-    {{- if eq .chezmoi.hostname "hidetoxin" }}
-    email  = github@hidetox.in
-    {{- else }}
-    email  = {{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}
-    {{- end }}
+    name  = "{{ .user.name }}"
+    email = "{{ .user.email }}"
 [core]
-    pager  = delta
-    editor = nvim
+    pager  = "delta"
+    editor = "nvim"
 [delta]
-    features               = side-by-side line-numbers decorations
-    syntax-theme           = gruvbox-dark
+    features               = "side-by-side line-numbers decorations"
+    syntax-theme           = "gruvbox-dark"
     whitespace-error-style = 22 reverse
 [github]
-    user = hidetoxin
+    user = "hidetoxin"
