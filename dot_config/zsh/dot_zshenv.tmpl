@@ -40,6 +40,10 @@ debug_info "Exporting XDG_DOCUMENTS_DIR='$XDG_DOCUMENTS_DIR'"
 debug_info "Exporting XDG_TEMPLATES_DIR='$XDG_TEMPLATES_DIR'"
 debug_info "Exporting XDG_PUBLICSHARE_DIR='$XDG_PUBLICSHARE_DIR'"
 
+# ADD USER SCRIPTS TO PATH
+export PATH="$PATH:$XDG_CONFIG_HOME/bin"
+debug_info "Exporting PATH='$PATH'"
+
 # SETUP LANGUAGE SETTINGS
 export LANG="en_US.UTF-8" 
 debug_info "Exporting LANG='$LANG'"

@@ -1,0 +1,13 @@
+{
+    "codeLens.enable": true,
+
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": true,
+
+    "highlight.colors.enable": true,
+
+    "coc.preferences.colorSupport": true,
+    "coc.preferences.diagnostic.enable": false,
+    "coc.preferences.diagnostic.displayByAle": true
+}

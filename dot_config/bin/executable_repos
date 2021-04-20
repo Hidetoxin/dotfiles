@@ -1,0 +1,73 @@
+#!/usr/bin/env bash -eu
+# vim: syntax=sh
+
+# ENABLE COLOR OUTPUT
+export TERM="screen-256color"
+
+# LOGGING MESSAGE SETTINGS
+INFO="$(tput bold) $(tput setaf 2) [INFO]"
+ERROR="$(tput bold) $(tput setaf 1) [ERROR]"
+RESET="$(tput sgr0)"
+
+# RUN VALIDATIONS
+code_path="$HOME/code"
+repo_file="$XDG_CONFIG_HOME/repos/repos.json"
+[ ! -d "$code_path" ]        \
+    && mkdir -p "$code_path" \
+    && echo "${INFO} Folder '$code_path' created ${RESET}"
+
+[ ! -f "$repo_file" ]                                       \
+    && echo "${ERROR} File '$repo_file' not found ${RESET}" \
+    && exit 2
+
+# GET CONFIGURATIONS
+cp "$repo_file" "$code_path/.repos.json"
+
+# FETCH ALL REPOSITORIES
+for host in $(jq -r ".repos | keys[]" "$code_path/.repos.json");
+do  # iterate git hosts
+
+    host_path="${code_path}/${host}"
+    [ ! -d "$host_path" ]        \
+        && mkdir -p "$host_path" \
+        && echo "${INFO} Folder '${host_path}'  created ${RESET}"
+
+    for slug in $(jq -r ".repos.${host} | keys[]" "$code_path/.repos.json");
+    do  # iterate git hosts slugs
+
+        for repo in $(jq -r ".repos.${host}.${slug} | values[]" "$code_path/.repos.json");
+        do  # iterate git hosrts slugs repos
+
+            # SETUP SSH CLONING
+            if [ "$host" == "github" ]; then
+                ssh_string="git@${host}.com:${slug}/${repo}.git"
+            elif [ "$host" == "bitbucket" ]; then
+                ssh_string="git@${host}.org:${slug}/${repo}.git"
+            else
+                echo "${ERROR} Git host '$host' is not valid ${RESET}" \
+                    && exit 2
+            fi
+
+            # CLONE REPO IF DOESN'T EXIST IN FOLDER
+            repo_path="${host_path}/${repo}"
+            [ ! -d "$repo_path" ]                                            \
+                && git clone --recurse-submodules "$ssh_string" "$repo_path" \
+                && echo "${INFO} Cloned '$repo' to '$repo_path' ${RESET}"
+
+            # FETCH ALL BRANCHES WITH UPDATES FROM THE REPO
+            cd "$repo_path"
+            for branch in $(git branch --all | grep 'remotes' | grep -v 'HEAD ->');
+            do
+                branch_name="$(basename ${branch##\./})"
+                echo "${INFO} Fetched branch '$branch_name' from '$repo' ${RESET}"
+                # basename "${branch##\./}" \
+                    # | xargs -I{} git checkout -b {} --track origin/{}
+            done
+
+        done
+
+    done
+
+done
+
+echo "${INFO} Script executed successfully ${RESET}" && exit 0

@@ -1,0 +1,37 @@
+{
+    "repos": {
+        "github": {
+          "hidetoxin": [
+            "dotfiles"
+          ]
+        },
+        "bitbucket": {
+          "csdc": [
+            "iac-docs",
+            "csdc-tfstate",
+            "common-playbook",
+            "ansible-scripts",
+            "azcsdcops-vault",
+            "azcsdcops-specs",
+            "azcsdcops-squid",
+            "azcsdcops-ec2ssm",
+            "azcsdcops-agents",
+            "azcsdcops-bamboo",
+            "azcsdcops-tfstate",
+            "azcsdcops-network",
+            "azcsdcops-subnets",
+            "azcsdcops-zscaler",
+            "azcsdcops-bastion",
+            "azcsdcops-secrets",
+            "azcsdcops-docsimgs",
+            "azcsdcops-databases",
+            "azcsdcops-sonarqube",
+            "azcsdcops-balancers",
+            "azcsdcops-subdomains",
+            "azcsdcops-iampolicies",
+            "azcsdcops-vault-config",
+            "azcsdcops-bamboo-publisher"
+          ]
+        }
+    }
+}
