@@ -54,6 +54,13 @@ debug_info "Adding aliases for 'fun'"
     && alias tree="exa --git --tree --icons"             \
     && debug_info "Adding aliases for 'exa'"
 
+# IF NAVI IS INSTALLED
+[ -n "$(command -v exa)" ]          \
+    && alias navit="navi --tldr"    \
+    && alias navip="navi --print"   \
+    && alias navic="navi --cheatsh" \
+    && debug_info "Adding aliases for 'navi'"
+
 # IF TMUX IS INSTALLED
 [ -n "$(command -v tmux)" ]                  \
     && alias tmux="TERM=xterm-256color tmux" \
