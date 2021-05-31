@@ -8,7 +8,13 @@
         "bitbucket": {
           "csdc": [
             "iac-docs",
+            "csdc-ec2ssm",
+            "csdc-s3logs",
             "csdc-tfstate",
+            "csdc-bastion",
+            "csdc-network",
+            "csdc-secrets",
+            "csdc-microservices",
             "common-playbook",
             "ansible-scripts",
             "azcsdcops-vault",

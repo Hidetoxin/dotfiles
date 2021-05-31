@@ -5,8 +5,8 @@
 export TERM="screen-256color"
 
 # LOGGING MESSAGE SETTINGS
-INFO="$(tput bold) $(tput setaf 2) [INFO]"
-ERROR="$(tput bold) $(tput setaf 1) [ERROR]"
+INFO="$(tput bold)$(tput setaf 2) [INFO]"
+ERROR="$(tput bold)$(tput setaf 1) [ERROR]"
 RESET="$(tput sgr0)"
 
 # RUN VALIDATIONS
@@ -30,8 +30,9 @@ do  # iterate git hosts
     host_path="${code_path}/${host}"
     [ ! -d "$host_path" ]        \
         && mkdir -p "$host_path" \
-        && echo "${INFO} Folder '${host_path}'  created ${RESET}"
+        && echo "${INFO} Folder '${host_path}' created ${RESET}"
 
+    echo "${INFO} Start repository cloning ${RESET}"
     for slug in $(jq -r ".repos.${host} | keys[]" "$code_path/.repos.json");
     do  # iterate git hosts slugs
 
@@ -55,14 +56,19 @@ do  # iterate git hosts
                 && echo "${INFO} Cloned '$repo' to '$repo_path' ${RESET}"
 
             # FETCH ALL BRANCHES WITH UPDATES FROM THE REPO
+            # echo "${INFO} Pulling changes from '$repo' ${RESET}"
+            # cd "$repo_path"    && \
+                # git pull --all && \
+                # cd -
             cd "$repo_path"
             for branch in $(git branch --all | grep 'remotes' | grep -v 'HEAD ->');
             do
                 branch_name="$(basename ${branch##\./})"
                 echo "${INFO} Fetched branch '$branch_name' from '$repo' ${RESET}"
-                # basename "${branch##\./}" \
-                    # | xargs -I{} git checkout -b {} --track origin/{}
+                basename "${branch##\./}" \
+                    | xargs -I{} git checkout -b {} --track origin/{}
             done
+            cd -
 
         done
 

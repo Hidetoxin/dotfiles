@@ -1,5 +1,10 @@
 % aws, secretsmanager
-# Set a secret value on AWS through a text/json file
+# Set a secret value on through a text/json file
 aws secretsmanager put-secret-value \
     --secret-id "<id>" \
     --secret-string file://<file>
+
+% aws, ec2
+# Fetch route table's routes
+aws ec2 describe-route-tables \
+    | jq '.RouteTables[] | select(.RouteTableId=="<id>") | .Routes'

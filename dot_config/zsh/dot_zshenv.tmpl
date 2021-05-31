@@ -93,7 +93,7 @@ debug_info "Exporting ZPFX='$ZPFX'"
 
 [ -n "$(command -v pyenv)" ]                           \
     && debug_info "Initializing functions for 'pyenv'" \
-    && eval "$(pyenv init -)"
+    && eval "$(pyenv init --path)"
 
 # CLI TOOLS SETTINGS
 [ -n "$(command -v rg)" ]                                                 \

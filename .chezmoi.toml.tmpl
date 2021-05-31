@@ -1,0 +1,19 @@
+# vim: syntax=toml
+
+# PERSONAL OR COMPANY COMPUTER
+{{ $computer := promptString "computer" -}}
+
+# FETCH SECRETS FROM BITWARDEN
+[data]
+  [data.user]
+    name  = "Fernando Becerra Méndez"
+    {{- if eq $computer "company" }}
+    email = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
+    {{- else }}
+    email = "github@hidetox.in"
+    {{- end }}
+  [data.spotify]
+    client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
+    client_secret = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientSecret.value }}"
+  [data.computer]
+    computer = "{{ $computer }}"
