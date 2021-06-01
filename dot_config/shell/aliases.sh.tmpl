@@ -158,3 +158,15 @@ debug_info "Adding aliases for 'fun'"
 [ -n "$(command -v pre-commit)" ]         \
     && alias pca="pre-commit --all-files" \
     && debug_info "Adding aliases for 'pre-commit'"
+
+{{- if (eq .chezmoi.os "darwin") }}
+# ALIASES FOR MACOS GOES BELOW
+
+# IF BUKU IS INSTALLLED
+[ -n "$(command -v buku)" ]                                                                                                         \
+    && alias ff="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Firefox"  \
+    && alias saf="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Safari"  \
+    && alias vic="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Vivaldi" \
+    && debug_info "Adding aliases for 'buku'"
+
+{{- end }}
