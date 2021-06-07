@@ -100,6 +100,10 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgrep.conf" \
     && debug_info "Exporting RIPGREP_CONFIG_PATH='$RIPGREP_CONFIG_PATH'"
 
+[ -n "$(command -v gpg)" ]                     \
+    && export GNUPGHOME="$XDG_DATA_HOME/gnupg" \
+    && debug_info "Exporting GNUPGHOME ='$GNUPGHOME'"
+
 [ -n "$(command -v aws)" ]                                                   \
     && export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"                  \
     && export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials" \

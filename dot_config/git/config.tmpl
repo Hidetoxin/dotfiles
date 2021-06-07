@@ -1,8 +1,9 @@
 # vim: syntax=gitconfig
 
 [user]
-    name  = "{{ .user.name }}"
-    email = "{{ .user.email }}"
+    name       = "{{ .user.name }}"
+    email      = "{{ .user.email }}"
+    signingkey = "{{ .user.gpgkey }}"
 [core]
     pager  = "delta"
     editor = "nvim"
@@ -10,5 +11,7 @@
     features               = "side-by-side line-numbers decorations"
     syntax-theme           = "gruvbox-dark"
     whitespace-error-style = 22 reverse
+[commit]
+    gpgsign = true
 [github]
     user = "hidetoxin"

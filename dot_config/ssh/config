@@ -1,7 +1,7 @@
 # SSH KEY FOR GITHUB
 Host github.com
-    IdentityFile ~/.ssh/github
+    IdentityFile ~/.ssh/id_rsa_personal
 
 # SSH KEY FOR BITBUCKET CLOUD
 Host bitbucket.org
-    IdentityFile ~/.ssh/bitbucket
+    IdentityFile ~/.ssh/id_rsa_company

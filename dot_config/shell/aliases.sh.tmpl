@@ -55,7 +55,7 @@ debug_info "Adding aliases for 'fun'"
     && debug_info "Adding aliases for 'exa'"
 
 # IF NAVI IS INSTALLED
-[ -n "$(command -v exa)" ]          \
+[ -n "$(command -v navi)" ]          \
     && alias navit="navi --tldr"    \
     && alias navip="navi --print"   \
     && alias navic="navi --cheatsh" \
@@ -106,6 +106,11 @@ debug_info "Adding aliases for 'fun'"
 [ -n "$(command -v lazygit)" ] \
     && alias lgit="lazygit"    \
     && debug_info "Adding aliases for 'lazygit'"
+
+# IF GPG-TUI IS INSTALLED
+[ -n "$(command -v gpg-tui)" ]               \
+    &&  alias gpgt="gpg-tui --style colored" \
+    && debug_info "Adding aliases for 'gpg-tui'"
 
 # IF MOLECULE IS INSTALLED
 [ -n "$(command -v molecule)" ]       \
@@ -159,6 +164,13 @@ debug_info "Adding aliases for 'fun'"
     && alias pca="pre-commit --all-files" \
     && debug_info "Adding aliases for 'pre-commit'"
 
+# IF JENKINS-JOBS IS INSTALLED
+[ -n "$(command -v jenkins-jobs)" ]         \
+    && alias jjb="jenkins-jobs"             \
+    && alias jjbu="jenkins-jobs update"     \
+    && alias jjbd="jenkins-jobs delete"     \
+    && debug_info "Adding aliases for 'jenkins-jobs'"
+
 {{- if (eq .chezmoi.os "darwin") }}
 # ALIASES FOR MACOS GOES BELOW
 
@@ -166,7 +178,8 @@ debug_info "Adding aliases for 'fun'"
 [ -n "$(command -v buku)" ]                                                                                                         \
     && alias ff="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Firefox"  \
     && alias saf="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Safari"  \
-    && alias vic="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Vivaldi" \
+    && alias viv="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Vivaldi" \
+    && alias ucb="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | pbcopy"                \
     && debug_info "Adding aliases for 'buku'"
 
 {{- end }}

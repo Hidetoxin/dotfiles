@@ -6,11 +6,13 @@
 # FETCH SECRETS FROM BITWARDEN
 [data]
   [data.user]
-    name  = "Fernando Becerra Méndez"
+    name   = "Fernando Becerra Méndez"
     {{- if eq $computer "company" }}
-    email = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
+    email  = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
+    gpgkey = "{{ (bitwardenFields "item" "f6aeac99-7e35-4ff3-b636-ad400135d016").PublicKey.value }}"
     {{- else }}
-    email = "github@hidetox.in"
+    email  = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
+    gpgkey = "{{ (bitwardenFields "item" "078a43c0-9c30-4dd5-99f8-ad400179dea7").PublicKey.value }}"
     {{- end }}
   [data.spotify]
     client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
