@@ -1,0 +1,20 @@
+[job_builder]
+update=all
+exclude=.*:manual:./development
+recursive=False
+ignore_cache=True
+include_path=.:scripts:~/git/
+allow_duplicates=False
+keep_descriptions=False
+
+[prod]
+url={{ .urls.jenkins_prod }}
+user={{ .chezmoi.username }}
+password={{ .passwords.jenkins_prod }}
+query_plugins_info=False
+
+[preprod]
+url={{ .urls.jenkins_preprod }}
+user={{ .chezmoi.username }}
+password={{ .passwords.jenkins_preprod }}
+query_plugins_info=False

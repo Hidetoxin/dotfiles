@@ -24,7 +24,12 @@
     client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
     client_secret = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientSecret.value }}"
   [data.urls]
+    jenkins_prod      = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 0).uri | replace "https://" "" }}"
+    jenkins_preprod   = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 2).uri | replace "https://" "" }}"
     bitbucket_prod    = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 1).uri | replace "https://" "" }}"
     bitbucket_preprod = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 2).uri | replace "https://" "" }}"
+  [data.passwords]
+    jenkins_prod      = "{{ (bitwardenFields "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").ProdToken.value }}"
+    jenkins_preprod   = "{{ (bitwardenFields "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").PreprodToken.value }}"
   [data.computer]
     type = "{{ $computer }}"
