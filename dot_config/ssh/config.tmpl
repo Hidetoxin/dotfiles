@@ -1,0 +1,21 @@
+# GIT CONFIGURATION
+
+{{- if (eq .computer.type "work") }}
+
+# SSH KEY FOR BITBUCKET CLOUD
+Host bitbucket.org
+    IdentityFile ~/.ssh/id_rsa_git_company
+
+# SSH KEY FOR BITBUCKET SERVER PRODUCTION
+Host {{ .urls.bitbucket_prod}}
+    IdentityFile ~/.ssh/id_rsa_git_company
+
+# SSH KEY FOR BITBUCKET SERVER PREPRODUCTION
+Host {{ .urls.bitbucket_preprod}}
+    IdentityFile ~/.ssh/id_rsa_git_company
+
+{{- else }}
+# SSH KEY FOR GITHUB
+Host github.com
+    IdentityFile ~/.ssh/id_rsa_git_personal
+{{- end }}

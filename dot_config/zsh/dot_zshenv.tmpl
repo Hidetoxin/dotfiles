@@ -145,6 +145,18 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && export EDITOR="nvim" \
     && debug_info "Exporting EDITOR='$EDITOR'"
 
+[ -n "$(command -v goenv)" ]                           \
+    && export GOPATH="$XDG_DATA_HOME/go"               \
+    && export GOENV_ROOT="$XDG_DATA_HOME/goenv"        \
+    && export GOENV_GOPATH_PREFIX="$GOPATH"            \
+    && debug_info "Exporting GOPATH='$GOPATH'"         \
+    && debug_info "Exporting GOENV_ROOT='$GOENV_ROOT'" \
+    && debug_info "Exporting GOENV_GOPATH_PREFIX='$GOENV_GOPATH_PREFIX'"
+
+[ -n "$(command -v pyenv)" ]                    \
+    && export PYENV_ROOT="$XDG_DATA_HOME/pyenv" \
+    && debug_info "Exporting PYENV_ROOT='$PYENV_ROOT'"
+
 # [ -n "$(command -v vivid)" ]                                  \
 #     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox)" \
 #     && debug_info "Exporting LS_COLORS='$LS_COLORS'"

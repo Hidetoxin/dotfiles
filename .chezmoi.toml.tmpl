@@ -1,21 +1,30 @@
 # vim: syntax=toml
 
 # PERSONAL OR COMPANY COMPUTER
-{{ $computer := promptString "computer" -}}
+{{ $computer := promptString "computer type (work/self)" -}}
 
 # FETCH SECRETS FROM BITWARDEN
 [data]
   [data.user]
     name   = "Fernando Becerra Méndez"
-    {{- if eq $computer "company" }}
+    {{- if eq $computer "work" }}
     email  = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
     gpgkey = "{{ (bitwardenFields "item" "f6aeac99-7e35-4ff3-b636-ad400135d016").PublicKey.value }}"
     {{- else }}
     email  = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
     gpgkey = "{{ (bitwardenFields "item" "078a43c0-9c30-4dd5-99f8-ad400179dea7").PublicKey.value }}"
     {{- end }}
+  [data.keys]
+    {{- if eq $computer "work" }}
+    git_public  = "{{ (bitwardenFields "item" "f6b245e7-4566-444c-a9dc-ad40013823b4").PublicKey.value }}"
+    {{- else }}
+    git_public  = "{{ (bitwardenFields "item" "1d05ce7c-d3cc-4a02-8843-ad40013983dc").PublicKey.value }}"
+    {{- end }}
   [data.spotify]
     client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
     client_secret = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientSecret.value }}"
+  [data.urls]
+    bitbucket_prod    = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 1).uri | replace "https://" "" }}"
+    bitbucket_preprod = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 2).uri | replace "https://" "" }}"
   [data.computer]
-    computer = "{{ $computer }}"
+    type = "{{ $computer }}"
