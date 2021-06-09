@@ -1,0 +1,14 @@
+# Install go version
+% goenv, go, fzf
+$ remote_version: goenv install --list | sed '1d' | sed 's/ //g' | fzf
+goenv install -v <remote_version>
+
+# Un-install go version
+% goenv, go, fzf
+$ version: goenv versions | sed '1d' | sed 's/ //g' | fzf
+goenv uninstall <version>
+
+# Set global go version
+% goenv, go, fzf
+$ version: goenv versions | sed '1d' | sed 's/ //g' | fzf
+goenv global <version>

@@ -1,0 +1,19 @@
+# Install python version
+% pyenv, python, fzf
+$ remote_version: pyenv install --list | sed '1d' | sed 's/ //g' | fzf
+pyenv install -v <remote_version>
+
+# Un-install python version
+% pyenv, python, fzf
+$ version: pyenv versions | sed '1d' | sed 's/ //g' | fzf
+pyenv uninstall <version>
+
+# Create python virtualenv
+% pyenv, python, fzf
+$ version: pyenv versions | sed '1d' | sed 's/ //g' | fzf
+pyenv virtualenv <version> <name>
+
+# Set global python version
+% pyenv, python, fzf
+$ version: pyenv versions | sed '1d' | sed 's/ //g' | fzf
+pyenv global <version>
