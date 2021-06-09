@@ -2,8 +2,6 @@
 
 ## :wrench: INSTALLATION
 
----
-
 To install these configuration files you need [chezmoi] installed on your system,
 you'll also need to tweak the secrets as this repository is specific to my use
 case. Once you tweaked the secrets you can just run the below command:
@@ -14,9 +12,7 @@ chezmoi init hidetoxin/dotfiles
 
 ## :keyboard: SHORTCUTS
 
----
-
-### ZSH
+### :abcd: ZSH
 
 | Key Combination                | Key Effect                             |
 |--------------------------------|----------------------------------------|
@@ -27,7 +23,7 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>Ctrl</kbd> + <kbd>r</kbd> | bring `history` with [fzf]             |
 | <kbd>Ctrl</kbd> + <kbd>t</kbd> | recent files using  [fzf]              |
 
-### VIM
+### :green_book: VIM
 
 | Key Combination                                            | Key Effect                             |
 |------------------------------------------------------------|----------------------------------------|
@@ -44,7 +40,7 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>leader</kbd> + <kbd>l</kbd> <kbd>i</kbd>              | go to line selected with [fzf]         |
 | <kbd>leader</kbd> + <kbd>r</kbd> <kbd>g</kbd>              | search using [ripgrep] with [fzf]      |
 
-### TMUX
+### :desktop_computer: TMUX
 
 | Key Combination                          | Key Effect                           |
 |------------------------------------------|--------------------------------------|
@@ -67,7 +63,7 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>prefix</kbd> + <kbd>Tab</kbd>       | toggle sidebar with `tree`           |
 | <kbd>prefix</kbd> + <kbd>Backspace</kbd> | toggle sidebar with `tree` and focus |
 
-### YABAI
+### :japanese_ogre: YABAI
 
 | Key Combination                                                        | Key Effect                                  |
 |------------------------------------------------------------------------|---------------------------------------------|
@@ -147,9 +143,7 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>resize</kbd> + <kbd>K</kbd>                                       | decrease window size to the top             |
 | <kbd>resize</kbd> + <kbd>L</kbd>                                       | decrease window size to the right           |
 
-## :window: GUI APPLICATIONS
-
----
+## :art: GUI APPLICATIONS
 
 This repository manages my configuration for the below *GUI* applications:
 
@@ -183,8 +177,11 @@ plugins:
 * [tmux] - terminal multiplexer
 * [p10k] - `zsh` theme for prompt
 * [dein] - `vim` / `nvim` plugin manager
+* [goenv] - virtual environment manager for [go]
+* [pyenv] - virtual environment manager for [python]
 * [zinit] - `zsh` plugin manager
 * [neovim] - `vim` re-written replacement
+* [httpie] - `curl` / `wget` replacement written in [python]
 * [lazygit] - `git` *TUI* front-end written
 * [ripgrep] - better `grep` replacement written in [rust]
 * [chezmoi] - dot files manager utility written in [go]
@@ -203,8 +200,11 @@ plugins:
 [navi]: https://github.com/denisidoro/navi
 [tmux]: https://github.com/tmux/tmux
 [p10k]: https://github.com/romkatv/powerlevel10k
+[goenv]:https://github.com/syndbg/goenv
+[pyenv]: https://github.com/pyenv/pyenv
 [zinit]: https://github.com/zdharma/zinit
 [neovim]: https://github.com/neovim/neovim
+[httpie]: https://github.com/httpie/httpie
 [lazygit]: https://github.com/jesseduffield/lazygit
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [chezmoi]: https://github.com/twpayne/chezmoi
