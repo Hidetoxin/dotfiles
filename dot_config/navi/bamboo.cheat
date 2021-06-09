@@ -1,6 +1,0 @@
-% mvn, bamboo
-# Publish bamboo specs with trustStore
-mvn \
-    -Ppublish-specs \
-    -Djavax.net.ssl.trustStorePassword="changeit" \
-    -Djavax.net.ssl.trustStore="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/security/cacerts"
