@@ -1,0 +1,7 @@
+# Export bookmarks as *.md, *.db, *.org or *.html
+% buku
+buku --export <file>
+
+# Add bookmark to buku
+% buku
+buku --add <url> --tag <tags> --title <tittle> --comment <comment>

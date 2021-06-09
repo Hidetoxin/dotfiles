@@ -1,6 +1,5 @@
-% java, keytool
-
 # Check cacerts works on JVM
+% java, keytool
 [ !-f httpclienttest-1.0.2.jar ] \
     && wget https://bitbucket.org/atlassianlabs/httpclienttest/downloads/httpclienttest-1.0.2.jar
     && java \
@@ -10,6 +9,7 @@
     > /tmp/httpclienttest 2>&1
 
 # Add cacerts into the JVM
+% java, keytool
   sudo keytool \
       -import \
       -alias <alias> \

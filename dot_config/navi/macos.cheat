@@ -1,5 +1,5 @@
-% skhd, yabai, macosx
-# Stop macosx window manager
+% skhd, yabai, macos
+# Stop macos window manager
 brew services <action> skhd         \
     && brew services <action> yabai \
     && brew services <action> spacebar

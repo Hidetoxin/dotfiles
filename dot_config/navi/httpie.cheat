@@ -1,0 +1,8 @@
+# Setup $REST_API_URL
+% httpie, rest, api, env
+export REST_API_URL="<url>" && export REST_API_AUTH="<auth>"
+
+# Do a request to a REST API
+% httpie, rest, api, jq
+http --json <method> "<url><endpoint>" | jq
+$ url: echo "$REST_API_URL"
