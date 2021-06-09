@@ -60,3 +60,8 @@ focus < 2 : yabai -m display --focus 2
 focus < 3 : yabai -m display --focus 3
 focus < 4 : yabai -m display --focus 4
 focus < 5 : yabai -m display --focus 5
+focus < 6 : yabai -m display --focus 6
+focus < 7 : yabai -m display --focus 7
+focus < 8 : yabai -m display --focus 8
+focus < 9 : yabai -m display --focus 9
+focus < 0 : yabai -m display --focus 10

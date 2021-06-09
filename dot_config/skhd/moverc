@@ -13,10 +13,10 @@ move < k : yabai -m window --move 0:-20
 move < l : yabai -m window --move 20:0
 
 # SET INSERTION POINT IN FOCUSED CONTAINER
-move < alt - h : yabai -m window --insert west
-move < alt - j : yabai -m window --insert south
-move < alt - k : yabai -m window --insert north
-move < alt - l : yabai -m window --insert east
+move < shift - h : yabai -m window --insert west
+move < shift - j : yabai -m window --insert south
+move < shift - k : yabai -m window --insert north
+move < shift - l : yabai -m window --insert east
 
 # SEND WINDOW TO MONITOR AND FOLLOW FOCUS
 move < cmd - x : yabai -m window --display last; yabai -m display --focus last
@@ -27,6 +27,11 @@ move < cmd - 2 : yabai -m window --display 2; yabai -m display --focus 2
 move < cmd - 3 : yabai -m window --display 3; yabai -m display --focus 3
 move < cmd - 4 : yabai -m window --display 4; yabai -m display --focus 4
 move < cmd - 5 : yabai -m window --display 5; yabai -m display --focus 5
+move < cmd - 6 : yabai -m window --display 5; yabai -m display --focus 6
+move < cmd - 7 : yabai -m window --display 5; yabai -m display --focus 7
+move < cmd - 8 : yabai -m window --display 5; yabai -m display --focus 8
+move < cmd - 9 : yabai -m window --display 5; yabai -m display --focus 9
+move < cmd - 0 : yabai -m window --display 5; yabai -m display --focus 10
 
 # SEND WINDOW TO DESKTOP AND FOLLOW FOCUS
 move < x : yabai -m window --space last; yabai -m space --focus last
