@@ -1,1 +1,17 @@
 README.md
+
+{{- if (eq .computer.type "work") }}
+.config/ssh/id_rsa_git_self
+.config/ssh/id_rsa_git_self.pub
+{{- else }}
+.config/ssh/id_rsa_git_work
+.config/ssh/id_rsa_git_work.pub
+.config/jenkins_jobs/jenkins_jobs.ini
+{{- end }}
+
+{{- if (eq .chezmoi.os "darwin") }}
+{{- else }}
+.config/skhd/*
+.config/yabai/*
+.config/spacebar/*
+{{- end }}
