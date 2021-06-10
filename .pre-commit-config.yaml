@@ -1,0 +1,69 @@
+---
+
+# PRE-MADE COMMIT VERIFIERS
+# https://pre-commit.com/hooks.html
+
+# To be able to use this file you need to install the below tools via your
+# favorite package manager (pip, apt, brew, etc.)
+#
+#  - pre-commit
+#
+#  Once this tools are installed you need to put this file at the root of your
+#  repository. Then to try it you cna run the below command:
+#
+#    pre-commit run --all-files
+#
+#  If you want to this to be run automatically prior to any commit to the
+#  repository you need to install it as a pre_commit hook running the below
+#  command at the root of your repository
+#
+#  pre-commit install
+repos:
+  # GIT LINTER
+  - repo: "https://github.com/jorisroovers/gitlint"
+    rev: "main"
+    hooks:
+      - id: "gitlint"
+
+  # SPELLING LINTER
+  - repo: "https://github.com/codespell-project/codespell"
+    rev: "master"
+    hooks:
+      - id: "codespell"
+
+  # GENERAL LINTERS GIT + JSON + YAML + FILE FORMATING
+  - repo: "https://github.com/pre-commit/pre-commit-hooks"
+    rev: "master"
+    hooks:
+      - id: "check-json"
+      - id: "check-toml"
+      - id: "check-yaml"
+        args:
+          - "--unsafe"
+          - "--allow-multiple-documents"
+      - id: "end-of-file-fixer"
+      # - id: "no-commit-to-branch"
+        # args:
+          # - "-b, master"
+          # - "-b, release"
+          # - "-b, develop"
+      - id: "pretty-format-json"
+        args:
+          - "--autofix"
+          # - "--indent 4"
+      - id: "trailing-whitespace"
+      - id: "check-merge-conflict"
+
+  # COMMIT MESSAGE VERIFIER
+  - repo: "https://github.com/commitizen-tools/commitizen"
+    rev: "v2.17.2"
+    hooks:
+      - id: "commitizen"
+        stages:
+          - "commit-msg"
+
+  # MARKDOWN LINTER
+  # - repo: "https://github.com/igorshubovych/markdownlint-cli"
+    # rev: "master"
+    # hooks:
+      # - id: "markdownlint"

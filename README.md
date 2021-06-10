@@ -1,4 +1,4 @@
-/pyenv# :house: DOTFILES MANAGED BY CHEZMOI
+# :house: DOTFILES MANAGED BY CHEZMOI
 
 ## :wrench: INSTALLATION
 
@@ -192,6 +192,8 @@ plugins:
 * [bitwarden] - tool for managing secrets
 * [aws-vault] - tool for fetching aws credentials using sso
 * [tmuxinator] - `tmux` session manager
+* [pre-commit] - tool to manage `git` hooks
+* [commitizen] - tool to validate `git` commit messages
 * [spotify-tui] - *TUI* front-end for spotify
 * [taskwarrior] - task management utility
 * [taskwarrior-tui] - *TUI* front-end for [taskwarrior] written in [rust]
@@ -226,6 +228,8 @@ plugins:
 [timewarrior]: https://github.com/GothenburgBitFactory/timewarrior
 [taskwarrior]: https://github.com/GothenburgBitFactory/taskwarrior
 [taskwarrior-tui]: https://github.com/kdheepak/taskwarrior-tui
+[pre-commit]: https://github.com/pre-commit/pre-commit
+[commitizen]: https://github.com/commitizen/cz-cli
 
 [//]: # (Additional links for reference)
 

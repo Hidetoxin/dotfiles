@@ -1,0 +1,91 @@
+# COMMITIZEN CUSTOM VALIDATION
+# vi" syntax=toml
+# https"//commitizen-tools.github.io/commitizen/customization/
+
+[tool.commitizen]
+name = "cz_customize"
+
+[tool.commitizen.customize]
+info              = "This is customized info"
+example           = "feature: this feature enable customize through config file"
+schema            = "<type>: <body>"
+bump_map          = {"break" = "MAJOR", "new" = "MINOR", "fix" = "PATCH", "hotfix" = "PATCH"}
+info_path         = "cz_customize_info.txt"
+bump_pattern      = "^(break|new|fix|hotfix)"
+schema_pattern    = "(feature|bug fix):(\\s.*)"
+message_template  = ":{{ change_type }}: {{ message }}"
+change_type_order = ["BREAKING CHANGE", "feat", "fix", "refactor", "perf"]
+
+[[tool.commitizen.customize.questions]]
+type    = "input"
+name    = "message"
+message = "Write the message body"
+
+[[tool.commitizen.customize.questions]]
+type    = "list"
+name    = "change_type"
+choices = [  # https"//gitmoji.dev/
+  { value = "art",                       name = "🎨 Improving structure / format of the code."    },
+  { value = "zap",                       name = "⚡️ Improving performance."                        },
+  { value = "fire",                      name = "🔥 Removing code or files."                      },
+  { value = "bug",                       name = "🐛 Fixing a bug."                                },
+  { value = "ambulance",                 name = "🚑 Critical hotfix."                             },
+  { value = "sparkles",                  name = "✨ Introducing new features."                    },
+  { value = "pencil",                    name = "📝 Writing docs."                                },
+  { value = "rocket",                    name = "🚀 Deploying stuff."                             },
+  { value = "lipstick",                  name = "💄 Updating the UI and style files."             },
+  { value = "tada" ,                     name = "🎉 Initial commit."                              },
+  { value = "white_check_mark",          name = "✅ Updating tests."                              },
+  { value = "lock",                      name = "🔒 Fixing security issues."                      },
+  { value = "apple",                     name = "🍎 Fixing something on macOS."                   },
+  { value = "penguin",                   name = "🐧 Fixing something on Linux."                   },
+  { value = "checkered_flag",            name = "🏁 Fixing something on Windows."                 },
+  { value = "robot",                     name = "🤖 Fixing something on Android."                 },
+  { value = "green_apple",               name = "🍏 Fixing something on iOS."                     },
+  { value = "bookmark",                  name = "🔖  Releasing / Version tags."                   },
+  { value = "rotating_light",            name = "🚨 Removing linter warnings."                    },
+  { value = "construction",              name = "🚧 Work in progress."                            },
+  { value = "green_heart",               name = "💚 Fixing CI Build."                             },
+  { value = "arrow_down",                name = "⬇️ Downgrading dependencies."                    },
+  { value = "arrow_up",                  name = "⬆️ Upgrading dependencies."                      },
+  { value = "pushpin",                   name = "📌 Pinning dependencies to specific versions."   },
+  { value = "construction_worker",       name = "👷 Adding CI build system."                      },
+  { value = "chart_with_upwards_trend",  name = "📈 Adding analytics or tracking code."           },
+  { value = "recycle",                   name = "♻️ Refactoring code."                            },
+  { value = "whale",                     name = "🐳 Work about Docker."                           },
+  { value = "heavy_plus_sign",           name = "➕ Adding a dependency."                         },
+  { value = "heavy_minus_sign",          name = "➖ Removing a dependency."                       },
+  { value = "wrench",                    name = "🔧 Changing configuration files."                },
+  { value = "globe_with_meridians",      name = "🌐 Internationalization and localization."       },
+  { value = "pencil2",                   name = "✏️ Fixing typos."                                },
+  { value = "poop",                      name = "💩 Writing bad code that needs to be improved."  },
+  { value = "rewind",                    name = "⏪ Reverting changes."                           },
+  { value = "twisted_rightwards_arrows", name = "🔀 Merging branches."                            },
+  { value = "package",                   name = "📦 Updating compiled files or packages."         },
+  { value = "alien",                     name = "👽 Updating code due to external API changes."   },
+  { value = "truck",                     name = "🚚 Moving or renaming files."                    },
+  { value = "page_facing_up",            name = "📄 Adding or updating license."                  },
+  { value = "boom",                      name = "💥 Introducing breaking changes."                },
+  { value = "bento",                     name = "🍱 Adding or updating assets."                   },
+  { value = "ok_hand",                   name = "👌 Updating code due to code review changes."    },
+  { value = "wheelchair",                name = "♿️  Improving accessibility."                     },
+  { value = "bulb",                      name = "💡 Documenting source code."                     },
+  { value = "beers",                     name = "🍻 Writing code drunkenly."                      },
+  { value = "speech_balloon",            name = "💬 Updating text and literals."                  },
+  { value = "card_file_box",             name = "🗃  Performing database related changes."         },
+  { value = "loud_sound",                name = "🔊 Adding logs."                                 },
+  { value = "mute",                      name = "🔇 Removing logs."                               },
+  { value = "busts_in_silhouette",       name = "👥 Adding contributor(s)."                       },
+  { value = "children_crossing",         name = "🚸 Improving user experience / usability."       },
+  { value = "building_construction",     name = "🏗 Making architectural changes."                },
+  { value = "iphone",                    name = "📱 Working on responsive design."                },
+  { value = "clown_face",                name = "🤡 Mocking things."                              },
+  { value = "egg",                       name = "🥚 Adding an easter egg."                        },
+  { value = "see_no_evil",               name = "🙈 Adding or updating a .gitignore file."        },
+  { value = "camera_flash",              name = "📸 Adding or updating snapshots."                },
+  { value = "alembic",                   name = "⚗ Experimenting new things."                    },
+  { value = "mag",                       name = "🔍 Improving SEO."                               },
+  { value = "wheel_of_dharma",           name = "☸️ Work about Kubernetes."                       },
+  { value = "label",                     name = "🏷️ Adding or updating types (Flow, TypeScript)." }
+]
+message = "Select the type of change you are committing"
