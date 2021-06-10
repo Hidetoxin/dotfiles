@@ -165,6 +165,10 @@ debug_info "Exporting ZPFX='$ZPFX'"
 #     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox)" \
 #     && debug_info "Exporting LS_COLORS='$LS_COLORS'"
 
+[ -n "$(command -v aws-vault)" ]       \
+    && export AWS_VAULT_BACKEND="pass" \
+    && debug_info "Exporting AWS_VAULT_BACKEND='$AWS_VAULT_BACKEND'"
+
 [ -n "$(command -v packer)" ] \
     && export PACKER_CONFIG="$XDG_CONFIG_HOME/packer.json"       \
     && export PACKER_HOME_DIR="$XDG_CACHE_HOME/packer"           \

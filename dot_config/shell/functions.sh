@@ -18,7 +18,7 @@ sso () {
     | fzf                                 \
   )"
   if [ -n "$PROFILE" ]; then
-    eval "$(env | rg AWS_ | sed 's/=.*//g; s/^/unset /g')" && \
+    eval "$(env | rg AWS_ | sed '/AWS_VAULT_BACKEND/d; s/=.*//g; s/^/unset /g')" && \
       eval "$(aws-vault exec $PROFILE --no-session -- env | rg AWS_ | sed 's/^/export /g')"
   fi
 }

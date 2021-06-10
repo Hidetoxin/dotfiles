@@ -1,2 +1,17 @@
 # vim: syntax=dosini
 
+[profile dev]
+region         = us-east-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.dev_role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.dev_id }}
+
+[profile prod]
+region         = us-east-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.prod_role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.prod_id }}

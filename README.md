@@ -169,6 +169,7 @@ plugins:
 * [fd] - faster `find` replacement written in [rust]
 * [exa] - better `ls` replacement written in [rust]
 * [tpm] - `tmux` plugin manager
+* [aws] - tool for managing aws cloud
 * [fzf] - general-purpose command-line fuzzy finder written in [go]
 * [zsh] - better interactive shell and replacement for `bash`
 * [coc] - `vim` / `nvim` plugin for completion
@@ -188,12 +189,15 @@ plugins:
 * [ripgrep] - better `grep` replacement written in [rust]
 * [chezmoi] - dot files manager utility written in [go]
 * [thefuck] - corrects errors in previous commands
+* [bitwarden] - tool for managing secrets
+* [aws-vault] - tool for fetching aws credentials using sso
 * [tmuxinator] - `tmux` session manager
 * [spotify-tui] - *TUI* front-end for spotify
 * [taskwarrior] - task management utility
 * [taskwarrior-tui] - *TUI* front-end for [taskwarrior] written in [rust]
 
 [fd]: https://github.com/sharkdp/fd
+[aws]: https://github.com/aws/aws-cli
 [exa]: https://github.com/ogham/exa
 [tpm]: https://github.com/tmux-plugins/tpm
 [fzf]: https://github.com/junegunn/fzf
@@ -215,6 +219,7 @@ plugins:
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [chezmoi]: https://github.com/twpayne/chezmoi
 [thefuck]: https://github.com/nvbn/thefuck
+[aws-vault]: https://github.com/99designs/aws-vault
 [bitwarden]: https://github.com/bitwarden/cli
 [tmuxinator]: https://github.com/tmuxinator/tmuxinator
 [spotify-tui]: https://github.com/Rigellute/spotify-tui
