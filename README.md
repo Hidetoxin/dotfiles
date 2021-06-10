@@ -1,4 +1,4 @@
-# :house: DOTFILES MANAGED BY CHEZMOI
+/pyenv# :house: DOTFILES MANAGED BY CHEZMOI
 
 ## :wrench: INSTALLATION
 
@@ -179,6 +179,7 @@ plugins:
 * [dein] - `vim` / `nvim` plugin manager
 * [goenv] - virtual environment manager for [go]
 * [pyenv] - virtual environment manager for [python]
+* [rbenv] - virtual environment manager for [ruby]
 * [zinit] - `zsh` plugin manager
 * [neovim] - `vim` re-written replacement
 * [httpie] - `curl` / `wget` replacement written in [python]
@@ -201,6 +202,7 @@ plugins:
 [tmux]: https://github.com/tmux/tmux
 [p10k]: https://github.com/romkatv/powerlevel10k
 [goenv]:https://github.com/syndbg/goenv
+[rbenv]: https://github.com/rbenv/rbenv
 [pyenv]: https://github.com/pyenv/pyenv
 [zinit]: https://github.com/zdharma/zinit
 [neovim]: https://github.com/neovim/neovim
@@ -217,4 +219,5 @@ plugins:
 
 [go]: https://github.com/golang/go
 [rust]: https://github.com/rust-lang/rust
+[ruby]: https://github.com/ruby/ruby
 [python]: htttps://github.com/python

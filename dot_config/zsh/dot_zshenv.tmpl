@@ -157,6 +157,10 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && export PYENV_ROOT="$XDG_DATA_HOME/pyenv" \
     && debug_info "Exporting PYENV_ROOT='$PYENV_ROOT'"
 
+[ -n "$(command -v rbenv)" ]                    \
+    && export RBENV_ROOT="$XDG_DATA_HOME/rbenv" \
+    && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
+
 # [ -n "$(command -v vivid)" ]                                  \
 #     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox)" \
 #     && debug_info "Exporting LS_COLORS='$LS_COLORS'"
