@@ -1,0 +1,42 @@
+# [Created by task 2.5.1 7/3/2019 17:11:59]
+# Taskwarrior program configuration file.
+# For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
+# 'man task-sync' or 'man taskrc'
+
+# Here is an example of entries that use the default, override and blank values
+#   variable=foo   -- By specifying a value, this overrides the default
+#   variable=      -- By specifying no value, this means no default
+#   #variable=foo  -- By commenting out the line, or deleting it, this uses the default
+
+# Use the command 'task show' to see all defaults and overrides
+
+# FILE STORE LOCATION
+data.location=~/.local/share/task
+
+# COLOR THEME
+include ~/.config/task/dark-16.theme
+
+# TASKWARRIOR-TUI SETTINGS
+uda.taskwarrior-tui.keyconfig.quit=q
+uda.taskwarrior-tui.keyconfig.refresh=r
+uda.taskwarrior-tui.keyconfig.go-to-bottom=G
+uda.taskwarrior-tui.keyconfig.go-to-top=g
+uda.taskwarrior-tui.keyconfig.down=j
+uda.taskwarrior-tui.keyconfig.up=k
+uda.taskwarrior-tui.keyconfig.page-down=J
+uda.taskwarrior-tui.keyconfig.page-up=K
+uda.taskwarrior-tui.keyconfig.delete=x
+uda.taskwarrior-tui.keyconfig.done=d
+uda.taskwarrior-tui.keyconfig.start-stop=s
+uda.taskwarrior-tui.keyconfig.undo=u
+uda.taskwarrior-tui.keyconfig.edit=e
+uda.taskwarrior-tui.keyconfig.modify=m
+uda.taskwarrior-tui.keyconfig.shell=!
+uda.taskwarrior-tui.keyconfig.log=l
+uda.taskwarrior-tui.keyconfig.add=a
+uda.taskwarrior-tui.keyconfig.annotate=A
+uda.taskwarrior-tui.keyconfig.filter=/
+uda.taskwarrior-tui.keyconfig.zoom=z
+uda.taskwarrior-tui.keyconfig.context-menu=c
+uda.taskwarrior-tui.keyconfig.next-tab=]
+uda.taskwarrior-tui.keyconfig.previous-tab=[

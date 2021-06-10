@@ -183,12 +183,15 @@ plugins:
 * [zinit] - `zsh` plugin manager
 * [neovim] - `vim` re-written replacement
 * [httpie] - `curl` / `wget` replacement written in [python]
-* [lazygit] - `git` *TUI* front-end written
+* [gpg-tui] - `gpg` *TUI* front-end written in [rust]
+* [lazygit] - `git` *TUI* front-end written in [go]
 * [ripgrep] - better `grep` replacement written in [rust]
 * [chezmoi] - dot files manager utility written in [go]
 * [thefuck] - corrects errors in previous commands
 * [tmuxinator] - `tmux` session manager
 * [spotify-tui] - *TUI* front-end for spotify
+* [taskwarrior] - task management utility
+* [taskwarrior-tui] - *TUI* front-end for [taskwarrior] written in [rust]
 
 [fd]: https://github.com/sharkdp/fd
 [exa]: https://github.com/ogham/exa
@@ -207,6 +210,7 @@ plugins:
 [zinit]: https://github.com/zdharma/zinit
 [neovim]: https://github.com/neovim/neovim
 [httpie]: https://github.com/httpie/httpie
+[gpg-tui]: https://github.com/orhun/gpg-tui
 [lazygit]: https://github.com/jesseduffield/lazygit
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [chezmoi]: https://github.com/twpayne/chezmoi
@@ -214,6 +218,9 @@ plugins:
 [bitwarden]: https://github.com/bitwarden/cli
 [tmuxinator]: https://github.com/tmuxinator/tmuxinator
 [spotify-tui]: https://github.com/Rigellute/spotify-tui
+[timewarrior]: https://github.com/GothenburgBitFactory/timewarrior
+[taskwarrior]: https://github.com/GothenburgBitFactory/taskwarrior
+[taskwarrior-tui]: https://github.com/kdheepak/taskwarrior-tui
 
 [//]: # (Additional links for reference)
 

@@ -171,6 +171,11 @@ debug_info "Adding aliases for 'fun'"
     && alias jjbd="jenkins-jobs delete"     \
     && debug_info "Adding aliases for 'jenkins-jobs'"
 
+# IF TASKWARRIOR-TUI IS INSTALLED
+[ -n "$(command -v taskwarrior-tui)" ] \
+    && alias taskd="taskwarrior-tui"   \
+    && debug_info "Adding aliases for 'taskwarrior-tui'"
+
 {{- if (eq .chezmoi.os "darwin") }}
 # ALIASES FOR MACOS GOES BELOW
 

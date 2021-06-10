@@ -1,0 +1,106 @@
+# dark-16
+# This is the proposed defult color theme
+# and the template file for metadata, layout and precedence
+#
+###############################################################################
+#
+# Color theme for taskwarrior 2.4 (or later) 
+#
+# taskwarrior - a command line task list manager.
+# http://taskwarrior.org - http://tasktools.org
+#
+# For more information on how to use, see 'man taskrc' and 'man task-color'
+#
+###############################################################################
+#
+# Copyright 2006-2014, Paul Beckingham, Federico Hernandez.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+# http://www.opensource.org/licenses/mit-license.php
+#
+###############################################################################
+
+rule.precedence.color=deleted,completed,active,keyword.,tag.,uda.,project.,overdue,scheduled,due.today,due,blocked,blocking,recurring,tagged,pri.
+
+# basics
+color.active=bold yellow
+color.completed=green on white
+color.deleted=red on white
+color.due.today=on yellow
+color.due=on blue
+color.overdue=on red
+color.blocking=bold green
+color.blocked=bold cyan
+color.recurring=
+color.scheduled=on green
+color.tagged=
+color.pri.H=bold white
+color.pri.M=
+color.pri.L=
+
+# missing attributes
+color.project.none=
+color.tag.none=
+color.pri.none=
+
+# personal color rules (remove "#" and replace "X" with your value)
+#color.keyword.X=
+#color.project.X=
+color.tag.next=bold yellow
+#color.uda.X=
+
+# interface
+color.alternate=
+color.header=
+color.label=inverse
+color.footnote=
+
+# burndown report
+color.burndown.pending=on green 
+color.burndown.started=on bright yellow
+color.burndown.done=on bright green
+
+# calendar
+color.calendar.holiday=bold yellow
+color.calendar.today=bold white
+color.calendar.due.today=on yellow
+color.calendar.due=on blue
+color.calendar.overdue=on red
+color.calendar.weekend=on bright black
+color.calendar.weeknumber=bold black
+
+# history report
+color.history.add=red on green
+color.history.done=black on bright green
+color.history.delete=white on red
+
+# summary report (background color only)
+color.summary.bar=on green
+color.summary.background=on black
+
+# status
+color.error=red on white
+color.debug=black on white
+color.undo.before=yellow
+color.undo.after=green
+color.sync.added=green
+color.sync.changed=yellow
+color.sync.rejected=red
+color.warning=bold red
