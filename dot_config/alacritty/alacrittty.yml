@@ -106,7 +106,7 @@ font:
   # increasing `y` moves the glyph upwards.
   glyph_offset:
     x: 0
-    y: -1 
+    y: -1
 
   # Thin stroke font rendering (macOS only)
   use_thin_strokes: true
@@ -287,7 +287,7 @@ working_directory: None
 enable_experimental_conpty_backend: false
 
 # Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: false 
+alt_send_esc: false
 
 debug:
   # Display the time it takes to redraw each frame.
@@ -538,4 +538,3 @@ key_bindings:
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                      }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
-

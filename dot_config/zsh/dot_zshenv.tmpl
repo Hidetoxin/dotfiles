@@ -45,7 +45,7 @@ export PATH="$PATH:$XDG_CONFIG_HOME/bin"
 debug_info "Exporting PATH='$PATH'"
 
 # SETUP LANGUAGE SETTINGS
-export LANG="en_US.UTF-8" 
+export LANG="en_US.UTF-8"
 debug_info "Exporting LANG='$LANG'"
 
 # SETUP ZSH CONFIG PATH
@@ -164,11 +164,6 @@ debug_info "Exporting ZPFX='$ZPFX'"
 # [ -n "$(command -v vivid)" ]                                  \
 #     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox)" \
 #     && debug_info "Exporting LS_COLORS='$LS_COLORS'"
-
-[ -n "$(command -v aws-vault)" ]       \
-    && export AWS_VAULT_BACKEND="pass" \
-    && debug_info "Exporting AWS_VAULT_BACKEND='$AWS_VAULT_BACKEND'"
-
 [ -n "$(command -v packer)" ] \
     && export PACKER_CONFIG="$XDG_CONFIG_HOME/packer.json"       \
     && export PACKER_HOME_DIR="$XDG_CACHE_HOME/packer"           \
@@ -182,3 +177,7 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && export TF_PLUGIN_CACHE_DIR="$XDG_CACHE_HOME/terraform/plugin-cache" \
     && debug_info "Exporting TF_CLI_CONFIG_FILE='$TF_CLI_CONFIG_FILE'"     \
     && debug_info "Exporting TF_PLUGIN_CACHE_DIR='$TF_PLUGIN_CACHE_DIR'"
+
+[ -n "$(command -v aws-vault)" ]       \
+    && export AWS_VAULT_BACKEND="pass" \
+    && debug_info "Exporting AWS_VAULT_BACKEND='$AWS_VAULT_BACKEND'"

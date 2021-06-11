@@ -25,13 +25,33 @@ repos:
     hooks:
       - id: "gitlint"
 
+  # SHELL LINTER
+  - repo: "https://github.com/jumanjihouse/pre-commit-hooks"
+    rev: "master"  # or specific git tag
+    hooks:
+      # - id: bundler-audit
+      # - id: check-mailmap
+      # - id: fasterer
+      # - id: forbid-binary
+      # - id: forbid-space-in-indent
+      # - id: git-check  # Configure in .gitattributes
+      # - id: git-dirty  # Configure in .gitignore
+      # - id: markdownlint # Configure in .mdlrc
+      # - id: reek
+      # - id: require-ascii
+      # - id: rubocop
+      # - id: script-must-have-extension
+      # - id: script-must-not-have-extension
+      - id: shellcheck
+      # - id: shfmt
+
   # SPELLING LINTER
   - repo: "https://github.com/codespell-project/codespell"
     rev: "master"
     hooks:
       - id: "codespell"
 
-  # GENERAL LINTERS GIT + JSON + YAML + FILE FORMATING
+  # GENERAL LINTERS GIT + JSON + YAML + TOML + FILE FORMATING
   - repo: "https://github.com/pre-commit/pre-commit-hooks"
     rev: "master"
     hooks:
