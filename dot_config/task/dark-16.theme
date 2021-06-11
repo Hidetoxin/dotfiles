@@ -1,10 +1,10 @@
 # dark-16
-# This is the proposed defult color theme
+# This is the proposed default color theme
 # and the template file for metadata, layout and precedence
 #
 ###############################################################################
 #
-# Color theme for taskwarrior 2.4 (or later) 
+# Color theme for taskwarrior 2.4 (or later)
 #
 # taskwarrior - a command line task list manager.
 # http://taskwarrior.org - http://tasktools.org
@@ -73,7 +73,7 @@ color.label=inverse
 color.footnote=
 
 # burndown report
-color.burndown.pending=on green 
+color.burndown.pending=on green
 color.burndown.started=on bright yellow
 color.burndown.done=on bright green
 

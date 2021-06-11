@@ -4,4 +4,4 @@ buku --export <file>
 
 # Add bookmark to buku
 % buku
-buku --add <url> --tag <tags> --title <tittle> --comment <comment>
+buku --add <url> --tag <tags> --title <title> --comment <comment>
