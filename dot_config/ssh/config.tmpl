@@ -7,11 +7,11 @@ Host bitbucket.org
     IdentityFile ~/.ssh/id_rsa_git_work
 
 # SSH KEY FOR BITBUCKET SERVER PRODUCTION
-Host {{ .urls.bitbucket_prod}}
+Host {{ .bitbucket.prod_url | replace "https://" "" }}
     IdentityFile ~/.ssh/id_rsa_git_work
 
 # SSH KEY FOR BITBUCKET SERVER PREPRODUCTION
-Host {{ .urls.bitbucket_preprod}}
+Host {{ .bitbucket.preprod_url | replace "https://" "" }}
     IdentityFile ~/.ssh/id_rsa_git_work
 
 {{- else }}

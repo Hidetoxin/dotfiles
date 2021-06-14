@@ -12,6 +12,13 @@
     prod_id   = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").ProdId.value }}"
     prod_role = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").ProdRole.value }}"
 
+  [data.git]
+    {{- if eq $computer "work" }}
+    public_key  = "{{ (bitwardenFields "item" "f6b245e7-4566-444c-a9dc-ad40013823b4").PublicKey.value }}"
+    {{- else }}
+    public_key  = "{{ (bitwardenFields "item" "1d05ce7c-d3cc-4a02-8843-ad40013983dc").PublicKey.value }}"
+    {{- end }}
+
   [data.user]
     name   = "Fernando Becerra Méndez"
     {{- if eq $computer "work" }}
@@ -22,26 +29,22 @@
     gpgkey = "{{ (bitwardenFields "item" "078a43c0-9c30-4dd5-99f8-ad400179dea7").PublicKey.value }}"
     {{- end }}
 
-  [data.keys]
-    {{- if eq $computer "work" }}
-    git_public  = "{{ (bitwardenFields "item" "f6b245e7-4566-444c-a9dc-ad40013823b4").PublicKey.value }}"
-    {{- else }}
-    git_public  = "{{ (bitwardenFields "item" "1d05ce7c-d3cc-4a02-8843-ad40013983dc").PublicKey.value }}"
-    {{- end }}
-
   [data.spotify]
     client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
     client_secret = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientSecret.value }}"
 
-  [data.urls]
-    jenkins_prod      = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 0).uri | replace "https://" "" }}"
-    jenkins_preprod   = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 2).uri | replace "https://" "" }}"
-    bitbucket_prod    = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 1).uri | replace "https://" "" }}"
-    bitbucket_preprod = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 2).uri | replace "https://" "" }}"
+  [data.jenkins]
+    username      = "{{ (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.username }}"
+    prod_url      = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 0).uri }}"
+    prod_token    = "{{ (bitwardenFields "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").ProdServerToken.value }}"
+    preprod_url   = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 2).uri }}"
+    preprod_token = "{{ (bitwardenFields "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").PreprodServerToken.value }}"
 
-  [data.passwords]
-    jenkins_prod      = "{{ (bitwardenFields "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").ProdToken.value }}"
-    jenkins_preprod   = "{{ (bitwardenFields "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").PreprodToken.value }}"
+  [data.bitbucket]
+    prod_url      = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 1).uri }}"
+    prod_token    = "{{ (bitwardenFields "item" "5264707e-195c-45fb-ac48-ad41011f8607").ProdServerToken.value }}"
+    preprod_url   = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 2).uri }}"
+    preprod_token = "{{ (bitwardenFields "item" "5264707e-195c-45fb-ac48-ad41011f8607").PreprodServerToken.value }}"
 
   [data.computer]
     type = "{{ $computer }}"
