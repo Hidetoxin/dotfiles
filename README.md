@@ -231,6 +231,24 @@ plugins:
 [pre-commit]: https://github.com/pre-commit/pre-commit
 [commitizen]: https://github.com/commitizen/cz-cli
 
+## :thought_balloon: INSPIRATION
+
+* [Awesome Privacy]
+* [Reddit's r/cli]
+* [Reddit's r/vimporn]
+* [Reddit's r/unixporn]
+* [Reddit's r/commandline]
+* [Top Command Line Tools]
+* [Cool But Obscure Unix Tools]
+
+[Reddit's r/cli]: https://www.reddit.com/r/cli
+[Reddit's r/vimporn]: https://www.reddit.com/r/vimporn
+[Reddit's r/unixporn]: https://www.reddit.com/r/unixporn
+[Reddit's r/commandline]: https://www.reddit.com/r/commandline
+[Awesome Privacy]: https://github.com/pluja/awesome-privacy
+[Top Command Line Tools]: https://stackify.com/top-command-line-tools
+[Cool But Obscure Unix Tools]: https://kkovacs.eu/cool-but-obscure-unix-tools
+
 [//]: # (Additional links for reference)
 
 [go]: https://github.com/golang/go
