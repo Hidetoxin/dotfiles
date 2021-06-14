@@ -1,8 +1,10 @@
 # Setup $REST_API_URL
 % httpie, rest, api, env
-export REST_API_URL="<url>" && export REST_API_AUTH="<auth>"
+$ env_url: chezmoi data | rg 'url' | awk '{print $2}' | sed 's/\"//g; s/,//g' | fzf
+$ env_token: chezmoi data | rg 'token' | awk '{print $2}' | sed 's/\"//g; s/,//g' | fzf
+export REST_API_URL="<env_url>/rest/api/1.0" && export REST_API_TOKEN="<env_token>"
 
 # Do a request to a REST API
 % httpie, rest, api, jq
 $ url: echo "$REST_API_URL"
-http --json <method> "<url><endpoint>" | jq
+http --json --verify="no" <method> "<url>/<endpoint>" "Authorization: Token $REST_API_TOKEN" | jq

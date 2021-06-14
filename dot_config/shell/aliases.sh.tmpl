@@ -19,7 +19,7 @@ debug_info "Adding aliases for 'exit'"
 # ADD FUN ALIASES
 alias sw='telnet towel.blinkenlights.nl'
 alias map="telnet mapscii.me"
-alias wrk="curl wrk.ist?q=devops"
+alias wrk="curl wrk.ist"
 alias cht="curl cht.sh"
 alias joke="curl https://icanhazdadjoke.com"
 alias news="curl getnews.tech"
@@ -160,9 +160,15 @@ debug_info "Adding aliases for 'fun'"
     && debug_info "Adding aliases for 'tmuxinator'"
 
 # IF PRE-COMMIT IS INSTALLED
-[ -n "$(command -v pre-commit)" ]         \
-    && alias pca="pre-commit --all-files" \
+[ -n "$(command -v pre-commit)" ]             \
+    && alias pc="pre-commit"                  \
+    && alias pca="pre-commit run --all-files" \
     && debug_info "Adding aliases for 'pre-commit'"
+
+# IF MARKDOWNLINT-CLI IS INSTALLED
+[ -n "$(command -v markdownlint)" ] \
+    && alias mdl="markdownlint"     \
+    && debug_info "Adding aliases for 'markdownlint"
 
 # IF JENKINS-JOBS IS INSTALLED
 [ -n "$(command -v jenkins-jobs)" ]         \
@@ -173,7 +179,7 @@ debug_info "Adding aliases for 'fun'"
 
 # IF TASKWARRIOR-TUI IS INSTALLED
 [ -n "$(command -v taskwarrior-tui)" ] \
-    && alias taskd="taskwarrior-tui"   \
+    && alias taskt="taskwarrior-tui"   \
     && debug_info "Adding aliases for 'taskwarrior-tui'"
 
 {{- if (eq .chezmoi.os "darwin") }}

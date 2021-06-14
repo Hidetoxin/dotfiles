@@ -36,7 +36,7 @@ key () {
   fi
 }
 
-# USE SSM TO LOGIN INTO AN AWS EC2 INSTNANCE
+# USE SSM TO LOGIN INTO AN AWS EC2 INSTANCE
 ssm () {
   F="Name=instance-state-name,Values=running"
   Q="Reservations[*].Instances[*].{Id:InstanceId,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}"

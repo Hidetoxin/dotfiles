@@ -40,6 +40,7 @@
 
     # =========================[ Line #2 ]=========================
     newline                 # \n
+    background_jobs         # presence of background jobs
     vi_mode                 # vi mode status
     vim_shell               # vim shell indicator (:sh)
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
@@ -73,7 +74,6 @@
     newline
     status                  # exit code of the last command
     history                 # show command number
-    background_jobs         # presence of background jobs
     command_execution_time  # duration of the last command
 
     # =========================+++++++++++=========================
