@@ -1,4 +1,5 @@
 README.md
+.tmuxinator.yml
 
 {{- if (eq .computer.type "work") }}
 .config/ssh/id_rsa_git_self

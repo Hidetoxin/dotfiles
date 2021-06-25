@@ -1,0 +1,59 @@
+# vim: syntax=yaml
+---
+
+# SETUP A TERMINAL BASED REPOSITORY'S WORKSPACE
+#
+# https://github.com/tmuxinator/tmuxinator
+# brew install tmux tmuxinator
+# tmuxinator start . branch="master"
+# tmuxinator start . branch="release"
+# tmuxinator start . branch="develop"
+# tmuxinator start . branch="feature/name"
+
+name: "  dotfiles "
+root: "./"
+attach: true
+startup_pane: 0
+startup_window: "git"
+on_project_start: |
+    txbranch="<%= @settings["branch"] %>"
+    [ -z "$txbranch" ] && git checkout "$txbranch"
+    git pull origin "$(git branch --show-current)"
+
+windows:
+  - git:  # show repository git status
+      layout: "even-vertical"
+      panes:
+        - git:  # launch lazygit if exists else use git
+            - |
+              [ -n "$(command -v lazygit)" ] && lazygit || git log --oneline
+  - edit:  # edit and view dotfiles
+      layout: "main-vertical"
+      panes:
+        - edit:
+            - |
+              # launch neovim if exists else use vim
+              [ -n "$(command -v nvim)" ] && nvim || vim
+  - debug:  # view current machine config files
+      layout: "main-vertical"
+      panes:
+        - config:
+            - |
+              # check if required tooling exists
+              [ -z "$(command -v ag)" ]             \
+                  || [ -z "$(command -v entr)" ]    \
+                  || [ -z "$(command -v chezmoi)" ] \
+                  && exit 0
+              # do a chezmoi apply if a file changes
+              ag -l | entr "chezmoi apply --force --verbose"
+  - config:  # view current machine config files
+      layout: "main-vertical"
+      panes:
+        - config:
+            - |
+              # check if config directory exists
+              [ -d "$XDG_CONFIG_HOME" ] && cd "$XDG_CONFIG_HOME" || exit 0
+              # launch exa if exists else use ls
+              [ -n "$(command -v exa)" ]                       \
+                  && exa --git --long --tree --icons --level=2 \
+                  || ls -la
