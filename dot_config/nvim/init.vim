@@ -50,6 +50,7 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 
 " SET KEYBOARD MAPPINGS
 inoremap jj <Esc>
+nnoremap <c-s> :w<CR>
 
 " SET COLORSCHEME
 syntax on

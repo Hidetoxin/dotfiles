@@ -50,9 +50,9 @@ hook_add   = """
     hi Floaterm guibg=black
     hi FloatermBorder guibg=gray guifg=green
     let g:floaterm_title = '  $1/$2 '
-    nnoremap  <leader>ft   :FloatermFirst<CR>
-    nnoremap  <leader>ftn  :FloatermNew<CR>
-    tnoremap <silent><F12> <C-\\><C-n>:FloatermToggle<CR>
+    nnoremap <leader>ft                :FloatermFirst<CR>
+    nnoremap <leader>ftn               :FloatermNew<CR>
+    tnoremap <silent><F12> <C-\\><C-n> :FloatermToggle<CR>
 """
 
 [[plugins]]
