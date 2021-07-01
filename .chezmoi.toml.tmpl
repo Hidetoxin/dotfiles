@@ -6,11 +6,17 @@
 # FETCH SECRETS FROM BITWARDEN
 [data]
   [data.aws]
-    url       = "{{ (index (bitwarden "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").login.uris 0).uri }}"
-    dev_id    = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").DevId.value }}"
-    dev_role  = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").DevRole.value }}"
-    prod_id   = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").ProdId.value }}"
-    prod_role = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").ProdRole.value }}"
+    url                 = "{{ (index (bitwarden "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").login.uris 0).uri }}"
+    als_dev_id          = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").DevId.value }}"
+    als_dev_role        = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").DevRole.value }}"
+    als_prod_id         = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").ProdId.value }}"
+    als_prod_role       = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").ProdRole.value }}"
+    azcsdcops_dev_id    = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").DevId.value }}"
+    azcsdcops_dev_role  = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").DevRole.value }}"
+    azcsdcops_test_id   = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").TestId.value }}"
+    azcsdcops_test_role = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").TestRole.value }}"
+    azcsdcops_prod_id   = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").ProdId.value }}"
+    azcsdcops_prod_role = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").ProdRole.value }}"
 
   [data.git]
     {{- if eq $computer "work" }}

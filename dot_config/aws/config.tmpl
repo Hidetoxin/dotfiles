@@ -1,17 +1,42 @@
 # vim: syntax=dosini
 
-[profile dev]
+[profile als-dev]
 region         = us-east-1
 output         = json
 sso_region     = us-east-1
-sso_role_name  = {{ .aws.dev_role }}
+sso_role_name  = {{ .aws.als_dev_role }}
 sso_start_url  = {{ .aws.url }}
-sso_account_id = {{ .aws.dev_id }}
+sso_account_id = {{ .aws.als_dev_id }}
 
-[profile prod]
+[profile als-prod]
 region         = us-east-1
 output         = json
 sso_region     = us-east-1
-sso_role_name  = {{ .aws.prod_role }}
+sso_role_name  = {{ .aws.als_prod_role }}
 sso_start_url  = {{ .aws.url }}
-sso_account_id = {{ .aws.prod_id }}
+sso_account_id = {{ .aws.als_prod_id }}
+
+[profile azcsdcops-dev]
+region         = us-east-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.azcsdcops_dev_role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.azcsdcops_dev_id }}
+
+[profile azcsdcops-test]
+region         = us-east-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.azcsdcops_test_role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.azcsdcops_test_id }}
+
+
+[profile azcsdcops-prod]
+region         = us-east-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.azcsdcops_prod_role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.azcsdcops_test_id }}
