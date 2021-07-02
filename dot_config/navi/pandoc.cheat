@@ -1,0 +1,8 @@
+# Convert docx file to markdown
+; https://ronn-bundgaard.dk/blog/convert-docx-to-markdown-with-pandoc/
+% pandoc, md, docx
+pandoc --standalone="<docx>.docx" --extract-media="<media>" --reference-links markdown --output="<md>.md"
+
+# Convert markdown file to docx file
+% pandoc, md, docx
+pandoc --from="markdown" --to="docx" --data-dir="<dir>" <name>.md --output="<docx>.docx"

@@ -1,0 +1,3 @@
+# Add password to pass
+% pass
+pass insert <path>

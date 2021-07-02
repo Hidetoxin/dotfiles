@@ -1,0 +1,5 @@
+# Do an HTTP request using a token
+% xh, jq, fzf
+$ url: echo "$REST_API_URL"
+$ token_type: printf "Token\nBearer" | fzf
+xh --json --verify="no" <method> "<url>/<endpoint>" "Authorization: <token_type> $REST_API_TOKEN" | jq

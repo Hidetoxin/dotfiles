@@ -1,0 +1,15 @@
+# Add contact
+% khard, contacts
+khard new
+
+# Edit contact
+% khard, contacts
+khard edit
+
+# List contacts
+% khard, contacts
+khard list
+
+# Show contact info
+% khard, contacts
+khard show <name>

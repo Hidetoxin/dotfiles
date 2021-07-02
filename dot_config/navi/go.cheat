@@ -1,0 +1,3 @@
+# Initialize a new go module
+% go
+go mod init "<repo_url>"

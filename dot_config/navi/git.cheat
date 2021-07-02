@@ -8,7 +8,7 @@ git checkout <branch>
 git submodule add -b "<branch>" "ssh://git@<server>/<repo>.git" "<path>"
 
 # Add gpg sign to a git repo
-%git, gpg, fzf
+% git, gpg, fzf
 $ id: gpg --list-secret-keys | rg '[0-9A-Z]{40,40}' | sed 's/ //g' | awk '{print substr($1,length($1)-15) }' | fzf
 git config --local gpg.program gpg          \
     && git config --local user.signkey <id> \
