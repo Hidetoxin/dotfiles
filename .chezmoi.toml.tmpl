@@ -25,6 +25,9 @@
     public_key  = "{{ (bitwardenFields "item" "1d05ce7c-d3cc-4a02-8843-ad40013983dc").PublicKey.value }}"
     {{- end }}
 
+  [data.jira]
+    prod_url = "{{ (index (bitwarden "item" "c526b42f-70b1-4acf-98b6-ad5901762e74").login.uris 1).uri }}"
+
   [data.user]
     name   = "Fernando Becerra Méndez"
     {{- if eq $computer "work" }}
