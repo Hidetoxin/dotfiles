@@ -74,6 +74,12 @@ debug_info "Adding aliases for 'fun'"
     && alias svim="sudo nvim" \
     && debug_info "Adding aliases for 'nvim'"
 
+# IF IMGCAT IS INSTALLED
+[ -n "$(command -v imgcat)" ]                             \
+    && alias ic="imgcat"                                  \
+    && alias icf="imgcat --width=$COLUMNS --heigh=$LINES" \
+    && debug_info "Adding aliases for 'imgcat'"
+
 # IF PACKER IS INSTALLED
 [ -n "$(command -v packer)" ]        \
     && alias pkr="packer"            \
