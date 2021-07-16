@@ -70,8 +70,8 @@ debug_info "Exporting ZPFX='$ZPFX'"
 
 # INITIALIZE CLI TOOLS FUNCTIONS
 {{ if (eq .chezmoi.os "darwin") }}
-[ -n "$(command -v /usr/local/bin/brew)" ]    \
-    && eval "$(/usr/local/bin/brew shellenv)" \
+[ -n "$(command -v /opt/homebrew/bin/brew)" ]    \
+    && eval "$(/opt/homebrew/bin/brew shellenv)" \
     && debug_info "Initializing functions for 'brew'"
 {{ else }}
 [ -n "$(command -v /home/linuxbrew/.linuxbrew/bin/brew)" ]    \
