@@ -47,6 +47,9 @@
     client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
     client_secret = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientSecret.value }}"
 
+  [data.himalaya]
+    email = "{{ (bitwardenFields "item" "ec5a2a8c-7501-4093-9679-acde006f6539").Email.value }}"
+
   [data.jenkins]
     username      = "{{ (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.username }}"
     prod_url      = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 0).uri }}"
