@@ -50,6 +50,10 @@
   [data.himalaya]
     email = "{{ (bitwardenFields "item" "ec5a2a8c-7501-4093-9679-acde006f6539").Email.value }}"
 
+  [data.newsboat]
+    username = "{{ (bitwarden "item" "a0d9f1a9-d191-4552-ac5d-ad530003310d").login.username }}"
+    password = "{{ (bitwarden "item" "a0d9f1a9-d191-4552-ac5d-ad530003310d").login.password }}"
+
   [data.jenkins]
     username      = "{{ (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.username }}"
     prod_url      = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 0).uri }}"
