@@ -137,6 +137,10 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && debug_info "Exporting FZF_DEFAULT_COMMAND='$FZF_DEFAULT_COMMAND'"                         \
     && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
 
+[ -n "$(command -v pass)" ]                            \
+    && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass" \
+    && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
+
 [ -n "$(command -v navi)" ]                     \
     && export NAVI_PATH="$XDG_CONFIG_HOME/navi" \
     && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
