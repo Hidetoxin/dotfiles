@@ -1,19 +1,17 @@
-#Floaterm vim: syntax=toml
+# vim: syntax=toml
 
 # PLUGINS TO LOAD AT START
 
-# VIM PLUGIN MANAGER
-[[plugins]]
+[[plugins]]  # plugin manager
 repo       = "shougo/dein.vim"
 
-[[plugins]]
+[[plugins]]  # plugin manager tui
 repo       = "wsdjeg/dein-ui.vim"
 depends_on = ["shougo/dein.vim"]
 
-# COMPLITION AND LINTING
-[[plugins]]
-repo       = "neoclide/coc.nvim"
-hook_add   = """
+[[plugins]]  # linter for lsp
+repo     = "neoclide/coc.nvim"
+hook_add = """
     let g:coc_global_extensions = [
     \ 'coc-go',
     \ 'coc-sh',
@@ -28,7 +26,7 @@ hook_add   = """
     \ ]
 """
 
-[[plugins]]
+[[plugins]]  # linter for lsp
 repo       = "dense-analysis/ale"
 hook_add   = """
     let g:ale_linters              = {
@@ -39,12 +37,31 @@ hook_add   = """
     let g:ale_lint_on_text_changed = 'never'
 """
 
-# VIM WORKING TOOLSET
-[[plugins]]
-repo       = "junegunn/fzf"
-build      = "./install"
+[[plugins]]  # nvim-telescope/telescope.nvim
+repo       = "nvim-lua/popup.nvim"
 
-[[plugins]]
+[[plugins]]  # nvim-telescope/telescope.nvim
+repo       = "nvim-lua/plenary.nvim"
+
+[[plugins]]  # nvim-telescope/telescope.nvim
+repo       = "nvim-telescope/telescope-fzf-native.nvim"
+build      = "make"
+
+[[plugins]]  # fuzzy finder for nvim
+repo       = "nvim-telescope/telescope.nvim"
+depends_on = [
+    "nvim-lua/popup.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-fzf-native.nvim",
+]
+hook_add   = """
+    nnoremap <leader>rg   :Telescope live_grep<CR>
+    nnoremap <leader>gf   :Telescope git_files<CR>
+    nnoremap <leader>ff   :Telescope find_files<CR>
+    nnoremap <leader><CR> :Telescope buffers<CR>
+"""
+
+[[plugins]]  # floating terinal inside vim
 repo       = "voldikss/vim-floaterm"
 hook_add   = """
     hi Floaterm guibg=black
@@ -55,101 +72,129 @@ hook_add   = """
     tnoremap <silent><F12> <C-\\><C-n> :FloatermToggle<CR>
 """
 
-[[plugins]]
+[[plugins]]  # lsp and tag viewer
 repo       = "liuchengxu/vista.vim"
+depends_on = []
+hook_add   = ""
 
-[[plugins]]
-repo       = "junegunn/fzf.vim"
-depends_on = ["junegunn/fzf"]
+[[plugins]]  # git wrapper for vim
+repo       = "tpope/vim-fugitive"
+depends_on = []
+hook_add   = ""
+
+[[plugins]]  # smooth scrolling
+repo       = "karb94/neoscroll.nvim"
+depends_on = []
+hook_add   = ""
+
+[[plugins]]  # show minimap
+repo       = "wfxr/minimap.vim"
+depends_on = []
 hook_add   = """
-    let g:fzf_preview_window = 'right:60%'
-    nnoremap <leader>f    :Files<CR>
-    nnoremap <leader>gf   :GFiles<CR>
-    nnoremap <leader>li   :Lines<CR>
-    nnoremap <leader>hh   :History<CR>
-    nnoremap <leader><CR> :Buffers<CR>
-    nnoremap <leader>rg   :Rg!<CR>
+    nnoremap <leader>mt :MinimapToggle
+
+    let g:minimap_width                = 10
+    let g:minimap_git_colors           = 1
+    let g:minimap_auto_start           = 0
+    let g:minimap_highlight_search     = 1
+    let g:minimap_auto_start_win_enter = 0
 """
 
-[[plugins]]
-repo       = "shougo/defx.nvim"
-
-[[plugins]]
-repo       = "tpope/vim-fugitive"
-
-# [[plugins]]
-# repo       = "airblade/vim-gitgutter"
-
-[[plugins]]
-repo       = "psliwka/vim-smoothie"
-
-# [[plugins]]
-# repo       = "wfxr/minimap.vim"
-# hook_add   = """
-    # let g:minimap_width                = 10
-    # let g:minimap_auto_start           = 1
-    # let g:minimap_auto_start_win_enter = 1
-# """
-
-[[plugins]]
-repo       = "scrooloose/nerdcommenter"
+[[plugins]]  # quickly comment and un-comment
+repo       = "preservim/nerdcommenter"
+depends_on = []
 hook_add   = """
     let g:NERDSpaceDelims = 1
 """
 
-[[plugins]]
+[[plugins]]  # show key bindings
+repo       = "folke/which-key.nvim"
+depends_on = []
+hook_add   = """
+"""
+
+# [[plugins]]  #  quickly traverse the buffer
+# repo       = "easymotion/vim-easymotion"
+# depends_on = []
+# hook_add   = """
+# """
+
+[[plugins]]  #  highlight all pattern matches in easymotion
 repo       = "haya14busa/incsearch-easymotion.vim"
+depends_on = []
 hook_add   = """
     map z/ <Plug>(incsearch-easymotion-/)
     map z? <Plug>(incsearch-easymotion-?)
     map zg/ <Plug>(incsearch-easymotion-stay)
 """
 
-# VIM VISUAL AID TOOLS
-[[plugins]]
+[[plugins]]  # highlight all pattern matches
 repo       = "haya14busa/incsearch.vim"
+depends_on = []
 hook_add   = """
     map g/ <Plug>(incsearch-stay)
     map /  <Plug>(incsearch-forward)
     map ?  <Plug>(incsearch-backward)
 """
 
-[[plugins]]
+[[plugins]]  # show indent lines
 repo       = "yggdroot/indentline"
+depends_on = []
 hook_add   = """
     let g:indentline_char_list = ['|', '¦', '┆', '┊']
 """
 
-[[plugins]]
+# [[plugins]]  # highlight parentheses
+# repo       = "p00f/nvim-ts-rainbow"
+# depends_on = []
+# hook_add   = """
+# """
+
+[[plugins]]  # highlight yanked text
 repo       = "machakann/vim-highlightedyank"
+depends_on = []
 hook_add   = """
     let g:highlightedyank_highlight_duration = -1
 """
 
-[[plugins]]
-repo       = "ryanoasis/vim-devicons"
+[[plugins]]  # nerdfonts icons for vim
+repo       = "kyazdani42/nvim-web-devicons"
+depends_on = []
+hook_add   = ""
 
-[[plugins]]
+[[plugins]]  # gray out inactive windows
 repo       = "blueyed/vim-diminactive"
+depends_on = []
+hook_add   = ""
 
-[[plugins]]
+# [[plugins]]  # tab line
+# repo       = "akinsho/nvim-bufferline.lua"
+# depends_on = []
+# hook_add   = ""
+
+[[plugins]]  # status line
 repo       = "vim-airline/vim-airline"
-depends_on = ["morhertz/gruvbox"]
+depends_on = ["sainnhe/gruvbox-material"]
 hook_add   = """
-    let g:airline_theme           = 'gruvbox'
+    let g:airline_theme           = 'gruvbox_material'
     let g:airline_powerline_fonts = 1
 """
 
-[[plugins]]
+[[plugins]]  # start page with latest files
 repo       = "mhinz/vim-startify"
+depends_on = []
 hook_add   = """
     let g:startify_files_number        = 15
     let g:startify_change_to_dir       = 1
     let g:startify_fortune_use_unicode = 1
 """
 
-[[plugins]]
-repo       = "morhetz/gruvbox"
+[[plugins]]  # theme with tree-sitter support
+repo       = "sainnhe/gruvbox-material"
+depends_on = []
 hook_add   = """
-    let g:gruvbox_contrast_dark = 'hard'
+    let g:gruvbox_material_visual                = 'reverse'
+    let g:gruvbox_material_background            = 'medium'
+    let g:gruvbox_material_enable_bold           = 1
+    let g:gruvbox_material_enable_italic_comment = 1
 """

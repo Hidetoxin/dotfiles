@@ -21,3 +21,7 @@ on_ft = ["tf", "tfvars", "tfstate"]
 [[plugins]]
 repo  = "pearofducks/ansible-vim"
 on_ft = ["yml", "yaml"]
+
+[[plugins]]
+repo  = "lervag/vimtex"
+on_ft = ["tex", "bib", "latex"]
