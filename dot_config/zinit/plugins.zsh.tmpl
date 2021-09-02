@@ -1,28 +1,34 @@
-# vim: syntax=zsh
+# vim: syntax=sh
 
 # LOAD PLUGINS FROM GITHUB
-zinit light wfxr/forgit
-zinit light zpm-zsh/clipboard
-zinit light b4b4r07/emoji-cli
-zinit light wookayin/fzf-fasd
-zinit light wakeful/zsh-packer
-zinit light zdharma/zsh-startify
+
+# start dashboard for the shell
+zinit light zdharma/zsh-startify                       \
+    && zstyle ":plugin:zsh-startify:vim"        size 5 \
+    && zstyle ":plugin:zsh-startify:shellutils" size 5
+    #&& bindkey "^A" zsh-startify
+
+# status line for the shell
 zinit light romkatv/powerlevel10k
+
+# colorize output using the grc command
 zinit light unixorn/warhol.plugin.zsh
+
+# suggest a command based on previous history
 zinit light zsh-users/zsh-autosuggestions
+
+# highlight syntax for shell
 zinit light zdharma/fast-syntax-highlighting
-zinit light zdharma/history-search-multi-word
+
+# alias reminder when you type a full command
 zinit light michaelaquilina/zsh-you-should-use
-# zinit light zsh-users/zsh-history-substring-search
 
-{{- if (eq .chezmoi.os "darwin") }}
-# LOAD MACOS SPECIFIC PLUGINS
-#zinit snippet OMZ::plugins/osx/osx.plugin.zsh
-zinit snippet OMZ::plugins/xcode/xcode.plugin.zsh
-zinit snippet OMZ::plugins/iterm2/iterm2.plugin.zsh
-{{- end }}
+# vim like key bindings
+# zinit light jeffreytse/zsh-vi-mode
 
-{{- if (eq .chezmoi.os "linux") }}
-# LOAD LINUX SPECIFIC PLUGINS
-zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
-{{- end }}
+zinit light aloxaf/fzf-tab
+
+# search a for a substring on history
+zinit light zsh-users/zsh-history-substring-search     \
+   && bindkey -M vicmd 'k' history-substring-search-up \
+   && bindkey -M vicmd 'j' history-substring-search-down
