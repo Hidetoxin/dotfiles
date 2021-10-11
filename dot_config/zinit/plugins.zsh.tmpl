@@ -3,32 +3,62 @@
 # LOAD PLUGINS FROM GITHUB
 
 # start dashboard for the shell
-zinit light zdharma/zsh-startify                       \
+zinit ice --lucid                                      \
+    && zinit light "zdharma/zsh-startify"              \
     && zstyle ":plugin:zsh-startify:vim"        size 5 \
-    && zstyle ":plugin:zsh-startify:shellutils" size 5
-    #&& bindkey "^A" zsh-startify
+    && zstyle ":plugin:zsh-startify:shellutils" size 5 \
+    && bindkey "^A" zsh-startify
+
+# git wrapper for fzf
+zinit ice --lucid --wait=0 --if="[ -n $(command -v git) ]" \
+    && zinit light "wfxr/forgit"                           \
+    && forgit_log="fglo"                                   \
+    && forgit_add="fga"                                    \
+    && forgit_diff="fgd"                                   \
+    && forgit_fixup="fgfu"                                 \
+    && forgit_clean="fgclean"                              \
+    && forgit_rebase="fgrb"                                \
+    && forgit_ignore="fgi"                                 \
+    && forgit_stash_show="fgss"                            \
+    && forgit_cherry_pick="fgcp"                           \
+    && forgit_reset_head="fgrh"                            \
+    && forgit_checkout_file="fgcf"                         \
+    && forgit_checkout_branch="fgcb"                       \
+    && forgit_checkout_commit="fgco"
+
+
+# use fzf for tab completion
+#zinit ice --lucid --if="[ -n $(command -v fzf) ]" \
+#    && zinit light "aloxaf/fzf-tab"
+
+# zinit
+#zinit ice --lucid --if="[ -n $(command -v fzf) ]" \
+#    && zinit light "b0o/zfzf"
 
 # status line for the shell
-zinit light romkatv/powerlevel10k
+zinit ice --lucid \
+ && zinit light "romkatv/powerlevel10k"
 
 # colorize output using the grc command
-zinit light unixorn/warhol.plugin.zsh
+zinit ice --lucid --wait=0 --if="[ -n $(command -v grc) ]" \
+    && zinit light "unixorn/warhol.plugin.zsh"
 
 # suggest a command based on previous history
-zinit light zsh-users/zsh-autosuggestions
+zinit ice --lucid \
+    && zinit light "zsh-users/zsh-autosuggestions"
 
 # highlight syntax for shell
-zinit light zdharma/fast-syntax-highlighting
+zinit ice --lucid \
+    && zinit light "zdharma/fast-syntax-highlighting"
+
+#zinit light "tarrasch/zsh-bd"
 
 # alias reminder when you type a full command
-zinit light michaelaquilina/zsh-you-should-use
+zinit ice --lucid \
+    && zinit light "michaelaquilina/zsh-you-should-use"
+
+#zinit light leophys/zsh-plugin-fzf-finder
 
 # vim like key bindings
-# zinit light jeffreytse/zsh-vi-mode
-
-zinit light aloxaf/fzf-tab
-
-# search a for a substring on history
-zinit light zsh-users/zsh-history-substring-search     \
-   && bindkey -M vicmd 'k' history-substring-search-up \
-   && bindkey -M vicmd 'j' history-substring-search-down
+#zinit ice --lucid \
+#    && zinit light "jeffreytse/zsh-vi-mode"
