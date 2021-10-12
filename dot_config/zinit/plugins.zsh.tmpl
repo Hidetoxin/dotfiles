@@ -2,12 +2,19 @@
 
 # LOAD PLUGINS FROM GITHUB
 
+zinit ice --lucid \
+    && zinit light "tarrasch/zsh-bd"
+
 # start dashboard for the shell
 zinit ice --lucid                                      \
     && zinit light "zdharma/zsh-startify"              \
     && zstyle ":plugin:zsh-startify:vim"        size 5 \
     && zstyle ":plugin:zsh-startify:shellutils" size 5 \
     && bindkey "^A" zsh-startify
+
+zinit ice --lucid \
+    && zinit light "zsh-users/zsh-completions"
+    zicompinit; zicdreplay  # fix fzf-tab
 
 # git wrapper for fzf
 zinit ice --lucid --wait=0 --if="[ -n $(command -v git) ]" \
@@ -26,14 +33,9 @@ zinit ice --lucid --wait=0 --if="[ -n $(command -v git) ]" \
     && forgit_checkout_branch="fgcb"                       \
     && forgit_checkout_commit="fgco"
 
-
 # use fzf for tab completion
-#zinit ice --lucid --if="[ -n $(command -v fzf) ]" \
-#    && zinit light "aloxaf/fzf-tab"
-
-# zinit
-#zinit ice --lucid --if="[ -n $(command -v fzf) ]" \
-#    && zinit light "b0o/zfzf"
+zinit ice --lucid --if="[ -n $(command -v fzf) ]" \
+    && zinit light "aloxaf/fzf-tab"
 
 # status line for the shell
 zinit ice --lucid \
@@ -51,14 +53,10 @@ zinit ice --lucid \
 zinit ice --lucid \
     && zinit light "zdharma/fast-syntax-highlighting"
 
-#zinit light "tarrasch/zsh-bd"
-
 # alias reminder when you type a full command
 zinit ice --lucid \
     && zinit light "michaelaquilina/zsh-you-should-use"
 
-#zinit light leophys/zsh-plugin-fzf-finder
-
 # vim like key bindings
-#zinit ice --lucid \
-#    && zinit light "jeffreytse/zsh-vi-mode"
+zinit ice --lucid \
+    && zinit light "jeffreytse/zsh-vi-mode"

@@ -111,8 +111,8 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
 
 [ -n "$(command -v mcfly)" ]                                           \
-    && debug_info "Initializing functions for 'macfly'"                \
-    && eval "$(mcfly init zsh)"                                        \
+    && debug_info "Initializing functions for 'mcfly'"                 \
+    && eval "$(mcfly init zsh | sed 's,\^R,^H,')"                      \
     && export MCFLY_FUZZY=true                                         \
     && debug_info "Exporting MCFLY_FUZZY='$MACFLY_FUZZY'"              \
     && export MCFLY_RESULTS=50                                         \

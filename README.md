@@ -20,7 +20,8 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>Alt</kbd> + <kbd>c</kbd>  | bring [fzf] to do a `cd`               |
 | <kbd>Ctrl</kbd> + <kbd>z</kbd> | switch app background / foreground     |
 | <kbd>Ctrl</kbd> + <kbd>g</kbd> | bring [navi] with [fzf]                |
-| <kbd>Ctrl</kbd> + <kbd>r</kbd> | bring `history` with [fzf]             |
+| <kbd>Ctrl</kbd> + <kbd>r</kbd> | bring `history` with [fzf]           |
+| <kbd>Ctrl</kbd> + <kbd>h</kbd> | bring `history` with [mcfly]           |
 | <kbd>Ctrl</kbd> + <kbd>t</kbd> | recent files using  [fzf]              |
 
 ### :green_book: VIM
@@ -166,29 +167,43 @@ This repository manages my configuration for the below *GUI* applications:
 This repository manages my configuration for the below *CLI* applications and
 plugins:
 
-* [fd] - faster `find` replacement written in [rust]
+* [sd] - better `sed` replacement written in [rust]
+* [fd] - better `find` replacement written in [rust]
+* [jq] - command-line JSON parser written in [c]
+* [xh] - better `curl` / `wget` replacement written in [rust]
 * [exa] - better `ls` replacement written in [rust]
+* [bat] - better `less` replacement written in [rust]
+* [dog] - better `dig` replacement written in [rust]
+* [duf] - disk usage utility written in [go]
 * [tpm] - `tmux` plugin manager
 * [aws] - tool for managing aws cloud
 * [fzf] - general-purpose command-line fuzzy finder written in [go]
 * [zsh] - better interactive shell and replacement for `bash`
 * [coc] - `vim` / `nvim` plugin for completion
 * [bat] - better `cat` replacement written in [rust]
+* [dust] - better `du` replacement written in [rust]
 * [navi] -  interactive cheat-sheet tool for the command-line
 * [tmux] - terminal multiplexer
 * [p10k] - `zsh` theme for prompt
 * [dein] - `vim` / `nvim` plugin manager
+* [cheat] - better `man` replacement written in [go]
+* [delta] - `git` / `diff` viewer written in [go]
+* [gping] - better `ping` replacement written in [rust]
+* [procs] - better `ps` replacement written in [rust]
 * [goenv] - virtual environment manager for [go]
 * [pyenv] - virtual environment manager for [python]
 * [rbenv] - virtual environment manager for [ruby]
 * [zinit] - `zsh` plugin manager
+* [mcfly] - `fzf` like tool for searching history written in [rust]
 * [neovim] - `vim` re-written replacement
-* [httpie] - `curl` / `wget` replacement written in [python]
+* [bottom] - better `top` replacement written in [rust]
+* [choose] - better `awk` / `cut` replacement written in [rust]
 * [gpg-tui] - `gpg` *TUI* front-end written in [rust]
 * [lazygit] - `git` *TUI* front-end written in [go]
 * [ripgrep] - better `grep` replacement written in [rust]
 * [chezmoi] - dot files manager utility written in [go]
 * [thefuck] - corrects errors in previous commands
+* [tealdeer] - better `man` replacement written in [rust]
 * [bitwarden] - tool for managing secrets
 * [aws-vault] - tool for fetching aws credentials using sso
 * [tmuxinator] - `tmux` session manager
@@ -199,37 +214,51 @@ plugins:
 * [taskwarrior-tui] - *TUI* front-end for [taskwarrior] written in [rust]
 
 [fd]: https://github.com/sharkdp/fd
+[sd]: https://github.com/chmln/sd
+[xh]: https://github.com/ducaale/xh
 [aws]: https://github.com/aws/aws-cli
+[bat]: https://github.com/sharkdp/bat
+[dog]: https://github.com/ogham/dog
+[duf]: https://github.com/muesli/duf
 [exa]: https://github.com/ogham/exa
 [tpm]: https://github.com/tmux-plugins/tpm
 [fzf]: https://github.com/junegunn/fzf
 [zsh]: https://github.com/ohmyzsh/ohmyzsh
 [coc]: https://github.com/neoclide/coc.nvim
 [bat]: https://github.com/sharkdp/bat
+[dust]: https://github.com/bootandy/dust
 [dein]: https://github.com/Shougo/dein.vim
 [navi]: https://github.com/denisidoro/navi
 [tmux]: https://github.com/tmux/tmux
 [p10k]: https://github.com/romkatv/powerlevel10k
-[goenv]:https://github.com/syndbg/goenv
+[cheat]: https://github.com/cheat/cheat
+[delta]: https://github.com/dandavison/delta
+[gping]: https://github.com/orf/gping
+[goenv]: https://github.com/syndbg/goenv
 [rbenv]: https://github.com/rbenv/rbenv
 [pyenv]: https://github.com/pyenv/pyenv
 [zinit]: https://github.com/zdharma/zinit
+[mcfly]: https://github.com/cantino/mcfly
+[procs]: https://github.com/dalance/procs
+[choose]: https://github.com/theryangeary/choose
+[bottom]: https://github.com/https://github.com/ClementTsang/bottom
 [neovim]: https://github.com/neovim/neovim
-[httpie]: https://github.com/httpie/httpie
+[zoxide]: https://github.com/ajeetdsouza/zoxide
 [gpg-tui]: https://github.com/orhun/gpg-tui
 [lazygit]: https://github.com/jesseduffield/lazygit
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [chezmoi]: https://github.com/twpayne/chezmoi
 [thefuck]: https://github.com/nvbn/thefuck
+[tealdeer]: https://github.com/dbrgn/tealdeer
 [aws-vault]: https://github.com/99designs/aws-vault
 [bitwarden]: https://github.com/bitwarden/cli
+[commitizen]: https://github.com/commitizen/cz-cli
+[pre-commit]: https://github.com/pre-commit/pre-commit
 [tmuxinator]: https://github.com/tmuxinator/tmuxinator
 [spotify-tui]: https://github.com/Rigellute/spotify-tui
 [timewarrior]: https://github.com/GothenburgBitFactory/timewarrior
 [taskwarrior]: https://github.com/GothenburgBitFactory/taskwarrior
 [taskwarrior-tui]: https://github.com/kdheepak/taskwarrior-tui
-[pre-commit]: https://github.com/pre-commit/pre-commit
-[commitizen]: https://github.com/commitizen/cz-cli
 
 ## :thought_balloon: INSPIRATION
 
