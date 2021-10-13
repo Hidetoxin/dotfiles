@@ -43,26 +43,32 @@ chezmoi init hidetoxin/dotfiles
 
 ### :desktop_computer: TMUX
 
-| Key Combination                          | Key Effect                           |
-|------------------------------------------|--------------------------------------|
-| <kbd>`</kbd>                             | [tmux] <kbd>prefix</kbd> key         |
-| <kbd>prefix</kbd> + <kbd>d</kbd>         | detach from current session          |
-| <kbd>prefix</kbd> + <kbd>x</kbd>         | close current pane                   |
-| <kbd>prefix</kbd> + <kbd>n</kbd>         | go to next pane                      |
-| <kbd>prefix</kbd> + <kbd>c</kbd>         | create a new window                  |
-| <kbd>prefix</kbd> + <kbd>s</kbd>         | select a session                     |
-| <kbd>prefix</kbd> + <kbd>z</kbd>         | zoom in current pane                 |
-| <kbd>prefix</kbd> + <kbd>u</kbd>         | bring [bitwarden] in a [fzf] pane    |
-| <kbd>prefix</kbd> + <kbd>h</kbd>         | go to pane on the right              |
-| <kbd>prefix</kbd> + <kbd>j</kbd>         | go to pane on the bottom             |
-| <kbd>prefix</kbd> + <kbd>k</kbd>         | go to pane on the top                |
-| <kbd>prefix</kbd> + <kbd>l</kbd>         | go to pane on the left               |
-| <kbd>prefix</kbd> + <kbd>I</kbd>         | install [tpm] plugin manager         |
-| <kbd>prefix</kbd> + <kbd>U</kbd>         | update [tpm] managed plugins         |
-| <kbd>prefix</kbd> + <kbd>\|</kbd>        | split pane vertically                |
-| <kbd>prefix</kbd> + <kbd>-</kbd>         | split pane horizontally              |
-| <kbd>prefix</kbd> + <kbd>Tab</kbd>       | toggle sidebar with `tree`           |
-| <kbd>prefix</kbd> + <kbd>Backspace</kbd> | toggle sidebar with `tree` and focus |
+| Key Combination                              | Key Effect                                         |
+|----------------------------------------------|----------------------------------------------------|
+| <kbd>`</kbd>                                 | [tmux] <kbd>prefix</kbd> key                       |
+| <kbd>prefix</kbd> + <kbd>d</kbd>             | detach from current session                        |
+| <kbd>prefix</kbd> + <kbd>x</kbd>             | close current pane                                 |
+| <kbd>prefix</kbd> + <kbd>n</kbd>             | go to next pane                                    |
+| <kbd>prefix</kbd> + <kbd>c</kbd>             | create a new window                                |
+| <kbd>prefix</kbd> + <kbd>s</kbd>             | select a session                                   |
+| <kbd>prefix</kbd> + <kbd>z</kbd>             | zoom in current pane                               |
+| <kbd>prefix</kbd> + <kbd>u</kbd>             | bring [bitwarden] in a [fzf] pane                  |
+| <kbd>prefix</kbd> + <kbd>h</kbd>             | go to pane on the right                            |
+| <kbd>prefix</kbd> + <kbd>j</kbd>             | go to pane on the bottom                           |
+| <kbd>prefix</kbd> + <kbd>k</kbd>             | go to pane on the top                              |
+| <kbd>prefix</kbd> + <kbd>l</kbd>             | go to pane on the left                             |
+| <kbd>prefix</kbd> + <kbd>I</kbd>             | install [tpm] plugin manager                       |
+| <kbd>prefix</kbd> + <kbd>F</kbd>             | open [fzf] on a pop-up to search the [tmux] buffer |
+| <kbd>prefix</kbd> + <kbd>U</kbd>             | update [tpm] managed plugins                       |
+| <kbd>prefix</kbd> + <kbd>\|</kbd>            | split pane vertically                              |
+| <kbd>prefix</kbd> + <kbd>-</kbd>             | split pane horizontally                            |
+| <kbd>prefix</kbd> + <kbd>Tab</kbd>           | toggle sidebar with `tree`                         |
+| <kbd>prefix</kbd> + <kbd>Backspace</kbd>     | toggle sidebar with `tree` and focus               |
+| <kbd>prefix</kbd> + <kbd>[</kbd>             | start `copy-mode`                                  |
+| `copy-mode` + <kbd>o</kbd>                   | open selected text                                 |
+| `copy-mode` + <kbd>S</kbd>                   | open selected text on `$EDITOR`                    |
+| `copy-mode` + <kbd>Ctrl</kbd> + <kbd>o</kbd> | search selected text on DuckDuckGo                 |
+| `copy-mode` + <kbd>Space</kbd>               | start selecting text to yank                       |
 
 ### :japanese_ogre: YABAI
 
