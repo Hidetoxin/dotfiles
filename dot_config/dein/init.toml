@@ -4,48 +4,64 @@
 
 [[plugins]]  # plugin manager
 repo       = "shougo/dein.vim"
+depends_on = []
+hook_add   = """
+"""
 
 [[plugins]]  # plugin manager tui
 repo       = "wsdjeg/dein-ui.vim"
 depends_on = ["shougo/dein.vim"]
+hook_add   = """
+"""
 
 [[plugins]]  # linter for lsp
 repo     = "neoclide/coc.nvim"
+depends_on = []
 hook_add = """
     let g:coc_global_extensions = [
-    \ 'coc-go',
-    \ 'coc-sh',
-    \ 'coc-git',
-    \ 'coc-java',
-    \ 'coc-toml',
-    \ 'coc-yaml',
-    \ 'coc-pyright',
-    \ 'coc-floaterm',
-    \ 'coc-highlight',
-    \ 'coc-fzf-preview'
+    \ "coc-go",
+    \ "coc-sh",
+    \ "coc-git",
+    \ "coc-java",
+    \ "coc-toml",
+    \ "coc-yaml",
+    \ "coc-pyright",
+    \ "coc-floaterm",
+    \ "coc-highlight",
+    \ "coc-fzf-preview"
     \ ]
 """
 
 [[plugins]]  # linter for lsp
 repo       = "dense-analysis/ale"
+depends_on = []
 hook_add   = """
     let g:ale_linters              = {
     \ 'go': [],
     \ 'python': ['flake8']
     \ }
     let g:ale_lint_on_enter        = 1
-    let g:ale_lint_on_text_changed = 'never'
+    let g:ale_lint_on_text_changed = "never"
 """
 
 [[plugins]]  # nvim-telescope/telescope.nvim
 repo       = "nvim-lua/popup.nvim"
+depends_on = []
+hook_add   = """
+"""
 
-[[plugins]]  # nvim-telescope/telescope.nvim
-repo       = "nvim-lua/plenary.nvim"
+# [[plugins]]  # lua library for vim
+# repo       = "nvim-lua/plenary.nvim"
+# depends_on = []
+# hook_add   = """
+# """
 
 [[plugins]]  # nvim-telescope/telescope.nvim
 repo       = "nvim-telescope/telescope-fzf-native.nvim"
 build      = "make"
+depends_on = []
+hook_add   = """
+"""
 
 [[plugins]]  # fuzzy finder for nvim
 repo       = "nvim-telescope/telescope.nvim"
@@ -63,6 +79,7 @@ hook_add   = """
 
 [[plugins]]  # floating terinal inside vim
 repo       = "voldikss/vim-floaterm"
+depends_on = []
 hook_add   = """
     hi Floaterm guibg=black
     hi FloatermBorder guibg=gray guifg=green
@@ -75,29 +92,53 @@ hook_add   = """
 [[plugins]]  # lsp and tag viewer
 repo       = "liuchengxu/vista.vim"
 depends_on = []
-hook_add   = ""
+hook_add   = """
+    let g:vista#extensions           = ["go", "python", "markdown"]
+    let g:vista#renderer#icons       = {
+    \   "function": "\uf794",
+    \   "variable": "\uf71b",
+    \  }
+    let g:vista_icon_indent          = ["╰─▸ ", "├─▸ "]
+    let g:vista_fold_toggle_icons    = ["▼", "▶"]
+    let g:vista_default_executive    = "ctags"
+    let g:vista#renderer#enable_icon = 1
+    nnoremap <leader>vv :Vista!!<CR>
+"""
 
-[[plugins]]  # git wrapper for vim
+[[plugins]]  # vim wrapper for some cli commands
+repo       = "tpope/vim-eunuch"
+depends_on = []
+hook_add   = """
+"""
+
+[[plugins]]  # vim wrapper for git
 repo       = "tpope/vim-fugitive"
 depends_on = []
-hook_add   = ""
+hook_add   = """
+"""
+[[plugins]]  # surround text objects
+
+repo       = "tpope/vim-surround"
+depends_on = []
+hook_add   = """
+"""
 
 [[plugins]]  # smooth scrolling
 repo       = "karb94/neoscroll.nvim"
 depends_on = []
-hook_add   = ""
+hook_add   = """
+"""
 
 [[plugins]]  # show minimap
 repo       = "wfxr/minimap.vim"
 depends_on = []
 hook_add   = """
-    nnoremap <leader>mt :MinimapToggle
-
     let g:minimap_width                = 10
     let g:minimap_git_colors           = 1
     let g:minimap_auto_start           = 0
     let g:minimap_highlight_search     = 1
     let g:minimap_auto_start_win_enter = 0
+    nnoremap <leader>mm :MinimapToggle<CR>
 """
 
 [[plugins]]  # quickly comment and un-comment
@@ -113,11 +154,11 @@ depends_on = []
 hook_add   = """
 """
 
-# [[plugins]]  #  quickly traverse the buffer
-# repo       = "easymotion/vim-easymotion"
-# depends_on = []
-# hook_add   = """
-# """
+[[plugins]]  #  quickly traverse the buffer
+repo       = "easymotion/vim-easymotion"
+depends_on = []
+hook_add   = """
+"""
 
 [[plugins]]  #  highlight all pattern matches in easymotion
 repo       = "haya14busa/incsearch-easymotion.vim"
@@ -141,13 +182,14 @@ hook_add   = """
 repo       = "yggdroot/indentline"
 depends_on = []
 hook_add   = """
-    let g:indentline_char_list = ['|', '¦', '┆', '┊']
+    let g:indentline_char_list = ["|", "¦", "┆", "┊"]
 """
 
 # [[plugins]]  # highlight parentheses
 # repo       = "p00f/nvim-ts-rainbow"
 # depends_on = []
 # hook_add   = """
+# """
 # """
 
 [[plugins]]  # highlight yanked text
@@ -157,26 +199,32 @@ hook_add   = """
     let g:highlightedyank_highlight_duration = -1
 """
 
+# [[plugins]]  # vim tree explorer
+# repo       = "kyazdani42/nvim-tree.lua"
+# depends_on = ["kyazdani42/nvim-web-devicons"]
+# hook_add   = """
+    # lua << EOF
+    # require("bufferline").setup{}
+    # EOF
+# """
+
 [[plugins]]  # nerdfonts icons for vim
 repo       = "kyazdani42/nvim-web-devicons"
 depends_on = []
-hook_add   = ""
+hook_add   = """
+"""
 
 [[plugins]]  # gray out inactive windows
 repo       = "blueyed/vim-diminactive"
 depends_on = []
-hook_add   = ""
-
-# [[plugins]]  # tab line
-# repo       = "akinsho/nvim-bufferline.lua"
-# depends_on = []
-# hook_add   = ""
+hook_add   = """
+"""
 
 [[plugins]]  # status line
 repo       = "vim-airline/vim-airline"
 depends_on = ["sainnhe/gruvbox-material"]
 hook_add   = """
-    let g:airline_theme           = 'gruvbox_material'
+    let g:airline_theme           = "gruvbox_material"
     let g:airline_powerline_fonts = 1
 """
 
@@ -193,8 +241,68 @@ hook_add   = """
 repo       = "sainnhe/gruvbox-material"
 depends_on = []
 hook_add   = """
-    let g:gruvbox_material_visual                = 'reverse'
-    let g:gruvbox_material_background            = 'medium'
+    let g:gruvbox_material_visual                = "reverse"
+    let g:gruvbox_material_background            = "medium"
     let g:gruvbox_material_enable_bold           = 1
     let g:gruvbox_material_enable_italic_comment = 1
 """
+
+# [[plugins]]  # tab line
+# repo       = "akinsho/nvim-bufferline.lua"
+# depends_on = []
+# hook_add   = """
+# """
+
+# [[plugins]]  # show tabs for open buffers
+# repo       = "akinsho/bufferline.nvim"
+# depends_on = ["kyazdani42/nvim-web-devicons"]
+# hook_add   = """
+    # set termguicolors
+    # lua << EOF
+    # require("bufferline").setup{}
+    # EOF
+# """
+
+[[plugins]]  # show git blame on buffer
+repo       = "f-person/git-blame.nvim"
+depends_on = []
+hook_add   = """
+    let g:gitblame_enabled          = 0
+    let g:gitblame_date_format      = "%r"
+    let g:gitblame_highlight_group  = "Comment"
+    let g:gitblame_message_template = "<summary> • <date> • <author> • <sha>"
+"""
+
+# [[plugins]]  # show git changes on buffer
+# repo       = "lewis6991/gitsigns.nvim"
+# depends_on = ["nvim-lua/plenary.nvim"]
+# hook_add   = """
+# """
+
+# [[plugins]]  # highlight todo comments
+# repo       = "folke/todo-comments.nvim"
+# depends_on = ["nvim-lua/plenary.nvim"]
+# hook_add   = """
+# """
+
+[[plugins]]  # show relative numbers
+repo       = "myusuf3/numbers.vim"
+depends_on = []
+hook_add   = """
+    nnoremap <leader>nn :NumbersOnOff<CR>
+    nnoremap <leader>nt :NumbersToggle<CR>
+"""
+
+[[plugins]]  # use nvim on a web-browser
+repo       = "glacambre/firenvim"
+depends_on = []
+hook_add   = """
+"""
+
+# [[plugins]]  # use himalaya mail inside vim
+# repo       = "soywod/himalaya"
+# depends_on = []
+# hook_add   = """
+#     let g:himalaya_mailbox_picker            = "telescope"
+#     let g:himalaya_telescope_preview_enabled = 1
+# """
