@@ -31,16 +31,28 @@
   [data.user]
     name   = "Fernando Becerra Méndez"
     {{- if eq $computer "work" }}
-    email  = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
-    gpgkey = "{{ (bitwardenFields "item" "f6aeac99-7e35-4ff3-b636-ad400135d016").PublicKey.value }}"
+    email           = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
+    gpg_id          = "{{ (bitwardenFields "item" "f6aeac99-7e35-4ff3-b636-ad400135d016").PublicKey.value }}"
     {{- else }}
-    email  = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
-    gpgkey = "{{ (bitwardenFields "item" "078a43c0-9c30-4dd5-99f8-ad400179dea7").PublicKey.value }}"
+    email           = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
+    gpg_id          = "{{ (bitwardenFields "item" "078a43c0-9c30-4dd5-99f8-ad400179dea7").PublicKey.value }}"
     {{- end }}
+
+  [data.rclone]
+    webdav_url       = "{{ (index (bitwarden "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").login.uris 1).uri }}"
+    webdav_username  = "{{ (bitwarden "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").login.username }}"
+    webdav_password  = "{{ (bitwardenFields "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").Webdav.value }}"
 
   [data.spotify]
     client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
     client_secret = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientSecret.value }}"
+
+  [data.himalaya]
+    email = "{{ (bitwardenFields "item" "ec5a2a8c-7501-4093-9679-acde006f6539").Email.value }}"
+
+  [data.newsboat]
+    username = "{{ (bitwarden "item" "a0d9f1a9-d191-4552-ac5d-ad530003310d").login.username }}"
+    password = "{{ (bitwarden "item" "a0d9f1a9-d191-4552-ac5d-ad530003310d").login.password }}"
 
   [data.jenkins]
     username      = "{{ (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.username }}"

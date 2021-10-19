@@ -1,11 +1,13 @@
 # vim: syntax=gitconfig
 
+[ghq]
+    root = "~/Code"
 [gpg]
     program = "gpg2"
 [user]
     name       = "{{ .user.name }}"
     email      = "{{ .user.email }}"
-    signingkey = "{{ .user.gpgkey }}"
+    signingkey = "{{ .user.gpg_id }}"
 [core]
     pager  = "delta"
     editor = "nvim"

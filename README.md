@@ -21,47 +21,59 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>Ctrl</kbd> + <kbd>z</kbd> | switch app background / foreground     |
 | <kbd>Ctrl</kbd> + <kbd>g</kbd> | bring [navi] with [fzf]                |
 | <kbd>Ctrl</kbd> + <kbd>r</kbd> | bring `history` with [fzf]             |
+| <kbd>Ctrl</kbd> + <kbd>h</kbd> | bring `history` with [mcfly]           |
 | <kbd>Ctrl</kbd> + <kbd>t</kbd> | recent files using  [fzf]              |
 
 ### :green_book: VIM
 
-| Key Combination                                            | Key Effect                             |
-|------------------------------------------------------------|----------------------------------------|
-| <kbd>,</kbd>                                               | [neovim] <kbd>leader</kbd> key         |
-| <kbd>leader</kbd> + <kbd>c</kbd> <kbd>i</kbd>              | toggle comments                        |
-| <kbd>leader</kbd> + <kbd>c</kbd> <kbd>c</kbd>              | comment selected lines                 |
-| <kbd>F12</kbd>                                             | toggle float term                      |
-| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>t</kbd>              | launch a float term pane               |
-| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>t</kbd> <kbd>n</kbd> | launch a new float term pane           |
-| <kbd>leader</kbd> + <kbd>Enter</kbd>                       | open buffer selected with [fzf]        |
-| <kbd>leader</kbd> + <kbd>f</kbd>                           | open file on current folder with [fzf] |
-| <kbd>leader</kbd> + <kbd>g</kbd> <kbd>f</kbd>              | open file on current `git` repository  |
-| <kbd>leader</kbd> + <kbd>h</kbd> <kbd>h</kbd>              | open file from `history`               |
-| <kbd>leader</kbd> + <kbd>l</kbd> <kbd>i</kbd>              | go to line selected with [fzf]         |
-| <kbd>leader</kbd> + <kbd>r</kbd> <kbd>g</kbd>              | search using [ripgrep] with [fzf]      |
+| Key Combination                                            | Key Effect                                              |
+|------------------------------------------------------------|---------------------------------------------------------|
+| <kbd>,</kbd>                                               | [neovim] <kbd>leader</kbd> key                          |
+| <kbd>leader</kbd> + <kbd>c</kbd> <kbd>i</kbd>              | toggle comments                                         |
+| <kbd>leader</kbd> + <kbd>c</kbd> <kbd>c</kbd>              | comment selected lines                                  |
+| <kbd>F12</kbd>                                             | toggle float term                                       |
+| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>t</kbd>              | launch a float term pane                                |
+| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>t</kbd> <kbd>n</kbd> | launch a new float term pane                            |
+| <kbd>leader</kbd> + <kbd>Enter</kbd>                       | open buffer selected with `Telescope`                   |
+| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>f</kbd>              | open files on current folder with `Telescope`           |
+| <kbd>leader</kbd> + <kbd>g</kbd> <kbd>f</kbd>              | open files on current `git` repository with `Telescope` |
+| <kbd>leader</kbd> + <kbd>r</kbd> <kbd>g</kbd>              | search using [ripgrep] with `Telescope`                 |
+| <kbd>leader</kbd> + <kbd>m</kbd> <kbd>m</kbd>              | toggle [minimap] on a new tab                           |
+| <kbd>leader</kbd> + <kbd>v</kbd> <kbd>v</kbd>              | toggle `Vista` on a new tab                             |
+| <kbd>leader</kbd> + <kbd>n</kbd> <kbd>t</kbd>              | toggle numbers from `Numbers`                           |
+| <kbd>leader</kbd> + <kbd>n</kbd> <kbd>n</kbd>              | disable numbers from `Numbers`                          |
+| <kbd>leader</kbd> <kbd>leader</kbd> + <kbd>w</kbd>         | move to word on `EasyMotion`                            |
+| <kbd>leader</kbd> <kbd>leader</kbd> + <kbd>k</kbd>         | move to line forward on `EasyMotion`                    |
+| <kbd>leader</kbd> <kbd>leader</kbd> + <kbd>j</kbd>         | move to line downward on `EasyMotion`                   |
 
 ### :desktop_computer: TMUX
 
-| Key Combination                          | Key Effect                           |
-|------------------------------------------|--------------------------------------|
-| <kbd>`</kbd>                             | [tmux] <kbd>prefix</kbd> key         |
-| <kbd>prefix</kbd> + <kbd>d</kbd>         | detach from current session          |
-| <kbd>prefix</kbd> + <kbd>x</kbd>         | close current pane                   |
-| <kbd>prefix</kbd> + <kbd>n</kbd>         | go to next pane                      |
-| <kbd>prefix</kbd> + <kbd>c</kbd>         | create a new window                  |
-| <kbd>prefix</kbd> + <kbd>s</kbd>         | select a session                     |
-| <kbd>prefix</kbd> + <kbd>z</kbd>         | zoom in current pane                 |
-| <kbd>prefix</kbd> + <kbd>u</kbd>         | bring [bitwarden] in a [fzf] pane    |
-| <kbd>prefix</kbd> + <kbd>h</kbd>         | go to pane on the right              |
-| <kbd>prefix</kbd> + <kbd>j</kbd>         | go to pane on the bottom             |
-| <kbd>prefix</kbd> + <kbd>k</kbd>         | go to pane on the top                |
-| <kbd>prefix</kbd> + <kbd>l</kbd>         | go to pane on the left               |
-| <kbd>prefix</kbd> + <kbd>I</kbd>         | install [tpm] plugin manager         |
-| <kbd>prefix</kbd> + <kbd>U</kbd>         | update [tpm] managed plugins         |
-| <kbd>prefix</kbd> + <kbd>\|</kbd>        | split pane vertically                |
-| <kbd>prefix</kbd> + <kbd>-</kbd>         | split pane horizontally              |
-| <kbd>prefix</kbd> + <kbd>Tab</kbd>       | toggle sidebar with `tree`           |
-| <kbd>prefix</kbd> + <kbd>Backspace</kbd> | toggle sidebar with `tree` and focus |
+| Key Combination                              | Key Effect                                         |
+|----------------------------------------------|----------------------------------------------------|
+| <kbd>\`</kbd>                                | [tmux] <kbd>prefix</kbd> key                       |
+| <kbd>prefix</kbd> + <kbd>d</kbd>             | detach from current session                        |
+| <kbd>prefix</kbd> + <kbd>x</kbd>             | close current pane                                 |
+| <kbd>prefix</kbd> + <kbd>n</kbd>             | go to next pane                                    |
+| <kbd>prefix</kbd> + <kbd>c</kbd>             | create a new window                                |
+| <kbd>prefix</kbd> + <kbd>s</kbd>             | select a session                                   |
+| <kbd>prefix</kbd> + <kbd>z</kbd>             | zoom in current pane                               |
+| <kbd>prefix</kbd> + <kbd>u</kbd>             | bring [bitwarden] in a [fzf] pane                  |
+| <kbd>prefix</kbd> + <kbd>h</kbd>             | go to pane on the right                            |
+| <kbd>prefix</kbd> + <kbd>j</kbd>             | go to pane on the bottom                           |
+| <kbd>prefix</kbd> + <kbd>k</kbd>             | go to pane on the top                              |
+| <kbd>prefix</kbd> + <kbd>l</kbd>             | go to pane on the left                             |
+| <kbd>prefix</kbd> + <kbd>I</kbd>             | install [tpm] plugin manager                       |
+| <kbd>prefix</kbd> + <kbd>F</kbd>             | open [fzf] on a pop-up to search the [tmux] buffer |
+| <kbd>prefix</kbd> + <kbd>U</kbd>             | update [tpm] managed plugins                       |
+| <kbd>prefix</kbd> + <kbd>\|</kbd>            | split pane vertically                              |
+| <kbd>prefix</kbd> + <kbd>-</kbd>             | split pane horizontally                            |
+| <kbd>prefix</kbd> + <kbd>Tab</kbd>           | toggle sidebar with `tree`                         |
+| <kbd>prefix</kbd> + <kbd>Backspace</kbd>     | toggle sidebar with `tree` and focus               |
+| <kbd>prefix</kbd> + <kbd>[</kbd>             | start `copy-mode`                                  |
+| `copy-mode` + <kbd>o</kbd>                   | open selected text                                 |
+| `copy-mode` + <kbd>S</kbd>                   | open selected text on `$EDITOR`                    |
+| `copy-mode` + <kbd>Ctrl</kbd> + <kbd>o</kbd> | search selected text on DuckDuckGo                 |
+| `copy-mode` + <kbd>Space</kbd>               | start selecting text to yank                       |
 
 ### :japanese_ogre: YABAI
 
@@ -96,8 +108,8 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>swap</kbd> + <kbd>k</kbd>                                         | swap window to the top                      |
 | <kbd>swap</kbd> + <kbd>l</kbd>                                         | swap window to the right                    |
 | <kbd>swap</kbd> + <kbd>a</kbd>                                         | rotate window around                        |
-| <kbd>swap</kbd> + <kbd>x</kbd>                                         | rotate window on *x* axis                   |
-| <kbd>swap</kbd> + <kbd>y</kbd>                                         | rotate window on *y* axis                   |
+| <kbd>swap</kbd> + <kbd>x</kbd>                                         | rotate window on *x* axis                     |
+| <kbd>swap</kbd> + <kbd>y</kbd>                                         | rotate window on *y* axis                     |
 | <kbd>warp</kbd> + <kbd>h</kbd>                                         | warp window to the left                     |
 | <kbd>warp</kbd> + <kbd>j</kbd>                                         | warp window to the bottom                   |
 | <kbd>warp</kbd> + <kbd>k</kbd>                                         | warp window to the top                      |
@@ -166,29 +178,45 @@ This repository manages my configuration for the below *GUI* applications:
 This repository manages my configuration for the below *CLI* applications and
 plugins:
 
-* [fd] - faster `find` replacement written in [rust]
+* [sd] - better `sed` replacement written in [rust]
+* [fd] - better `find` replacement written in [rust]
+* [jq] - command-line JSON parser written in [c]
+* [xh] - better `curl` / `wget` replacement written in [rust]
 * [exa] - better `ls` replacement written in [rust]
+* [bat] - better `less` replacement written in [rust]
+* [dog] - better `dig` replacement written in [rust]
+* [duf] - disk usage utility written in [go]
 * [tpm] - `tmux` plugin manager
 * [aws] - tool for managing aws cloud
-* [fzf] - general-purpose command-line fuzzy finder written in [go]
+* [fzf] - general-purpose command-line fuzzy finder written in [go
 * [zsh] - better interactive shell and replacement for `bash`
 * [coc] - `vim` / `nvim` plugin for completion
 * [bat] - better `cat` replacement written in [rust]
+* [dust] - better `du` replacement written in [rust]
 * [navi] -  interactive cheat-sheet tool for the command-line
 * [tmux] - terminal multiplexer
 * [p10k] - `zsh` theme for prompt
 * [dein] - `vim` / `nvim` plugin manager
+* [cheat] - better `man` replacement written in [go]
+* [delta] - `git` / `diff` viewer written in [go]
+* [gping] - better `ping` replacement written in [rust]
+* [procs] - better `ps` replacement written in [rust]
 * [goenv] - virtual environment manager for [go]
 * [pyenv] - virtual environment manager for [python]
 * [rbenv] - virtual environment manager for [ruby]
 * [zinit] - `zsh` plugin manager
+* [vivid] - tool for setting-up `ls` colors
+* [mcfly] - `fzf` like tool for searching history written in [rust]
 * [neovim] - `vim` re-written replacement
-* [httpie] - `curl` / `wget` replacement written in [python]
+* [bottom] - better `top` replacement written in [rust]
+* [choose] - better `awk` / `cut` replacement written in [rust]
 * [gpg-tui] - `gpg` *TUI* front-end written in [rust]
 * [lazygit] - `git` *TUI* front-end written in [go]
+* [minimap] - `vscode` like minimap for `nvim` written in [rust]
 * [ripgrep] - better `grep` replacement written in [rust]
 * [chezmoi] - dot files manager utility written in [go]
 * [thefuck] - corrects errors in previous commands
+* [tealdeer] - better `man` replacement written in [rust]
 * [bitwarden] - tool for managing secrets
 * [aws-vault] - tool for fetching aws credentials using sso
 * [tmuxinator] - `tmux` session manager
@@ -198,38 +226,55 @@ plugins:
 * [taskwarrior] - task management utility
 * [taskwarrior-tui] - *TUI* front-end for [taskwarrior] written in [rust]
 
+[sd]: https://github.com/chmln/sd
+[xh]: https://github.com/ducaale/xh
 [fd]: https://github.com/sharkdp/fd
+[jq]: https://github.com/stedolan/jq
 [aws]: https://github.com/aws/aws-cli
+[bat]: https://github.com/sharkdp/bat
+[dog]: https://github.com/ogham/dog
+[duf]: https://github.com/muesli/duf
 [exa]: https://github.com/ogham/exa
 [tpm]: https://github.com/tmux-plugins/tpm
 [fzf]: https://github.com/junegunn/fzf
 [zsh]: https://github.com/ohmyzsh/ohmyzsh
 [coc]: https://github.com/neoclide/coc.nvim
 [bat]: https://github.com/sharkdp/bat
+[dust]: https://github.com/bootandy/dust
 [dein]: https://github.com/Shougo/dein.vim
 [navi]: https://github.com/denisidoro/navi
 [tmux]: https://github.com/tmux/tmux
 [p10k]: https://github.com/romkatv/powerlevel10k
-[goenv]:https://github.com/syndbg/goenv
+[cheat]: https://github.com/cheat/cheat
+[delta]: https://github.com/dandavison/delta
+[gping]: https://github.com/orf/gping
+[goenv]: https://github.com/syndbg/goenv
 [rbenv]: https://github.com/rbenv/rbenv
 [pyenv]: https://github.com/pyenv/pyenv
 [zinit]: https://github.com/zdharma/zinit
+[vivid]: https://github.com/sharkdp/vivid
+[mcfly]: https://github.com/cantino/mcfly
+[procs]: https://github.com/dalance/procs
+[choose]: https://github.com/theryangeary/choose
+[bottom]: https://github.com/https://github.com/ClementTsang/bottom
 [neovim]: https://github.com/neovim/neovim
-[httpie]: https://github.com/httpie/httpie
+[zoxide]: https://github.com/ajeetdsouza/zoxide
 [gpg-tui]: https://github.com/orhun/gpg-tui
+[minimap]: https://github.com/wfxr/code-minimap
 [lazygit]: https://github.com/jesseduffield/lazygit
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [chezmoi]: https://github.com/twpayne/chezmoi
 [thefuck]: https://github.com/nvbn/thefuck
+[tealdeer]: https://github.com/dbrgn/tealdeer
 [aws-vault]: https://github.com/99designs/aws-vault
 [bitwarden]: https://github.com/bitwarden/cli
+[commitizen]: https://github.com/commitizen/cz-cli
+[pre-commit]: https://github.com/pre-commit/pre-commit
 [tmuxinator]: https://github.com/tmuxinator/tmuxinator
 [spotify-tui]: https://github.com/Rigellute/spotify-tui
 [timewarrior]: https://github.com/GothenburgBitFactory/timewarrior
 [taskwarrior]: https://github.com/GothenburgBitFactory/taskwarrior
 [taskwarrior-tui]: https://github.com/kdheepak/taskwarrior-tui
-[pre-commit]: https://github.com/pre-commit/pre-commit
-[commitizen]: https://github.com/commitizen/cz-cli
 
 ## :thought_balloon: INSPIRATION
 

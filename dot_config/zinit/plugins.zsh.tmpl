@@ -1,28 +1,62 @@
-# vim: syntax=zsh
+# vim: syntax=sh
 
 # LOAD PLUGINS FROM GITHUB
-zinit light wfxr/forgit
-zinit light zpm-zsh/clipboard
-zinit light b4b4r07/emoji-cli
-zinit light wookayin/fzf-fasd
-zinit light wakeful/zsh-packer
-zinit light zdharma/zsh-startify
-zinit light romkatv/powerlevel10k
-zinit light unixorn/warhol.plugin.zsh
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
-zinit light zdharma/history-search-multi-word
-zinit light michaelaquilina/zsh-you-should-use
-# zinit light zsh-users/zsh-history-substring-search
 
-{{- if (eq .chezmoi.os "darwin") }}
-# LOAD MACOS SPECIFIC PLUGINS
-#zinit snippet OMZ::plugins/osx/osx.plugin.zsh
-zinit snippet OMZ::plugins/xcode/xcode.plugin.zsh
-zinit snippet OMZ::plugins/iterm2/iterm2.plugin.zsh
-{{- end }}
+zinit ice --lucid \
+    && zinit light "tarrasch/zsh-bd"
 
-{{- if (eq .chezmoi.os "linux") }}
-# LOAD LINUX SPECIFIC PLUGINS
-zinit snippet OMZ::plugins/ssh-agent/ssh-agent.plugin.zsh
-{{- end }}
+# start dashboard for the shell
+zinit ice --lucid                                      \
+    && zinit light "zdharma/zsh-startify"              \
+    && zstyle ":plugin:zsh-startify:vim"        size 5 \
+    && zstyle ":plugin:zsh-startify:shellutils" size 5 \
+    && bindkey "^A" zsh-startify
+
+zinit ice --lucid \
+    && zinit light "zsh-users/zsh-completions"
+    zicompinit; zicdreplay  # fix fzf-tab
+
+# git wrapper for fzf
+zinit ice --lucid --wait=0 --if="[ -n $(command -v git) ]" \
+    && zinit light "wfxr/forgit"                           \
+    && forgit_log="fglo"                                   \
+    && forgit_add="fga"                                    \
+    && forgit_diff="fgd"                                   \
+    && forgit_fixup="fgfu"                                 \
+    && forgit_clean="fgclean"                              \
+    && forgit_rebase="fgrb"                                \
+    && forgit_ignore="fgi"                                 \
+    && forgit_stash_show="fgss"                            \
+    && forgit_cherry_pick="fgcp"                           \
+    && forgit_reset_head="fgrh"                            \
+    && forgit_checkout_file="fgcf"                         \
+    && forgit_checkout_branch="fgcb"                       \
+    && forgit_checkout_commit="fgco"
+
+# use fzf for tab completion
+zinit ice --lucid --if="[ -n $(command -v fzf) ]" \
+    && zinit light "aloxaf/fzf-tab"
+
+# status line for the shell
+zinit ice --lucid \
+ && zinit light "romkatv/powerlevel10k"
+
+# colorize output using the grc command
+zinit ice --lucid --wait=0 --if="[ -n $(command -v grc) ]" \
+    && zinit light "unixorn/warhol.plugin.zsh"
+
+# suggest a command based on previous history
+zinit ice --lucid \
+    && zinit light "zsh-users/zsh-autosuggestions"
+
+# highlight syntax for shell
+zinit ice --lucid \
+    && zinit light "zdharma/fast-syntax-highlighting"
+
+# alias reminder when you type a full command
+zinit ice --lucid \
+    && zinit light "michaelaquilina/zsh-you-should-use"
+
+# vim like key bindings
+zinit ice --lucid \
+    && zinit light "jeffreytse/zsh-vi-mode"

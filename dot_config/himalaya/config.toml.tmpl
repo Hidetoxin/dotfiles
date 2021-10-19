@@ -1,0 +1,25 @@
+# GLOBAL CONFIGURATION
+
+name          = "{{ .user.name }}"
+signature     = """
+--
+Regards,
+"""
+downloads-dir = "~/.cache/himalaya"
+
+# PERSONAL MAIL CONFIGURATION
+[self]
+default = true
+email = "{{ .himalaya.email }}"
+
+imap-host       = "127.0.0.1"
+imap-port       = 1143
+imap-login      = "{{ .himalaya.email }}"
+imap-starttls   = true
+imap-passwd-cmd = "pass show email/self"
+
+smtp-host       = "127.0.0.1"
+smtp-port       = 1025
+smtp-login      = "{{ .himalaya.email }}"
+smptpstarttls   = true
+smtp-passwd-cmd = "pass show email/self"

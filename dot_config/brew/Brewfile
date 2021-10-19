@@ -1,0 +1,123 @@
+tap "cmacrae/formulae"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "koekeishiya/formulae"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
+# Insanely fast image printing in your terminal
+brew "catimg"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Modern replacement for 'ls'
+brew "exa"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# GNU Pretty Good Privacy (PGP) package
+brew "gnupg"
+# Manage your GnuPG keys with ease! 🔐
+brew "gpg-tui"
+# Colorize logfiles and command output
+brew "grc"
+# CLI email client written in Rust
+brew "himalaya"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Mac App Store command-line interface
+brew "mas"
+# Interactive cheatsheet tool for the command-line
+brew "navi"
+# Fast, highly customisable system info script
+brew "neofetch"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# RSS/Atom feed reader for text terminals
+brew "newsboat"
+# Password manager
+brew "pass"
+# Rsync for cloud storage
+brew "rclone"
+# Fast, efficient and secure backup program
+brew "restic"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Utility that provides fast incremental file transfer
+brew "rsync"
+# Command-line interface for https://speedtest.net bandwidth tests
+brew "speedtest-cli"
+# Terminal-based client for Spotify
+brew "spotify-tui"
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
+# Programmatically correct mistyped console commands
+brew "thefuck"
+# Terminal multiplexer
+brew "tmux"
+# Manage complex tmux sessions easily
+brew "tmuxinator"
+# Tool for writing command-line pipes with instant live preview
+brew "up"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
+# UNIX shell (command interpreter)
+brew "zsh"
+# A minimal status bar for macOS.
+brew "cmacrae/formulae/spacebar"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai"
+# Desktop password and login vault
+cask "bitwarden"
+# E-books management software
+cask "calibre"
+# Elegant Facebook Messenger desktop app
+cask "caprine"
+# Multi-platform client-side cloud file encryption tool
+cask "cryptomator"
+# Web browser
+cask "firefox"
+cask "font-hack-nerd-font"
+# YouTube player focusing on privacy
+cask "freetube"
+# GPU-based terminal emulator
+cask "kitty"
+# Full TeX Live distribution without GUI applications
+cask "mactex-no-gui"
+# Free and open-source RSS reader
+cask "netnewswire"
+# Podcast platform
+cask "pocket-casts"
+# Bridges ProtonMail to email clients supporting IMAP and SMTP protocols
+cask "protonmail-bridge"
+# VPN client focusing on security
+cask "protonvpn"
+# Instant messaging application focusing on security
+cask "signal"
+# Music streaming service
+cask "spotify"
+# Free, open-source, and completely encrypted notes app
+cask "standard-notes"
+# Customizable email client
+cask "thunderbird"
+# GUI for the Neovim text editor
+cask "vimr"
+# Binary releases of VS Code without MS branding/telemetry/licensing
+cask "vscodium"
+# Desktop client for WhatsApp
+cask "whatsapp"
+mas "Dark Reader for Safari", id: 1438243180
+mas "Icedrive", id: 1490075667
+mas "KakaoTalk", id: 869223134
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "StackOv", id: 1511838391

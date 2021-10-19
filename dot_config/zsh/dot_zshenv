@@ -1,4 +1,4 @@
-# vim: syntax=zsh
+# vim: syntax=sh
 
 # ENABLE DEBUGGING
 DEBUG=0
@@ -13,44 +13,56 @@ function debug_info () {
 
 # SETUP XDG BASE DIRECTORIES
 # https://wiki.archlinux.org/index.php/XDG_Base_Directory
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_CONFIG_HOME="$HOME/.config"
-
-debug_info "Exporting XDG_DATA_HOME='$XDG_DATA_HOME'"
-debug_info "Exporting XDG_CACHE_HOME='$XDG_CACHE_HOME'"
-debug_info "Exporting XDG_CONFIG_HOME='$XDG_CONFIG_HOME'"
+export XDG_DATA_HOME="$HOME/.local/share" \
+    && debug_info "Exporting XDG_DATA_HOME='$XDG_DATA_HOME'"
+export XDG_CACHE_HOME="$HOME/.cache"      \
+    && debug_info "Exporting XDG_CACHE_HOME='$XDG_CACHE_HOME'"
+export XDG_CONFIG_HOME="$HOME/.config"    \
+    && debug_info "Exporting XDG_CONFIG_HOME='$XDG_CONFIG_HOME'"
 
 # SETUP XDG USER DIRECTORIES
-export XDG_MUSIC_DIR="$HOME/music"
-export XDG_VIDEOS_DIR="$HOME/videos"
-export XDG_DESKTOP_DIR="$HOME/desktop"
-export XDG_PICTURES_DIR="$HOME/pictures"
-export XDG_DOWNLOAD_DIR="$HOME/downloads"
-export XDG_DOCUMENTS_DIR="$HOME/documents"
-export XDG_TEMPLATES_DIR="$HOME/templates"
-export XDG_PUBLICSHARE_DIR="$HOME/public"
+export XDG_MUSIC_DIR="$HOME/Music"         \
+    && debug_info "Exporting XDG_MUSIC_DIR='$XDG_MUSIC_DIR'"
+export XDG_VIDEOS_DIR="$HOME/Videos"       \
+    && debug_info "Exporting XDG_VIDEOS_DIR='$XDG_VIDEOS_DIR'"
+export XDG_DESKTOP_DIR="$HOME/Desktop"     \
+    && debug_info "Exporting XDG_DESKTOP_DIR='$XDG_DESKTOP_DIR'"
+export XDG_PICTURES_DIR="$HOME/Pictures"   \
+    && debug_info "Exporting XDG_PICTURES_DIR='$XDG_PICTURES_DIR'"
+export XDG_DOWNLOAD_DIR="$HOME/Downloads"  \
+    && debug_info "Exporting XDG_DOWNLOAD_DIR='$XDG_DOWNLOAD_DIR'"
+export XDG_DOCUMENTS_DIR="$HOME/Documents" \
+    && debug_info "Exporting XDG_DOCUMENTS_DIR='$XDG_DOCUMENTS_DIR'"
+export XDG_TEMPLATES_DIR="$HOME/Templates" \
+    && debug_info "Exporting XDG_TEMPLATES_DIR='$XDG_TEMPLATES_DIR'"
+export XDG_PUBLICSHARE_DIR="$HOME/Public"  \
+    && debug_info "Exporting XDG_PUBLICSHARE_DIR='$XDG_PUBLICSHARE_DIR'"
 
-debug_info "Exporting XDG_MUSIC_DIR='$XDG_MUSIC_DIR'"
-debug_info "Exporting XDG_VIDEOS_DIR='$XDG_VIDEOS_DIR'"
-debug_info "Exporting XDG_DESKTOP_DIR='$XDG_DESKTOP_DIR'"
-debug_info "Exporting XDG_PICTURES_DIR='$XDG_PICTURES_DIR'"
-debug_info "Exporting XDG_DOWNLOAD_DIR='$XDG_DOWNLOAD_DIR'"
-debug_info "Exporting XDG_DOCUMENTS_DIR='$XDG_DOCUMENTS_DIR'"
-debug_info "Exporting XDG_TEMPLATES_DIR='$XDG_TEMPLATES_DIR'"
-debug_info "Exporting XDG_PUBLICSHARE_DIR='$XDG_PUBLICSHARE_DIR'"
+# SETUP HISTORY SETTINGS
+export SAVEHIST=32768                           \
+    && debug_info "Exporting SAVEHIST='$SAVEHIST'"
+export HISTSIZE=4096                            \
+    && debug_info "Exporting HISTSIZE='$HISTSIZE'"
+export HISTFILE="$XDG_CONFIG_HOME/zsh/zhistory" \
+    && debug_info "Exporting HISTFILE='$HISTFILE'"
 
 # ADD USER SCRIPTS TO PATH
-export PATH="$PATH:$XDG_CONFIG_HOME/bin"
-debug_info "Exporting PATH='$PATH'"
+export PATH="$PATH:$XDG_CONFIG_HOME/bin" \
+    && debug_info "Exporting PATH='$PATH'"
 
 # SETUP LANGUAGE SETTINGS
-export LANG="en_US.UTF-8"
-debug_info "Exporting LANG='$LANG'"
+export LANG="en_US.UTF-8" \
+    && debug_info "Exporting LANG='$LANG'"
 
-# SETUP ZSH CONFIG PATH
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-debug_info "Exporting ZDOTDIR='$ZDOTDIR'"
+# SETUP EDITING SETTINGS
+export PAGER="bat" \
+    && debug_info "Exporting LANG='$PAGER'"
+export EDITOR="nvim" \
+    && debug_info "Exporting LANG='$EDITOR'"
+
+# SETUP ZSH SETTINGS
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh" \
+    && debug_info "Exporting ZDOTDIR='$ZDOTDIR'"
 
 # SETUP ZSH PLUGIN MANAGER
 declare -A ZINIT
@@ -63,29 +75,20 @@ ZINIT[MUTE_WARNINGS]=0
 ZINIT[ZCOMPDUMP_PATH]="$XDG_DATA_HOME/zinit/dump"
 ZINIT[COMPLETIONS_DIR]="$XDG_DATA_HOME/zinit/completions"
 ZINIT[OPTIMIZE_OUT_DISK_ACCESSES]=1
-export ZPFX="$XDG_DATA_HOME/zinit/polaris"
-
 debug_info "Exporting ZINIT='$ZINIT'"
-debug_info "Exporting ZPFX='$ZPFX'"
+export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
+    && debug_info "Exporting ZPFX='$ZPFX'"
 
 # INITIALIZE CLI TOOLS FUNCTIONS
-{{ if (eq .chezmoi.os "darwin") }}
-[ -n "$(command -v /usr/local/bin/brew)" ]    \
-    && eval "$(/usr/local/bin/brew shellenv)" \
+[ -n "$(command -v /opt/homebrew/bin/brew)" ]    \
+    && eval "$(/opt/homebrew/bin/brew shellenv)" \
     && debug_info "Initializing functions for 'brew'"
-{{ else }}
-[ -n "$(command -v /home/linuxbrew/.linuxbrew/bin/brew)" ]    \
-    && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
-    && debug_info "Initializing functions for 'brew'"
-{{ end }}
-
-[ -n "$(command -v fasd)" ]                           \
-    && debug_info "Initializing functions for 'fasd'" \
-    && eval "$(fasd --init auto)"
 
 [ -n "$(command -v navi)" ]                           \
     && debug_info "Initializing functions for 'navi'" \
-    && eval "$(navi widget zsh)"
+    && eval "$(navi widget zsh)"                      \
+    && export NAVI_PATH="$XDG_CONFIG_HOME/navi"       \
+    && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
 
 [ -n "$(command -v goenv)" ]                           \
     && debug_info "Initializing functions for 'goenv'" \
@@ -93,7 +96,31 @@ debug_info "Exporting ZPFX='$ZPFX'"
 
 [ -n "$(command -v pyenv)" ]                           \
     && debug_info "Initializing functions for 'pyenv'" \
-    && eval "$(pyenv init --path)"
+    && eval "$(pyenv init --path)"                     \
+    && export PYENV_ROOT="$XDG_DATA_HOME/pyenv"        \
+    && debug_info "Exporting PYENV_ROOT='$PYENV_ROOT'"
+
+[ -n "$(command -v rbenv)" ]                    \
+    && export RBENV_ROOT="$XDG_DATA_HOME/rbenv" \
+    && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
+
+[ -n "$(command -v mcfly)" ]                                           \
+    && debug_info "Initializing functions for 'mcfly'"                 \
+    && eval "$(mcfly init zsh | sed 's,\^R,^H,')"                      \
+    && export MCFLY_FUZZY=true                                         \
+    && debug_info "Exporting MCFLY_FUZZY='$MACFLY_FUZZY'"              \
+    && export MCFLY_RESULTS=50                                         \
+    && debug_info "Exporting MCFLY_RESULTS='$MACFLY_RESULTS'"          \
+    && export MCFLY_KEY_SCHEME="vim"                                   \
+    && debug_info "Exporting MCFLY_KEY_SCHEME='$MACFLY_KEY_SCHEME'"    \
+    && export MCFLY_RESULTS_SORT="LAST_RUN"                            \
+    && debug_info "Exporting MCFLY_RESULTS_SORT='$MCFLY_RESULTS_SORT'" \
+    && export MCFLY_INTERFACE_VIEW="TOP"                               \
+    && debug_info "Exporting MCFLY_INTERFACE_VIEW='$MACFLY_INTERFACE_VIEW'"
+
+[ -n "$(command -v zoxide)" ]                           \
+    && debug_info "Initializing functions for 'zoxide'" \
+    && eval "$(zoxide init zsh --cmd j)"
 
 # CLI TOOLS SETTINGS
 [ -n "$(command -v rg)" ]                                                 \
@@ -116,7 +143,9 @@ debug_info "Exporting ZPFX='$ZPFX'"
 
 [ -n "$(command -v fzf)" ]                                                                       \
     && export FZF_FASD_OPTS="--prompt=' ❯ '"                                                    \
+    && debug_info "Exporting FZF_FASD_OPTS='$FZF_FASD_OPTS'"                                     \
     && export FZF_TMUX_HEIGHT="80%"                                                              \
+    && debug_info "Exporting FZF_TMUX_HEIGHT='$FZF_TMUX_HEIGHT'"                                 \
     && export FZF_DEFAULT_OPTS="                                                  \
         --prompt='~ ❯ '                                                           \
         --height='80%'                                                            \
@@ -129,17 +158,15 @@ debug_info "Exporting ZPFX='$ZPFX'"
             '([[ -f {} ]] &&                                                      \
             (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && \
             (exa --tree --icons --color=always {} | less)) || echo {} 2> /dev/null | head -200'" \
-    && export FZF_DEFAULT_COMMAND="fd --type f"                                                  \
-    && export FZF_COMPLETION_TRIGGER="**"                                                        \
-    && debug_info "Exporting FZF_FASD_OPTS='$FZF_FASD_OPTS'"                                     \
-    && debug_info "Exporting FZF_TMUX_HEIGHT='$FZF_TMUX_HEIGHT'"                                 \
     && debug_info "Exporting FZF_DEFAULT_OPTS='$FZF_DEFAULT_OPTS'"                               \
+    && export FZF_DEFAULT_COMMAND="fd --type f"                                                  \
     && debug_info "Exporting FZF_DEFAULT_COMMAND='$FZF_DEFAULT_COMMAND'"                         \
+    && export FZF_COMPLETION_TRIGGER="**"                                                        \
     && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
 
-[ -n "$(command -v navi)" ]                     \
-    && export NAVI_PATH="$XDG_CONFIG_HOME/navi" \
-    && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
+[ -n "$(command -v pass)" ]                            \
+    && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass" \
+    && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
 
 [ -n "$(command -v nvim)" ] \
     && export EDITOR="nvim" \
@@ -153,29 +180,22 @@ debug_info "Exporting ZPFX='$ZPFX'"
     && debug_info "Exporting GOENV_ROOT='$GOENV_ROOT'" \
     && debug_info "Exporting GOENV_GOPATH_PREFIX='$GOENV_GOPATH_PREFIX'"
 
-[ -n "$(command -v pyenv)" ]                    \
-    && export PYENV_ROOT="$XDG_DATA_HOME/pyenv" \
-    && debug_info "Exporting PYENV_ROOT='$PYENV_ROOT'"
+[ -n "$(command -v vivid)" ]                                                             \
+    && export LS_COLORS="$(vivid -m 24-bit generate $XDG_CONFIG_HOME/vivid/gruvbox.yml)" \
+    && debug_info "Exporting LS_COLORS='$LS_COLORS'"
 
-[ -n "$(command -v rbenv)" ]                    \
-    && export RBENV_ROOT="$XDG_DATA_HOME/rbenv" \
-    && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
-
-# [ -n "$(command -v vivid)" ]                                  \
-#     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox)" \
-#     && debug_info "Exporting LS_COLORS='$LS_COLORS'"
 [ -n "$(command -v packer)" ] \
     && export PACKER_CONFIG="$XDG_CONFIG_HOME/packer.json"       \
-    && export PACKER_HOME_DIR="$XDG_CACHE_HOME/packer"           \
-    && export PACKER_LOG_PATH="$XDG_CACHE_HOME/packer/logs"      \
     && debug_info "Exporting PACKER_CONFIG='$PACKER_CONFIG'"     \
+    && export PACKER_HOME_DIR="$XDG_CACHE_HOME/packer"           \
     && debug_info "Exporting PACKER_HOME_DIR='$PACKER_HOME_DIR'" \
+    && export PACKER_LOG_PATH="$XDG_CACHE_HOME/packer/logs"      \
     && debug_info "Exporting PACKER_LOG_PATH='$PACKER_LOG_PATH'"
 
 [ -n "$(command -v terraform)" ]                                           \
     && export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/terraform.tf" \
-    && export TF_PLUGIN_CACHE_DIR="$XDG_CACHE_HOME/terraform/plugin-cache" \
     && debug_info "Exporting TF_CLI_CONFIG_FILE='$TF_CLI_CONFIG_FILE'"     \
+    && export TF_PLUGIN_CACHE_DIR="$XDG_CACHE_HOME/terraform/plugin-cache" \
     && debug_info "Exporting TF_PLUGIN_CACHE_DIR='$TF_PLUGIN_CACHE_DIR'"
 
 [ -n "$(command -v aws-vault)" ]       \
