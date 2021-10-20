@@ -1,0 +1,10 @@
+vim.opt.list          = true
+vim.opt.number        = true
+vim.opt.tabstop       = 4
+vim.opt.listchars     = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·'
+vim.opt.expandtab     = true
+vim.opt.cursorline    = true
+vim.opt.background    = 'dark'
+vim.opt.cursorcolumn  = true
+vim.opt.termguicolors = false
+--vim.opt.nocompatible = true
