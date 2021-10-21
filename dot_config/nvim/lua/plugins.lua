@@ -8,13 +8,41 @@ end
 -- START PLUGIN LOADING
 return require('packer').startup(function(use)
 
-  -- soywod/himalaya
-  -- hrsh7th/nvim-cmp
-  -- glacambre/firenvim
-  -- folke/twilight.nvim
-  -- p00f/nvim-ts-rainbow
-  -- haya14busa/incsearch.vim
-  -- haya14busa/incsearch-easymotion.vim
+  use {
+    'soywod/himalaya',
+    rtp = 'vim'
+  }
+
+  use {
+    'glacambre/firenvim',
+    run = function()
+      vim.fn['firenvim#install'](0)
+    end,
+  }
+
+  use {
+    'folke/twilight.nvim',
+    config = function()
+      require('twilight').setup{}
+    end,
+  }
+
+  -- use {
+    -- 'hrsh7th/nvim-cmp',
+  -- }
+
+  -- TODO
+  -- use {
+    -- 'p00f/nvim-ts-rainbow',
+  -- }
+
+  use {
+    'haya14busa/incsearch.vim',
+  }
+
+  use {
+    'haya14busa/incsearch-easymotion.vim',
+  }
 
   -- SHOW BUFFER TABS
   use {
@@ -101,34 +129,29 @@ return require('packer').startup(function(use)
     'myusuf3/numbers.vim',
   }
 
-  -- DIM INACTIVE WINDOWS
-  use {
-    'sunjon/shade.nvim',
-    --config   = function()
-    --  require'shade'.setup {
-    --    keys            = {
-    --      toggle          = '<Leader>s',
-    --      brightness_up   = '<C-Up>',
-    --      brightness_down = '<C-Down>',
-    --    },
-    --    opacity_step    = 1,
-    --    overlay_opacity = 50,
-    --  }
-    --end,
-  }
-
   -- TOGGLE TERM POPUP INSIDE NVIM
   use {
     'akinsho/toggleterm.nvim',
+    config = function()
+      require('toggleterm').setup({
+        size            = 20,
+        border          = 'double',
+        direction       = 'float',
+        hide_numbers    = true,
+        start_in_insert = true,
+      })
+    end,
   }
---
---  use {
---    'ray-x/lsp_signature.nvim',
---  }
---
---  use {  -- cycle through diffs
---    'sindrets/diffview.nvim'
---  }
+
+  -- TODO add lang configs
+  use {
+    'ray-x/lsp_signature.nvim',
+  }
+
+  -- TODO config
+  use {  -- cycle through diffs
+    'sindrets/diffview.nvim'
+  }
 
   -- DISPLAYS A POPUP WITH KEY BINDINGS
   use {
@@ -175,33 +198,52 @@ return require('packer').startup(function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     config   = function()
-      require'nvim-tree'.setup {}
+      require'nvim-tree'.setup(
+        {
+          view          = {side = 'left', width = 30, height = 30},
+          open_on_tab   = true,
+          open_on_setup = true,
+          disable_netrw = true,
+        }
+      )
     end,
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
-
---  use { -- highlight and track todo comments
---    'folke/todo-comments.nvim',
---    config   = function()
---      require('todo-comments').setup()
---    end,
---    requires = 'nvim-lua/plenary.nvim'
---  }
+  -- HIGHLIGHT AND TRACK TASK COMMENTS
+  use {
+    'folke/todo-comments.nvim',
+    config   = function()
+      require('todo-comments').setup()
+    end,
+    requires = 'nvim-lua/plenary.nvim',
+  }
 
   -- FILE FUZZY FINDER
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
+    config   = function()
+      require('telescope').load_extension('ghq')
+      require('telescope').load_extension('emoji')
+      require('telescope').load_extension('zoxide')
+    end,
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'jvgrootveld/telescope-zoxide'},
+      {'xiyaowong/telescope-emoji.nvim'},
+      {'nvim-telescope/telescope-ghq.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+    },
   }
 
---  use {  -- clipboard manager
---    'acksld/nvim-neoclip.lua',
---    config   = function()
---      require('neoclip').setup()
---    end,
---    requires = {'tami5/sqlite.lua', module = 'sqlite'}
---  }
+  -- MANAGE CLIPBOARD ON TELESCOPE
+  use { -- TODO move to telescope config
+    'acksld/nvim-neoclip.lua',
+    config   = function()
+      require('neoclip').setup()
+    end,
+    requires = {'tami5/sqlite.lua', module = 'sqlite'},
+  }
 
   -- 
   use {
