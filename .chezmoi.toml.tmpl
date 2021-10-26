@@ -34,8 +34,15 @@
     email           = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
     gpg_id          = "{{ (bitwardenFields "item" "f6aeac99-7e35-4ff3-b636-ad400135d016").PublicKey.value }}"
     {{- else }}
-    email           = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
+    email           = "{{ (bitwardenFields "item" "109264ec-2414-42c4-81ff-a981002f92a4").Email.value }}"
     gpg_id          = "{{ (bitwardenFields "item" "078a43c0-9c30-4dd5-99f8-ad400179dea7").PublicKey.value }}"
+    {{- end }}
+
+  [data.github]
+    {{- if eq $computer "work" }}
+    user            = "{{ (bitwarden "item" "d5a6af7d-5671-4ef1-9769-adcd01258c97").login.username }}"
+    {{- else }}
+    user            = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
     {{- end }}
 
   [data.rclone]
