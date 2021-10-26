@@ -2,6 +2,10 @@
 
 {{- if (eq .computer.type "work") }}
 
+# SSH KEY FOR GITHUB
+Host github.com
+    IdentityFile ~/.ssh/id_rsa_git_work
+
 # SSH KEY FOR BITBUCKET CLOUD
 Host bitbucket.org
     IdentityFile ~/.ssh/id_rsa_git_work
@@ -15,7 +19,9 @@ Host {{ .bitbucket.preprod_url | replace "https://" "" }}
     IdentityFile ~/.ssh/id_rsa_git_work
 
 {{- else }}
+
 # SSH KEY FOR GITHUB
 Host github.com
     IdentityFile ~/.ssh/id_rsa_git_self
+
 {{- end }}
