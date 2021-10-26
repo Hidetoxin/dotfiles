@@ -1,0 +1,31 @@
+# Set restic password
+% restic, env
+export RESTIC_PASSWORD='<password>'
+
+# Backup folder on repository
+% restic, backup
+restic --repo <repo> backup <folder>
+
+# Tag a restic backuppository
+% restic, backup
+restic --repo <repo> backup --tag "<tag>"<folder>
+
+# List snapshots on a repository
+% restic, snapshot
+restic --repo <repo> snapshots
+
+# Remove snapshots on a repository
+% restic, snapshot
+restic --repo <repo> forget "<sha>"
+
+# Mount a restic repository
+% restic, snapshot, mount
+restic --repo <repo> mount <path>
+
+# Restore a restic snapshot
+% restic, snapshot, restore
+restic --repo <repo> restore "<sha>" --target <path>
+
+# View difference between backups
+% restic, snapshot, diff
+restic --repo <repo> diff "<sha1>" "<sha2>"

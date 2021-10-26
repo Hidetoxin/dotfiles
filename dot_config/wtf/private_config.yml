@@ -1,0 +1,91 @@
+wtf:
+  colors:
+    background: "#282828"
+    border:
+      normal: "#504945"
+      focused: "orange"
+      focusable: "darkslateblue"
+    checked: "yellow"
+    highlight:
+      fore: "black"
+      back: "gray"
+    rows:
+      even: "yellow"
+      odd: "white"
+  # grid:
+    # How _high_ the rows are, in terminal lines. In this case we have four rows
+    # that support ten line of text and one of four.
+    # rows: []
+    # How _wide_ the columns are, in terminal characters. In this case we have
+    # four columns, each of which are 35 characters wide.
+    # columns: []
+  refreshInterval: 1
+  openFileUtil: "open"
+  mods:
+    # You can have multiple widgets of the same type.
+    # The "key" is the name of the widget and the type is the actual
+    # widget you want to implement.
+    time:
+      title: " Clocks"
+      type: "clocks"
+      colors:
+        rows:
+          odd: "#83a598"
+          even: "#ebdbb2"
+        title: "#b8bb26"
+      enabled: true
+      locations:
+        Seoul: "Asia/Seoul"
+        London: "Europe/London"
+        Mexico_City: "America/Mexico_City"
+      position:
+        top: 1
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "alphabetical"
+    digitalclock:
+      title: " Today"
+      colors:
+        title: "#b8bb26"
+      font: "bigfont"
+      color: "#d65d0e"
+      enabled: true
+      hourFormat: 24
+      position:
+        top: 0
+        left: 0
+        width: 1
+        height: 1
+      refreshInterval: 1
+      type: "digitalclock"
+    git:
+      title: " Git"
+      colors:
+        title: "#b8bb26"
+      commitCount: 5
+      commitFormat: "[forestgreen]%h [grey]%cd [white]%s [grey]%an[#ebdbb2]"
+      dateFormat: "%H:%M %d %b %y"
+      enabled: true
+      position:
+        top: 0
+        left: 1
+        height: 1
+        width: 3
+      refreshInterval: 8
+      repositories:
+      - "/Users/hdtxn/.local/share/chezmoi"
+    cmdrunner:
+      title: " Tasks"
+      colors:
+        title: "#b8bb26"
+      cmd: "task"
+      args: ["list"]
+      enabled: true
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 3
+      refreshInterval: 30
