@@ -3,7 +3,7 @@ wtf:
     background: "#282828"
     border:
       normal: "#504945"
-      focused: "orange"
+      focused: "#fbf1c7"
       focusable: "darkslateblue"
     checked: "yellow"
     highlight:
@@ -37,7 +37,7 @@ wtf:
       locations:
         Seoul: "Asia/Seoul"
         London: "Europe/London"
-        Mexico_City: "America/Mexico_City"
+        MexicoCity: "America/Mexico_City"
       position:
         top: 1
         left: 0
@@ -72,20 +72,79 @@ wtf:
         top: 0
         left: 1
         height: 1
-        width: 3
+        width: 2
       refreshInterval: 8
       repositories:
-      - "/Users/hdtxn/.local/share/chezmoi"
+      - "~/.local/share/chezmoi"
     cmdrunner:
       title: " Tasks"
       colors:
         title: "#b8bb26"
+        rows:
+          odd: "#83a598"
+          even: "#ebdbb2"
       cmd: "task"
       args: ["list"]
       enabled: true
       position:
         top: 1
         left: 1
+        width: 2
         height: 1
-        width: 3
       refreshInterval: 30
+    {{- if (eq .computer.type "work") }}
+    docker:
+      title: " Docker"
+      colors:
+        title: "#b8bb26"
+      type: "docker"
+      enabled: true
+      labelColor: "#458588"
+      position:
+        top: 2
+        left: 0
+        height: 2
+        width: 1
+      refreshInterval: 1
+    jenkins:
+      title: " Jenkins"
+      colors:
+        title: "#b8bb26"
+      url: "{{ .jenkins.prod_url }}/jenkins/view/View"
+      user: "{{ .jenkins.username }}"
+      apiKey: "{{ .jenkins.prod_token }}"
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        width: 2
+        height: 1
+      #jobNameRegex: ".*"
+      refreshInterval: 300
+      successBallColor: "green"
+      verifyServerCertificate: true
+    github:
+      title: " GitHub"
+      colors:
+        title: "#b8bb26"
+      apiKey: "{{ .github.token }}"
+      baseURL: ""
+      customQueries:
+        othersPRs:
+          title: "Others Pull Requests"
+          filter: "is:open is:pr -author:{{ .github.user }}"
+      enabled: true
+      enableStatus: true
+      position:
+        top: 3
+        left: 1
+        width: 2
+        height: 1
+      refreshInterval: 300
+      repositories:
+        - "az-soft-eng/ecs-ops-infra"
+        - "az-soft-eng/ecs-auto-tickets"
+      uploadURL: ""
+      username: "{{ .github.user }}"
+
+    {{- end }}

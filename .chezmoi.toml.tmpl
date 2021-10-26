@@ -41,8 +41,10 @@
   [data.github]
     {{- if eq $computer "work" }}
     user            = "{{ (bitwarden "item" "d5a6af7d-5671-4ef1-9769-adcd01258c97").login.username }}"
+    token           = "{{ (bitwardenFields "item" "d5a6af7d-5671-4ef1-9769-adcd01258c97").Token.value }}"
     {{- else }}
     user            = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
+    token           = ""
     {{- end }}
 
   [data.rclone]
