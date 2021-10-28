@@ -24,20 +24,33 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>Ctrl</kbd> + <kbd>h</kbd> | bring `history` with [mcfly]           |
 | <kbd>Ctrl</kbd> + <kbd>t</kbd> | recent files using  [fzf]              |
 
-### :green_book: VIM
+### :green_book: NVIM
 
 | Key Combination                                            | Key Effect                                              |
 |------------------------------------------------------------|---------------------------------------------------------|
 | <kbd>,</kbd>                                               | [neovim] <kbd>leader</kbd> key                          |
+| <kbd>"</kbd>                                               | show registers on NORMAL mode with `which-key`          |
+| <kbd>Ctrl</kbd> + <kbd>r</kbd>                             | show registers on INSERT mode with `which-key`          |
+| <kbd>up</kbd>                                              | select window at the top                                |
+| <kbd>down</kbd>                                            | select window at the bottom                             |
+| <kbd>left</kbd>                                            | select window to the left side                          |
+| <kbd>right</kbd>                                           | select window to the right side                         |
+| <kbd>c</kbd> <kbd>s</kbd>                                  | start `vim-surround` replace                            |
+| <kbd>d</kbd> <kbd>s</kbd>                                  | remove `vim-surround` delimiters                        |
+| <kbd>Ctrl</kbd>   + <kbd>\\</kbd>                          | toggle terminal using `toggleterm`                      |
 | <kbd>leader</kbd> + <kbd>c</kbd> <kbd>i</kbd>              | toggle comments                                         |
 | <kbd>leader</kbd> + <kbd>c</kbd> <kbd>c</kbd>              | comment selected lines                                  |
-| <kbd>F12</kbd>                                             | toggle float term                                       |
-| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>t</kbd>              | launch a float term pane                                |
-| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>t</kbd> <kbd>n</kbd> | launch a new float term pane                            |
+| <kbd>leader</kbd> + <kbd>n</kbd> <kbd>n</kbd>              | disable numbers                                         |
+| <kbd>leader</kbd> + <kbd>n</kbd> <kbd>t</kbd>              | toggle numbers                                          |
+| <kbd>leader</kbd> + <kbd>e</kbd> <kbd>m</kbd>              | open emoji picker with `Telescope`                      |
 | <kbd>leader</kbd> + <kbd>Enter</kbd>                       | open buffer selected with `Telescope`                   |
+| <kbd>leader</kbd> + <kbd>g</kbd> <kbd>h</kbd>              | open [ghq] repositories with `Telescope`                |
+| <kbd>leader</kbd> + <kbd>t</kbd> <kbd>s</kbd>              | open `tree-sitter` symbols with `Telescope`             |
 | <kbd>leader</kbd> + <kbd>f</kbd> <kbd>f</kbd>              | open files on current folder with `Telescope`           |
+| <kbd>leader</kbd> + <kbd>f</kbd> <kbd>b</kbd>              | open file browser on current folder with `Telescope`    |
 | <kbd>leader</kbd> + <kbd>g</kbd> <kbd>f</kbd>              | open files on current `git` repository with `Telescope` |
 | <kbd>leader</kbd> + <kbd>r</kbd> <kbd>g</kbd>              | search using [ripgrep] with `Telescope`                 |
+| <kbd>leader</kbd> + <kbd>z</kbd> <kbd>l</kbd>              | open files using [zoxide] with `Telescope`              |
 | <kbd>leader</kbd> + <kbd>m</kbd> <kbd>m</kbd>              | toggle [minimap] on a new tab                           |
 | <kbd>leader</kbd> + <kbd>v</kbd> <kbd>v</kbd>              | toggle `Vista` on a new tab                             |
 | <kbd>leader</kbd> + <kbd>n</kbd> <kbd>t</kbd>              | toggle numbers from `Numbers`                           |

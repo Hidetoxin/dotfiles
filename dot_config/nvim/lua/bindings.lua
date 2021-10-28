@@ -1,45 +1,45 @@
 -- NVIM BINDINGS
 
-vim.api.nvim_set_keymap('n', vim.g.mapleader, '', {noremap = true})
-vim.api.nvim_set_keymap('v', vim.g.mapleader, '', {noremap = true})
+local map = vim.api.nvim_set_keymap
+local opt_tt = {noremap = true, silent = true}
+local opt_tf = {noremap = true, silent = false}
+local opt_ft = {noremap = false, silent = true}
+local opt_ff = {noremap = false, silent = false}
 
-vim.api.nvim_set_keymap('i', 'jk', '<esc>', {noremap = true, silent = false})
-vim.api.nvim_set_keymap('n', '<c-s>', ':ws<cr>', {noremap = true, silent = false})
-vim.api.nvim_set_keymap('n', '<leader>sa', ':%y<cr>', {noremap = false, silent = true})
+map('i', 'jk', '<esc>', opt_ft)
+map('n', '<c-s>', ':w<CR>', opt_tf)
+map('n', vim.g.mapleader, '', opt_tt)
+map('v', vim.g.mapleader, '', opt_tt)
+map('n', '<leader>sa', ':%y<CR>', opt_ft)
 
-vim.api.nvim_set_keymap('n', '<up>', '<c-w><up>', {noremap = false, silent = false})
-vim.api.nvim_set_keymap('n', '<down>', '<c-w><down>', {noremap = false, silent = false})
-vim.api.nvim_set_keymap('n', '<left>', '<c-w><left>', {noremap = false, silent = false})
-vim.api.nvim_set_keymap('n', '<right>', '<c-w><right>', {noremap = false, silent = false})
+map('n', '<up>', '<c-w><up>', opt_ff)
+map('n', '<down>', '<c-w><down>', opt_ff)
+map('n', '<left>', '<c-w><left>', opt_ff)
+map('n', '<right>', '<c-w><right>', opt_ff)
 
 -- PLUGIN BINDINGS
 
--- myusuf3/numbers.vim
-vim.api.nvim_set_keymap('n', 'nn', ':NumbersOff<cr>', {noremap = true, silent = false})
-vim.api.nvim_set_keymap('n', 'nt', ':NumbersToggle<cr>', {noremap = true, silent = false})
+--liuchengxu/vista.vim
+map('n', '<leader>vv', ':Vista!!<CR>', opt_tf)
 
--- haya14busa/incsearch.vim
---map g/ <Plug>(incsearch-stay)
---map /  <Plug>(incsearch-forward)
---map ?  <Plug>(incsearch-backward)
---vim.api.nvim_set_keymap('', '', '', {noremap = true, silent = false})
---vim.api.nvim_set_keymap('', '', '', {noremap = true, silent = false})
---vim.api.nvim_set_keymap('', '', '', {noremap = true, silent = false})
+-- myusuf3/numbers.vim
+map('n', '<leader>nn', ':NumbersOff<CR>', opt_tf)
+map('n', '<leader>nt', ':NumbersToggle<CR>', opt_tf)
+
+-- akinsho/bufferline.nvim
+map('n', '<leader>bp', ':BufferLineCycleNext<CR>', opt_tt)
+map('n', '<leader>bn', ':BufferLineCyclePrev<CR>', opt_tt)
 
 -- nvim-telescope/telescope.nvim
-vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>gf', ':Telescope git_files<cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>ff', ':Telescope find_files<cr>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader><cr>', ':Telescope buffers<cr>', {noremap = true, silent = true})
+map('n', '<leader>em', ':Telescope emoji<CR>', opt_ff)
+map('n', '<leader>gh', ':Telescope ghq list<CR>', opt_ff)
+map('n', '<leader>rg', ':Telescope live_grep<CR>', opt_ff)
+map('n', '<leader>gf', ':Telescope git_files<CR>', opt_ff)
+map('n', '<leader>ff', ':Telescope find_files<CR>', opt_ff)
+map('n', '<leader>ts', ':Telescope treesitter<CR>', opt_ff)
+map('n', '<leader>fb', ':Telescope file_browser<CR>', opt_ff)
+map('n', '<leader>zl', ':Telescope zoxide list<CR>', opt_ff)
+map('n', '<leader><CR>', ':Telescope buffers<CR>', opt_ff)
 
---nnoremap <leader>ft                :FloatermFirst<CR>
---nnoremap <leader>ftn               :FloatermNew<CR>
---tnoremap <silent><F12> <C-\\><C-n> :FloatermToggle<CR>
---vim.api.nvim_set_keymap('', '', '', {noremap = true, silent = false})
---vim.api.nvim_set_keymap('', '', '', {noremap = true, silent = false})
---vim.api.nvim_set_keymap('', '', '', {noremap = true, silent = false})
-
--- haya14busa/incsearch-easymotion.vim
---map z/ <Plug>(incsearch-easymotion-/)
---map z? <Plug>(incsearch-easymotion-?)
---map zg/ <Plug>(incsearch-easymotion-stay)
+-- akinsho/toggleterm.nvim
+-- map('', '', '', opt_tf)
