@@ -84,6 +84,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(/opt/homebrew/bin/brew shellenv)" \
     && debug_info "Initializing functions for 'brew'"
 
+[ -n "$(command -v gh)" ]                  \
+    && eval "$(gh completion --shell zsh)" \
+    && debug_info "Initializing functions for 'gh'"
+
 [ -n "$(command -v navi)" ]                           \
     && debug_info "Initializing functions for 'navi'" \
     && eval "$(navi widget zsh)"                      \
@@ -191,6 +195,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting PACKER_HOME_DIR='$PACKER_HOME_DIR'" \
     && export PACKER_LOG_PATH="$XDG_CACHE_HOME/packer/logs"      \
     && debug_info "Exporting PACKER_LOG_PATH='$PACKER_LOG_PATH'"
+
+[ -n "$(command -v chezmoi)" ]          \
+    && eval "$(chezmoi completion zsh)" \
+    && debug_info "Initializing functions for 'chezmoi'"
 
 [ -n "$(command -v terraform)" ]                                           \
     && export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/terraform.tf" \

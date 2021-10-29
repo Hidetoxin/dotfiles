@@ -1,4 +1,8 @@
-# GIT CONFIGURATION
+# SSH CONFIGURATIONS
+Host *
+    StrictHostKeyChecking no
+
+# GIT CONFIGURATIONS
 
 {{- if (eq .computer.type "work") }}
 
