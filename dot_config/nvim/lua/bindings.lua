@@ -26,12 +26,22 @@ map('n', '<leader>vv', ':Vista!!<CR>', opt_tf)
 map('n', '<leader>nn', ':NumbersOff<CR>', opt_tf)
 map('n', '<leader>nt', ':NumbersToggle<CR>', opt_tf)
 
+-- folke/twilight.nvim
+map('n', '<leader>tw', ':Twilight<CR>', opt_tt)
+
 -- akinsho/bufferline.nvim
 map('n', '<leader>bp', ':BufferLineCycleNext<CR>', opt_tt)
 map('n', '<leader>bn', ':BufferLineCyclePrev<CR>', opt_tt)
 
+-- kyazdani42/nvim-tree.lua
+map('n', '<leader>tt', ':NvimTreeToggle<CR>', opt_tt)
+
+-- folke/todo-comments.nvim
+map('n', '<leader>td', ':TodoTelescope<CR>', opt_ff)
+
 -- nvim-telescope/telescope.nvim
 map('n', '<leader>em', ':Telescope emoji<CR>', opt_ff)
+map('n', '<leader>nc', ':Telescope neoclip<CR>', opt_ff)
 map('n', '<leader>gh', ':Telescope ghq list<CR>', opt_ff)
 map('n', '<leader>rg', ':Telescope live_grep<CR>', opt_ff)
 map('n', '<leader>gf', ':Telescope git_files<CR>', opt_ff)
@@ -40,6 +50,3 @@ map('n', '<leader>ts', ':Telescope treesitter<CR>', opt_ff)
 map('n', '<leader>fb', ':Telescope file_browser<CR>', opt_ff)
 map('n', '<leader>zl', ':Telescope zoxide list<CR>', opt_ff)
 map('n', '<leader><CR>', ':Telescope buffers<CR>', opt_ff)
-
--- akinsho/toggleterm.nvim
--- map('', '', '', opt_tf)

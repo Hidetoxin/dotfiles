@@ -8,6 +8,18 @@ end
 -- START PLUGIN LOADING
 return require('packer').startup({function(use)
 
+  -- GO LANGUAGE SUPPORT
+  use {
+    'fatih/vim-go',
+    ft = {'go'},
+  }
+
+  -- TOML TEMPLATE SUPPORT
+  use {
+    'cespare/vim-toml',
+    ft = {'toml'},
+  }
+
   -- VSCODE LIKE MINIMAP
   use {
     'wfxr/minimap.vim',
@@ -16,6 +28,12 @@ return require('packer').startup({function(use)
   -- WRAPPER FOR SOME CLI COMMANDS
   use {
     'tpope/vim-eunuch',
+  }
+ 
+  -- HCL TEMPLATE SUPPORT
+  use {
+    'jvirtanen/vim-hcl',
+    ft = {'hcl'},
   }
 
   -- WRAPPER FOR SOME GIT COMMANDS
@@ -38,6 +56,13 @@ return require('packer').startup({function(use)
     'myusuf3/numbers.vim',
   }
 
+  use {
+    'folke/twilight.nvim',
+    config = function()
+      require('twilight').setup()
+    end,
+  }
+
   -- DISPLAYS A POPUP WITH KEY BINDINGS
   use {
     'folke/which-key.nvim',
@@ -54,7 +79,7 @@ return require('packer').startup({function(use)
   -- STATUS LINE AT THE BOTTOM
   use {
     'hoob3rt/lualine.nvim',
-    config   = function()
+    config = function()
       require('lualine').setup({
         options = {
           theme                = 'gruvbox-material',
@@ -87,6 +112,17 @@ return require('packer').startup({function(use)
     end,
   }
 
+  -- TERRAFORM TEMPLATE SUPPORT
+  use {
+    'hashivim/vim-terraform',
+    ft = {'tf', 'tfvars', 'tfstate'},
+  }
+
+  -- CYCLE THROUGH DIFFS
+  use {
+    'sindrets/diffview.nvim',
+  }
+
   -- USE NEOVIM IN WEB BROWSERS
   use { 'glacambre/firenvim',
     run = function()
@@ -113,6 +149,12 @@ return require('packer').startup({function(use)
         }
       })
     end,
+  }
+
+  -- ANSIBLE TEMPLATE SUPPORT
+  use {
+    'pearofducks/ansible-vim',
+    ft = {'yml', 'yaml'},
   }
 
   -- QUICKLY COMMENT LINES
@@ -150,6 +192,55 @@ return require('packer').startup({function(use)
     end,
   }
 
+  -- MANAGE CLIPBOARD ON TELESCOPE
+  use {
+    'acksld/nvim-neoclip.lua',
+    config = function()
+      require('neoclip').setup({
+        enable_persistant_history = true,
+      })
+    end,
+    requires = {
+      'tami5/sqlite.lua',
+      module = 'sqlite'
+    },
+  }
+
+  -- SHOW TREE FILE NAVIGATOR
+  use {
+    'kyazdani42/nvim-tree.lua',
+    config   = function()
+      require'nvim-tree'.setup({
+        view = {
+          side   = 'left',
+          width  = 30,
+          height = 30,
+        },
+        open_on_tab   = true,
+        open_on_setup = true,
+        disable_netrw = true,
+      })
+    end,
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
+  -- STABILIZE BUFFER CONTENT
+  use {
+    'luukvbaal/stabilize.nvim',
+    config = function()
+      require("stabilize").setup()
+    end
+  }
+
+  -- HIGHLIGHT AND TRACK TASK COMMENTS
+  use {
+    'folke/todo-comments.nvim',
+    config   = function()
+      require('todo-comments').setup()
+    end,
+    requires = 'nvim-lua/plenary.nvim',
+  }
+
   -- QUICKLY TRAVERSE BUFFERS
   use {
     'easymotion/vim-easymotion',
@@ -174,6 +265,7 @@ return require('packer').startup({function(use)
       require('telescope').load_extension('ghq')
       require('telescope').load_extension('emoji')
       require('telescope').load_extension('zoxide')
+      require('telescope').load_extension('neoclip')
     end,
     requires = {
       {'nvim-lua/plenary.nvim'},
@@ -203,19 +295,12 @@ return require('packer').startup({function(use)
     end,
   }
 
+  -- AUTO COMPLETITION WITH LSP
   use {
-    'kyazdani42/nvim-tree.lua',
-    config   = function()
-      require'nvim-tree'.setup(
-        {
-          view          = {side = 'left', width = 30, height = 30},
-          open_on_tab   = true,
-          open_on_setup = true,
-          disable_netrw = true,
-        }
-      )
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('lspconfig').gopls.setup{}
     end,
-    requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
   -- TODO add lang configs
@@ -223,105 +308,23 @@ return require('packer').startup({function(use)
     -- 'ray-x/lsp_signature.nvim',
   -- }
 
-  -- TODO config
-  -- use {  -- cycle through diffs
-    -- 'sindrets/diffview.nvim'
-  -- }
-
-  -- HIGHLIGHT AND TRACK TASK COMMENTS
-  -- use {
-    -- 'folke/todo-comments.nvim',
-    -- config   = function()
-      -- require('todo-comments').setup()
-    -- end,
-    -- requires = 'nvim-lua/plenary.nvim',
-  -- }
-
-  -- MANAGE CLIPBOARD ON TELESCOPE
-  -- use { -- TODO move to telescope config
-    -- 'acksld/nvim-neoclip.lua',
-    -- config   = function()
-      -- require('neoclip').setup()
-    -- end,
-    -- requires = {'tami5/sqlite.lua', module = 'sqlite'},
-  -- }
-
-  -- use {
-    -- 'neovim/nvim-lspconfig',
-    -- config = function()
-      -- require('lspconfig').gopls.setup{}
-    -- end,
-  -- }
   -- use {
     -- 'williamboman/nvim-lsp-installer',
   -- }
   -- use {
     -- 'hrsh7th/nvim-cmp',
   -- }
+ 
   -- use {
     -- 'rmagatti/goto-preview',
     -- config = function()
       -- require('goto-preview').setup {}
     -- end
   -- }
-  -- use {
-    -- 'luukvbaal/stabilize.nvim',
-    -- config = function()
-      -- require("stabilize").setup()
-    -- end
-  -- }
-
 
   -- use {
     -- 'soywod/himalaya',
     -- rtp = 'vim',
-  -- }
-
-  -- use {
-    -- 'folke/twilight.nvim',
-    -- config = function()
-      -- require('twilight').setup{}
-    -- end,
-  -- }
-
-  -- TODO
-  -- use {
-    -- 'p00f/nvim-ts-rainbow',
-  -- }
-
-  -- use {
-    -- 'fatih/vim-go',
-    -- ft = {'go'},
-  -- }
-
-  -- 
-  -- use {
-    -- 'cespare/vim-toml',
-    -- ft = {'toml'},
-  -- }
-
-  
-  -- use {
-    -- 'jvirtanen/vim-hcl',
-    -- ft = {'hcl'},
-  -- }
-
-  
-  -- use {
-    -- 'hashivim/vim-terraform',
-    -- ft = {'tf', 'tfvars', 'tfstate'},
-  -- }
-
-  
-  -- use {
-    -- 'pearofducks/ansible-vim',
-    -- ft = {'yml', 'yaml'},
-  -- }
-
-  
-  -- use {
-    -- 'lervag/vimtex',
-    -- ft = {'tex', 'bib', 'latex'},
   -- }
 
   -- Automatically set up your configuration after cloning packer.nvim
