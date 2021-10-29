@@ -38,11 +38,18 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>c</kbd> <kbd>s</kbd>                                  | start `vim-surround` replace                            |
 | <kbd>d</kbd> <kbd>s</kbd>                                  | remove `vim-surround` delimiters                        |
 | <kbd>Ctrl</kbd>   + <kbd>\\</kbd>                          | toggle terminal using `toggleterm`                      |
+| <kbd>leader</kbd> + <kbd>l</kbd> <kbd>g</kbd>              | open [lazygit] on a floating terminal                   |
+| <kbd>leader</kbd> + <kbd>m</kbd> <kbd>d</kbd>              | open [glow] on a floating terminal                      |
+| <kbd>leader</kbd> + <kbd>e</kbd> <kbd>m</kbd>              | open [himalaya] on a floating terinal                   |
+| <kbd>leader</kbd> + <kbd>t</kbd> <kbd>w</kbd>              | toggle concentration mode with `twilight.nvim`          |
+| <kbd>leader</kbd> + <kbd>t</kbd> <kbd>d</kbd>              | search _TODO_ using `Telescope`                         |
+| <kbd>leader</kbd> + <kbd>t</kbd> <kbd>t</kbd>              | toggle `nvim-tree.lua` on a left side panel             |
 | <kbd>leader</kbd> + <kbd>c</kbd> <kbd>i</kbd>              | toggle comments                                         |
 | <kbd>leader</kbd> + <kbd>c</kbd> <kbd>c</kbd>              | comment selected lines                                  |
 | <kbd>leader</kbd> + <kbd>n</kbd> <kbd>n</kbd>              | disable numbers                                         |
 | <kbd>leader</kbd> + <kbd>n</kbd> <kbd>t</kbd>              | toggle numbers                                          |
 | <kbd>leader</kbd> + <kbd>e</kbd> <kbd>m</kbd>              | open emoji picker with `Telescope`                      |
+| <kbd>leader</kbd> + <kbd>n</kbd> <kbd>c</kbd>              | open yanks buffer with `Telescope`                      |
 | <kbd>leader</kbd> + <kbd>Enter</kbd>                       | open buffer selected with `Telescope`                   |
 | <kbd>leader</kbd> + <kbd>g</kbd> <kbd>h</kbd>              | open [ghq] repositories with `Telescope`                |
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>s</kbd>              | open `tree-sitter` symbols with `Telescope`             |
@@ -257,6 +264,7 @@ plugins:
 [dein]: https://github.com/Shougo/dein.vim
 [navi]: https://github.com/denisidoro/navi
 [tmux]: https://github.com/tmux/tmux
+[glow]: https://github.com/charmbracelet/glow
 [p10k]: https://github.com/romkatv/powerlevel10k
 [cheat]: https://github.com/cheat/cheat
 [delta]: https://github.com/dandavison/delta
@@ -279,6 +287,7 @@ plugins:
 [chezmoi]: https://github.com/twpayne/chezmoi
 [thefuck]: https://github.com/nvbn/thefuck
 [tealdeer]: https://github.com/dbrgn/tealdeer
+[himalaya]: https://github.com/soywod/himalaya
 [aws-vault]: https://github.com/99designs/aws-vault
 [bitwarden]: https://github.com/bitwarden/cli
 [commitizen]: https://github.com/commitizen/cz-cli

@@ -14,6 +14,12 @@ return require('packer').startup({function(use)
     ft = {'go'},
   }
 
+  -- PLUGIN FOR USING EMAIL
+  use {
+    'soywod/himalaya',
+    rtp = 'vim',
+  }
+
   -- TOML TEMPLATE SUPPORT
   use {
     'cespare/vim-toml',
@@ -110,6 +116,16 @@ return require('packer').startup({function(use)
         hide_cursor = false,
       })
     end,
+  }
+
+  -- USE A GIT TUI
+  use {
+    'kdheepak/lazygit.nvim',
+  }
+
+  -- PREVIEW MARKDOWN FILES
+  use {
+    'ellisonleao/glow.nvim',
   }
 
   -- TERRAFORM TEMPLATE SUPPORT
@@ -320,11 +336,6 @@ return require('packer').startup({function(use)
     -- config = function()
       -- require('goto-preview').setup {}
     -- end
-  -- }
-
-  -- use {
-    -- 'soywod/himalaya',
-    -- rtp = 'vim',
   -- }
 
   -- Automatically set up your configuration after cloning packer.nvim

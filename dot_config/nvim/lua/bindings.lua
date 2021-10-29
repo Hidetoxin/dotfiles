@@ -19,6 +19,9 @@ map('n', '<right>', '<c-w><right>', opt_ff)
 
 -- PLUGIN BINDINGS
 
+-- soywod/himalaya
+map('n', '<leader>em', ':Himalaya<CR>', opt_tt)
+
 --liuchengxu/vista.vim
 map('n', '<leader>vv', ':Vista!!<CR>', opt_tf)
 
@@ -28,6 +31,12 @@ map('n', '<leader>nt', ':NumbersToggle<CR>', opt_tf)
 
 -- folke/twilight.nvim
 map('n', '<leader>tw', ':Twilight<CR>', opt_tt)
+
+-- ellisonleao/glow.nvim
+map('n', '<leader>md', ':Glow<CR>', opt_tt)
+
+-- kdheepak/lazygit.nvim
+map('n', '<leader>lg', ':LazyGit<CR>', opt_tt)
 
 -- akinsho/bufferline.nvim
 map('n', '<leader>bp', ':BufferLineCycleNext<CR>', opt_tt)

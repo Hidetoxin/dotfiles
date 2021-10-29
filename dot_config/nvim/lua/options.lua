@@ -53,6 +53,13 @@ vim.g.vista_default_executive    = 'vim_lsp'
 -- \   "variable": "\uf71b",
 -- \  }
 
+-- kdheepak/lazygit.nvim
+vim.g.lazygit_use_neovim_remote              = 1
+vim.g.lazygit_floating_window_winblend       = 0
+vim.g.lazygit_floating_window_use_plenary    = 1
+vim.g.lazygit_floating_window_corner_chars   = {'╭', '╮', '╰', '╯'}
+vim.g.lazygit_floating_window_scaling_factor = 0.9
+
 -- preservim/nerdcommenter
 vim.g.NERDSpaceDelims     = 1
 vim.g.NERDCompactSexyComs = 1
