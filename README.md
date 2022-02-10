@@ -210,13 +210,11 @@ plugins:
 * [aws] - tool for managing aws cloud
 * [fzf] - general-purpose command-line fuzzy finder written in [go
 * [zsh] - better interactive shell and replacement for `bash`
-* [coc] - `vim` / `nvim` plugin for completion
 * [bat] - better `cat` replacement written in [rust]
 * [dust] - better `du` replacement written in [rust]
 * [navi] -  interactive cheat-sheet tool for the command-line
 * [tmux] - terminal multiplexer
 * [p10k] - `zsh` theme for prompt
-* [dein] - `vim` / `nvim` plugin manager
 * [cheat] - better `man` replacement written in [go]
 * [delta] - `git` / `diff` viewer written in [go]
 * [gping] - better `ping` replacement written in [rust]
@@ -258,10 +256,8 @@ plugins:
 [tpm]: https://github.com/tmux-plugins/tpm
 [fzf]: https://github.com/junegunn/fzf
 [zsh]: https://github.com/ohmyzsh/ohmyzsh
-[coc]: https://github.com/neoclide/coc.nvim
 [bat]: https://github.com/sharkdp/bat
 [dust]: https://github.com/bootandy/dust
-[dein]: https://github.com/Shougo/dein.vim
 [navi]: https://github.com/denisidoro/navi
 [tmux]: https://github.com/tmux/tmux
 [glow]: https://github.com/charmbracelet/glow
@@ -312,7 +308,9 @@ plugins:
 [Reddit's r/vimporn]: https://www.reddit.com/r/vimporn
 [Reddit's r/unixporn]: https://www.reddit.com/r/unixporn
 [Reddit's r/commandline]: https://www.reddit.com/r/commandline
+[Vim Galore]: https://github.com/mhinz/vim-galore
 [Awesome Privacy]: https://github.com/pluja/awesome-privacy
+[Rootknecht's CLI]: https://rootknecht.net/knowledge/applications/cli/
 [Top Command Line Tools]: https://stackify.com/top-command-line-tools
 [Cool But Obscure Unix Tools]: https://kkovacs.eu/cool-but-obscure-unix-tools
 
