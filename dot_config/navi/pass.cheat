@@ -1,3 +1,8 @@
+# Initialize pass
+% pass, gpg, fzf
+$ id: gpg --list-secret-keys | rg '[0-9A-Z]{40,40}' | sed 's/ //g' | awk '{print substr($1,length($1)-15) }' | fzf --preview 'gpg --list-secret-keys {}'
+pass init <id>
+
 # Add password to pass
 % pass
 pass insert <path>
