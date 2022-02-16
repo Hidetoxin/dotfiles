@@ -40,7 +40,15 @@ return require('packer').startup({function(use)
   use {
     'jvirtanen/vim-hcl',
     ft = {'hcl'},
+ 
+  -- LSP PROGRESS BAR
+  use {
+    'j-hui/fidget.nvim',
+    config = function()
+      require('twilight').setup()
+    end,
   }
+ }
 
   -- WRAPPER FOR SOME GIT COMMANDS
   use {
@@ -266,6 +274,11 @@ return require('packer').startup({function(use)
     },
   }
 
+  -- VIM STARTUP TIME
+  use {
+    'tweekmonster/startuptime.vim',
+  }
+
   -- FILE FUZZY FINDER
   use {
     'nvim-telescope/telescope.nvim',
@@ -282,6 +295,7 @@ return require('packer').startup({function(use)
       require('telescope').load_extension('emoji')
       require('telescope').load_extension('zoxide')
       require('telescope').load_extension('neoclip')
+      require('telescope').load_extension('file_browser')
     end,
     requires = {
       {'nvim-lua/plenary.nvim'},
@@ -319,23 +333,54 @@ return require('packer').startup({function(use)
     end,
   }
 
-  -- TODO add lang configs
+  -- FUZZY FILE BROWSER
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
+  }
+
+  -- NOTE TAKING
+  -- use {
+    -- 'vimwiki/vimwiki',
+  -- }
+
+  -- SHOW FUNCTION SIGNATURE
   -- use {
     -- 'ray-x/lsp_signature.nvim',
   -- }
 
+  -- INSTALL LSP SERVERS
   -- use {
     -- 'williamboman/nvim-lsp-installer',
   -- }
+
+  -- COMPLETION PLUGIN
   -- use {
     -- 'hrsh7th/nvim-cmp',
+    -- requires = {
+      -- 'hrsh7th/nvim-cmp',
+      -- 'hrsh7th/cmp-path',
+      -- 'hrsh7th/cmp-vsnip',
+      -- 'hrsh7th/vim-vsnip',
+      -- 'hrsh7th/cmp-buffer',
+      -- 'hrsh7th/cmp-cmdline',
+      -- 'hrsh7th/cmp-nvim-lsp',
+    -- },
   -- }
  
+  -- PREVIEW LSP DEFINITION
   -- use {
     -- 'rmagatti/goto-preview',
     -- config = function()
-      -- require('goto-preview').setup {}
-    -- end
+      -- require('goto-preview').setup({
+        -- width = 120; -- Width of the floating window
+        -- height = 15; -- Height of the floating window
+        -- border = {"↖", "─" ,"┐", "│", "┘", "─", "└", "│"}; -- Border characters of the floating window
+        -- default_mappings = false; -- Bind default mappings
+        -- debug = false; -- Print debug information
+        -- opacity = nil; -- 0-100 opacity level of the floating window where 100 is fully transparent.
+        -- post_open_hook = nil,
+      -- })
+    -- end,
   -- }
 
   -- Automatically set up your configuration after cloning packer.nvim

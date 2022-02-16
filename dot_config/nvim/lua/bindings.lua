@@ -22,6 +22,9 @@ map('n', '<right>', '<c-w><right>', opt_ff)
 -- soywod/himalaya
 map('n', '<leader>em', ':Himalaya<CR>', opt_tt)
 
+-- wfxr/minimap.vim
+map('n', '<leader>mm', ':MinimapToggle<CR>', opt_tt)
+
 --liuchengxu/vista.vim
 map('n', '<leader>vv', ':Vista!!<CR>', opt_tf)
 

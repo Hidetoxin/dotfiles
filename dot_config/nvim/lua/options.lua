@@ -30,6 +30,7 @@ vim.g.himalaya_telescope_preview_enabled = 1
 vim.g.minimap_width                = 10
 vim.g.minimap_git_colors           = 1
 vim.g.minimap_auto_start           = 1
+vim.g.minimap_block_buftypes       = {'prompt', 'nofile', 'nowrite', 'quickfix', 'terminal'}
 vim.g.minimap_highlight_search     = 1
 vim.g.minimap_auto_start_win_enter = 0
 
@@ -39,7 +40,12 @@ vim.g.startify_change_to_dir       = 1
 vim.g.startify_fortune_use_unicode = 1
 
 -- myusuf3/numbers.vim
-vim.g.numbers_exclude = {'minimap', 'startify'}
+vim.g.numbers_exclude = {
+  'minimap',
+  'nvim-tree.lua',
+  'startify',
+  'toggleterm',
+}
 
 -- liuchengxu/vista.vim
 vim.g.vista_icon_indent          = {'╰─▸ ', '├─▸ '}

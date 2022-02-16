@@ -1,15 +1,10 @@
 # vim: syntax=sh
 
 # SOURCE ZINIT PLUGIN MANAGER
-source "$XDG_CACHE_HOME/zinit/bin/zinit.zsh" \
-    && debug_info "Sourcing file '$XDG_CACHE_HOME/zinit/bin/zinit.zsh'"
+source "/opt/homebrew/opt/zinit/zinit.zsh" \
+    && debug_info "Sourcing file '/opt/homebrew/opt/zinit/zinit.zsh'"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-zinit light-mode for         \
-    zinit-zsh/z-a-rust       \
-    zinit-zsh/z-a-patch-dl   \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-bin-gem-node
 
 # SOURCE ZINIT SETTINGS
 if [ -d "$XDG_CONFIG_HOME/zinit" ]; then
