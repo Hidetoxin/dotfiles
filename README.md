@@ -182,13 +182,13 @@ This repository manages my configuration for the below *GUI* applications:
 * [skhd] - hotkey daemon for *macOS*
 * [yabai] - window management utility for *macOS*
 * [kitty] - fast *GPU* based terminal-emulator
-* [spacebar] - status bar for *macOS*
 * [alacritty] - fast *GPU* based terminal-emulator written in [rust]
+* [sketchybar] - status bar for *macOS*
 
 [skhd]: https://github.com/koekeishiya/skhd
 [yabai]: https://github.com/koekeishiya/yabai
 [kitty]: https://github.com/kovidgoyal/kitty
-[spacebar]: https://github.com/cmacrae/spacebar
+[sketchyar]: https://github.com/felixkratz/sketchybar
 [alacritty]: https://github.com/alacritty/alacritty
 
 ## :computer: CLI APPLICATIONS
