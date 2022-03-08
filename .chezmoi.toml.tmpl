@@ -31,7 +31,7 @@
   [data.user]
     name   = "Fernando Becerra Méndez"
     {{- if eq $computer "work" }}
-    email           = "{{ (bitwarden "item" "176c0198-6416-4b43-8765-aad200fe5e9a").login.username }}"
+    email           = "{{ (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.username }}"
     gpg_id          = "{{ (bitwardenFields "item" "f6aeac99-7e35-4ff3-b636-ad400135d016").PublicKey.value }}"
     {{- else }}
     email           = "{{ (bitwardenFields "item" "109264ec-2414-42c4-81ff-a981002f92a4").Email.value }}"
