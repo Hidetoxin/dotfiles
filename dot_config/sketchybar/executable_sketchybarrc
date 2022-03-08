@@ -1,29 +1,31 @@
 # This is a demo config to bring across some of the most important commands more easily.
 # For a more advanced configuration example see https://github.com/FelixKratz/SketchyBar/discussions/47#discussion-3587958
-############## BAR ############## 
-sketchybar -m --bar height=25        \
-                    blur_radius=50   \
-                    position=top     \
-                    padding_left=10  \
-                    padding_right=10 \
-                    color=0x44000000
 
-############## GLOBAL DEFAULTS ############## 
-sketchybar -m --default updates=when_shown                    \
-                        drawing=on                            \
-                        cache_scripts=on                      \
+# BAR SETTINGS
+sketchybar -m --bar color="0x44282828" \
+                    height="25"        \
+                    position="top"     \
+                    blur_radius="50"   \
+                    padding_left="10"  \
+                    padding_right="10"
+
+# GLOBAL DEFAULTS
+sketchybar -m --default drawing="on"                          \
+                        updates="when_shown"                  \
+                        drawing="on"                          \
                         icon.font="Hack Nerd Font:Bold:17.0"  \
-                        icon.color=0xffffffff                 \
+                        icon.color="0xffebdbb2"               \
                         label.font="Hack Nerd Font:Bold:14.0" \
-                        label.color=0xffffffff
+                        label.color="0xffebdbb2"              \
+                        cache_scripts="on"
 
-############## SPACE DEFAULTS ############## 
-sketchybar -m --default label.padding_left=2  \
-                        label.padding_right=2 \
-                        icon.padding_left=8   \
-                        label.padding_right=8
+# SPACE DEFAULTS
+sketchybar -m --default icon.padding_left="8"  \
+                        icon.padding_right="8" \
+                        label.padding_left="2" \
+                        label.padding_right="2"
 
-############## PRIMARY DISPLAY SPACES ############## 
+# PRIMARY DISPLAY SPACES
 sketchybar -m --add space code left                              \
               --set code associated_display=1                    \
                          associated_space=1                      \
@@ -41,8 +43,7 @@ sketchybar -m --add space code left                              \
                          label=tex                               \
                          click_script="yabai -m space --focus 2"
 
-
-############## SECONDARY DISPLAY SPACES ############## 
+# SECONDARY DISPLAY SPACES
 sketchybar -m --add space misc left                              \
               --set misc associated_display=2                    \
                          associated_space=5                      \
@@ -52,14 +53,13 @@ sketchybar -m --add space misc left                              \
                          label=misc                              \
                          click_script="yabai -m space --focus 5"
 
-############## ITEM DEFAULTS ###############
-sketchybar -m --default label.padding_left=2  \
-                        icon.padding_right=2  \
-                        icon.padding_left=6   \
-                        label.padding_right=6
+# ITEM DEFAULTS
+sketchybar -m --default icon.padding_left="6"  \
+                        icon.padding_right="2" \
+                        label.padding_left="2" \
+                        label.padding_right="6"
 
-
-############## LEFT ITEMS ############## 
+# LEFT ITEMS
 sketchybar -m --add item space_separator left                                                  \
               --set space_separator  icon=                                                    \
                                      associated_space=1                                        \
@@ -91,7 +91,7 @@ sketchybar -m --add item space_separator left                                   
                                      update_freq=15                                            \
                                      script="~/.config/sketchybar/plugins/topmem.sh"
 
-############## RIGHT ITEMS ############## 
+# RIGHT ITEMS
 sketchybar -m --add item clock right                                                                  \
               --set clock         update_freq=10                                                      \
                                   script="~/.config/sketchybar/plugins/clock.sh"                      \
@@ -127,8 +127,7 @@ sketchybar -m --add graph cpu_user right 200                                    
                                  update_freq=15                                     \
                                  script="~/.config/sketchybar/plugins/topproc.sh"
 
-###################### CENTER ITEMS ###################
-
+# CENTER ITEMS
 # Adding custom events which can listen on distributed notifications from other running processes
 sketchybar -m --add event spotify_change "com.spotify.client.PlaybackStateChanged"                       \
               --add item spotifyIndicator center                                                         \
@@ -136,7 +135,7 @@ sketchybar -m --add event spotify_change "com.spotify.client.PlaybackStateChange
               --set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
               --subscribe spotifyIndicator spotify_change
 
-############## FINALIZING THE SETUP ##############
+# FINALIZING THE SETUP
 sketchybar -m --update
 
 echo "sketchybar configuration loaded.."
