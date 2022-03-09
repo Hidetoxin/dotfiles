@@ -1,7 +1,3 @@
-# FILES TO IGNORE
-README.md
-.tmuxinator.yml
-
 # FILES USED ONLY ON MACOS
 {{ if ne .chezmoi.os "darwin" }}
 .config/svim/*
@@ -16,8 +12,6 @@ README.md
 
 # FILES USED ONLY ON WORK COMPUTER
 {{- if ne .computer.type "work" }}
-.config/aws/config
-.config/aws/credentials
 .config/.jira/.config.yml
 .config/jenkins_jobs/jenkins_jobs.ini
 {{- end }}

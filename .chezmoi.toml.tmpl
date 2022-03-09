@@ -5,6 +5,8 @@
 
 # FETCH SECRETS FROM BITWARDEN
 [data]
+
+  {{- if eq $computer "work" }}
   [data.aws]
     url                 = "{{ (index (bitwarden "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").login.uris 0).uri }}"
     als_dev_id          = "{{ (bitwardenFields "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").DevId.value }}"
@@ -17,23 +19,23 @@
     azcsdcops_test_role = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").TestRole.value }}"
     azcsdcops_prod_id   = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").ProdId.value }}"
     azcsdcops_prod_role = "{{ (bitwardenFields "item" "3b688f8f-19b4-4871-ba0d-ad58017115e8").ProdRole.value }}"
+  {{- end }}
 
   [data.git]
     {{- if eq $computer "work" }}
     public_key  = "{{ (bitwardenFields "item" "f6b245e7-4566-444c-a9dc-ad40013823b4").PublicKey.value }}"
-    {{- else }}
+    {{- end }}
+    {{- if eq $computer "self" }}
     public_key  = "{{ (bitwardenFields "item" "1d05ce7c-d3cc-4a02-8843-ad40013983dc").PublicKey.value }}"
     {{- end }}
-
-  [data.jira]
-    prod_url = "{{ (index (bitwarden "item" "c526b42f-70b1-4acf-98b6-ad5901762e74").login.uris 1).uri }}"
 
   [data.user]
     name   = "Fernando Becerra Méndez"
     {{- if eq $computer "work" }}
     email           = "{{ (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.username }}"
     gpg_id          = "{{ (bitwardenFields "item" "f6aeac99-7e35-4ff3-b636-ad400135d016").PublicKey.value }}"
-    {{- else }}
+    {{- end }}
+    {{- if eq $computer "self" }}
     email           = "{{ (bitwardenFields "item" "109264ec-2414-42c4-81ff-a981002f92a4").Email.value }}"
     gpg_id          = "{{ (bitwardenFields "item" "078a43c0-9c30-4dd5-99f8-ad400179dea7").PublicKey.value }}"
     {{- end }}
@@ -42,7 +44,8 @@
     {{- if eq $computer "work" }}
     user            = "{{ (bitwarden "item" "d5a6af7d-5671-4ef1-9769-adcd01258c97").login.username }}"
     token           = "{{ (bitwardenFields "item" "d5a6af7d-5671-4ef1-9769-adcd01258c97").Token.value }}"
-    {{- else }}
+    {{- end }}
+    {{- if eq $computer "self" }}
     user            = "{{ (bitwarden "item" "109264ec-2414-42c4-81ff-a981002f92a4").login.username }}"
     token           = "{{ (bitwardenFields "item" "109264ec-2414-42c4-81ff-a981002f92a4").Token.value }}"
     {{- end }}
@@ -63,6 +66,7 @@
     username = "{{ (bitwarden "item" "a0d9f1a9-d191-4552-ac5d-ad530003310d").login.username }}"
     password = "{{ (bitwarden "item" "a0d9f1a9-d191-4552-ac5d-ad530003310d").login.password }}"
 
+  {{- if eq $computer "work" }}
   [data.jenkins]
     username      = "{{ (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.username }}"
     prod_url      = "{{ (index (bitwarden "item" "3cf7afb5-c923-48d3-93db-aad200fe5e9a").login.uris 0).uri }}"
@@ -75,6 +79,7 @@
     prod_token    = "{{ (bitwardenFields "item" "5264707e-195c-45fb-ac48-ad41011f8607").ProdServerToken.value }}"
     preprod_url   = "{{ (index (bitwarden "item" "5264707e-195c-45fb-ac48-ad41011f8607").login.uris 2).uri }}"
     preprod_token = "{{ (bitwardenFields "item" "5264707e-195c-45fb-ac48-ad41011f8607").PreprodServerToken.value }}"
+  {{- end }}
 
   [data.computer]
     type = "{{ $computer }}"
