@@ -1,0 +1,13 @@
+# EXTERNAL REPOSITORIES NEEDED
+
+# ["~/.cache/tpm"]
+  # url  = "https://github.com/tmux-plugins/tpm"
+  # type = "git-repo"
+
+# ["~/.cache/tpm"]
+  # url  = "https://github.com/wbthomason/packer.nvim"
+  # type = "git-repo"
+
+# ["~/.cache/zinit/bin"]
+  # url  = "https://github.com/zdharma-continuum/zinit"
+  # type = "git-repo"

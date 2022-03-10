@@ -1,3 +1,7 @@
 # Login into bw
 % bw, 2fa, pass, eval
 eval "$(bw login "$(pass show 'bw/user')" "$(pass show 'bw/pass')" --code "$(2fa 'bw')" | rg 'export' | sed 's/\$ //g')"
+
+# search a bw item
+% bw
+bw list items --search <item>
