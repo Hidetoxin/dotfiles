@@ -12,6 +12,7 @@ README.md
 
 # FILES USED ONLY ON SELF COMPUTER
 {{- if ne .computer.type "self" }}
+.config/rclone/rclone.conf
 {{- end }}
 
 # FILES USED ONLY ON WORK COMPUTER

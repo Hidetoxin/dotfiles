@@ -44,10 +44,10 @@
     {{- end }}
 
   {{- if eq $computer "work" }}
-  [jira]
+  [data.jira]
     url   = "{{ (index (bitwarden "item" "c526b42f-70b1-4acf-98b6-ad5901762e74").login.uris 1).uri }}"
     user  = "{{ (bitwarden "item" "f05c3ca4-7264-4084-9b0e-aaea0162fb74").login.username }}"
-    token = "{{ (bitwarden "item" "f05c3ca4-7264-4084-9b0e-aaea0162fb74").login.password}}"
+    token = "{{ (bitwarden "item" "f05c3ca4-7264-4084-9b0e-aaea0162fb74").login.password }}"
   {{- end }}
 
   [data.github]
@@ -60,10 +60,12 @@
     token           = "{{ (bitwardenFields "item" "109264ec-2414-42c4-81ff-a981002f92a4").Token.value }}"
     {{- end }}
 
+  {{- if eq $computer "self" }}
   [data.rclone]
     webdav_url       = "{{ (index (bitwarden "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").login.uris 1).uri }}"
     webdav_username  = "{{ (bitwarden "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").login.username }}"
     webdav_password  = "{{ (bitwardenFields "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").Webdav.value }}"
+  {{- end }}
 
   [data.spotify]
     client_id     = "{{ (bitwardenFields "item" "1b4d1581-161e-420e-8e92-acfb011b2344").ClientId.value }}"
