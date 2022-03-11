@@ -40,7 +40,12 @@ alias netris="ssh netris.rocketnine.space"
 alias corona="curl https://corona-stats.online/mx"
 alias forrest="curl ascii.live/forrest"
 alias tictactoe="telnet pixelomer.com"
-debug_info "Adding aliases for 'fun'"
+
+# IF BW IS INSTALLED
+[ -n "$(command -v bw)" ]                                                                                                     \
+    && alias bwlo='bw logout' \
+    && alias bwli='eval $(bw login $(pass show bw/user) $(pass show bw/pass) --code $(2fa bw) | rg "export" | sed "s/\$ //g")' \
+    && debug_info "Adding aliases for 'bw'"
 
 # IF EXA IS INSTALLED
 [ -n "$(command -v exa)" ]                               \
@@ -57,7 +62,7 @@ debug_info "Adding aliases for 'fun'"
     && debug_info "Adding aliases for 'exa'"
 
 # IF NAVI IS INSTALLED
-[ -n "$(command -v navi)" ]          \
+[ -n "$(command -v navi)" ]         \
     && alias navit="navi --tldr"    \
     && alias navip="navi --print"   \
     && alias navic="navi --cheatsh" \

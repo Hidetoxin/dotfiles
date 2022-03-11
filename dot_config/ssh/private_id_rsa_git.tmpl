@@ -1,0 +1,6 @@
+{{- if eq .computer.type "self" }}
+{{- (bitwarden "item" "1d05ce7c-d3cc-4a02-8843-ad40013983dc").notes }}
+{{- end }}
+{{- if eq .computer.type "work" }}
+{{- (bitwarden "item" "f6b245e7-4566-444c-a9dc-ad40013823b4").notes }}
+{{- end }}

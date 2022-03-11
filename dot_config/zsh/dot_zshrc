@@ -1,8 +1,8 @@
 # vim: syntax=sh
 
 # SOURCE ZINIT PLUGIN MANAGER
-source "/opt/homebrew/opt/zinit/zinit.zsh" \
-    && debug_info "Sourcing file '/opt/homebrew/opt/zinit/zinit.zsh'"
+source "$(brew --prefix zinit)/zinit.zsh" \
+    && debug_info "Sourcing file '$(brew --prefix zinit)/zinit.zsh'"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 

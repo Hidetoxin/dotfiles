@@ -113,13 +113,13 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(mcfly init zsh | sed 's,\^R,^H,')"                      \
     && export MCFLY_FUZZY=true                                         \
     && debug_info "Exporting MCFLY_FUZZY='$MACFLY_FUZZY'"              \
-    && export MCFLY_RESULTS=50                                         \
+    && export MCFLY_RESULTS=100                                        \
     && debug_info "Exporting MCFLY_RESULTS='$MACFLY_RESULTS'"          \
     && export MCFLY_KEY_SCHEME="vim"                                   \
     && debug_info "Exporting MCFLY_KEY_SCHEME='$MACFLY_KEY_SCHEME'"    \
     && export MCFLY_RESULTS_SORT="LAST_RUN"                            \
     && debug_info "Exporting MCFLY_RESULTS_SORT='$MCFLY_RESULTS_SORT'" \
-    && export MCFLY_INTERFACE_VIEW="TOP"                               \
+    && export MCFLY_INTERFACE_VIEW="BOTTOM"                            \
     && debug_info "Exporting MCFLY_INTERFACE_VIEW='$MACFLY_INTERFACE_VIEW'"
 
 [ -n "$(command -v zoxide)" ]                           \
@@ -154,7 +154,6 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
         --prompt='~ ❯ '                                                           \
         --height='80%'                                                            \
         --marker='✗'                                                              \
-        --layout=reverse                                                          \
         --pointer='▶'                                                             \
         --border                                                                  \
         --inline-info                                                             \

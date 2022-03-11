@@ -338,6 +338,9 @@ return require('packer').startup({function(use)
     'nvim-telescope/telescope-file-browser.nvim',
   }
 
+  -- PREVIEW IMAGES
+  -- use {'edluffy/hologram.nvim'}
+
   -- NOTE TAKING
   -- use {
     -- 'vimwiki/vimwiki',
