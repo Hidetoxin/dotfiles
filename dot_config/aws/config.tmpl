@@ -16,6 +16,14 @@ sso_role_name  = {{ .aws.als_prod_role }}
 sso_start_url  = {{ .aws.url }}
 sso_account_id = {{ .aws.als_prod_id }}
 
+[profile az-ecsops]
+region         = us-east-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.azecsops_role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.azecsops_id }}
+
 [profile azcsdcops-dev]
 region         = us-east-1
 output         = json
