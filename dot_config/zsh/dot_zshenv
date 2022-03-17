@@ -193,8 +193,8 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting GOENV_ROOT='$GOENV_ROOT'" \
     && debug_info "Exporting GOENV_GOPATH_PREFIX='$GOENV_GOPATH_PREFIX'"
 
-[ -n "$(command -v vivid)" ]                                                             \
-    && export LS_COLORS="$(vivid -m 24-bit generate $XDG_CONFIG_HOME/vivid/gruvbox.yml)" \
+[ -n "$(command -v vivid)" ]                                       \
+    && export LS_COLORS="$(vivid -m 24-bit generate gruvbox-dark)" \
     && debug_info "Exporting LS_COLORS='$LS_COLORS'"
 
 [ -n "$(command -v packer)" ] \

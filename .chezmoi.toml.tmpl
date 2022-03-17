@@ -56,7 +56,7 @@
   [data.rclone.icedrive]
     url  = "{{ (index (bitwarden "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").login.uris 1).uri }}"
     user = "{{ (bitwarden "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").login.username }}"
-    pass = "{{ (bitwardenFields "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").Webdav.value }}"
+    pass = "{{ (bitwardenFields "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").Token.value }}"
   {{- end }}
 
   {{- if eq $computer "work" }}
