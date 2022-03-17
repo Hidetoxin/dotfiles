@@ -12,6 +12,7 @@
 
 # FILES USED ONLY ON WORK COMPUTER
 {{- if ne .computer.type "work" }}
-.config/.jira/.config.yml
-.config/jenkins_jobs/jenkins_jobs.ini
+.config/aws/*
+.config/.jira/*
+.config/jenkins_jobs/*
 {{- end }}
