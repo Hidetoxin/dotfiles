@@ -17,6 +17,8 @@ export XDG_DATA_HOME="$HOME/.local/share" \
     && debug_info "Exporting XDG_DATA_HOME='$XDG_DATA_HOME'"
 export XDG_CACHE_HOME="$HOME/.cache"      \
     && debug_info "Exporting XDG_CACHE_HOME='$XDG_CACHE_HOME'"
+export XDG_STATE_HOME="$HOME/.state"      \
+    && debug_info "Exporting XDG_STATE_HOME='$XDG_STATE_HOME'"
 export XDG_CONFIG_HOME="$HOME/.config"    \
     && debug_info "Exporting XDG_CONFIG_HOME='$XDG_CONFIG_HOME'"
 
@@ -47,7 +49,7 @@ export HISTFILE="$XDG_CONFIG_HOME/zsh/zhistory" \
     && debug_info "Exporting HISTFILE='$HISTFILE'"
 
 # ADD USER SCRIPTS TO PATH
-export PATH="$PATH:$XDG_CONFIG_HOME/bin" \
+export PATH="$PATH:$XDG_DATA_HOME/../bin" \
     && debug_info "Exporting PATH='$PATH'"
 
 # SETUP LANGUAGE SETTINGS
@@ -93,6 +95,13 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(navi widget zsh)"                      \
     && export NAVI_PATH="$XDG_CONFIG_HOME/navi"       \
     && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
+
+[ -n "$(command -v pipx)" ]                                \
+    && debug_info "Initializing functions for 'pipx'"      \
+    && export PIPX_HOME="$XDG_DATA_HOME/pipx"              \
+    && debug_info "Exporting PIPX_PATH='$PIPX_HOME'"       \
+    && export PIPX_BIN_DIR="$XDG_DATA_HOME/../bin"         \
+    && debug_info "Exporting PIPX_BIN_DIR='$PIPX_BIN_DIR'"
 
 [ -n "$(command -v goenv)" ]                           \
     && debug_info "Initializing functions for 'goenv'" \
@@ -157,6 +166,7 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
         --pointer='▶'                                                             \
         --border                                                                  \
         --inline-info                                                             \
+        --layout=reverse                                                          \
         --preview                                                                 \
             '([[ -f {} ]] &&                                                      \
             (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && \

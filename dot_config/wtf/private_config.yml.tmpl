@@ -110,9 +110,9 @@ wtf:
       title: " Jenkins"
       colors:
         title: "#b8bb26"
-      url: "{{ .jenkins.prod_url }}/jenkins/view/View"
-      user: "{{ .jenkins.username }}"
-      apiKey: "{{ .jenkins.prod_token }}"
+      url: "{{ .jenkins.prod.url }}/jenkins/view/View"
+      user: "{{ .jenkins.prod.user }}"
+      apiKey: "{{ .jenkins.prod.token }}"
       enabled: true
       position:
         top: 2

@@ -8,13 +8,13 @@ allow_duplicates  = False
 keep_descriptions = False
 
 [prod]
-url                = {{ .jenkins.prod_url | replace "https://" "" }}
-user               = {{ .jenkins.username }}
-password           = {{ .jenkins.prod_token }}
+url                = {{ .jenkins.prod.url | replace "https://" "" }}
+user               = {{ .jenkins.prod.user }}
+password           = {{ .jenkins.prod.token }}
 query_plugins_info = False
 
 [preprod]
-url                = {{ .jenkins.preprod_url | replace "https://" "" }}
-user               = {{ .jenkins.username }}
-password           = {{ .jenkins.preprod_token }}
+url                = {{ .jenkins.preprod.url | replace "https://" "" }}
+user               = {{ .jenkins.preprod.user }}
+password           = {{ .jenkins.preprod.token }}
 query_plugins_info = False

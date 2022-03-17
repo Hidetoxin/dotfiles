@@ -4,24 +4,27 @@ Host *
     UserKnownHostsFile    /dev/null
     StrictHostKeyChecking no
 
-# SSH KEY FOR GITHUB
 Host github.com
-    IdentityFile ~/.ssh/id_rsa_git
+    User                  git
+    IdentityFile          ~/.ssh/id_rsa_git
+    StrictHostKeyChecking yes
 
 {{- if (eq .computer.type "work") }}
-# SSH KEY FOR GITHUB
-Host github.com
-    IdentityFile ~/.ssh/id_rsa_git_work
-
 # SSH KEY FOR BITBUCKET CLOUD
 Host bitbucket.org
-    IdentityFile ~/.ssh/id_rsa_git_work
+    User                  git
+    IdentityFile          ~/.ssh/id_rsa_git
+    StrictHostKeyChecking yes
 
 # SSH KEY FOR BITBUCKET SERVER PRODUCTION
-Host {{ .bitbucket.prod_url | replace "https://" "" }}
-    IdentityFile ~/.ssh/id_rsa_git_work
+Host {{ .bitbucket.prod.url | replace "https://" "" }}
+    User                  git
+    IdentityFile          ~/.ssh/id_rsa_git
+    StrictHostKeyChecking yes
 
 # SSH KEY FOR BITBUCKET SERVER PREPRODUCTION
-Host {{ .bitbucket.preprod_url | replace "https://" "" }}
-    IdentityFile ~/.ssh/id_rsa_git_work
+Host {{ .bitbucket.preprod.url | replace "https://" "" }}
+    User                  git
+    IdentityFile          ~/.ssh/id_rsa_git
+    StrictHostKeyChecking yes
 {{- end }}
