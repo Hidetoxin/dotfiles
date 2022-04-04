@@ -1,3 +1,7 @@
 # Initialize a new go module
 % go
 go mod init "<repo_url>"
+
+# Initialize testing
+% go
+go test -v <path>
