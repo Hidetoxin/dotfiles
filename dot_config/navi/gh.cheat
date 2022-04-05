@@ -5,3 +5,11 @@ gh repo create --confirm --enable-wiki=false --enable-issues=false <repo>
 # Login to github account
 % gh
 gh auth login
+
+#
+% gh, fzf
+gh workflow list | fzf --preview
+
+# Add organization secret to github actions
+% gh
+gh secret set '<secret_name>' --org '<organization>' --app 'actions'
