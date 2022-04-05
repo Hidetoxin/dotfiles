@@ -1,3 +1,14 @@
+# Set aws credentials
+% aws, aws-vault
+$ profile: aws configure list-profiles | fzf --preview "bat -l ini --color=always <(rg -A6 {} $XDG_CONFIG_HOME/aws/config)"
+eval "$(env | rg AWS_ | sed '/AWS_VAULT_BACKEND/d; s/=.*//g; s/^/unset /g')" && \
+    eval "$(aws-vault exec <profile> --no-session --backend=keychain -- env | rg AWS_ | sed 's/^/export /g')"
+
+# Login on an ec2 using ssm
+% aws, ec2, ssm
+$ instance: aws ec2 describe-instances --output="table" --filters="Name=instance-state-name,Values=running" --query="Reservations[*].Instances[*].{Id:InstanceId,Name:Tags[?Key=='Name']|[0].Value,Status:State.Name}" | sed '1,5d; $d; s/\|/ /g; s/^ *//g' | fzf --preview "bat -l json --color=always <(aws ec2 describe-instances --filters='Name=instance-id,Values={1}' | jq '.Reservations[].Instances[]')"
+aws ssm start-session --target <instance>
+
 # Set a secret value on through a text/json file
 % aws, secretsmanager
 aws secretsmanager put-secret-value \
