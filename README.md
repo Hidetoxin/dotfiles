@@ -304,10 +304,10 @@ plugins:
 * [Top Command Line Tools]
 * [Cool But Obscure Unix Tools]
 
-[Reddit's r/cli]: https://www.reddit.com/r/cli
-[Reddit's r/vimporn]: https://www.reddit.com/r/vimporn
-[Reddit's r/unixporn]: https://www.reddit.com/r/unixporn
-[Reddit's r/commandline]: https://www.reddit.com/r/commandline
+[Reddit's r/cli]: https://www.libredd.it/r/cli
+[Reddit's r/vimporn]: https://www.libredd.it/r/vimporn
+[Reddit's r/unixporn]: https://www.libredd.it/r/unixporn
+[Reddit's r/commandline]: https://www.libredd.it/r/commandline
 [Vim Galore]: https://github.com/mhinz/vim-galore
 [Awesome Privacy]: https://github.com/pluja/awesome-privacy
 [Rootknecht's CLI]: https://rootknecht.net/knowledge/applications/cli/
