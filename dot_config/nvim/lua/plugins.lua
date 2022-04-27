@@ -39,7 +39,8 @@ return require('packer').startup({function(use)
   -- HCL TEMPLATE SUPPORT
   use {
     'jvirtanen/vim-hcl',
-    ft = {'hcl'},
+    ft    = {'hcl'},
+    branch = 'main',
  
   -- LSP PROGRESS BAR
   use {
@@ -129,6 +130,7 @@ return require('packer').startup({function(use)
   -- USE A GIT TUI
   use {
     'kdheepak/lazygit.nvim',
+    branch = 'main',
   }
 
   -- PREVIEW MARKDOWN FILES
@@ -147,16 +149,10 @@ return require('packer').startup({function(use)
     'sindrets/diffview.nvim',
   }
 
-  -- USE NEOVIM IN WEB BROWSERS
-  use { 'glacambre/firenvim',
-    run = function()
-      vim.fn['firenvim#install'](0)
-    end,
-  }
-
   -- SHOW BUFFER TABS
   use {
     'akinsho/bufferline.nvim',
+    branch   = 'main',
     config   = function()
       require('bufferline').setup({
         options = {
@@ -203,6 +199,7 @@ return require('packer').startup({function(use)
   -- TOGGLE TERM POPUP INSIDE NVIM
   use {
     'akinsho/toggleterm.nvim',
+    branch = 'main',
     config = function()
       require('toggleterm').setup({
         size            = 20,
@@ -221,12 +218,12 @@ return require('packer').startup({function(use)
     'acksld/nvim-neoclip.lua',
     config = function()
       require('neoclip').setup({
-        enable_persistant_history = true,
+        enable_persistent_history = true,
       })
     end,
     requires = {
-      'tami5/sqlite.lua',
-      module = 'sqlite'
+      {'nvim-telescope/telescope-ghq.nvim'},
+      {'tami5/sqlite.lua', module = 'sqlite'},
     },
   }
 
