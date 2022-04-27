@@ -1,1 +1,4 @@
 # vim: syntax=toml
+
+sn_version    = "0.2.4"
+siggo_version = "0.12.0"

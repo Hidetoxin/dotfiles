@@ -1,13 +1,29 @@
 # EXTERNAL REPOSITORIES NEEDED
 
-# ["~/.cache/tpm"]
+# [".cache/tpm"]
   # url  = "https://github.com/tmux-plugins/tpm"
   # type = "git-repo"
 
-# ["~/.cache/tpm"]
+# [".cache/tpm"]
   # url  = "https://github.com/wbthomason/packer.nvim"
   # type = "git-repo"
 
-# ["~/.cache/zinit/bin"]
+# [".cache/zinit/bin"]
   # url  = "https://github.com/zdharma-continuum/zinit"
   # type = "git-repo"
+
+# [color]
+  # url = "https://gitlab.com/dwt1/shell-color-scripts"
+  # url = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
+
+[".local/bin/sn"]
+  url             = "https://github.com/jonhadfield/sn-cli/releases/download/{{ .sn_version }}/sn-cli_Darwin_arm64.zip"
+  type            = "file"
+  executable      = true
+  stripComponents = 0
+
+[".local/bin/siggo"]
+  url             = "https://github.com/derricw/siggo/releases/download/{{ .siggo_version }}/siggo-{{ .siggo_version }}-darwin-amd64.tar.gz"
+  type            = "file"
+  executable      = true
+  stripComponents = 1
