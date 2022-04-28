@@ -190,6 +190,7 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
 
 [ -n "$(command -v jira)" ]                            \
+    && eval "$(jira completion zsh)"                   \
     && export JIRA_API_TOKEN="$(pass show jira/token)" \
     && debug_info "Exporting JIRA_API_TOKEN='$JIRA_API_TOKEN'"
 
