@@ -1,0 +1,18 @@
+# vim: syntax=sh
+
+if [ -z "$TMUX" ]; then
+
+    # UPDATE SYSTEM UTILITIES
+    [ -n "$(command -v mas)" ] \
+        && (mas upgrade < /dev/null > /dev/null 2>&1 &)
+
+    [ -n "$(command -v brew)" ] \
+        && (brew upgrade < /dev/null > /dev/null 2>&1 &)
+
+    [ -n "$(command -v pipx)" ] \
+        && (pipx upgrade-all < /dev/null > /dev/null 2>&1 &)
+
+    [ -n "$(command -v tldr)" ] \
+        && (tldr --update < /dev/null > /dev/null 2>&1 &)
+
+fi

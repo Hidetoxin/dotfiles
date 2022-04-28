@@ -135,7 +135,15 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Initializing functions for 'zoxide'" \
     && eval "$(zoxide init zsh --cmd j)"
 
+[ -n "$(command -v cocainate)" ]                           \
+    && debug_info "Initializing functions for 'cocainate'" \
+    && eval "$(cocainate completion zsh)"
+
 # CLI TOOLS SETTINGS
+[ -n "$(command -v bw)" ]                  \
+    && eval "$(bw completion --shell zsh)" \
+    && debug_info "Initializing functions for 'bw'"
+
 [ -n "$(command -v rg)" ]                                                 \
     && export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgrep.conf" \
     && debug_info "Exporting RIPGREP_CONFIG_PATH='$RIPGREP_CONFIG_PATH'"
@@ -181,6 +189,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass" \
     && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
 
+[ -n "$(command -v jira)" ]                            \
+    && export JIRA_API_TOKEN="$(pass show jira/token)" \
+    && debug_info "Exporting JIRA_API_TOKEN='$JIRA_API_TOKEN'"
+
 [ -n "$(command -v nvim)" ] \
     && export EDITOR="nvim" \
     && debug_info "Exporting EDITOR='$EDITOR'"
@@ -204,6 +216,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting PACKER_HOME_DIR='$PACKER_HOME_DIR'" \
     && export PACKER_LOG_PATH="$XDG_CACHE_HOME/packer/logs"      \
     && debug_info "Exporting PACKER_LOG_PATH='$PACKER_LOG_PATH'"
+
+[ -n "$(command -v direnv)" ]    \
+    && eval "$(direnv hook zsh)" \
+    && debug_info "Initializing functions for 'direnv'"
 
 [ -n "$(command -v chezmoi)" ]          \
     && eval "$(chezmoi completion zsh)" \

@@ -87,6 +87,17 @@ alias tictactoe="telnet pixelomer.com"
     && alias icf="imgcat --width=$COLUMNS --heigh=$LINES" \
     && debug_info "Adding aliases for 'imgcat'"
 
+# IF DOCKER IS INSTALLED
+[ -n "$(command -v docker)" ]        \
+    && alias dkr="docker"            \
+    && alias dkrm="docker rm"        \
+    && alias dkrr="docker run"       \
+    && alias dkrp="docker pull"      \
+    && alias dkri="docker images"    \
+    && alias dkrm="docker rmi"       \
+    && alias dkrps="docker ps --all" \
+    && debug_info "Adding aliases for 'docker'"
+
 # IF PACKER IS INSTALLED
 [ -n "$(command -v packer)" ]        \
     && alias pkr="packer"            \
@@ -111,8 +122,8 @@ alias tictactoe="telnet pixelomer.com"
     && alias cme="chezmoi edit"              \
     && alias cmcd="chezmoi cd"               \
     && alias cmat="chezmoi add --template"   \
+    && alias cmap="chezmoi apply --verbose"  \
     && alias cmet="chezmoi execute-template" \
-    && alias cmap="chezmoi apply --verbose" \
     && debug_info "Adding aliases for 'chezmoi'"
 
 # IF LAZYGIT IS INSTALLED
@@ -171,6 +182,11 @@ alias tictactoe="telnet pixelomer.com"
     &&  alias board="tmuxinator start dashboard"  \
     &&  alias media="tmuxinator start multimedia" \
     && debug_info "Adding aliases for 'tmuxinator'"
+
+# IF LAZYDOCKER IS INSTALLED
+[ -n "$(command -v lazydocker)" ] \
+    && alias ldkr="lazydocker"    \
+    && debug_info "Adding aliases for 'lazydocker'"
 
 # IF PRE-COMMIT IS INSTALLED
 [ -n "$(command -v pre-commit)" ]             \

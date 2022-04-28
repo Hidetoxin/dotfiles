@@ -1,123 +1,188 @@
-tap "cmacrae/formulae"
+tap "applegamer22/tap"
+tap "cantino/mcfly"
+tap "felixkratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "kidonng/malt"
 tap "koekeishiya/formulae"
-# Clone of cat(1) with syntax highlighting and Git integration
+brew "asciiquarium"
+brew "python@3.9"
+brew "awscli"
 brew "bat"
-# Secure and free password manager for all of your devices
+brew "bat-extras"
 brew "bitwarden-cli"
-# Insanely fast image printing in your terminal
+brew "bottom"
+brew "btop"
+brew "glib"
 brew "catimg"
-# Manage your dotfiles across multiple diverse machines, securely
+brew "cheat"
 brew "chezmoi"
-# Modern replacement for 'ls'
+brew "choose"
+brew "cmatrix"
+brew "code-minimap"
+brew "codespell"
+brew "ddgr"
+brew "direnv"
+brew "dog"
+brew "dua-cli"
+brew "duf"
+brew "dust"
+brew "entr"
 brew "exa"
-# Simple, fast and user-friendly alternative to find
 brew "fd"
-# Command-line fuzzy finder written in Go
+brew "gobject-introspection"
+brew "ffmpeg"
+brew "fx"
 brew "fzf"
-# Syntax-highlighting pager for git and diff output
+brew "gh"
+brew "ghq"
 brew "git-delta"
-# GNU Pretty Good Privacy (PGP) package
+brew "gitlint"
+brew "gitmoji"
+brew "gitup"
+brew "glow"
+brew "gnu-sed"
 brew "gnupg"
-# Manage your GnuPG keys with ease! 🔐
+brew "go"
+brew "goenv"
+brew "gopls"
 brew "gpg-tui"
-# Colorize logfiles and command output
+brew "gping"
+brew "librsvg"
+brew "graphviz"
 brew "grc"
-# CLI email client written in Rust
 brew "himalaya"
-# Lightweight and flexible command-line JSON processor
+brew "howdoi"
+brew "htop"
+brew "hugo"
+brew "imagemagick"
+brew "infracost"
+brew "jobber"
 brew "jq"
-# Mac App Store command-line interface
+brew "lazygit"
+brew "linklint"
+brew "lnav"
+brew "lolcat"
+brew "ltex-ls"
 brew "mas"
-# Interactive cheatsheet tool for the command-line
+brew "mdcat"
+brew "mkdocs"
+brew "mpd"
+brew "mpv"
 brew "navi"
-# Fast, highly customisable system info script
+brew "ncmpcpp"
 brew "neofetch"
-# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# RSS/Atom feed reader for text terminals
 brew "newsboat"
-# Password manager
+brew "nomino"
+brew "nsnake"
+brew "nyancat"
+brew "onefetch"
+brew "p7zip"
+brew "pandoc"
 brew "pass"
-# Rsync for cloud storage
+brew "pdfgrep"
+brew "pipes-sh"
+brew "pipx"
+brew "procs"
+brew "pueue"
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "pyright"
+brew "qrcp"
 brew "rclone"
-# Fast, efficient and secure backup program
+brew "rdfind"
+brew "rename"
 brew "restic"
-# Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# Utility that provides fast incremental file transfer
+brew "rmlint"
+brew "rsc_2fa"
 brew "rsync"
-# Command-line interface for https://speedtest.net bandwidth tests
+brew "sampler"
+brew "sd"
+brew "signal-cli"
+brew "sl"
+brew "slides"
 brew "speedtest-cli"
-# Terminal-based client for Spotify
 brew "spotify-tui"
-# Very fast implementation of tldr in Rust
+brew "task"
 brew "tealdeer"
-# Programmatically correct mistyped console commands
+brew "terraform"
+brew "terraform-docs"
 brew "thefuck"
-# Terminal multiplexer
+brew "tig"
 brew "tmux"
-# Manage complex tmux sessions easily
 brew "tmuxinator"
-# Tool for writing command-line pipes with instant live preview
+brew "tokei"
+brew "universal-ctags"
 brew "up"
-# Download YouTube videos from the command-line
+brew "viddy"
+brew "vivid"
+brew "wtf"
+brew "wtfutil"
+brew "xh"
+brew "xplr"
+brew "xsv"
 brew "youtube-dl"
-# UNIX shell (command interpreter)
+brew "zinit"
+brew "zoxide"
 brew "zsh"
-# A minimal status bar for macOS.
-brew "cmacrae/formulae/spacebar"
-# Simple hotkey-daemon for macOS.
+brew "applegamer22/tap/cocainate"
+brew "cantino/mcfly/mcfly"
+brew "felixkratz/formulae/sketchybar"
+brew "felixkratz/formulae/svim"
 brew "koekeishiya/formulae/skhd"
-# A tiling window manager for macOS based on binary space partitioning.
 brew "koekeishiya/formulae/yabai"
-# Desktop password and login vault
-cask "bitwarden"
-# E-books management software
+cask "aldente"
+cask "betterdummy"
 cask "calibre"
-# Elegant Facebook Messenger desktop app
 cask "caprine"
-# Multi-platform client-side cloud file encryption tool
 cask "cryptomator"
-# Web browser
+cask "digikam"
+cask "displaylink"
+cask "displaylink-login-extension"
+cask "eloston-chromium"
 cask "firefox"
 cask "font-hack-nerd-font"
-# YouTube player focusing on privacy
 cask "freetube"
-# GPU-based terminal emulator
+cask "goneovim"
+cask "kindle-comic-converter"
+cask "kindle-comic-creator"
 cask "kitty"
-# Full TeX Live distribution without GUI applications
+cask "krita"
+cask "logitech-camera-settings"
+cask "lulu"
 cask "mactex-no-gui"
-# Free and open-source RSS reader
 cask "netnewswire"
-# Podcast platform
 cask "pocket-casts"
-# Bridges ProtonMail to email clients supporting IMAP and SMTP protocols
 cask "protonmail-bridge"
-# VPN client focusing on security
 cask "protonvpn"
-# Instant messaging application focusing on security
+cask "rar"
+cask "session-manager-plugin"
 cask "signal"
-# Music streaming service
+cask "skim"
 cask "spotify"
-# Free, open-source, and completely encrypted notes app
 cask "standard-notes"
-# Customizable email client
 cask "thunderbird"
-# GUI for the Neovim text editor
-cask "vimr"
-# Binary releases of VS Code without MS branding/telemetry/licensing
+cask "transmission"
+cask "vimac"
 cask "vscodium"
-# Desktop client for WhatsApp
-cask "whatsapp"
+cask "yacreader"
+cask "yuna"
+mas "AdGuard for Safari", id: 1440147259
+mas "Amphetamine", id: 937984704
+mas "Bitwarden", id: 1352778147
 mas "Dark Reader for Safari", id: 1438243180
 mas "Icedrive", id: 1490075667
 mas "KakaoTalk", id: 869223134
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Raivo OTP", id: 1498497896
 mas "StackOv", id: 1511838391
+mas "Vimari", id: 1480933944
+mas "WhatsApp", id: 1147396723

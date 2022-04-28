@@ -296,23 +296,47 @@ plugins:
 
 ## :thought_balloon: INSPIRATION
 
-* [Awesome Privacy]
 * [Reddit's r/cli]
 * [Reddit's r/vimporn]
 * [Reddit's r/unixporn]
 * [Reddit's r/commandline]
+* [Vim Galore]
+* [Awesome Privacy]
+* [Rootknecht's CLI]
+* [Open Source Mac Apps]
 * [Top Command Line Tools]
 * [Cool But Obscure Unix Tools]
 
-[Reddit's r/cli]: https://www.reddit.com/r/cli
-[Reddit's r/vimporn]: https://www.reddit.com/r/vimporn
-[Reddit's r/unixporn]: https://www.reddit.com/r/unixporn
-[Reddit's r/commandline]: https://www.reddit.com/r/commandline
+[Reddit's r/cli]: https://www.libredd.it/r/cli
+[Reddit's r/vimporn]: https://www.libredd.it/r/vimporn
+[Reddit's r/unixporn]: https://www.libredd.it/r/unixporn
+[Reddit's r/commandline]: https://www.libredd.it/r/commandline
 [Vim Galore]: https://github.com/mhinz/vim-galore
 [Awesome Privacy]: https://github.com/pluja/awesome-privacy
 [Rootknecht's CLI]: https://rootknecht.net/knowledge/applications/cli/
+[Open Source Mac Apps]: https://www.oss.wiki/
 [Top Command Line Tools]: https://stackify.com/top-command-line-tools
 [Cool But Obscure Unix Tools]: https://kkovacs.eu/cool-but-obscure-unix-tools
+
+## :white_check_mark: TODO
+
+- [ ] Check nvim-dap
+- [ ] Check nvim-lint
+- [ ] Check trouble.nvim
+- [ ] Fix fzf-tab plugin
+- [ ] Check nvim-ts-rainbow
+- [ ] Add mpv configuration
+- [ ] Add alsa configuration
+- [ ] Add xplr configuration
+- [ ] Add buku configuration
+- [ ] Add siggo configuration
+- [ ] Add sn-cli configuration
+- [ ] Fix sotrmssh configuration
+- [ ] Fix newsboat configuration
+- [ ] Add infracost configuration
+- [ ] Fix minimap focus on neovim
+- [ ] Fix sketchybar configuration
+- [ ] Re-factor nvim configuration
 
 [//]: # (Additional links for reference)
 

@@ -20,6 +20,49 @@ return require('packer').startup({function(use)
     rtp = 'vim',
   }
 
+  -- COMPLETION PLUGIN
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('cmp').setup({
+        window = {
+        },
+        sources = {
+          { name = "path" },
+          { name = "buffer" , keyword_length = 5},
+          { name = "nvim_lsp"},
+        },
+        mapping = require('cmp').mapping.preset.insert({
+          ['<C-b>'] = require('cmp').mapping.scroll_docs(-4),
+          ['<C-f>'] = require('cmp').mapping.scroll_docs(4),
+          ['<C-Space>'] = require('cmp').mapping.complete(),
+          ['<C-e>'] = require('cmp').mapping.abort(),
+          ['<CR>'] = require('cmp').mapping.confirm({ select = true }),
+        }),
+        formatting = {
+         format = require('lspkind').cmp_format {
+          with_text = true,
+          menu = {
+             path     = "[path]",
+             buffer   = "[buf]",
+             nvim_lsp = "[LSP]",
+            },
+         },
+        },
+      })
+    end,
+    requires = {
+      'hrsh7th/nvim-cmp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
+      'hrsh7th/cmp-nvim-lsp',
+      'onsails/lspkind.nvim',
+    },
+  }
+
   -- TOML TEMPLATE SUPPORT
   use {
     'cespare/vim-toml',
@@ -39,7 +82,8 @@ return require('packer').startup({function(use)
   -- HCL TEMPLATE SUPPORT
   use {
     'jvirtanen/vim-hcl',
-    ft = {'hcl'},
+    ft    = {'hcl'},
+    branch = 'main',
  
   -- LSP PROGRESS BAR
   use {
@@ -90,6 +134,27 @@ return require('packer').startup({function(use)
     'liuchengxu/vista.vim',
   }
 
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
+  -- OVERRIDE FILE EXTENSIONS
+  use {
+    'nathom/filetype.nvim',
+    config = function()
+      require('filetype').setup {
+        overrides = {
+            extensions = {
+              tf      = 'terraform',
+              tfvars  = 'terraform',
+              tfstate = 'json',
+            },
+        },
+      }
+    end,
+}
+
   -- STATUS LINE AT THE BOTTOM
   use {
     'hoob3rt/lualine.nvim',
@@ -129,11 +194,28 @@ return require('packer').startup({function(use)
   -- USE A GIT TUI
   use {
     'kdheepak/lazygit.nvim',
+    branch = 'main',
   }
 
   -- PREVIEW MARKDOWN FILES
   use {
     'ellisonleao/glow.nvim',
+  }
+
+  -- AUTO COMPLETITION WITH LSP
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('lspconfig').ltex.setup{}
+      require('lspconfig').gopls.setup{}
+      require('lspconfig').bashls.setup{}
+      require('lspconfig').yamlls.setup{}
+      require('lspconfig').tflint.setup{}
+      require('lspconfig').pyright.setup{}
+      require('lspconfig').dockerls.setup{}
+      require('lspconfig').ansiblels.setup{}
+      require('lspconfig').terraformls.setup{}
+    end,
   }
 
   -- TERRAFORM TEMPLATE SUPPORT
@@ -147,16 +229,10 @@ return require('packer').startup({function(use)
     'sindrets/diffview.nvim',
   }
 
-  -- USE NEOVIM IN WEB BROWSERS
-  use { 'glacambre/firenvim',
-    run = function()
-      vim.fn['firenvim#install'](0)
-    end,
-  }
-
   -- SHOW BUFFER TABS
   use {
     'akinsho/bufferline.nvim',
+    branch   = 'main',
     config   = function()
       require('bufferline').setup({
         options = {
@@ -203,6 +279,7 @@ return require('packer').startup({function(use)
   -- TOGGLE TERM POPUP INSIDE NVIM
   use {
     'akinsho/toggleterm.nvim',
+    branch = 'main',
     config = function()
       require('toggleterm').setup({
         size            = 20,
@@ -221,12 +298,12 @@ return require('packer').startup({function(use)
     'acksld/nvim-neoclip.lua',
     config = function()
       require('neoclip').setup({
-        enable_persistant_history = true,
+        enable_persistent_history = true,
       })
     end,
     requires = {
-      'tami5/sqlite.lua',
-      module = 'sqlite'
+      {'nvim-telescope/telescope-ghq.nvim'},
+      {'tami5/sqlite.lua', module = 'sqlite'},
     },
   }
 
@@ -325,14 +402,6 @@ return require('packer').startup({function(use)
     end,
   }
 
-  -- AUTO COMPLETITION WITH LSP
-  use {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require('lspconfig').gopls.setup{}
-    end,
-  }
-
   -- FUZZY FILE BROWSER
   use {
     'nvim-telescope/telescope-file-browser.nvim',
@@ -341,33 +410,9 @@ return require('packer').startup({function(use)
   -- PREVIEW IMAGES
   -- use {'edluffy/hologram.nvim'}
 
-  -- NOTE TAKING
-  -- use {
-    -- 'vimwiki/vimwiki',
-  -- }
-
   -- SHOW FUNCTION SIGNATURE
   -- use {
     -- 'ray-x/lsp_signature.nvim',
-  -- }
-
-  -- INSTALL LSP SERVERS
-  -- use {
-    -- 'williamboman/nvim-lsp-installer',
-  -- }
-
-  -- COMPLETION PLUGIN
-  -- use {
-    -- 'hrsh7th/nvim-cmp',
-    -- requires = {
-      -- 'hrsh7th/nvim-cmp',
-      -- 'hrsh7th/cmp-path',
-      -- 'hrsh7th/cmp-vsnip',
-      -- 'hrsh7th/vim-vsnip',
-      -- 'hrsh7th/cmp-buffer',
-      -- 'hrsh7th/cmp-cmdline',
-      -- 'hrsh7th/cmp-nvim-lsp',
-    -- },
   -- }
  
   -- PREVIEW LSP DEFINITION
