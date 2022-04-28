@@ -9,4 +9,5 @@ require('bindings')
 
 -- colours and fonts
 vim.cmd('syntax enable')
+vim.cmd('set colorcolumn=80,120')
 vim.cmd('colorscheme gruvbox-material')
