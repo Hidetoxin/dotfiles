@@ -47,8 +47,10 @@ yabai -m config normal_window_border_color "0xff504945"  # gray
 yabai -m config insert_window_border_color "0xff458588"  # blue
 
 # APPLICATION SETTINGS
-yabai -m rule --add app="^Authy$"              manage=off
-yabai -m rule --add app="^Finder$"             manage=off
-yabai -m rule --add app="^iTerm2$"             manage=off
-yabai -m rule --add app="^Activity Monitor$"   manage=off
-yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Finder$"                                  manage=off
+yabai -m rule --add app="^ProtonVPN$"                               manage=off
+yabai -m rule --add app="^Activity Monitor$"                        manage=off
+yabai -m rule --add app="^ProtonMail Bridge$"                       manage=off
+yabai -m rule --add app="^System Preferences$"                      manage=off
+yabai -m rule --add app="^DisplayLinkUserAgent$"                    manage=off
+yabai -m rule --add app="^Cisco AnyConnect Secure Mobility Client$" manage=off

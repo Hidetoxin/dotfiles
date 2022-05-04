@@ -45,7 +45,7 @@ export SAVEHIST=32768                           \
     && debug_info "Exporting SAVEHIST='$SAVEHIST'"
 export HISTSIZE=4096                            \
     && debug_info "Exporting HISTSIZE='$HISTSIZE'"
-export HISTFILE="$XDG_CONFIG_HOME/zsh/zhistory" \
+export HISTFILE="$XDG_CONFIG_HOME/zsh/.zsh_history" \
     && debug_info "Exporting HISTFILE='$HISTFILE'"
 
 # ADD USER SCRIPTS TO PATH
@@ -86,16 +86,6 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(/opt/homebrew/bin/brew shellenv)" \
     && debug_info "Initializing functions for 'brew'"
 
-[ -n "$(command -v gh)" ]                  \
-    && eval "$(gh completion --shell zsh)" \
-    && debug_info "Initializing functions for 'gh'"
-
-[ -n "$(command -v navi)" ]                           \
-    && debug_info "Initializing functions for 'navi'" \
-    && eval "$(navi widget zsh)"                      \
-    && export NAVI_PATH="$XDG_CONFIG_HOME/navi"       \
-    && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
-
 [ -n "$(command -v pipx)" ]                                \
     && debug_info "Initializing functions for 'pipx'"      \
     && export PIPX_HOME="$XDG_DATA_HOME/pipx"              \
@@ -105,7 +95,13 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
 
 [ -n "$(command -v goenv)" ]                           \
     && debug_info "Initializing functions for 'goenv'" \
-    && eval "$(goenv init -)"
+    && eval "$(goenv init -)"                          \
+    && export GOPATH="$XDG_DATA_HOME/go"               \
+    && debug_info "Exporting GOPATH='$GOPATH'"         \
+    && export GOENV_ROOT="$XDG_DATA_HOME/goenv"        \
+    && debug_info "Exporting GOENV_ROOT='$GOENV_ROOT'" \
+    && export GOENV_GOPATH_PREFIX="$GOPATH"            \
+    && debug_info "Exporting GOENV_GOPATH_PREFIX='$GOENV_GOPATH_PREFIX'"
 
 [ -n "$(command -v pyenv)" ]                           \
     && debug_info "Initializing functions for 'pyenv'" \
@@ -117,32 +113,18 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export RBENV_ROOT="$XDG_DATA_HOME/rbenv" \
     && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
 
-[ -n "$(command -v mcfly)" ]                                           \
-    && debug_info "Initializing functions for 'mcfly'"                 \
-    && eval "$(mcfly init zsh | sed 's,\^R,^H,')"                      \
-    && export MCFLY_FUZZY=true                                         \
-    && debug_info "Exporting MCFLY_FUZZY='$MACFLY_FUZZY'"              \
-    && export MCFLY_RESULTS=100                                        \
-    && debug_info "Exporting MCFLY_RESULTS='$MACFLY_RESULTS'"          \
-    && export MCFLY_KEY_SCHEME="vim"                                   \
-    && debug_info "Exporting MCFLY_KEY_SCHEME='$MACFLY_KEY_SCHEME'"    \
-    && export MCFLY_RESULTS_SORT="LAST_RUN"                            \
-    && debug_info "Exporting MCFLY_RESULTS_SORT='$MCFLY_RESULTS_SORT'" \
-    && export MCFLY_INTERFACE_VIEW="BOTTOM"                            \
-    && debug_info "Exporting MCFLY_INTERFACE_VIEW='$MACFLY_INTERFACE_VIEW'"
-
-[ -n "$(command -v zoxide)" ]                           \
-    && debug_info "Initializing functions for 'zoxide'" \
-    && eval "$(zoxide init zsh --cmd j)"
-
-[ -n "$(command -v cocainate)" ]                           \
-    && debug_info "Initializing functions for 'cocainate'" \
-    && eval "$(cocainate completion zsh)"
+[ -n "$(command -v nodenv)" ]                     \
+    && export NODENV_ROOT="$XDG_DATA_HOME/nodenv" \
+    && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
 
 # CLI TOOLS SETTINGS
 [ -n "$(command -v bw)" ]                  \
     && eval "$(bw completion --shell zsh)" \
     && debug_info "Initializing functions for 'bw'"
+
+[ -n "$(command -v gh)" ]                  \
+    && eval "$(gh completion --shell zsh)" \
+    && debug_info "Initializing functions for 'gh'"
 
 [ -n "$(command -v rg)" ]                                                 \
     && export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgrep.conf" \
@@ -185,11 +167,18 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export FZF_COMPLETION_TRIGGER="**"                                                        \
     && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
 
+[ -n "$(command -v navi)" ]                           \
+    && debug_info "Initializing functions for 'navi'" \
+    && eval "$(navi widget zsh)"                      \
+    && export NAVI_PATH="$XDG_CONFIG_HOME/navi"       \
+    && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
+
 [ -n "$(command -v pass)" ]                            \
     && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass" \
     && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
 
 [ -n "$(command -v jira)" ]                            \
+    && eval "$(jira completion zsh)"                   \
     && export JIRA_API_TOKEN="$(pass show jira/token)" \
     && debug_info "Exporting JIRA_API_TOKEN='$JIRA_API_TOKEN'"
 
@@ -197,13 +186,19 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export EDITOR="nvim" \
     && debug_info "Exporting EDITOR='$EDITOR'"
 
-[ -n "$(command -v goenv)" ]                           \
-    && export GOPATH="$XDG_DATA_HOME/go"               \
-    && export GOENV_ROOT="$XDG_DATA_HOME/goenv"        \
-    && export GOENV_GOPATH_PREFIX="$GOPATH"            \
-    && debug_info "Exporting GOPATH='$GOPATH'"         \
-    && debug_info "Exporting GOENV_ROOT='$GOENV_ROOT'" \
-    && debug_info "Exporting GOENV_GOPATH_PREFIX='$GOENV_GOPATH_PREFIX'"
+[ -n "$(command -v mcfly)" ]                                           \
+    && debug_info "Initializing functions for 'mcfly'"                 \
+    && eval "$(mcfly init zsh | sed 's,\^R,^H,')"                      \
+    && export MCFLY_FUZZY=true                                         \
+    && debug_info "Exporting MCFLY_FUZZY='$MACFLY_FUZZY'"              \
+    && export MCFLY_RESULTS=100                                        \
+    && debug_info "Exporting MCFLY_RESULTS='$MACFLY_RESULTS'"          \
+    && export MCFLY_KEY_SCHEME="vim"                                   \
+    && debug_info "Exporting MCFLY_KEY_SCHEME='$MACFLY_KEY_SCHEME'"    \
+    && export MCFLY_RESULTS_SORT="LAST_RUN"                            \
+    && debug_info "Exporting MCFLY_RESULTS_SORT='$MCFLY_RESULTS_SORT'" \
+    && export MCFLY_INTERFACE_VIEW="BOTTOM"                            \
+    && debug_info "Exporting MCFLY_INTERFACE_VIEW='$MACFLY_INTERFACE_VIEW'"
 
 [ -n "$(command -v vivid)" ]                                       \
     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox-dark)" \
@@ -217,6 +212,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export PACKER_LOG_PATH="$XDG_CACHE_HOME/packer/logs"      \
     && debug_info "Exporting PACKER_LOG_PATH='$PACKER_LOG_PATH'"
 
+[ -n "$(command -v zoxide)" ]                           \
+    && debug_info "Initializing functions for 'zoxide'" \
+    && eval "$(zoxide init zsh --cmd j)"
+
 [ -n "$(command -v direnv)" ]    \
     && eval "$(direnv hook zsh)" \
     && debug_info "Initializing functions for 'direnv'"
@@ -224,6 +223,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
 [ -n "$(command -v chezmoi)" ]          \
     && eval "$(chezmoi completion zsh)" \
     && debug_info "Initializing functions for 'chezmoi'"
+
+[ -n "$(command -v sshpass)" ]                \
+    && export SSHPASS="$(pass show ssh/pass)" \
+    && debug_info "Exporting SSHPASS='$SSHPASS'"
 
 [ -n "$(command -v terraform)" ]                                           \
     && export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/terraform.tf" \
@@ -234,3 +237,7 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
 [ -n "$(command -v aws-vault)" ]       \
     && export AWS_VAULT_BACKEND="pass" \
     && debug_info "Exporting AWS_VAULT_BACKEND='$AWS_VAULT_BACKEND'"
+
+[ -n "$(command -v cocainate)" ]                           \
+    && debug_info "Initializing functions for 'cocainate'" \
+    && eval "$(cocainate completion zsh)"

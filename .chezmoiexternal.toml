@@ -1,21 +1,30 @@
-# EXTERNAL REPOSITORIES NEEDED
+# EXTERNAL REPOSITORIES
+[".cache/tpm/tpm"]
+  url           = "https://github.com/tmux-plugins/tpm"
+  type          = "git-repo"
+  refreshPeriod = "24h"
 
-# [".cache/tpm"]
-  # url  = "https://github.com/tmux-plugins/tpm"
-  # type = "git-repo"
-
-# [".cache/tpm"]
-  # url  = "https://github.com/wbthomason/packer.nvim"
-  # type = "git-repo"
-
-# [".cache/zinit/bin"]
+# [".cache/zinit"]
   # url  = "https://github.com/zdharma-continuum/zinit"
   # type = "git-repo"
+  # refreshPeriod = "24h"
 
-# [color]
-  # url = "https://gitlab.com/dwt1/shell-color-scripts"
-  # url = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
+[".cache/color-scripts"]
+  url           = "https://gitlab.com/dwt1/shell-color-scripts"
+  type          = "git-repo"
+  refreshPeriod = "24h"
 
+[".cache/pokemon-scripts"]
+  url           = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
+  type          = "git-repo"
+  refreshPeriod = "24h"
+
+[".local/share/nvim/site/pack/packer/start/packer.nvim"]
+  url           = "https://github.com/wbthomason/packer.nvim"
+  type          = "git-repo"
+  refreshPeriod = "24h"
+
+# EXTERNAL BINARIES
 [".local/bin/sn"]
   url             = "https://github.com/jonhadfield/sn-cli/releases/download/{{ .sn_version }}/sn-cli_Darwin_arm64.zip"
   type            = "file"
