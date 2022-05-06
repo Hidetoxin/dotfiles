@@ -13,25 +13,7 @@ vim.api.nvim_set_keymap('n', '<down>', '<c-w><down>', {noremap=false, silent=fal
 vim.api.nvim_set_keymap('n', '<left>', '<c-w><left>', {noremap=false, silent=false})
 vim.api.nvim_set_keymap('n', '<right>', '<c-w><right>', {noremap=false, silent=false})
 
- -- -- soywod/himalaya
- -- map('n', '<leader>em', ':Himalaya<CR>', {noremap=true, silent=true})
-
- -- --liuchengxu/vista.vim
- -- map('n', '<leader>vv', ':Vista!!<CR>', {noremap=true, silent=false})
- -- 
- -- -- myusuf3/numbers.vim
- -- map('n', '<leader>nn', ':NumbersOff<CR>', {noremap=true, silent=false})
- -- map('n', '<leader>nt', ':NumbersToggle<CR>', {noremap=true, silent=false})
- -- 
- -- -- folke/twilight.nvim
- -- map('n', '<leader>tw', ':Twilight<CR>', {noremap=true, silent=true})
- 
- -- -- akinsho/bufferline.nvim
- -- map('n', '<leader>bp', ':BufferLineCycleNext<CR>', {noremap=true, silent=true})
- -- map('n', '<leader>bn', ':BufferLineCyclePrev<CR>', {noremap=true, silent=true})
- -- 
- -- -- kyazdani42/nvim-tree.lua
- -- map('n', '<leader>tt', ':NvimTreeToggle<CR>', {noremap=true, silent=true})
- -- 
- -- -- folke/todo-comments.nvim
- -- map('n', '<leader>td', ':TodoTelescope<CR>', {noremap=false, silent=false})
+-- CLOSE MAPPINGA
+vim.api.nvim_set_keymap('n', '<leader>qa', ':qa!<CR>', {noremap=false, silent=false})
+vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<CR>', {noremap=false, silent=false})
+vim.api.nvim_set_keymap('n', '<leader>ba', ':bufdo bd<CR>', {noremap=false, silent=false})

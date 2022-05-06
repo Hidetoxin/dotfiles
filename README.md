@@ -38,13 +38,17 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>c</kbd> <kbd>s</kbd>                                  | start `vim-surround` replace                            |
 | <kbd>d</kbd> <kbd>s</kbd>                                  | remove `vim-surround` delimiters                        |
 | <kbd>Ctrl</kbd>   + <kbd>\\</kbd>                          | toggle terminal using `toggleterm`                      |
+| <kbd>leader</kbd> + <kbd>b</kbd> <kbd>d</kbd>              | close current buffer                                    |
+| <kbd>leader</kbd> + <kbd>b</kbd> <kbd>a</kbd>              | close all buffers                                       |
+| <kbd>leader</kbd> + <kbd>q</kbd> <kbd>q</kbd>              | close everything                                        |
 | <kbd>leader</kbd> + <kbd>l</kbd> <kbd>g</kbd>              | open [lazygit] on a floating terminal                   |
 | <kbd>leader</kbd> + <kbd>m</kbd> <kbd>d</kbd>              | open [glow] on a floating terminal                      |
-| <kbd>leader</kbd> + <kbd>e</kbd> <kbd>m</kbd>              | open [himalaya] on a floating terinal                   |
+| <kbd>leader</kbd> + <kbd>h</kbd> <kbd>i</kbd>              | open [himalaya] on a floating terinal                   |
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>w</kbd>              | toggle concentration mode with `twilight.nvim`          |
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>d</kbd>              | search _TODO_ using `Telescope`                         |
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>t</kbd>              | toggle `nvim-tree.lua` on a left side panel             |
 | <kbd>g</kbd>      + <kbd>c</kbd> <kbd>c</kbd>              | toggle comments                                         |
+| <kbd>leader</kbd> + <kbd>t</kbd> <kbd>d</kbd>              | open todo picker with `Telescope`                       |
 | <kbd>leader</kbd> + <kbd>e</kbd> <kbd>m</kbd>              | open emoji picker with `Telescope`                      |
 | <kbd>leader</kbd> + <kbd>n</kbd> <kbd>c</kbd>              | open yanks buffer with `Telescope`                      |
 | <kbd>leader</kbd> + <kbd>Enter</kbd>                       | open buffer selected with `Telescope`                   |
@@ -334,7 +338,6 @@ plugins:
 - [ ] Add infracost configuration
 - [ ] Fix minimap focus on neovim
 - [ ] Fix sketchybar configuration
-- [ ] Re-factor nvim configuration
 
 [//]: # (Additional links for reference)
 
