@@ -5,7 +5,7 @@ goenv install -v <remote_version>
 
 # Un-install go version
 % goenv, go, fzf
-$ version: goenv versions | sed '1d' | sed 's/ //g' | fzf
+$ version: goenv versions | fzf
 goenv uninstall <version>
 
 # Set global go version

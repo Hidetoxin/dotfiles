@@ -1,0 +1,19 @@
+# Install node version
+% nodenv, node, fzf
+$ remote_version: nodenv install --list | sed '1d' | sed 's/ //g' | fzf
+nodenv install -v <remote_version>
+
+# Un-install node version
+% nodenv, node, fzf
+$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf
+nodenv uninstall <version>
+
+# Create node virtualenv
+% nodenv, node, fzf
+$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf
+nodenv virtualenv <version> <name>
+
+# Set global node version
+% nodenv, node, fzf
+$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf
+nodenv global <version>
