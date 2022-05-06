@@ -81,9 +81,13 @@ debug_info "Exporting ZINIT='$ZINIT'"
 export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting ZPFX='$ZPFX'"
 
+[ -d "/opt/homebrew/bin/" ]      \
+    && _BREW="/opt/homebrew/bin" \
+    || _BREW="/usr/local/bin"
+
 # INITIALIZE CLI TOOLS FUNCTIONS
-[ -n "$(command -v /opt/homebrew/bin/brew)" ]    \
-    && eval "$(/opt/homebrew/bin/brew shellenv)" \
+[ -n "$(command -v $_BREW/brew)" ]    \
+    && eval "$($_BREW/brew shellenv)" \
     && debug_info "Initializing functions for 'brew'"
 
 [ -n "$(command -v pipx)" ]                                \
@@ -145,8 +149,6 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting BAT_CONFIG_PATH='$BAT_CONFIG_PATH'"
 
 [ -n "$(command -v fzf)" ]                                                                       \
-    && export FZF_FASD_OPTS="--prompt=' ❯ '"                                                    \
-    && debug_info "Exporting FZF_FASD_OPTS='$FZF_FASD_OPTS'"                                     \
     && export FZF_TMUX_HEIGHT="80%"                                                              \
     && debug_info "Exporting FZF_TMUX_HEIGHT='$FZF_TMUX_HEIGHT'"                                 \
     && export FZF_DEFAULT_OPTS="                                                  \
