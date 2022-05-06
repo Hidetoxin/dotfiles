@@ -44,13 +44,11 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>w</kbd>              | toggle concentration mode with `twilight.nvim`          |
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>d</kbd>              | search _TODO_ using `Telescope`                         |
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>t</kbd>              | toggle `nvim-tree.lua` on a left side panel             |
-| <kbd>leader</kbd> + <kbd>c</kbd> <kbd>i</kbd>              | toggle comments                                         |
-| <kbd>leader</kbd> + <kbd>c</kbd> <kbd>c</kbd>              | comment selected lines                                  |
-| <kbd>leader</kbd> + <kbd>n</kbd> <kbd>n</kbd>              | disable numbers                                         |
-| <kbd>leader</kbd> + <kbd>n</kbd> <kbd>t</kbd>              | toggle numbers                                          |
+| <kbd>g</kbd>      + <kbd>c</kbd> <kbd>c</kbd>              | toggle comments                                         |
 | <kbd>leader</kbd> + <kbd>e</kbd> <kbd>m</kbd>              | open emoji picker with `Telescope`                      |
 | <kbd>leader</kbd> + <kbd>n</kbd> <kbd>c</kbd>              | open yanks buffer with `Telescope`                      |
 | <kbd>leader</kbd> + <kbd>Enter</kbd>                       | open buffer selected with `Telescope`                   |
+| <kbd>leader</kbd> + <kbd>g</kbd> <kbd>b</kbd>              | toggle git blame using `Gitsigns`                       |
 | <kbd>leader</kbd> + <kbd>g</kbd> <kbd>h</kbd>              | open [ghq] repositories with `Telescope`                |
 | <kbd>leader</kbd> + <kbd>t</kbd> <kbd>s</kbd>              | open `tree-sitter` symbols with `Telescope`             |
 | <kbd>leader</kbd> + <kbd>f</kbd> <kbd>f</kbd>              | open files on current folder with `Telescope`           |
