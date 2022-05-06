@@ -118,7 +118,10 @@ return require('packer').startup({function(use)
   }
 
   -- BETTER SYNTAX HIGHLIGHT
-  use {'nvim-treesitter/nvim-treesitter', run=':TSUpdate'}
+  use {'nvim-treesitter/nvim-treesitter',
+    run      = ':TSUpdate',
+    requires = {'p00f/nvim-ts-rainbow'}
+  }
 
   -- HIGHLIGHT AND COLOR INDENT
   use {'lukas-reineke/indent-blankline.nvim'}
