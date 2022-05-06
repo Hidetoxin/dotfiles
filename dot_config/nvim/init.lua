@@ -1,11 +1,25 @@
--- LOAD NEOVIM PLUGINS
-require('plugins')
+-- LOAD PLUGINS
+require('packer/plugins')
 
--- LOAD NEOVIM OPTIONS
-require('options')
+-- SETUP OPTIONS
+require('core/options')
 
--- LOAD NEOVIM BINDINGS
-require('bindings')
+-- SETUP BINDINGS
+require('core/bindings')
+
+-- SETUP ALL PLUGINS
+require('setup/glow')
+require('setup/alpha')
+require('setup/comment')
+require('setup/minimap')
+require('setup/lazygit')
+require('setup/lualine')
+require('setup/gitsigns')
+require('setup/whichkey')
+require('setup/telescope')
+require('setup/bufferline')
+require('setup/toggleterm')
+require('setup/highlightedyank')
 
 -- colours and fonts
 vim.cmd('syntax enable')
