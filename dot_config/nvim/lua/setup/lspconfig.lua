@@ -1,0 +1,10 @@
+-- CONFIGURATION
+local lspconfig = require('lspconfig')
+lspconfig.ltex.setup({})
+lspconfig.gopls.setup({})
+lspconfig.bashls.setup({})
+lspconfig.yamlls.setup({})
+lspconfig.tflint.setup({})
+lspconfig.pyright.setup({})
+lspconfig.ansiblels.setup({})
+lspconfig.terraformls.setup({})

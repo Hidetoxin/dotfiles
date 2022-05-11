@@ -20,3 +20,7 @@ bufferline.setup({
     diagnostics_update_in_insert = false,
   },
 })
+
+-- BINDINGS
+vim.api.nvim_set_keymap('n', '<leader>bp', ':BufferLineCycleNext<CR>', {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<leader>bn', ':BufferLineCyclePrev<CR>', {noremap=true, silent=true})

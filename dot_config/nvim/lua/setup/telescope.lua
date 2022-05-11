@@ -25,3 +25,4 @@ vim.api.nvim_set_keymap('n', '<leader>ts', ':Telescope treesitter<CR>', {noremap
 vim.api.nvim_set_keymap('n', '<leader>fb', ':Telescope file_browser<CR>', {noremap=false, silent=false})
 vim.api.nvim_set_keymap('n', '<leader>zl', ':Telescope zoxide list<CR>', {noremap=false, silent=false})
 vim.api.nvim_set_keymap('n', '<leader><CR>', ':Telescope buffers<CR>', {noremap=false, silent=false})
+vim.api.nvim_set_keymap('n', '<leader>td', ':TodoTelescope<CR>', {noremap=false, silent=false})

@@ -23,18 +23,7 @@ vim.opt.listchars:append('extends:')
 vim.opt.listchars:append('precedes:')
 -- let &colorcolumn = join(range(81,999), ",")
 
--- soywod/himalaya
--- vim.g.himalaya_mailbox_picker            = 'telescope'
--- vim.g.himalaya_telescope_preview_enabled = 1
-
--- -- liuchengxu/vista.vim
--- vim.g.vista_icon_indent          = {'╰─▸ ', '├─▸ '}
--- vim.g.vista_fold_toggle_icons    = {'▼', '▶'}
--- vim.g.vista_default_executive    = 'vim_lsp'
--- -- let g:vista#renderer#enable_icon = 1
--- -- vim.fn['vista#renderer#enable_icon']
--- --   let g:vista#extensions           = ["go", "python", "markdown"]
--- -- let g:vista#renderer#icons       = {
--- -- \   "function": "\uf794",
--- -- \   "variable": "\uf71b",
--- -- \  }
+-- APPEARANCE
+vim.cmd('syntax enable')
+vim.cmd('set colorcolumn=80,120')
+vim.cmd('colorscheme gruvbox-material')
