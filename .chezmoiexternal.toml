@@ -1,13 +1,11 @@
 # EXTERNAL REPOSITORIES
 [".cache/tpm/tpm"]
-  url           = "https://github.com/tmux-plugins/tpm"
-  type          = "git-repo"
-  refreshPeriod = "24h"
+  url  = "https://github.com/tmux-plugins/tpm"
+  type = "git-repo"
 
 # [".cache/zinit"]
-  # url  = "https://github.com/zdharma-continuum/zinit"
-  # type = "git-repo"
-  # refreshPeriod = "24h"
+#   url  = "https://github.com/zdharma-continuum/zinit"
+#   type = "git-repo"
 
 [".cache/color-scripts"]
   url           = "https://gitlab.com/dwt1/shell-color-scripts"
@@ -20,19 +18,22 @@
   refreshPeriod = "24h"
 
 [".local/share/nvim/site/pack/packer/start/packer.nvim"]
-  url           = "https://github.com/wbthomason/packer.nvim"
-  type          = "git-repo"
-  refreshPeriod = "24h"
+  url  = "https://github.com/wbthomason/packer.nvim"
+  type = "git-repo"
 
 # EXTERNAL BINARIES
 [".local/bin/sn"]
-  url             = "https://github.com/jonhadfield/sn-cli/releases/download/{{ .sn_version }}/sn-cli_Darwin_arm64.zip"
-  type            = "file"
-  executable      = true
-  stripComponents = 0
+  url        = "https://github.com/jonhadfield/sn-cli/releases/download/{{ .sn_version }}/sn-cli_Darwin_arm64.zip"
+  type       = "file"
+  executable = true
+  [".local/bin/sn".filter]
+    args    = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "sn"]
+    command = "tar"
 
 [".local/bin/siggo"]
-  url             = "https://github.com/derricw/siggo/releases/download/{{ .siggo_version }}/siggo-{{ .siggo_version }}-darwin-amd64.tar.gz"
-  type            = "file"
-  executable      = true
-  stripComponents = 1
+  url        = "https://github.com/derricw/siggo/releases/download/{{ .siggo_version }}/siggo-{{ .siggo_version }}-darwin-amd64.tar.gz"
+  type       = "file"
+  executable = true
+  [".local/bin/siggo".filter]
+    args    = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "bin/siggo"]
+    command = "tar"

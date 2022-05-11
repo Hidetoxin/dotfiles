@@ -126,6 +126,12 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(bw completion --shell zsh)" \
     && debug_info "Initializing functions for 'bw'"
 
+[ -n "$(command -v sn)" ]                                \
+    && export SN_EMAIL="$(pass show sn/mail)"            \
+    && debug_info "Exporting SN_EMAIL='$SN_EMAIL'"       \
+    && export SN_PASSWORD="$(pass show sn/pass)"         \
+    && debug_info "Exporting SN_PASSWORD='$SN_PASSWORD'" \
+
 [ -n "$(command -v gh)" ]                  \
     && eval "$(gh completion --shell zsh)" \
     && debug_info "Initializing functions for 'gh'"
