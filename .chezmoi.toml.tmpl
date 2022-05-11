@@ -52,6 +52,14 @@
   [data.computer]
     type = "{{ $computer }}"
 
+  [data.infracost]
+  {{- if eq $computer "work" }}
+    token = "{{ (bitwardenFields "item" "7999bc9b-d3d8-4247-ab57-ae9201665ee0").TokenWork.value }}"
+  {{- end }}
+  {{- if eq $computer "self" }}
+    token = "{{ (bitwardenFields "item" "7999bc9b-d3d8-4247-ab57-ae9201665ee0").TokenSelf.value }}"
+  {{- end }}
+
   {{- if eq $computer "self" }}
   [data.rclone.icedrive]
     url  = "{{ (index (bitwarden "item" "ac1a115b-a9e3-430c-9fa0-acb6010a9f1f").login.uris 1).uri }}"

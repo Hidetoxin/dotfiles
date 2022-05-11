@@ -322,11 +322,7 @@ plugins:
 
 ## :white_check_mark: TODO
 
-- [ ] Check nvim-dap
-- [ ] Check nvim-lint
-- [ ] Check trouble.nvim
 - [ ] Fix fzf-tab plugin
-- [ ] Check nvim-ts-rainbow
 - [ ] Add mpv configuration
 - [ ] Add alsa configuration
 - [ ] Add xplr configuration
@@ -336,7 +332,6 @@ plugins:
 - [ ] Fix sotrmssh configuration
 - [ ] Fix newsboat configuration
 - [ ] Add infracost configuration
-- [ ] Fix minimap focus on neovim
 - [ ] Fix sketchybar configuration
 
 [//]: # (Additional links for reference)

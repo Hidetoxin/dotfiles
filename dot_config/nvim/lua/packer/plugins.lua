@@ -28,6 +28,9 @@ return require('packer').startup({function(use)
   -- VSCODE LIKE MINIMAP
   use {'wfxr/minimap.vim'}
 
+  -- GH WRAPPER
+  use {'ldelossa/gh.nvim'}
+
   -- GREETER
   use {'goolord/alpha-nvim'}
 
@@ -52,6 +55,9 @@ return require('packer').startup({function(use)
   -- PREVIEW IMAGES
   use {'edluffy/hologram.nvim'}
 
+  -- DEBUGGER
+  use {'mfussenegger/nvim-dap'}
+
   -- STATUS LINE AT THE BOTTOM
   use { 'hoob3rt/lualine.nvim',
     requires = {
@@ -66,11 +72,11 @@ return require('packer').startup({function(use)
   -- TERRAFORM TEMPLATE SUPPORT
   use {'hashivim/vim-terraform', ft={'terraform'}}
 
-  -- ANSIBLE TEMPLATE SUPPORT
-  use {'pearofducks/ansible-vim', ft={'yml', 'yaml'}}
-
   -- NVIM PLUGIN MANAGER
   use {'wbthomason/packer.nvim'}
+
+  -- LINT CODE
+  use {'mfussenegger/nvim-lint'}
 
   -- SHOW GIT SIGNS
   use {'lewis6991/gitsigns.nvim',
@@ -78,6 +84,9 @@ return require('packer').startup({function(use)
       'nvim-lua/plenary.nvim'
     },
   }
+
+  -- ANSIBLE TEMPLATE SUPPORT
+  use {'pearofducks/ansible-vim', ft={'yml', 'yaml'}}
 
   -- TOGGLE TERM POPUP INSIDE NVIM
   use {'akinsho/toggleterm.nvim', branch='main'}
