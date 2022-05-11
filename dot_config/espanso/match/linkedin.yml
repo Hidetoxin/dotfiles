@@ -1,0 +1,15 @@
+# LINKEDIN MESSAGES
+---
+matches:
+
+  # Linkedin response spanish
+  - trigger: ":li"
+    replace: >
+      Hola, de momento solo me encuentro interesado en posiciones en Asia del
+      Este oremotas dentro de la zona horaria de Asia del Este.
+
+  # Linkedin response english
+  - trigger: ":li"
+    replace: >
+      Hello, currently I'm only searching for a position either in East Asia or
+      remote on an East Asia timezone.
