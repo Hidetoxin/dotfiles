@@ -1,13 +1,14 @@
 # vim: syntax=sh
 
-# CD ALAISES
+# COMMON ALIASES
 alias .-="cd -"
 alias ..="cd .."
 alias .2="cd ../.."
 alias .3="cd ../../.."
 alias .4="cd ../../../.."
 alias .5="cd ../../../../.."
-debug_info "Adding aliases for 'cd'"
+alias mkdir="mkdir -p"
+debug_info "Adding aliases for 'common utilities'"
 
 # VIM LIKE ALIASES
 alias :q="exit 0"
@@ -49,6 +50,7 @@ alias tictactoe="telnet pixelomer.com"
 
 # IF EXA IS INSTALLED
 [ -n "$(command -v exa)" ]                               \
+    && alias sl="exa -FG --git --icons"                  \
     && alias ls="exa -FG --git --icons"                  \
     && alias ll="exa -Flh --git --icons"                 \
     && alias lg="exa -FlhG --git --icons"                \
@@ -60,6 +62,12 @@ alias tictactoe="telnet pixelomer.com"
     && alias l5="exa -Flah --git --icons ../../../../.." \
     && alias tree="exa --git --tree --icons"             \
     && debug_info "Adding aliases for 'exa'"
+
+# IF BUKU IS INSTALLED
+[ -n "$(command -v buku)" ]                                                   \
+    && alias bukue="buku --export ~/.config/buku/{{ .computer }}bookmarks.md" \
+    && alias bukuo="open $(buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2)"  \
+    && debug_info "Adding aliases for 'buku'"
 
 # IF NAVI IS INSTALLED
 [ -n "$(command -v navi)" ]         \
@@ -170,6 +178,11 @@ alias tictactoe="telnet pixelomer.com"
     &&  alias tfd!="terraform destroy -auto-approve" \
     && debug_info "Adding aliases for 'terraform'"
 
+# IF INFRACOST IS INSTALLED
+[ -n "$(command -v infracost)" ] \
+    &&  alias ic="infracost"     \
+    && debug_info "Adding aliases for 'infracost'"
+
 # IF TMUXINATOR IS INSTALLED
 [ -n "$(command -v tmuxinator)" ]                 \
     &&  alias tx="tmuxinator"                     \
@@ -210,16 +223,3 @@ alias tictactoe="telnet pixelomer.com"
 [ -n "$(command -v taskwarrior-tui)" ] \
     && alias taskt="taskwarrior-tui"   \
     && debug_info "Adding aliases for 'taskwarrior-tui'"
-
-{{- if (eq .chezmoi.os "darwin") }}
-# ALIASES FOR MACOS GOES BELOW
-
-# IF BUKU IS INSTALLLED
-[ -n "$(command -v buku)" ]                                                                                                         \
-    && alias ff="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Firefox"  \
-    && alias saf="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Safari"  \
-    && alias viv="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | xargs open -a Vivaldi" \
-    && alias ucb="buku -p -f4 | fzf -m --reverse --preview \"buku -p {1}\" --preview-window=wrap | cut -f2 | pbcopy"                \
-    && debug_info "Adding aliases for 'buku'"
-
-{{- end }}

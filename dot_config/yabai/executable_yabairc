@@ -47,6 +47,7 @@ yabai -m config normal_window_border_color "0xff504945"  # gray
 yabai -m config insert_window_border_color "0xff458588"  # blue
 
 # APPLICATION SETTINGS
+yabai -m rule --add app="^Vimac$"                                   manage=off
 yabai -m rule --add app="^Finder$"                                  manage=off
 yabai -m rule --add app="^ProtonVPN$"                               manage=off
 yabai -m rule --add app="^Activity Monitor$"                        manage=off
