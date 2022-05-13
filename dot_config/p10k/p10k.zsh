@@ -67,12 +67,12 @@
     rbenv                   # ruby version from rbenv (https://github.com/rbenv/rbenv)
     goenv                   # go environment (https://github.com/syndbg/goenv)
     nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
-    direnv                  # direnv status (https://direnv.net/)
 
     # =========================[ Line #3 ]=========================
     newline
     status                  # exit code of the last command
     history                 # show command number
+    direnv                  # direnv status (https://direnv.net/)
     command_execution_time  # duration of the last command
 
     # =========================+++++++++++=========================
@@ -535,8 +535,8 @@
 
   #######################[ direnv: direnv status (https://direnv.net/) ]########################
   # Direnv color.
-  # typeset -g POWERLEVEL9K_DIRENV_FOREGROUND=3
-  # typeset -g POWERLEVEL9K_DIRENV_BACKGROUND=0
+  typeset -g POWERLEVEL9K_DIRENV_FOREGROUND='black'
+  typeset -g POWERLEVEL9K_DIRENV_BACKGROUND='green'
   # Custom icon.
   # typeset -g POWERLEVEL9K_DIRENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
 

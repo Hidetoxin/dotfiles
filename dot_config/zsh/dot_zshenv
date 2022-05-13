@@ -113,13 +113,17 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export PYENV_ROOT="$XDG_DATA_HOME/pyenv"        \
     && debug_info "Exporting PYENV_ROOT='$PYENV_ROOT'"
 
-[ -n "$(command -v rbenv)" ]                    \
-    && export RBENV_ROOT="$XDG_DATA_HOME/rbenv" \
-    && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
+[ -n "$(command -v rbenv)" ]                           \
+    && export RBENV_ROOT="$XDG_DATA_HOME/rbenv"        \
+    && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'" \
+    && eval "$(rbenv init - zsh)"                      \
+    && debug_info "Initializing functions for 'rbenv'"
 
-[ -n "$(command -v nodenv)" ]                     \
-    && export NODENV_ROOT="$XDG_DATA_HOME/nodenv" \
-    && debug_info "Exporting RBENV_ROOT='$RBENV_ROOT'"
+[ -n "$(command -v nodenv)" ]                            \
+    && export NODENV_ROOT="$XDG_DATA_HOME/nodenv"        \
+    && debug_info "Exporting NODENV_ROOT='$NODENV_ROOT'" \
+    && eval "$(nodenv init -)"                           \
+    && debug_info "Initializing functions for 'nodenv'"
 
 # CLI TOOLS SETTINGS
 [ -n "$(command -v bw)" ]                  \
@@ -236,11 +240,19 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export SSHPASS="$(pass show ssh/pass)" \
     && debug_info "Exporting SSHPASS='$SSHPASS'"
 
+# [ -n "$(command -v himalaya)" ]          \
+#     && eval "$(himalaya completion zsh)" \
+#     && debug_info "Initializing functions for 'himalaya'"
+
 [ -n "$(command -v terraform)" ]                                           \
     && export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/terraform.tf" \
     && debug_info "Exporting TF_CLI_CONFIG_FILE='$TF_CLI_CONFIG_FILE'"     \
     && export TF_PLUGIN_CACHE_DIR="$XDG_CACHE_HOME/terraform/plugin-cache" \
     && debug_info "Exporting TF_PLUGIN_CACHE_DIR='$TF_PLUGIN_CACHE_DIR'"
+
+[ -n "$(command -v infracost)" ]                  \
+    && eval "$(infracost completion --shell zsh)" \
+    && debug_info "Initializing functions for 'infracost'"
 
 [ -n "$(command -v aws-vault)" ]       \
     && export AWS_VAULT_BACKEND="pass" \
