@@ -1,0 +1,8 @@
+# TICKETS MESSAGES
+---
+matches:
+
+  # Tickets has been fullfilled
+  - trigger: ":do"
+    replace: >
+      The ticket has been completed successfully.
