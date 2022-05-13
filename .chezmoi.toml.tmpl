@@ -68,6 +68,13 @@
   {{- end }}
 
   {{- if eq $computer "work" }}
+  [data.rclone.box]
+    expiry  = "{{ (bitwardenFields "item" "4d9bc60e-a1df-4d9f-a2a7-ae930120beb4").Expiry.value }}"
+    access  = "{{ (bitwardenFields "item" "4d9bc60e-a1df-4d9f-a2a7-ae930120beb4").AccessToken.value }}"
+    refresh = "{{ (bitwardenFields "item" "4d9bc60e-a1df-4d9f-a2a7-ae930120beb4").RefreshToken.value }}"
+  {{- end }}
+
+  {{- if eq $computer "work" }}
   [data.aws]
     url  = "{{ (index (bitwarden "item" "d2f8da65-76ad-45d2-93cb-ad4101536de8").login.uris 0).uri }}"
   [data.aws.ecs.ops]

@@ -1,7 +1,14 @@
-# PERSONAL WEBDAV
+{{- if (eq .computer.type "work") }}
+[box]
+type  = box
+token = {"access_token":"{{ .rclone.box.access }}","token_type":"bearer","refresh_token":"{{ .rclone.box.refresh }}","expiry":"{{ .rclone.box.expiry}}"}
+{{- end }}
+
+{{- if (eq .computer.type "self") }}
 [icedrive]
 url    = {{ .rclone.icedrive.url }}
 user   = {{ .rclone.icedrive.user }}
 pass   = {{ .rclone.icedrive.pass }}
 type   = webdav
 vendor = other
+{{- end }}
