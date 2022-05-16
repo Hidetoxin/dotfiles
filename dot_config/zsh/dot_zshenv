@@ -134,7 +134,7 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export SN_EMAIL="$(pass show sn/mail)"            \
     && debug_info "Exporting SN_EMAIL='$SN_EMAIL'"       \
     && export SN_PASSWORD="$(pass show sn/pass)"         \
-    && debug_info "Exporting SN_PASSWORD='$SN_PASSWORD'" \
+    && debug_info "Exporting SN_PASSWORD='$SN_PASSWORD'"
 
 [ -n "$(command -v gh)" ]                  \
     && eval "$(gh completion --shell zsh)" \
@@ -178,6 +178,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting FZF_DEFAULT_COMMAND='$FZF_DEFAULT_COMMAND'"                         \
     && export FZF_COMPLETION_TRIGGER="**"                                                        \
     && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
+
+[ -n "$(command -v pass)" ]                              \
+    && export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass" \
+    && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
 
 [ -n "$(command -v navi)" ]                           \
     && debug_info "Initializing functions for 'navi'" \
@@ -254,9 +258,13 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(infracost completion --shell zsh)" \
     && debug_info "Initializing functions for 'infracost'"
 
-[ -n "$(command -v aws-vault)" ]       \
-    && export AWS_VAULT_BACKEND="pass" \
-    && debug_info "Exporting AWS_VAULT_BACKEND='$AWS_VAULT_BACKEND'"
+[ -n "$(command -v aws-vault)" ]                                      \
+    && export AWS_VAULT_BACKEND="pass"                                \
+    && debug_info "Exporting AWS_VAULT_BACKEND='$AWS_VAULT_BACKEND'"  \
+    && export AWS_VAULT_PASS_PREFIX="aws"                             \
+    && debug_info "Exporting AWS_VAULT_BACKEND='$AWS_VAULT_BACKEND'"  \
+    && export AWS_VAULT_PASS_PASSWORD_STORE_DIR="$PASSWORD_STORE_DIR" \
+    && debug_info "Exporting AWS_VAULT_PASS_PASSWORD_STORE_DIR='$AWS_VAULT_PASS_PASSWORD_STORE_DIR'"
 
 [ -n "$(command -v cocainate)" ]                           \
     && debug_info "Initializing functions for 'cocainate'" \
