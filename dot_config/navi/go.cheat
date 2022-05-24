@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Initialize a new go module
 % go
 go mod init "<repo_url>"

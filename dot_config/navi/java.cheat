@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Check cacerts works on JVM
 % java, keytool
 [ !-f httpclienttest-1.0.2.jar ] \

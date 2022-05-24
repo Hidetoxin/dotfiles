@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Set aws credentials
 % aws, aws-vault
 $ profile: aws configure list-profiles | fzf --preview "bat -l ini --color=always <(rg -A6 {} $XDG_CONFIG_HOME/aws/config)"

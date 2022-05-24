@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Install node version
 % nodenv, node, fzf
 $ remote_version: nodenv install --list | sed '1d' | sed 's/ //g' | fzf

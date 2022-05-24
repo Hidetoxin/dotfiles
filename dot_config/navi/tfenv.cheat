@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Install terraform version
 % tfenv, terraform, fzf
 $ remote_version: tfenv list-remote | sed 's/ //g' | fzf

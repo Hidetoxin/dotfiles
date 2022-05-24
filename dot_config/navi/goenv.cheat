@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Install go version
 % goenv, go, fzf
 $ remote_version: goenv install --list | sed '1d' | sed 's/ //g' | fzf

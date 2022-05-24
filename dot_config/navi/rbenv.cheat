@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Install ruby version
 % rbenv, ruby, fzf
 $ remote_version: rbenv install --list | sed '1d' | sed 's/ //g' | fzf

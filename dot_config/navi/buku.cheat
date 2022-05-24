@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Export bookmarks as *.md, *.db, *.org or *.html
 % buku
 buku --export <file>

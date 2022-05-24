@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Import public gpg key
 % gpg
 gpg --import "<pubic_key>"
