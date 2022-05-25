@@ -3,13 +3,13 @@
 # https://gist.github.com/pkazmier/213d9dce6b1ea313eaf0a17b017c2b08
 
 # MODALS DECLARATION
-:: default  : sketchybar -m --bar color="0x80282828"  # black
-:: focus  @ : sketchybar -m --bar color="0x8098971a"  # green
-:: grid   @ : sketchybar -m --bar color="0x80d79921"  # yellow
-:: swap   @ : sketchybar -m --bar color="0x80458588"  # blue
-:: warp   @ : sketchybar -m --bar color="0x80b16286"  # purple
-:: move   @ : sketchybar -m --bar color="0x80d65d0e"  # orange
-:: resize @ : sketchybar -m --bar color="0x80689d6a"  # aqua
+:: default  : sketchybar -m --set "skhd" label="🅝"
+:: focus  @ : sketchybar -m --set "skhd" label="🅕"
+:: grid   @ : sketchybar -m --set "skhd" label="🅖"
+:: swap   @ : sketchybar -m --set "skhd" label="🅢"
+:: warp   @ : sketchybar -m --set "skhd" label="🅦"
+:: move   @ : sketchybar -m --set "skhd" label="🅜"
+:: resize @ : sketchybar -m --set "skhd" label="🅡"
 
 # ALT + SPACE AS MODAL TOGGLE
 default                               < alt - space ; focus

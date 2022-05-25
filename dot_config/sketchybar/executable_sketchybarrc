@@ -7,12 +7,12 @@
 MAIN_FONT="Hack Nerd Font"
 
 # GRUVBOX COLORS
-T_BG="0x44282828"
+T_BG="0x88282828"
 S_FG1="0xffebdbb2"
 GLASS="0x00ffffff"
-TD_RED="0x44cc241d"
+TD_RED="0x88cc241d"
 SD_RED="0xffcc241d"
-TD_GREEN="0x4498971a"
+TD_GREEN="0x8898971a"
 SD_GREEN="0xff98971a"
 
 # BAR SETTINGS
@@ -20,8 +20,8 @@ sketchybar -m --bar color="$GLASS" \
                     height=25      \
                     position="top" \
                     blur_radius=50 \
-                    padding_left=0 \
-                    padding_right=0
+                    padding_left=3 \
+                    padding_right=3
 
 # GLOBAL DEFAULTS
 sketchybar -m --default drawing="on"                      \
@@ -114,9 +114,18 @@ sketchybar -m --set "yabai"                                    \
     script="~/.config/sketchybar/plugins/yabai.sh"             \
     click_script="~/.config/sketchybar/plugins/yabai_click.sh" \
     update_freq=3                                              \
-    background.color="$SD_GREEN"                               \
+    background.color="$TD_GREEN"                               \
     background.corner_radius=4
 sketchybar -m --subscribe "yabai" space_change
+
+# SETUP SKHD
+sketchybar -m --add item "skhd" left
+sketchybar -m --set "skhd"     \
+    icon=""                   \
+    label="🅝"                  \
+    update_freq=1              \
+    background.color="$TD_RED" \
+    background.corner_radius=4
 
 ########################################################################################################################
 
@@ -126,7 +135,7 @@ sketchybar -m --set "clock"                        \
     icon=""                                       \
     script="~/.config/sketchybar/plugins/clock.sh" \
     update_freq=10                                 \
-    background.color="$SD_GREEN"                   \
+    background.color="$TD_GREEN"                   \
     background.corner_radius=4
 
 # SETUP CALENDAR
@@ -135,7 +144,7 @@ sketchybar -m --set "calendar"                        \
     icon=""                                          \
     script="~/.config/sketchybar/plugins/calendar.sh" \
     update_freq=10                                    \
-    background.color="$SD_RED"                        \
+    background.color="$TD_RED"                        \
     background.corner_radius=4 \
     background.padding_right=8
 
