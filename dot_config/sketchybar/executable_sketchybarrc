@@ -39,6 +39,8 @@ sketchybar -m --default icon.padding_left=5  \
                         label.padding_left=2 \
                         label.padding_right=2
 
+########################################################################################################################
+
 # # PRIMARY DISPLAY SPACES
 # sketchybar -m --add space code left                              \
 #               --set code associated_display=1                    \
@@ -104,6 +106,19 @@ sketchybar -m --default icon.padding_left=5  \
 #                                      icon.padding_left=10                                      \
 #                                      update_freq=15                                            \
 #                                      script="~/.config/sketchybar/plugins/topmem.sh"
+
+# SETUP YABAI
+sketchybar -m --add item "yabai" left
+sketchybar -m --set "yabai"                                    \
+    icon=""                                                   \
+    script="~/.config/sketchybar/plugins/yabai.sh"             \
+    click_script="~/.config/sketchybar/plugins/yabai_click.sh" \
+    update_freq=3                                              \
+    background.color="$SD_GREEN"                               \
+    background.corner_radius=4
+sketchybar -m --subscribe "yabai" space_change
+
+########################################################################################################################
 
 # SETUP CLOCK
 sketchybar -m --add item "clock" right
