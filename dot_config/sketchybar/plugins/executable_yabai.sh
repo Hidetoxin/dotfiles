@@ -1,6 +1,6 @@
 #!/bin/bash
 
-yabai_mode=$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].type')
-space_number="$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].index')"
+YABAI_MODE=$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].type')
+SPACE_NUMBER="$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].index')"
 
-sketchybar -m --set "yabai" label="$space_number:$yabai_mode"
+sketchybar -m --set "yabai" label="$SPACE_NUMBER:$YABAI_MODE"

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-yabai_mode="$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].type')"
-space_number="$(yabai -m query --spaces --display | jq 'map(select(."has-focus" == true))[-1].index')"
+YABAI_MODE="$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].type')"
+SPACE_NUMBER="$(yabai -m query --spaces --display | jq 'map(select(."has-focus" == true))[-1].index')"
 
-case "$yabai_mode" in
+case "$YABAI_MODE" in
     bsp)
     yabai -m config layout "stack"
     ;;
@@ -15,6 +15,6 @@ case "$yabai_mode" in
     ;;
 esac
 
-new_yabai_mode="$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].type')"
+new_YABAI_MODE="$(yabai -m query --spaces --display | jq -r 'map(select(."has-focus" == true))[-1].type')"
 
-sketchybar -m --set "yabai" label="$space_number:$new_yabai_mode"
+sketchybar -m --set "yabai" label="$SPACE_NUMBER:$new_YABAI_MODE"

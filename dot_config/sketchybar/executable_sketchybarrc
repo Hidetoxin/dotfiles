@@ -1,10 +1,9 @@
 # vim: syntax=sh
 
-# This is a demo config to bring across some of the most important commands more easily.
-# For a more advanced configuration example see https://github.com/FelixKratz/SketchyBar/discussions/47#discussion-3587958
 
 # SETUP FONTS
 MAIN_FONT="Hack Nerd Font"
+
 
 # GRUVBOX COLORS
 T_BG="0x88282828"
@@ -16,36 +15,44 @@ TD_BLUE="0x88458588"
 SD_BLUE="0xff458588"
 TD_GREEN="0x8898971a"
 SD_GREEN="0xff98971a"
+TD_PURPLE="0x88b16286"
+SD_PURPLE="0xffb16286"
 TD_YELLOW="0x88d79921"
 SD_YELLOW="0xffd79921"
 
-########################################################################################################################
 
 # BAR SETTINGS
-sketchybar -m --bar color="$GLASS" \
-                    height=25      \
-                    position="top" \
-                    blur_radius=50 \
-                    padding_left=3 \
-                    padding_right=3
+sketchybar --bar    \
+    color="$GLASS"  \
+    height=25       \
+    position="top"  \
+    blur_radius=75  \
+    padding_left=3  \
+    padding_right=3
+
 
 # GLOBAL DEFAULTS
-sketchybar -m --default drawing="on"                      \
-                        updates="when_shown"              \
-                        drawing="on"                      \
-                        icon.font="$MAIN_FONT:Bold:17.0"  \
-                        icon.color="$S_FG1"               \
-                        label.font="$MAIN_FONT:Bold:14.0" \
-                        label.color="$S_FG1"              \
-                        cache_scripts="on"
+sketchybar --default                  \
+    drawing="on"                      \
+    updates="when_shown"              \
+    drawing="on"                      \
+    icon.font="$MAIN_FONT:Bold:17.0"  \
+    icon.color="$S_FG1"               \
+    label.font="$MAIN_FONT:Bold:14.0" \
+    label.color="$S_FG1"              \
+    cache_scripts="on"
 
 # SPACE DEFAULTS
-sketchybar -m --default icon.padding_left=5  \
-                        icon.padding_right=5 \
-                        label.padding_left=2 \
-                        label.padding_right=2
-
-########################################################################################################################
+sketchybar --default                 \
+    icon.padding_left=5              \
+    icon.padding_right=5             \
+    label.padding_left=2             \
+    label.padding_right=2            \
+    background.corner_radius=4       \
+    background.padding_right=8       \
+    popup.background.border_width=2  \
+    popup.background.corner_radius=4 \
+    popup.background.border_color="$SD_GREEN"
 
 
 # SETUP APPLE
@@ -54,12 +61,7 @@ sketchybar -m --set apple.logo                                     \
     icon=""                                                       \
     label.drawing=off                                              \
     click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
-    background.color="$T_BG"                                       \
-    background.corner_radius=4                                     \
-    background.padding_right=8                                     \
-    popup.background.border_width=2                                \
-    popup.background.corner_radius=4                               \
-    popup.background.border_color="$SD_GREEN"
+    background.color="$T_BG"
 sketchybar -m --add item apple.preferences popup.apple.logo
 sketchybar -m --set apple.preferences \
     icon=""                          \
@@ -76,38 +78,38 @@ sketchybar -m --set apple.lock \
     label="Lock Screen"        \
     click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off"
 
+
 # SETUP YABAI
-sketchybar -m --add item yabai left
-sketchybar -m --set yabai                                      \
+sketchybar --add item yabai left
+sketchybar --set yabai                                         \
     icon=""                                                   \
     script="~/.config/sketchybar/plugins/yabai.sh"             \
-    click_script="~/.config/sketchybar/plugins/yabai_click.sh" \
     update_freq=3                                              \
-    background.color="$TD_GREEN"                               \
-    background.corner_radius=4                                 \
-    background.padding_right=8
-sketchybar -m --subscribe yabai space_change
+    click_script="~/.config/sketchybar/plugins/yabai_click.sh" \
+    background.color="$TD_GREEN"
+sketchybar --subscribe yabai space_change
+
 
 # SETUP SKHD
-sketchybar -m --add item skhd left
-sketchybar -m --set skhd          \
+sketchybar --add item skhd left
+sketchybar --set skhd             \
     icon=""                      \
     label="🅝"                     \
     update_freq=1                 \
-    background.color="$TD_YELLOW" \
-    background.corner_radius=4    \
-    background.padding_right=8
+    background.color="$TD_YELLOW"
+
 
 # SETUP SVIM
-# sketchybar -m --add item svim left
-# sketchybar -m --set "svim"      \
-#     icon=""                    \
-#     update_freq=3               \
-#     background.color="$TD_BLUE" \
-#     background.corner_radius=4
-
-
-########################################################################################################################
+sketchybar --add item svim.mode left
+sketchybar --set svim.mode                                \
+    icon=""                                              \
+    label="[!]"                                           \
+    script="sketchybar --set svim.mode popup.drawing=off" \
+    popup.align=left                                      \
+    background.color="$TD_PURPLE"
+skecthybar --subscribe svim.mode front_app_switched window_focus
+sketchybar --add item svim.cmdline popup.svim.mode
+sketchybar --set svim.cmdline icon=" "
 
 
 # SETUP APPS
@@ -121,8 +123,8 @@ sketchybar -m --set skhd          \
 
 
 # SETUP CLOCK
-sketchybar -m --add item clock right
-sketchybar -m --set clock                          \
+sketchybar --add item clock right
+sketchybar --set clock                             \
     icon=""                                       \
     script="~/.config/sketchybar/plugins/clock.sh" \
     update_freq=10                                 \
@@ -132,8 +134,8 @@ sketchybar -m --set clock                          \
 
 
 # SETUP CALENDAR
-sketchybar -m --add item calendar right
-sketchybar -m --set calendar                          \
+sketchybar --add item calendar right
+sketchybar --set calendar                             \
     icon=""                                          \
     script="~/.config/sketchybar/plugins/calendar.sh" \
     update_freq=10                                    \
@@ -143,5 +145,5 @@ sketchybar -m --set calendar                          \
 
 
 # FINALIZING THE SETUP
-sketchybar -m --update
+sketchybar --update
 echo "sketchybar configuration loaded.."
