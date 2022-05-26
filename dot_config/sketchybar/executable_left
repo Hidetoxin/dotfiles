@@ -1,0 +1,59 @@
+# vim: syntax=sh
+
+# SETUP APPLE
+sketchybar -m --add item apple.logo left
+sketchybar -m --set apple.logo                                     \
+    icon=""                                                       \
+    label.drawing="off"                                            \
+    click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
+    background.color="$T_BG"
+sketchybar -m --add item apple.activity popup.apple.logo
+sketchybar -m --set apple.activity \
+    icon=""                       \
+    label="Activity"               \
+    click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.logo popup.drawing=off"
+sketchybar -m --add item apple.appstore popup.apple.logo
+sketchybar -m --set apple.appstore \
+    icon=""                       \
+    label="App Store"              \
+    click_script="open -a 'App Store'; sketchybar -m --set apple.logo popup.drawing=off"
+sketchybar -m --add item apple.lock popup.apple.logo
+sketchybar -m --set apple.lock \
+    icon=""                   \
+    label="Lock Screen"        \
+    click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off"
+sketchybar -m --add item apple.preferences popup.apple.logo
+sketchybar -m --set apple.preferences \
+    icon=""                          \
+    label="Preferences"               \
+    click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off"
+
+# SETUP YABAI
+sketchybar --add item yabai left
+sketchybar --set yabai                                         \
+    icon=""                                                   \
+    script="~/.config/sketchybar/plugins/yabai.sh"             \
+    update_freq=3                                              \
+    click_script="~/.config/sketchybar/plugins/yabai_click.sh" \
+    background.color="$TD_GREEN"
+sketchybar --subscribe yabai space_change
+
+# SETUP SKHD
+sketchybar --add item skhd left
+sketchybar --set skhd             \
+    icon=""                      \
+    label="🅝"                     \
+    update_freq=1                 \
+    background.color="$TD_YELLOW"
+
+# SETUP SVIM
+sketchybar --add item svim.mode left
+sketchybar --set svim.mode                                \
+    icon=""                                              \
+    label="[!]"                                           \
+    script="sketchybar --set svim.mode popup.drawing=off" \
+    popup.align="left"                                    \
+    background.color="$TD_PURPLE"
+skecthybar --subscribe svim.mode front_app_switched window_focus
+sketchybar --add item svim.cmdline popup.svim.mode
+sketchybar --set svim.cmdline icon=" "

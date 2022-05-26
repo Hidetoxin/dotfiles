@@ -1,0 +1,31 @@
+# vim: syntax=sh
+
+# SETUP APPS
+sketchybar -m --add item apps.logo right
+sketchybar -m --set apps.logo                                      \
+    icon=""                                                       \
+    popup.align="right"                                            \
+    label.drawing="off"                                            \
+    click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
+    background.color="$T_BG"
+sketchybar -m --add item apps.activity popup.apps.logo
+sketchybar -m --set apps.activity \
+    icon=""                       \
+    label="ProtonVPN"               \
+    click_script="open -a 'ProtonVPN'; sketchybar -m --set apps.logo popup.drawing=off"
+
+# SETUP CLOCK
+sketchybar --add item clock right
+sketchybar --set clock                             \
+    icon=""                                       \
+    script="~/.config/sketchybar/plugins/clock.sh" \
+    update_freq=10                                 \
+    background.color="$TD_GREEN"
+
+# SETUP CALENDAR
+sketchybar --add item calendar right
+sketchybar --set calendar                             \
+    icon=""                                          \
+    script="~/.config/sketchybar/plugins/calendar.sh" \
+    update_freq=10                                    \
+    background.color="$TD_YELLOW"
