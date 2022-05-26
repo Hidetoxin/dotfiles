@@ -59,24 +59,29 @@ sketchybar --default                 \
 sketchybar -m --add item apple.logo left
 sketchybar -m --set apple.logo                                     \
     icon=""                                                       \
-    label.drawing=off                                              \
+    label.drawing="off"                                            \
     click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
     background.color="$T_BG"
-sketchybar -m --add item apple.preferences popup.apple.logo
-sketchybar -m --set apple.preferences \
-    icon=""                          \
-    label="Preferences"               \
-    click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off"
 sketchybar -m --add item apple.activity popup.apple.logo
 sketchybar -m --set apple.activity \
     icon=""                       \
     label="Activity"               \
     click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.logo popup.drawing=off"
+sketchybar -m --add item apple.appstore popup.apple.logo
+sketchybar -m --set apple.appstore \
+    icon=""                       \
+    label="App Store"              \
+    click_script="open -a 'App Store'; sketchybar -m --set apple.logo popup.drawing=off"
 sketchybar -m --add item apple.lock popup.apple.logo
 sketchybar -m --set apple.lock \
     icon=""                   \
     label="Lock Screen"        \
     click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off"
+sketchybar -m --add item apple.preferences popup.apple.logo
+sketchybar -m --set apple.preferences \
+    icon=""                          \
+    label="Preferences"               \
+    click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off"
 
 
 # SETUP YABAI
@@ -105,7 +110,7 @@ sketchybar --set svim.mode                                \
     icon=""                                              \
     label="[!]"                                           \
     script="sketchybar --set svim.mode popup.drawing=off" \
-    popup.align=left                                      \
+    popup.align="left"                                    \
     background.color="$TD_PURPLE"
 skecthybar --subscribe svim.mode front_app_switched window_focus
 sketchybar --add item svim.cmdline popup.svim.mode
@@ -113,13 +118,18 @@ sketchybar --set svim.cmdline icon=" "
 
 
 # SETUP APPS
-# sketchybar -m --add item apps right
-# sketchybar -m --set apps                                    \
-#     icon=""                                                   \
-#     update_freq=3                                              \
-#     label.drawing="off" \
-#     background.color="$T_BG"                               \
-#     background.corner_radius=4
+sketchybar -m --add item apps.logo right
+sketchybar -m --set apps.logo                                      \
+    icon=""                                                       \
+    popup.align="right"                                            \
+    label.drawing="off"                                            \
+    click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
+    background.color="$T_BG"
+sketchybar -m --add item apps.activity popup.apps.logo
+sketchybar -m --set apps.activity \
+    icon=""                       \
+    label="ProtonVPN"               \
+    click_script="open -a 'ProtonVPN'; sketchybar -m --set apps.logo popup.drawing=off"
 
 
 # SETUP CLOCK
@@ -128,9 +138,7 @@ sketchybar --set clock                             \
     icon=""                                       \
     script="~/.config/sketchybar/plugins/clock.sh" \
     update_freq=10                                 \
-    background.color="$TD_GREEN"                   \
-    background.corner_radius=4                     \
-    background.padding_right=8
+    background.color="$TD_GREEN"
 
 
 # SETUP CALENDAR
@@ -139,9 +147,7 @@ sketchybar --set calendar                             \
     icon=""                                          \
     script="~/.config/sketchybar/plugins/calendar.sh" \
     update_freq=10                                    \
-    background.color="$TD_YELLOW"                     \
-    background.corner_radius=4                        \
-    background.padding_right=8
+    background.color="$TD_YELLOW"
 
 
 # FINALIZING THE SETUP
