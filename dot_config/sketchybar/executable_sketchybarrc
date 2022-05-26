@@ -12,8 +12,12 @@ S_FG1="0xffebdbb2"
 GLASS="0x00ffffff"
 TD_RED="0x88cc241d"
 SD_RED="0xffcc241d"
+TD_BLUE="0x88458588"
+SD_BLUE="0xff458588"
 TD_GREEN="0x8898971a"
 SD_GREEN="0xff98971a"
+TD_YELLOW="0x88d79921"
+SD_YELLOW="0xffd79921"
 
 # BAR SETTINGS
 sketchybar -m --bar color="$GLASS" \
@@ -107,45 +111,97 @@ sketchybar -m --default icon.padding_left=5  \
 #                                      update_freq=15                                            \
 #                                      script="~/.config/sketchybar/plugins/topmem.sh"
 
+# SETUP APPLE
+sketchybar -m --add item apple.logo left
+sketchybar -m --set apple.logo                                     \
+    icon=""                                                       \
+    label.drawing=off                                              \
+    click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
+    background.color="$T_BG"                                       \
+    background.corner_radius=4                                     \
+    background.padding_right=8                                     \
+    popup.background.border_width=2                                \
+    popup.background.corner_radius=4                               \
+    popup.background.border_color="$SD_GREEN"
+sketchybar -m --add item apple.preferences popup.apple.logo
+sketchybar -m --set apple.preferences \
+    icon=""                          \
+    label="Preferences"               \
+    click_script="open -a 'System Preferences'; sketchybar -m --set apple.logo popup.drawing=off"
+sketchybar -m --add item apple.activity popup.apple.logo
+sketchybar -m --set apple.activity \
+    icon=""                       \
+    label="Activity"               \
+    click_script="open -a 'Activity Monitor'; sketchybar -m --set apple.logo popup.drawing=off"
+sketchybar -m --add item apple.lock popup.apple.logo
+sketchybar -m --set apple.lock \
+    icon=""                   \
+    label="Lock Screen"        \
+    click_script="pmset displaysleepnow; sketchybar -m --set apple.logo popup.drawing=off"
+
 # SETUP YABAI
-sketchybar -m --add item "yabai" left
-sketchybar -m --set "yabai"                                    \
+sketchybar -m --add item yabai left
+sketchybar -m --set yabai                                      \
     icon=""                                                   \
     script="~/.config/sketchybar/plugins/yabai.sh"             \
     click_script="~/.config/sketchybar/plugins/yabai_click.sh" \
     update_freq=3                                              \
     background.color="$TD_GREEN"                               \
-    background.corner_radius=4
-sketchybar -m --subscribe "yabai" space_change
+    background.corner_radius=4                                 \
+    background.padding_right=8
+sketchybar -m --subscribe yabai space_change
 
 # SETUP SKHD
-sketchybar -m --add item "skhd" left
-sketchybar -m --set "skhd"     \
-    icon=""                   \
-    label="🅝"                  \
-    update_freq=1              \
-    background.color="$TD_RED" \
-    background.corner_radius=4
+sketchybar -m --add item skhd left
+sketchybar -m --set skhd          \
+    icon=""                      \
+    label="🅝"                     \
+    update_freq=1                 \
+    background.color="$TD_YELLOW" \
+    background.corner_radius=4    \
+    background.padding_right=8
+
+# SETUP SVIM
+# sketchybar -m --add item svim left
+# sketchybar -m --set "svim"      \
+#     icon=""                    \
+#     update_freq=3               \
+#     background.color="$TD_BLUE" \
+#     background.corner_radius=4
+
 
 ########################################################################################################################
 
+
+# SETUP APPS
+# sketchybar -m --add item apps right
+# sketchybar -m --set apps                                    \
+#     icon=""                                                   \
+#     update_freq=3                                              \
+#     label.drawing="off" \
+#     background.color="$T_BG"                               \
+#     background.corner_radius=4
+
+
 # SETUP CLOCK
-sketchybar -m --add item "clock" right
-sketchybar -m --set "clock"                        \
+sketchybar -m --add item clock right
+sketchybar -m --set clock                          \
     icon=""                                       \
     script="~/.config/sketchybar/plugins/clock.sh" \
     update_freq=10                                 \
     background.color="$TD_GREEN"                   \
-    background.corner_radius=4
+    background.corner_radius=4                     \
+    background.padding_right=8
+
 
 # SETUP CALENDAR
-sketchybar -m --add item "calendar" right
-sketchybar -m --set "calendar"                        \
+sketchybar -m --add item calendar right
+sketchybar -m --set calendar                          \
     icon=""                                          \
     script="~/.config/sketchybar/plugins/calendar.sh" \
     update_freq=10                                    \
-    background.color="$TD_RED"                        \
-    background.corner_radius=4 \
+    background.color="$TD_YELLOW"                     \
+    background.corner_radius=4                        \
     background.padding_right=8
 
 
@@ -188,7 +244,7 @@ sketchybar -m --set "calendar"                        \
 #               --set spotifyIndicator click_script="osascript -e 'tell application \"Spotify\" to pause'" \
 #               --subscribe spotifyIndicator spotify_change
 
+
 # FINALIZING THE SETUP
 sketchybar -m --update
-
 echo "sketchybar configuration loaded.."
