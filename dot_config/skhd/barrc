@@ -1,0 +1,5 @@
+# vim: syntax=sh
+
+# FOCUS BAR ITEMS 
+bar < left  : sketchybar --set apple.logo popup.drawing="toggle"
+bar < right : sketchybar --set apps.logo popup.drawing="toggle"

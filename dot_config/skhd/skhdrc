@@ -5,6 +5,7 @@
 
 # LOAD ALL MODAL MAPPINGS
 .load "modalsrc"  # modals definitions
+    .load "barrc"     # bar mode definitions
     .load "gridrc"    # move mode definitions
     .load "moverc"    # grid mode definitions
     .load "swaprc"    # swap mode definitions

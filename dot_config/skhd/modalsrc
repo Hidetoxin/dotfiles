@@ -1,25 +1,26 @@
 # vim syntax=sh
 
 # https://gist.github.com/pkazmier/213d9dce6b1ea313eaf0a17b017c2b08
-
 # MODALS DECLARATION
-:: default  : sketchybar -m --set "skhd" label="🅝"
-:: focus  @ : sketchybar -m --set "skhd" label="🅕"
+:: bar    @ : sketchybar -m --set "skhd" label="🅑"
 :: grid   @ : sketchybar -m --set "skhd" label="🅖"
 :: swap   @ : sketchybar -m --set "skhd" label="🅢"
 :: warp   @ : sketchybar -m --set "skhd" label="🅦"
 :: move   @ : sketchybar -m --set "skhd" label="🅜"
+:: focus  @ : sketchybar -m --set "skhd" label="🅕"
 :: resize @ : sketchybar -m --set "skhd" label="🅡"
+:: default  : sketchybar -m --set "skhd" label="🅝"
 
 # ALT + SPACE AS MODAL TOGGLE
-default                               < alt - space ; focus
-focus, grid, swap, warp, move, resize < alt - space ; default
-focus, grid, swap, warp, move, resize < escape      ; default
+default                                    < alt - space ; focus
+focus, grid, swap, warp, move, resize, bar < alt - space ; default
+focus, grid, swap, warp, move, resize, bar < escape      ; default
 
 # ONCE IN FOCUS SWITCH MODE WITH A SINGLE KEY
-focus, grid, swap, warp, move, resize < f ; focus
-focus, grid, swap, warp, move, resize < g ; grid
-focus, grid, swap, warp, move, resize < s ; swap
-focus, grid, swap, warp, move, resize < r ; resize
-focus, grid, swap, warp, move, resize < w ; warp
-focus, grid, swap, warp, move, resize < m ; move
+focus, grid, swap, warp, move, resize, bar < b ; bar
+focus, grid, swap, warp, move, resize, bar < g ; grid
+focus, grid, swap, warp, move, resize, bar < s ; swap
+focus, grid, swap, warp, move, resize, bar < w ; warp
+focus, grid, swap, warp, move, resize, bar < m ; move
+focus, grid, swap, warp, move, resize, bar < f ; focus
+focus, grid, swap, warp, move, resize, bar < r ; resize
