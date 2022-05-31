@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Convert video
 % ffmpeg, convert, mp4 
 ffmpeg -i <in> -q:v 0 <out>

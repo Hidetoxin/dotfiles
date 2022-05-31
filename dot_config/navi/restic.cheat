@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Set restic password
 % restic, env
 export RESTIC_PASSWORD='<password>'

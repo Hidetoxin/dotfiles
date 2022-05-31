@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Convert docx file to markdown
 ; https://ronn-bundgaard.dk/blog/convert-docx-to-markdown-with-pandoc/
 % pandoc, md, docx

@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Stop macOS services
 % macos, skhd, svim, yabai, sketchybar
 brew services <action> svim         \

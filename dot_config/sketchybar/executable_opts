@@ -1,0 +1,51 @@
+# vim: syntax=sh
+
+# SETUP FONTS
+MAIN_FONT="Hack Nerd Font"
+
+# GRUVBOX COLORS
+T_BG="0x88282828"
+S_FG1="0xffebdbb2"
+GLASS="0x00ffffff"
+TD_RED="0x88cc241d"
+SD_RED="0xffcc241d"
+TD_BLUE="0x88458588"
+SD_BLUE="0xff458588"
+TD_GREEN="0x8898971a"
+SD_GREEN="0xff98971a"
+TD_PURPLE="0x88b16286"
+SD_PURPLE="0xffb16286"
+TD_YELLOW="0x88d79921"
+SD_YELLOW="0xffd79921"
+
+# BAR SETTINGS
+sketchybar --bar    \
+    color="$GLASS"  \
+    height=25       \
+    position="top"  \
+    blur_radius=75  \
+    padding_left=3  \
+    padding_right=3
+
+# GLOBAL DEFAULTS
+sketchybar --default                  \
+    drawing="on"                      \
+    updates="when_shown"              \
+    drawing="on"                      \
+    icon.font="$MAIN_FONT:Bold:17.0"  \
+    icon.color="$S_FG1"               \
+    label.font="$MAIN_FONT:Bold:14.0" \
+    label.color="$S_FG1"              \
+    cache_scripts="on"
+
+# SPACE DEFAULTS
+sketchybar --default                 \
+    icon.padding_left=5              \
+    icon.padding_right=5             \
+    label.padding_left=2             \
+    label.padding_right=2            \
+    background.corner_radius=4       \
+    background.padding_right=8       \
+    popup.background.border_width=2  \
+    popup.background.corner_radius=4 \
+    popup.background.border_color="$SD_GREEN"

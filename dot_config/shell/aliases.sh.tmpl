@@ -144,6 +144,15 @@ alias tictactoe="telnet pixelomer.com"
     &&  alias gpgt="gpg-tui --style colored" \
     && debug_info "Adding aliases for 'gpg-tui'"
 
+# IF HIMALAYA IS INSTALLED
+[ -n "$(command -v himalaya)" ]     \
+    && alias hmly="himlaya"         \
+    && alias hmlyw="himlaya write"  \
+    && alias hmlys="himlaya search" \
+    && alias hmlyr="himlaya read"   \
+    && alias hmlyre="himlaya reply" \
+    && alias hmlyrm="himlaya delete"
+
 # IF MOLECULE IS INSTALLED
 [ -n "$(command -v molecule)" ]       \
     && alias mol="molecule"           \
@@ -182,6 +191,12 @@ alias tictactoe="telnet pixelomer.com"
 [ -n "$(command -v infracost)" ] \
     &&  alias ic="infracost"     \
     && debug_info "Adding aliases for 'infracost'"
+
+# IF TERRAGRUNT IS INSTALLED
+[ -n "$(command -v terragrunt)" ]                     \
+    &&  alias tg="terragrunt"                         \
+    &&  alias tgp="terragrunt plan"                   \
+    && debug_info "Adding aliases for 'terragrunt'"
 
 # IF TMUXINATOR IS INSTALLED
 [ -n "$(command -v tmuxinator)" ]                 \

@@ -24,7 +24,7 @@ grid < t : yabai -m window --toggle float; yabai -m window --grid 4:4:1:1:2:2
 grid < p : yabai -m window --toggle sticky; yabai -m window --grid 5:5:4:0:1:1
 
 # BALANCE SIZE OF WINDOWS
-grid < b : yabai -m space --balance
+grid < B : yabai -m space --balance
 
 # TOGGLE DESKTOP PADDING
 grid < a : yabai -m space --toggle padding; yabai -m space --toggle gap

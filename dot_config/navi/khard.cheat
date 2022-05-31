@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Add contact
 % khard, contacts
 khard new

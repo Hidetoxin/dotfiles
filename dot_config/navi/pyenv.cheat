@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Install python version
 % pyenv, python, fzf
 $ remote_version: pyenv install --list | sed '1d' | sed 's/ //g' | fzf

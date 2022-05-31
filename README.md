@@ -102,12 +102,15 @@ chezmoi init hidetoxin/dotfiles
 | Key Combination                                                        | Key Effect                                  |
 |------------------------------------------------------------------------|---------------------------------------------|
 | <kbd>Alt</kbd> + <kbd>space</kbd>                                      | [skhd] modal key                            |
+| <kbd>modal</kbd> + <kbd>b</kbd>                                        | switch to <kbd>bar</kbd> mode               |
 | <kbd>modal</kbd> + <kbd>g</kbd>                                        | switch to <kbd>grid</kbd> mode              |
 | <kbd>modal</kbd> + <kbd>s</kbd>                                        | switch to <kbd>swap</kbd> mode              |
 | <kbd>modal</kbd> + <kbd>w</kbd>                                        | switch to <kbd>warp</kbd> mode              |
 | <kbd>modal</kbd> + <kbd>m</kbd>                                        | switch to <kbd>move</kbd> mode              |
 | <kbd>modal</kbd> + <kbd>f</kbd>                                        | switch to <kbd>focus</kbd> mode             |
 | <kbd>modal</kbd> + <kbd>r</kbd>                                        | switch to <kbd>resize</kbd> mode            |
+| <kbd>bar</kbd> + <kbd>left</kbd>                                       | toggle bar left item                        |
+| <kbd>bar</kbd> + <kbd>right</kbd>                                      | toggle bar right item                       |
 | <kbd>grid</kbd> + <kbd>d</kbd>                                         | destroy desktop                             |
 | <kbd>grid</kbd> + <kbd>w</kbd>                                         | create desktop and follow focus             |
 | <kbd>grid</kbd> + <kbd>t</kbd>                                         | toggle float window                         |
@@ -115,7 +118,7 @@ chezmoi init hidetoxin/dotfiles
 | <kbd>grid</kbd> + <kbd>h</kbd>                                         | make float window fill left half of screen  |
 | <kbd>grid</kbd> + <kbd>l</kbd>                                         | make float window fill right half of screen |
 | <kbd>grid</kbd> + <kbd>p</kbd>                                         | toggle sticky, float and resize in pip      |
-| <kbd>grid</kbd> + <kbd>b</kbd>                                         | balance windows                             |
+| <kbd>grid</kbd> + <kbd>B</kbd>                                         | balance windows                             |
 | <kbd>grid</kbd> + <kbd>a</kbd>                                         | toggle padding                              |
 | <kbd>grid</kbd> + <kbd>z</kbd>                                         | toggle window parent zoom                   |
 | <kbd>grid</kbd> + <kbd>c</kbd>                                         | toggle window full-screen zoom              |

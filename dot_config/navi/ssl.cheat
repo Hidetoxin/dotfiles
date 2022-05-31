@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Generate cacert from domain for the JVM
 % ssl
 openssl s_client \

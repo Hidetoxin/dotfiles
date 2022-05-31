@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Create a github repository
 % gh
 gh repo create --confirm --enable-wiki=false --enable-issues=false <repo>

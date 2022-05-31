@@ -1,3 +1,5 @@
+# vim: syntax=sh
+
 # Do an HTTP request using a token
 % xh, jq, fzf
 $ url: echo "$REST_API_URL"
