@@ -1,4 +1,4 @@
-# vim: syntax=dosini
+# vim: syntx=dosini
 
 # ALS
 [profile als-dev]
@@ -16,7 +16,7 @@ sso_role_name  = {{ .aws.als.prod.role }}
 sso_start_url  = {{ .aws.url }}
 sso_account_id = {{ .aws.als.prod.id }}
 
-# ECS
+# SSS
 [profile az-ecsops]
 region         = eu-west-1
 output         = json
@@ -47,3 +47,63 @@ sso_region     = us-east-1
 sso_role_name  = {{ .aws.csdc.prod.role }}
 sso_start_url  = {{ .aws.url }}
 sso_account_id = {{ .aws.csdc.test.id }}
+
+# ECS OPS
+[profile azecsops-proc]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.ops.proc.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.ops.proc.id }}
+[profile azecsops-deve]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.ops.deve.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.ops.deve.id }}
+[profile azecsops-prep]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.ops.prep.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.ops.prep.id }}
+[profile azecsops-prod]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.ops.prod.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.ops.prod.id }}
+
+# ECS APPS
+[profile azecsapps-proc]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.apps.proc.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.apps.proc.id }}
+[profile azecsapps-deve]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.apps.deve.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.apps.deve.id }}
+[profile azecsapps-prep]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.apps.prep.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.apps.prep.id }}
+[profile azecsapps-prod]
+region         = eu-west-1
+output         = json
+sso_region     = us-east-1
+sso_role_name  = {{ .aws.ecs.apps.prod.role }}
+sso_start_url  = {{ .aws.url }}
+sso_account_id = {{ .aws.ecs.apps.prod.id }}
