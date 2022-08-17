@@ -3,9 +3,9 @@
   url  = "https://github.com/tmux-plugins/tpm"
   type = "git-repo"
 
-# [".cache/zinit"]
-#   url  = "https://github.com/zdharma-continuum/zinit"
-#   type = "git-repo"
+[".cache/neofetch"]
+  url  = "https://github.com/chick2d/neofetch-themes"
+  type = "git-repo"
 
 [".cache/color-scripts"]
   url           = "https://gitlab.com/dwt1/shell-color-scripts"
