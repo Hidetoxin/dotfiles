@@ -1,30 +1,42 @@
--- LOAD PLUGINS
-require('packer/plugins')
+-- vim: syntax=lua
 
--- SETUP OPTIONS
-require('core/options')
+-- SETUP LEADER BEFORE PLUGIN MANAGER
+vim.g.mapleader = ","
+vim.g.maplocalleader = ","
 
--- SETUP BINDINGS
-require('core/bindings')
+-- download lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
 
--- SETUP ALL PLUGINS
-require('setup/cmp')
-require('setup/tree')
-require('setup/glow')
-require('setup/todo')
-require('setup/alpha')
-require('setup/vista')
-require('setup/comment')
-require('setup/minimap')
-require('setup/lazygit')
-require('setup/lualine')
-require('setup/gitsigns')
-require('setup/whichkey')
-require('setup/himalaya')
-require('setup/telescope')
-require('setup/lspconfig')
-require('setup/blankline')
-require('setup/bufferline')
-require('setup/toggleterm')
-require('setup/treesitter')
-require('setup/highlightedyank')
+-- START PLUGIN MANAGER
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
+
+-- TODO rmove these options to keymaps.lua 
+-- general options
+vim.opt.list           = true
+vim.opt.number         = true
+vim.opt.tabstop        = 4
+vim.opt.expandtab      = true
+vim.opt.cursorline     = true
+vim.opt.background     = "dark"
+vim.opt.cursorcolumn   = true
+vim.opt.termguicolors  = true
+vim.opt.relativenumber = true
+
+-- non-printable characters
+vim.opt.listchars:append("eol:↴")
+vim.opt.listchars:append("tab:·")
+vim.opt.listchars:append("trail:ﰣ")
+vim.opt.listchars:append("space:·")
+vim.opt.listchars:append("extends:")
+vim.opt.listchars:append("precedes:")
