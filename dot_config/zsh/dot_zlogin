@@ -2,6 +2,7 @@
 
 if [ -z "$TMUX" ]; then
 
+    PASSWORD_STORE_DIR="$HOME/.local/share/pass/"
     # PASSWORD MANAGER LOGIN
     [ -n "$(command -v bw)" ]                                 \
         && [[ "$(bw status | jq -r '.status')" == "locked" ]] \

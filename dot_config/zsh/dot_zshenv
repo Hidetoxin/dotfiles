@@ -130,12 +130,6 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(bw completion --shell zsh)" \
     && debug_info "Initializing functions for 'bw'"
 
-[ -n "$(command -v sn)" ]                                \
-    && export SN_EMAIL="$(pass show sn/mail)"            \
-    && debug_info "Exporting SN_EMAIL='$SN_EMAIL'"       \
-    && export SN_PASSWORD="$(pass show sn/pass)"         \
-    && debug_info "Exporting SN_PASSWORD='$SN_PASSWORD'"
-
 [ -n "$(command -v gh)" ]                  \
     && eval "$(gh completion --shell zsh)" \
     && debug_info "Initializing functions for 'gh'"
@@ -179,19 +173,21 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export FZF_COMPLETION_TRIGGER="**"                                                        \
     && debug_info "Exporting FZF_COMPLETION_TRIGGER='$FZF_COMPLETION_TRIGGER'"
 
-[ -n "$(command -v pass)" ]                              \
-    && export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass" \
+[ -n "$(command -v pass)" ]                            \
+    && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass" \
     && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
+
+[ -n "$(command -v sn)" ]                                \
+    && export SN_EMAIL="$(pass show sn/mail)"            \
+    && debug_info "Exporting SN_EMAIL='$SN_EMAIL'"       \
+    && export SN_PASSWORD="$(pass show sn/pass)"         \
+    && debug_info "Exporting SN_PASSWORD='$SN_PASSWORD'"
 
 [ -n "$(command -v navi)" ]                           \
     && debug_info "Initializing functions for 'navi'" \
     && eval "$(navi widget zsh)"                      \
     && export NAVI_PATH="$XDG_CONFIG_HOME/navi"       \
     && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
-
-[ -n "$(command -v pass)" ]                            \
-    && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass" \
-    && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
 
 [ -n "$(command -v jira)" ]                            \
     && eval "$(jira completion zsh)"                   \
