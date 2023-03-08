@@ -18,7 +18,8 @@ alias :!q="exit 0"
 debug_info "Adding aliases for 'exit'"
 
 # ADD FUN ALIASES
-alias sw='telnet towel.blinkenlights.nl'
+alias ip="curl ifonfig.me"
+alias sw="telnet towel.blinkenlights.nl"
 alias map="telnet mapscii.me"
 alias wrk="curl wrk.ist"
 alias cht="curl cht.sh"
@@ -82,11 +83,9 @@ alias tictactoe="telnet pixelomer.com"
     && debug_info "Adding aliases for 'tmux'"
 
 # IF NEOVIM IS INSTALLED
-[ -n "$(command -v nvim)" ]   \
-    && alias vi="vim"         \
-    && alias svi="sudo vi"    \
-    && alias vim="nvim"       \
-    && alias svim="sudo nvim" \
+[ -n "$(command -v nvim)" ] \
+    && alias v="nvim"       \
+    && alias sv="sudo nvim" \
     && debug_info "Adding aliases for 'nvim'"
 
 # IF IMGCAT IS INSTALLED
@@ -193,9 +192,29 @@ alias tictactoe="telnet pixelomer.com"
     && debug_info "Adding aliases for 'infracost'"
 
 # IF TERRAGRUNT IS INSTALLED
-[ -n "$(command -v terragrunt)" ]                     \
-    &&  alias tg="terragrunt"                         \
-    &&  alias tgp="terragrunt plan"                   \
+[ -n "$(command -v terragrunt)" ]                              \
+    &&  alias tg="terragrunt"                                  \
+    &&  alias tgr="terragrunt run-all"                         \
+    &&  alias tgi="terragrunt init"                            \
+    &&  alias tgri="terragrunt run-all init"                   \
+    &&  alias tgp="terragrunt plan"                            \
+    &&  alias tgrp="terragrunt run-all plan"                   \
+    &&  alias tgs="terragrunt show"                            \
+    &&  alias tgrs="terragrunt run-all show"                   \
+    &&  alias tga="terragrunt apply"                           \
+    &&  alias tgra="terragrunt run-all apply"                  \
+    &&  alias tgo="terragrunt output -json"                    \
+    &&  alias tgc="terragrunt console"                         \
+    &&  alias tgd="terragrunt destroy"                         \
+    &&  alias tgrd="terragrunt run-all destroy"                \
+    &&  alias tgr="terragrunt refresh"                         \
+    &&  alias tgv="terragrunt validate"                        \
+    &&  alias tgrv="terragrunt run-all validate"               \
+    &&  alias tgu="terragrunt force-unlock"                    \
+    &&  alias tga!="terragrunt apply -auto-approve"            \
+    &&  alias tgra!="terragrunt run-all apply -auto-approve"   \
+    &&  alias tgd!="terragrunt destroy -auto-approve"          \
+    &&  alias tgrd!="terragrunt run-all destroy -auto-approve" \
     && debug_info "Adding aliases for 'terragrunt'"
 
 # IF TMUXINATOR IS INSTALLED
@@ -221,6 +240,25 @@ alias tictactoe="telnet pixelomer.com"
     && alias pc="pre-commit"                  \
     && alias pca="pre-commit run --all-files" \
     && debug_info "Adding aliases for 'pre-commit'"
+
+# IF AWS-CONSOLE IS INSTALLED
+[ -n "$(command -v aws-console)" ]                \
+    && alias acs3="aws-console s3"                 \
+    && alias aciam="aws-console iam"               \
+    && alias acr53="aws-console route53"           \
+    && alias acefs="aws-console efs"               \
+    && alias acec2="aws-console ec2"               \
+    && alias acecr="aws-console ecr"               \
+    && alias acecs="aws-console ecs"               \
+    && alias aceks="aws-console eks"               \
+    && alias acrds="aws-console rds"               \
+    && alias acvpc="aws-console vpc"               \
+    && alias acathena="aws-console athena"         \
+    && alias aclambda="aws-console lambda"         \
+    && alias acsupport="aws-console support"       \
+    && alias acdynamodb="aws-console dynamodb"     \
+    && alias accloudtrail="aws-console cloudtrail" \
+    && debug_info "Adding aliases for 'aws-console'"
 
 # IF MARKDOWNLINT-CLI IS INSTALLED
 [ -n "$(command -v markdownlint)" ] \
