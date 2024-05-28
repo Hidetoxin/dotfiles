@@ -4,12 +4,12 @@ if [ -z "$TMUX" ]; then
 
     PASSWORD_STORE_DIR="$HOME/.local/share/pass/"
     # PASSWORD MANAGER LOGIN
-    [ -n "$(command -v bw)" ]                                 \
-        && [[ "$(bw status | jq -r '.status')" == "locked" ]] \
-        &&  eval $(bw unlock "$(pass show bw/pass)" | rg 'export' | sed 's/\$ //g')
+    # [ -n "$(command -v bw)" ]                                 \
+    #     && [[ "$(bw status | jq -r '.status')" == "locked" ]] \
+    #     &&  eval $(bw unlock "$(pass show bw/pass)" | rg 'export' | sed 's/\$ //g')
 
-    [ -n "$(command -v bw)" ]                                          \
-        && [[ "$(bw status | jq -r '.status')" == "unauthenticated" ]] \
-        &&  eval $(bw login "$(pass show bw/user)" "$(pass show bw/pass)" --code "$(2fa bw)" | rg 'export' | sed 's/\$ //g')
+    # [ -n "$(command -v bw)" ]                                          \
+    #     && [[ "$(bw status | jq -r '.status')" == "unauthenticated" ]] \
+    #     &&  eval $(bw login "$(pass show bw/user)" "$(pass show bw/pass)" --code "$(2fa bw)" | rg 'export' | sed 's/\$ //g')
 
 fi

@@ -31,3 +31,6 @@ fi
 bindkey "ç" fzf-cd-widget                           \
     && bindkey -M viins 'jj' vi-cmd-mode \
     && debug_info "Setting keybindings for 'zsh'"
+
+# MAKE SURE BREW UTILITIES ARE FIRST ON THE PATH
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"

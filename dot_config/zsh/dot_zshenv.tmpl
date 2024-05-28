@@ -1,7 +1,7 @@
 # vim: syntax=sh
 
 # ENABLE DEBUGGING
-DEBUG=0
+DEBUG=1
 function debug_info () {
     [ "$DEBUG" -eq 1 ]                             \
         && reset="$(tput sgr0)"                    \
@@ -41,9 +41,9 @@ export XDG_PUBLICSHARE_DIR="$HOME/Public"  \
     && debug_info "Exporting XDG_PUBLICSHARE_DIR='$XDG_PUBLICSHARE_DIR'"
 
 # SETUP HISTORY SETTINGS
-export SAVEHIST=32768                           \
+export SAVEHIST=262144                              \
     && debug_info "Exporting SAVEHIST='$SAVEHIST'"
-export HISTSIZE=4096                            \
+export HISTSIZE=65536                               \
     && debug_info "Exporting HISTSIZE='$HISTSIZE'"
 export HISTFILE="$XDG_CONFIG_HOME/zsh/.zsh_history" \
     && debug_info "Exporting HISTFILE='$HISTFILE'"
@@ -177,22 +177,15 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass" \
     && debug_info "Exporting PASSWORD_STORE_DIR='$PASSWORD_STORE_DIR'"
 
-[ -n "$(command -v sn)" ]                                \
-    && export SN_EMAIL="$(pass show sn/mail)"            \
-    && debug_info "Exporting SN_EMAIL='$SN_EMAIL'"       \
-    && export SN_PASSWORD="$(pass show sn/pass)"         \
-    && debug_info "Exporting SN_PASSWORD='$SN_PASSWORD'"
-
 [ -n "$(command -v navi)" ]                           \
     && debug_info "Initializing functions for 'navi'" \
     && eval "$(navi widget zsh)"                      \
     && export NAVI_PATH="$XDG_CONFIG_HOME/navi"       \
     && debug_info "Exporting NAVI_PATH='$NAVI_PATH'"
 
-[ -n "$(command -v jira)" ]                            \
-    && eval "$(jira completion zsh)"                   \
-    && export JIRA_API_TOKEN="$(pass show jira/token)" \
-    && debug_info "Exporting JIRA_API_TOKEN='$JIRA_API_TOKEN'"
+#[ -n "$(command -v jira)" ]                      \
+#    && eval "$(jira completion zsh)"             \
+#    && debug_info "Exporting JIRA_API_TOKEN='$JIRA_API_TOKEN'"
 
 [ -n "$(command -v nvim)" ] \
     && export EDITOR="nvim" \
@@ -232,13 +225,13 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(direnv hook zsh)" \
     && debug_info "Initializing functions for 'direnv'"
 
+[ -n "$(command -v zellij)" ]                              \
+    && export ZELLIJ_CONFIG_DIR=="$XDG_CONFIG_HOME/zellij" \
+    && debug_info "Exporting ZELLIJ_CONFIG_DIR='$ZELLIJ_CONFIG_DIR'"
+
 [ -n "$(command -v chezmoi)" ]          \
     && eval "$(chezmoi completion zsh)" \
     && debug_info "Initializing functions for 'chezmoi'"
-
-[ -n "$(command -v sshpass)" ]                \
-    && export SSHPASS="$(pass show ssh/pass)" \
-    && debug_info "Exporting SSHPASS='$SSHPASS'"
 
 # [ -n "$(command -v himalaya)" ]          \
 #     && eval "$(himalaya completion zsh)" \

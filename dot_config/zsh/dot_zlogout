@@ -3,12 +3,8 @@
 if [ -z "$TMUX" ]; then
 
     # LOGOUT TASKS
-    [ -n "$(command -v bw)" ]                                                                                   \
-        && [[ "$(bw status | jq -r '.status')" == "unlocked" || "$(bw status | jq -r '.status')" == "locked" ]] \
-        && bw logout
-
-   # CLEANUP TASKS
-   [ -n "$(command -v brew)" ] \
-       && brew cleanup &
+    # [ -n "$(command -v bw)" ]                                                                                   \
+    #     && [[ "$(bw status | jq -r '.status')" == "unlocked" || "$(bw status | jq -r '.status')" == "locked" ]] \
+    #     && bw logout
 
 fi

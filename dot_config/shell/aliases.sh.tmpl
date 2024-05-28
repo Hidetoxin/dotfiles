@@ -50,19 +50,19 @@ alias tictactoe="telnet pixelomer.com"
     && debug_info "Adding aliases for 'bw'"
 
 # IF EXA IS INSTALLED
-[ -n "$(command -v exa)" ]                               \
-    && alias sl="exa -FG --git --icons"                  \
-    && alias ls="exa -FG --git --icons"                  \
-    && alias ll="exa -Flh --git --icons"                 \
-    && alias lg="exa -FlhG --git --icons"                \
-    && alias lt="exa -Flht --git --icons"                \
-    && alias l1="exa -Flah --git --icons .."             \
-    && alias l2="exa -Flah --git --icons ../.."          \
-    && alias l3="exa -Flah --git --icons ../../.."       \
-    && alias l4="exa -Flah --git --icons ../../../.."    \
-    && alias l5="exa -Flah --git --icons ../../../../.." \
-    && alias tree="exa --git --tree --icons"             \
-    && debug_info "Adding aliases for 'exa'"
+[ -n "$(command -v eza)" ]                               \
+    && alias sl="eza -F -G --git --icons"                  \
+    && alias ls="eza -F -G --git --icons"                  \
+    && alias ll="eza -F -lh --git --icons"                 \
+    && alias lg="eza -F -lhG --git --icons"                \
+    && alias lt="eza -F -lht --git --icons"                \
+    && alias l1="eza -F -lah --git --icons .."             \
+    && alias l2="eza -F -lah --git --icons ../.."          \
+    && alias l3="eza -F -lah --git --icons ../../.."       \
+    && alias l4="eza -F -lah --git --icons ../../../.."    \
+    && alias l5="eza -F -lah --git --icons ../../../../.." \
+    && alias tree="eza --git --tree --icons"             \
+    && debug_info "Adding aliases for 'eza'"
 
 # IF BUKU IS INSTALLED
 ## [ -n "$(command -v buku)" ]                                                   \
@@ -145,12 +145,12 @@ alias tictactoe="telnet pixelomer.com"
 
 # IF HIMALAYA IS INSTALLED
 [ -n "$(command -v himalaya)" ]     \
-    && alias hmly="himlaya"         \
-    && alias hmlyw="himlaya write"  \
-    && alias hmlys="himlaya search" \
-    && alias hmlyr="himlaya read"   \
-    && alias hmlyre="himlaya reply" \
-    && alias hmlyrm="himlaya delete"
+    && alias hmly="himalaya"         \
+    && alias hmlyw="himalaya write"  \
+    && alias hmlys="himalaya search" \
+    && alias hmlyr="himalaya read"   \
+    && alias hmlyre="himalaya reply" \
+    && alias hmlyrm="himalaya delete"
 
 # IF MOLECULE IS INSTALLED
 [ -n "$(command -v molecule)" ]       \
@@ -217,19 +217,6 @@ alias tictactoe="telnet pixelomer.com"
     &&  alias tgrd!="terragrunt run-all destroy -auto-approve" \
     && debug_info "Adding aliases for 'terragrunt'"
 
-# IF TMUXINATOR IS INSTALLED
-[ -n "$(command -v tmuxinator)" ]                 \
-    &&  alias tx="tmuxinator"                     \
-    &&  alias txn="tmuxinator new"                \
-    &&  alias txo="tmuxinator open"               \
-    &&  alias txl="tmuxinator list"               \
-    &&  alias txk="tmuxinator stop"               \
-    &&  alias txs="tmuxinator start"              \
-    &&  alias dots="tmuxinator start dotfiles"    \
-    &&  alias board="tmuxinator start dashboard"  \
-    &&  alias media="tmuxinator start multimedia" \
-    && debug_info "Adding aliases for 'tmuxinator'"
-
 # IF LAZYDOCKER IS INSTALLED
 [ -n "$(command -v lazydocker)" ] \
     && alias ldkr="lazydocker"    \
@@ -243,34 +230,13 @@ alias tictactoe="telnet pixelomer.com"
 
 # IF AWS-CONSOLE IS INSTALLED
 [ -n "$(command -v aws-console)" ]                \
-    && alias acs3="aws-console s3"                 \
-    && alias aciam="aws-console iam"               \
-    && alias acr53="aws-console route53"           \
-    && alias acefs="aws-console efs"               \
-    && alias acec2="aws-console ec2"               \
-    && alias acecr="aws-console ecr"               \
-    && alias acecs="aws-console ecs"               \
-    && alias aceks="aws-console eks"               \
-    && alias acrds="aws-console rds"               \
-    && alias acvpc="aws-console vpc"               \
-    && alias acathena="aws-console athena"         \
-    && alias aclambda="aws-console lambda"         \
-    && alias acsupport="aws-console support"       \
-    && alias acdynamodb="aws-console dynamodb"     \
-    && alias accloudtrail="aws-console cloudtrail" \
+    && alias awsc="aws-console"                 \
     && debug_info "Adding aliases for 'aws-console'"
 
 # IF MARKDOWNLINT-CLI IS INSTALLED
 [ -n "$(command -v markdownlint)" ] \
     && alias mdl="markdownlint"     \
     && debug_info "Adding aliases for 'markdownlint"
-
-# IF JENKINS-JOBS IS INSTALLED
-[ -n "$(command -v jenkins-jobs)" ]         \
-    && alias jjb="jenkins-jobs"             \
-    && alias jjbu="jenkins-jobs update"     \
-    && alias jjbd="jenkins-jobs delete"     \
-    && debug_info "Adding aliases for 'jenkins-jobs'"
 
 # IF TASKWARRIOR-TUI IS INSTALLED
 [ -n "$(command -v taskwarrior-tui)" ] \
