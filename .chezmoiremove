@@ -14,5 +14,4 @@
 {{- if ne .computer.type "work" }}
 .config/aws/*
 .config/.jira/*
-.config/jenkins_jobs/*
 {{- end }}

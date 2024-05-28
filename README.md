@@ -330,8 +330,6 @@ plugins:
 - [ ] Add alsa configuration
 - [ ] Add xplr configuration
 - [ ] Add buku configuration
-- [ ] Add siggo configuration
-- [ ] Add sn-cli configuration
 - [ ] Fix sotrmssh configuration
 - [ ] Fix newsboat configuration
 - [ ] Add infracost configuration

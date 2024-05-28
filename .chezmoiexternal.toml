@@ -3,10 +3,6 @@
   url  = "https://github.com/tmux-plugins/tpm"
   type = "git-repo"
 
-[".cache/neofetch"]
-  url  = "https://github.com/chick2d/neofetch-themes"
-  type = "git-repo"
-
 [".cache/color-scripts"]
   url           = "https://gitlab.com/dwt1/shell-color-scripts"
   type          = "git-repo"
@@ -17,23 +13,11 @@
   type          = "git-repo"
   refreshPeriod = "24h"
 
-[".local/share/nvim/site/pack/packer/start/packer.nvim"]
-  url  = "https://github.com/wbthomason/packer.nvim"
-  type = "git-repo"
-
 # EXTERNAL BINARIES
-[".local/bin/sn"]
-  url        = "https://github.com/jonhadfield/sn-cli/releases/download/{{ .sn_version }}/sn-cli_Darwin_arm64.zip"
-  type       = "file"
-  executable = true
-  [".local/bin/sn".filter]
-    args    = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "sn"]
-    command = "tar"
-
-[".local/bin/siggo"]
-  url        = "https://github.com/derricw/siggo/releases/download/{{ .siggo_version }}/siggo-{{ .siggo_version }}-darwin-amd64.tar.gz"
-  type       = "file"
-  executable = true
-  [".local/bin/siggo".filter]
-    args    = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "bin/siggo"]
-    command = "tar"
+# [".local/bin/siggo"]  # leave comment as an example
+#   url        = "https://github.com/derricw/siggo/releases/download/0.12.0/siggo-0.12.0-darwin-amd64.tar.gz"
+#   type       = "file"
+#   executable = true
+#   [".local/bin/siggo".filter]
+#     args    = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "bin/siggo"]
+#     command = "tar"
