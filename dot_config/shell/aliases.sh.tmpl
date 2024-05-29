@@ -115,6 +115,11 @@ alias tictactoe="telnet pixelomer.com"
     && alias pkrin="packer inspect"  \
     && debug_info "Adding aliases for 'packer'"
 
+# IF AICHAT IS INSTALLED
+[ -n "$(command -v aichat)" ]        \
+    && alias aic="aichat"            \
+    && debug_info "Adding aliases for 'aichat'"
+
 # IF AWSUME IS INSTALLED
 [ -n "$(command -v awsume)" ]  \
     && alias awsume=". awsume" \

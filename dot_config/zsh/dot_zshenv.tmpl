@@ -119,10 +119,12 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && eval "$(rbenv init - zsh)"                      \
     && debug_info "Initializing functions for 'rbenv'"
 
-[ -n "$(command -v nodenv)" ]                            \
-    && export NODENV_ROOT="$XDG_DATA_HOME/nodenv"        \
-    && debug_info "Exporting NODENV_ROOT='$NODENV_ROOT'" \
-    && eval "$(nodenv init -)"                           \
+[ -n "$(command -v nodenv)" ]                              \
+    && export NODENV_ROOT="$XDG_DATA_HOME/nodenv"          \
+    && debug_info "Exporting NODENV_ROOT='$NODENV_ROOT'"   \
+     && export NODE_OPTIONS="--no-deprecation"             \
+    && debug_info "Exporting NODE_OPTIONS='$NODE_OPTIONS'" \
+    && eval "$(nodenv init -)"                             \
     && debug_info "Initializing functions for 'nodenv'"
 
 # CLI TOOLS SETTINGS
@@ -216,6 +218,10 @@ export ZPFX="$XDG_DATA_HOME/zinit/polaris" \
     && debug_info "Exporting PACKER_HOME_DIR='$PACKER_HOME_DIR'" \
     && export PACKER_LOG_PATH="$XDG_CACHE_HOME/packer/logs"      \
     && debug_info "Exporting PACKER_LOG_PATH='$PACKER_LOG_PATH'"
+
+[ -n "$(command -v aichat)" ]                             \
+    && export AICHAT_CONFIG_DIR="$XDG_CONFIG_HOME/aichat" \
+    && debug_info "Exporting AICHAT_CONFIG_DIR='$AICHAT_CONFIG_DIR'"
 
 [ -n "$(command -v zoxide)" ]                           \
     && debug_info "Initializing functions for 'zoxide'" \
