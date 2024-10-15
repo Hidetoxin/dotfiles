@@ -42,7 +42,13 @@ fi
 
 # Source / load `zinit`
 source "${ZINIT_HOME}/zinit.zsh"
-source "${XDG_CONFIG_HOME:-${HOME}/.config}/zinit/config.zsh"
+
+# Source zinit snippets, plugins and integrations
+if [ -d "${XDG_CONFIG_HOME:-${HOME}/.config}/zinit" ]; then
+    for file in "${XDG_CONFIG_HOME:-${HOME}/.config}/zinit"/*.zsh; do
+        source "$file"
+    done
+fi
 
 # To customize prompt, run `p10k configure` or edit `~/.p10k.zsh`
 [[ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/p10k/p10k.zsh" ]] \
@@ -74,7 +80,7 @@ setopt hist_ignore_all_dups
 
 # Source shell settings such as aliases, functions and integrations
 if [ -d "${XDG_CONFIG_HOME:-${HOME}/.config}/shell" ]; then
-    for file in "$XDG_CONFIG_HOME"/shell/*.zsh; do
+    for file in "${XDG_CONFIG_HOME:-${HOME}/.config}/shell"/*.zsh; do
         source "$file"
     done
 fi
