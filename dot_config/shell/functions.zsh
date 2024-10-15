@@ -1,6 +1,6 @@
 # vim: syntax=zsh
 
-# DISPLAYS STATIC ON THE TERMINAL
+# Displays static on the terminal
 static() {
   P=( " " █ ░ ▒ ▓ )
   while :; do
