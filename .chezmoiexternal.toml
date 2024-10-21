@@ -3,15 +3,15 @@
   url  = "https://github.com/tmux-plugins/tpm"
   type = "git-repo"
 
-[".cache/color-scripts"]
-  url           = "https://gitlab.com/dwt1/shell-color-scripts"
-  type          = "git-repo"
-  refreshPeriod = "24h"
+# [".cache/color-scripts"]
+#   url           = "https://gitlab.com/dwt1/shell-color-scripts"
+#   type          = "git-repo"
+#   refreshPeriod = "24h"
 
-[".cache/pokemon-scripts"]
-  url           = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
-  type          = "git-repo"
-  refreshPeriod = "24h"
+# [".cache/pokemon-scripts"]
+#   url           = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
+#   type          = "git-repo"
+#   refreshPeriod = "24h"
 
 # EXTERNAL BINARIES
 # [".local/bin/siggo"]  # leave comment as an example
