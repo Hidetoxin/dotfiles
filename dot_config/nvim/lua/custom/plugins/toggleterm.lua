@@ -1,12 +1,10 @@
--- vim syntax=lua
-
 return {
   {
-    "akinsho/toggleterm.nvim",
+    'akinsho/toggleterm.nvim',
     opts = {
       size = 20,
-      border = "double",
-      direction = "float",
+      border = 'double',
+      direction = 'float',
       hide_numbers = true,
       open_mapping = [[<c-\>]],
       close_on_exit = true,
@@ -14,3 +12,5 @@ return {
     },
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et
