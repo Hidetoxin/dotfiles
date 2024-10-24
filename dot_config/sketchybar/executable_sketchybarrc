@@ -1,11 +1,7 @@
-# vim: syntax=sh
+#!/usr/bin/env lua
 
-# SOURCE BAR SEGMENTS
-source ~/.config/sketchybar/opts
-source ~/.config/sketchybar/left
-source ~/.config/sketchybar/right
-#source ~/.config/sketchybar/center
+-- Load the sketchybar-package and prepare the helper binaries
+require("install.sbar")
 
-# FINALIZING THE SETUP
-sketchybar --update
-echo "sketchybar configuration loaded.."
+-- Start the bar configuration
+require("init")
