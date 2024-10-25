@@ -1,20 +1,11 @@
-return {
-	-- This is a font configuration for SF Pro and SF Mono (installed manually)
-	-- font = require("helpers.default_font"),
-	icons = "sf-symbols", -- alternatively available: NerdFont
-	paddings = 3,
-	group_paddings = 5,
+local icons <const> = require("util.icons")
+-- local fonts <const> = require("util.fonts")
+local colors <const> = require("util.colors")
+-- local dimens <const> = require("util.dimens")
 
-	-- Alternatively, this is a font config for JetBrainsMono Nerd Font
-	-- font = {
-	--   text = "JetBrainsMono Nerd Font", -- Used for text
-	--   numbers = "JetBrainsMono Nerd Font", -- Used for numbers
-	--   style_map = {
-	--     ["Regular"] = "Regular",
-	--     ["Semibold"] = "Medium",
-	--     ["Bold"] = "SemiBold",
-	--     ["Heavy"] = "Bold",
-	--     ["Black"] = "ExtraBold",
-	--   },
-	-- },
+return {
+	icons = icons,
+	-- fonts = fonts,
+	colors = colors,
+	-- dimens = dimens,
 }

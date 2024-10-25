@@ -7,8 +7,7 @@ sbar = require("sketchybar")
 -- Bundle the entire initial configuration into a single message to sketchybar
 sbar.begin_config()
 require("config")
--- require("items")
-require("items.apple")
+require("items")
 sbar.end_config()
 
 -- Run the event loop of the sketchybar module (without this there will be no

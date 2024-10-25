@@ -1,5 +1,3 @@
-local icons = require("util.nerd_icons")
-local colors = require("util.colors")
 local settings = require("util.settings")
 
 -- Padding item required because of bracket
@@ -7,13 +5,12 @@ sbar.add("item", { width = 5 })
 
 local apple = sbar.add("item", {
 	position = "left",
-	click_script = "$CONFIG_DIR/helpers/menus/bin/menus -s 0",
+	-- click_script = "$CONFIG_DIR/helpers/menus/bin/menus -s 0",
 	padding_left = 8,
 	padding_right = 8,
 
 	icon = {
-		-- font = { size = 16.0 },
-		string = icons.apple,
+		string = settings.icons.text.apple,
 		highlight = true,
 		padding_left = 6,
 		padding_right = 6,
@@ -30,15 +27,15 @@ local apple = sbar.add("item", {
 		-- corner_radius = 12,
 
 		background = {
-			color = colors.background,
-			border_color = colors.green,
+			color = settings.colors.background,
+			border_color = settings.colors.green,
 			border_width = 2,
 			corner_radius = 12,
 		},
 	},
 
 	background = {
-		color = colors.green,
+		color = settings.colors.green,
 		height = 24,
 		-- border_color = colors.red,
 		border_width = 0,
@@ -49,10 +46,10 @@ local apple = sbar.add("item", {
 -- Double border for apple using a single item bracket
 sbar.add("bracket", { apple.name }, {
 	background = {
-		color = colors.background,
+		color = settings.colors.background,
 		height = 40,
 		border_width = 2,
-		border_color = colors.green,
+		border_color = settings.colors.green,
 		corner_radius = 12,
 	},
 })
