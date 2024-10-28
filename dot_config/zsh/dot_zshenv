@@ -67,33 +67,17 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v $_BREW/brew)" ] \
     && eval "$($_BREW/brew shellenv)"
 
-# [ -n "$(command -v pipx)" ]                                           \
-#     && export PIPX_HOME="${XDG_DATA_HOME:-${HOME}/.local/shere}/pipx" \
-#     && export PIPX_BIN_DIR="${XDG_DATA_HOME:${HOME}/.local/share}/../bin"
-
-[ -n "$(command -v goenv)" ]                                            \
-    && export GOPATH="${XDG_DATA_HOME:-${HOME}/.local/share}/go"        \
-    && export GOENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/sahre}/goenv" \
-    && export GOENV_GOPATH_PREFIX="$GOPATH"
-
-[ -n "$(command -v pyenv)" ] \
-    && export PYENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/sahre}/pyenv"
-
-[ -n "$(command -v rbenv)" ] \
-    && export RBENV_ROOT="${XDG_DATA_HOME:-$HOME}/.local/share}/rbenv"
-
-[ -n "$(command -v nodenv)" ]                     \
-    && export NODENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/nodenv" \
-    && export NODE_OPTIONS='--no-deprecation'
-
 [ -n "$(command -v rg)" ] \
     && export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/ripgrep/ripgrep.conf"
+
+[ -n "$(command -v k9s)" ] \
+    && export K9SCONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/k9s"
 
 [ -n "$(command -v gpg)" ] \
     && export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/sahre}/gnupg"
 
-[ -n "$(command -v aws)" ]                                                   \
-    && export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"                  \
+[ -n "$(command -v aws)" ]                                                    \
+    && export AWS_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/aws/config" \
     && export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/aws/credentials"
 
 [ -n "$(command -v bat)" ] \
@@ -132,6 +116,22 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v vivid)" ] \
     && export LS_COLORS="$(vivid -m 24-bit generate gruvbox-dark)"
 
+[ -n "$(command -v goenv)" ]                                            \
+    && export GOPATH="${XDG_DATA_HOME:-${HOME}/.local/share}/go"        \
+    && export GOENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/sahre}/goenv" \
+    && export GOENV_GOPATH_PREFIX="$GOPATH"
+
+[ -n "$(command -v pyenv)" ] \
+    && export PYENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/sahre}/pyenv"
+
+[ -n "$(command -v rbenv)" ] \
+    && export RBENV_ROOT="${XDG_DATA_HOME:-$HOME}/.local/share}/rbenv"
+
+[ -n "$(command -v nodenv)" ]                     \
+    && export NODENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/nodenv" \
+    && export NODE_OPTIONS='--no-deprecation'
+
+
 [ -n "$(command -v packer)" ]                                    \
     && export PACKER_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/packer/packer.json" \
     && export PACKER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/packer"
@@ -141,6 +141,10 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 
 [ -n "$(command -v zellij)" ] \
     && export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zellij"
+
+[ -n "$(command -v kubectl)" ]                                      \
+    && export KUBECONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/kube" \
+    && export KUBECACHEDIR="${XDG_CACHE_HOME:-$HOME/.cache}/kube"
 
 [ -n "$(command -v aws-vault)" ]                                      \
     && export AWS_VAULT_BACKEND='pass'                                \

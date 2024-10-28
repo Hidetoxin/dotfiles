@@ -174,7 +174,6 @@
 
         # pkgs.air  # `live reload of `go` applications
         # pkgs.gtt  # `tui` for translation
-        # pkgs.k9s # `tui` for `k8s`
         # pkgs.pet `cli` snippets manager
         # pkgs.prs  # `pass` alternative
         # pkgs.w3m  # `cli` browser
@@ -192,6 +191,7 @@
         pkgs.ijq  # `tui` for `jq`
         pkgs.jnv  #  `tui` for `jq`
         pkgs.jqp  # `tui` for `jq`
+        pkgs.k9s # `tui` for `k8s`
         pkgs.lua  # scripting language
         pkgs.mpd  # `daemon` por playing music
         pkgs.mpv  # `cli` media player
@@ -315,7 +315,6 @@
         # pkgs.awscli2  # `aws` `cli`
         # pkgs.calcure  # `tui` calendar
         # pkgs.cmatrix  # simulates the matrix theme
-        # pkgs.kubectl  # `cli` for `k8s`
         # pkgs.kubectx  # tool to switch between contexts
         # pkgs.pyright  # `python` type checker
         # pkgs.the-way  #  `cli` snipet manager
@@ -328,6 +327,7 @@
         pkgs.gitlint  # `git` linter
         pkgs.gnumake  # generation of files from source
         pkgs.gpg-tui  # `tui` for `gpg`
+        pkgs.kubectl  # `cli` for `k8s`
         pkgs.lazygit  # `git` tui
         pkgs.lazysql  # `sql` tui
         pkgs.ltex-ls  # `latex` language server
@@ -345,7 +345,6 @@
 
         # pkgs.discordo  # `tui` for `discord`
         # pkgs.graphviz  # graph vizualization tools
-        # pkgs.minikube # run `k8s` locally
         # pkgs.molecule  # `ansible` test framework
         # pkgs.neverest  # sync, backup and restore emails
         # pkgs.sniffnet  # monitor your Internet traffic
@@ -356,6 +355,7 @@
         pkgs.hadolint  # `docker` file linter
         pkgs.himalaya  # cli email manager
         pkgs.invidtui  # `tui` for `invidious`
+        pkgs.minikube # run `k8s` locally
         pkgs.onefetch  # `git` repo summary
         pkgs.pipes-rs  # animated pipes screensaver
         pkgs.sherlock  # hunt down social media accounts by username across social networks
