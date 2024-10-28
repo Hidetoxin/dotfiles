@@ -128,12 +128,12 @@ alt-c = 'workspace C'
 # alt-d = 'workspace D'
 # alt-e = 'workspace E'
 # alt-f = 'workspace F'
-# alt-g = 'workspace G'
+alt-g = 'workspace G'
 # alt-i = 'workspace I'
 alt-m = 'workspace M'
 alt-n = 'workspace N'
 alt-o = 'workspace O'
-# alt-p = 'workspace P'
+alt-p = 'workspace P'
 # alt-q = 'workspace Q'
 alt-r = 'workspace R'
 # alt-s = 'workspace S'
@@ -160,12 +160,12 @@ alt-shift-b = ['move-node-to-workspace B', 'workspace B']  # browsers
 alt-shift-c = ['move-node-to-workspace C', 'workspace C']  # money calculations
 # alt-shift-d = ['move-node-to-workspace D', 'workspace D']
 # alt-shift-e = ['move-node-to-workspace E', 'workspace E']
-# alt-shift-g = ['move-node-to-workspace G', 'workspace G']
+alt-shift-g = ['move-node-to-workspace G', 'workspace G']  # trash or not focused apps
 # alt-shift-i = ['move-node-to-workspace I', 'workspace I']
 alt-shift-m = ['move-node-to-workspace M', 'workspace M']  # messages
 alt-shift-n = ['move-node-to-workspace N', 'workspace N']  # note taking
 alt-shift-o = ['move-node-to-workspace O', 'workspace O']  # organize
-# alt-shift-p = ['move-node-to-workspace P', 'workspace P']
+alt-shift-p = ['move-node-to-workspace P', 'workspace P']  # plan
 # alt-shift-q = ['move-node-to-workspace Q', 'workspace Q']
 alt-shift-r = ['move-node-to-workspace R', 'workspace R']  # reunions
 # alt-shift-s = ['move-node-to-workspace S', 'workspace S']
@@ -243,6 +243,19 @@ if.app-id = 'com.pixyzehn.Expenses'
 run = 'move-node-to-workspace C'
 if.app-id = 'com.touchbits.subscriptions'
 
+# Non-focused / garpage applications
+[[on-window-detected]]
+run = 'move-node-to-workspace G'
+if.app-id = 'ch.protonvpn.mac'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace G'
+if.app-id = 'com.protonmail.bridge'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace G'
+if.app-id = 'com.electron.dockerdesktop'
+
 # Messaging applications
 [[on-window-detected]]
 run = 'move-node-to-workspace M'
@@ -286,6 +299,19 @@ if.app-id = 'com.apple.finder'
 run = 'move-node-to-workspace O'
 if.app-id = 'com.apple.Photos'
 
+# Planing applications
+[[on-window-detected]]
+run = 'move-node-to-workspace P'
+if.app-id = 'com.apple.iCal'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace P'
+if.app-id = 'com.apple.clock'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace P'
+if.app-id = 'com.apple.reminders'
+
 # Video meeting/reunion applications
 [[on-window-detected]]
 run = 'move-node-to-workspace R'
@@ -321,9 +347,11 @@ if.app-id = 'io.freetubeapp.freetube'
 A = ['^built-in retina display$', '^asus xg17a$']
 B = ['^built-in retina display$', '^asus xg17a$']
 C = ['^built-in retina display$', '^asus xg17a$']
+G = ['^built-in retina display$', '^asus xg17a$']
 M = ['^built-in retina display$', '^asus xg17a$']
 N = ['^built-in retina display$', '^asus xg17a$']
 O = ['^built-in retina display$', '^asus xg17a$']
+P = ['^built-in retina display$', '^asus xg17a$']
 R = ['^asus xg17a$', '^built-in retina display$']
 T = ['^asus xg17a$', '^built-in retina display$']
 V = ['^built-in retina display$', '^asus xg17a$']
