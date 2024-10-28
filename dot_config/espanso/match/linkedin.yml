@@ -1,15 +1,41 @@
-# LINKEDIN MESSAGES
+# Linkedin messages
 ---
 matches:
 
-  # Linkedin response spanish
-  - trigger: ":li"
+  # `LinkedIn` response in spanish
+  - trigger: ":lis"
     replace: >
-      Hola, de momento solo me encuentro interesado en posiciones en Asia del
-      Este oremotas dentro de la zona horaria de Asia del Este.
+      Ahora estoy buscando algo 100% remoto con un horario flexible. 
+      Puedes ofrecerme esto?
 
-  # Linkedin response english
+  # `LinkedIn` response in english
+  - trigger: ":lie"
+    replace: >
+      Currently I'm looking for something 100% remote with a flexible schedule.
+      Is this something you can offer?
+
+  # Useful links to fill `LinkedIn` positions
+  # GitHub profile page
+  - trigger: ":gh"
+    replace: >
+      https://www.github.com/hidetoxin/
+
+  # Linkedin profile page
   - trigger: ":li"
     replace: >
-      Hello, currently I'm only searching for a position either in East Asia or
-      remote on an East Asia timezone.
+      https://www.linkedin.com/in/hidetoxin/
+
+  # Personal web page
+  - trigger: ":web"
+    replace: >
+      http://www.hidetox.in
+
+  # Personal web page
+  - trigger: ":res"
+    replace: >
+      http://www.hidetox.in/resume
+
+  # Personal blog
+  - trigger: ":blog"
+    replace: >
+      http://www.hidetox.in/blog
