@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # https://github.com/felixkratz/jankyborders/wiki/man-page
-source "$HOME/.config/shell/colors"
+source "$HOME/.config/shell/colors.sh"
 
 options=(
-	width='7.0'
+	width='9.0'
 	hidpi='off'
 	style='round'
 	active_color="$COLOR_GREEN"
