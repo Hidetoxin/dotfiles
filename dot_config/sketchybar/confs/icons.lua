@@ -280,8 +280,68 @@ local apps <const> = {
 	["default"] = ":default:",
 }
 
+local syms <const> = {
+
+	cpu = "􀫥",
+	plus = "􀅼",
+	gear = "􀍟",
+	slow = "􀓑",
+	fast = "􀓏",
+	apple = "􀣺",
+	error = "􀆚",
+	loading = "􀖇",
+	clipboard = "􀉄",
+
+	switch = {
+		on = "􁏮",
+		off = "􁏯",
+	},
+
+	volume = {
+		_0 = "􀊣",
+		_33 = "􀊥",
+		_66 = "􀊧",
+		_10 = "􀊡",
+		_100 = "􀊩",
+	},
+
+	battery = {
+		_0 = "􀛪",
+		_25 = "􀛩",
+		_50 = "􀺶",
+		_75 = "􀺸",
+		_100 = "􀛨",
+		charging = "􀢋",
+	},
+
+	wifi = {
+		vpn = "􀒲",
+		router = "􁓤",
+		upload = "􀄨",
+		download = "􀄩",
+		connected = "􀙇",
+		disconnected = "􀙈",
+	},
+
+	media = {
+		back = "􀊊",
+		forward = "􀊌",
+		play_pause = "􀊈",
+	},
+
+	yabai = {
+		grid = "􀧍",
+		float = "􀢌",
+		stack = "􀏭",
+		parent_zoom = "􀥃",
+		fullscreen_zoom = "􀏜",
+	},
+}
+
 local text <const> = {
+
 	nerdfont = {
+		cmd = "󰘳",
 		cpu = "",
 		gear = "",
 		plus = "",
@@ -337,6 +397,7 @@ local text <const> = {
 }
 
 return {
+	syms = syms,
 	text = text.nerdfont,
 	apps = apps,
 }

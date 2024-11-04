@@ -1,4 +1,4 @@
-local settings = require("util.settings")
+local confs = require("confs")
 
 -- Equivalent to the --default domain
 sbar.default({
@@ -19,16 +19,16 @@ sbar.default({
 	--
 	-- 	font = {
 	-- 		size = 16.0,
-	-- 		style = settings.font.style_map["Regular"],
-	-- 		family = settings.font.text,
+	-- 		style = confs.font.style_map["Regular"],
+	-- 		family = confs.font.text,
 	-- 	},
 	-- },
 	--
 	-- label = {
 	-- 	font = {
 	-- 		size = 12.0,
-	-- 		style = settings.font.style_map["Regular"],
-	-- 		family = settings.font.text,
+	-- 		style = confs.font.style_map["Regular"],
+	-- 		family = confs.font.text,
 	-- 	},
 	-- 	color = colors.yellow,
 	-- 	padding_left = 2,

@@ -22,4 +22,4 @@ end
 
 package.cpath = package.cpath .. ";" .. sbarpath .. "?.so"
 
-os.execute("(cd bridge && make)")
+os.execute("(cd ./utils/clang && make)")
