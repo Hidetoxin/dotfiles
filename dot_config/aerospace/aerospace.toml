@@ -15,11 +15,19 @@ after-login-command = [
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  # 'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+  'exec-and-forget svim',
+  'exec-and-forget borders',
+  'exec-and-forget SBAR_POSITION="top" sketchybar',
+  'exec-and-forget SBAR_POSITION="bottom" sketchybar2',
+]
+
+# Notify Sketchybar about workspace change
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar2 --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -62,12 +70,36 @@ on-focused-monitor-changed = [
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-outer.top        = 60
-outer.left       = 15
-outer.right      = 15
-outer.bottom     = 40
-inner.vertical   = 10
-inner.horizontal = 10
+outer.top        = [
+  { monitor.'^built-in retina display$' = 60 },
+  { monitor.'^asus xg17a$' = 60 },
+    60
+]
+outer.left        = [
+  { monitor.'^built-in retina display$' = 15 },
+  { monitor.'^asus xg17a$' = 15 },
+    15
+]
+outer.right        = [
+  { monitor.'^built-in retina display$' = 15 },
+  { monitor.'^asus xg17a$' = 15 },
+    15
+]
+outer.bottom     = [
+  { monitor.'^built-in retina display$' = 60 },
+  { monitor.'^asus xg17a$' = 60 },
+    60
+]
+inner.vertical   = [
+  { monitor.'^built-in retina display$' = 10 },
+  { monitor.'^asus xg17a$' = 10 },
+    10
+]
+inner.horizontal = [
+  { monitor.'^built-in retina display$' = 10 },
+  { monitor.'^asus xg17a$' = 10 },
+    10
+]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -102,6 +134,8 @@ alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = 'focus right'
 
+alt-f = ['fullscreen --no-outer-gaps']
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
@@ -113,74 +147,76 @@ alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-# alt-6 = 'workspace 6'
-# alt-7 = 'workspace 7'
-# alt-8 = 'workspace 8'
-# alt-9 = 'workspace 9'
-alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-alt-b = 'workspace B'
-alt-c = 'workspace C'
-# alt-d = 'workspace D'
-# alt-e = 'workspace E'
-# alt-f = 'workspace F'
-alt-g = 'workspace G'
-# alt-i = 'workspace I'
-alt-m = 'workspace M'
-alt-n = 'workspace N'
-alt-o = 'workspace O'
-alt-p = 'workspace P'
-# alt-q = 'workspace Q'
-alt-r = 'workspace R'
-# alt-s = 'workspace S'
-alt-t = 'workspace T'
-# alt-u = 'workspace U'
-alt-v = 'workspace V'
-# alt-w = 'workspace W'
-# alt-x = 'workspace X'
-# alt-y = 'workspace Y'
-# alt-z = 'workspace Z'
+# In your config, you can drop workspace bindings that you don't need
+# alt-1 = ['workspace 1']  # general purpose workspaces
+# alt-2 = ['workspace 2']  # general purpose workspaces
+# alt-3 = ['workspace 3']  # general purpose workspaces
+# alt-4 = ['workspace 4']  # general purpose workspaces
+# alt-5 = ['workspace 5']  # general purpose workspaces
+# alt-6 = ['workspace 6']  # general purpose workspaces
+# alt-7 = ['workspace 7']  # general purpose workspaces
+# alt-8 = ['workspace 8']  # general purpose workspaces
+# alt-9 = ['workspace 9']  # general purpose workspaces
+alt-a = ['workspace A']  # audio
+alt-b = ['workspace B']  # browsers
+alt-c = ['workspace C']  # money calculations
+# alt-d = ['workspace D']
+# alt-e = ['workspace E']
+alt-g = ['workspace G']  # trash or not focused apps
+# alt-i = ['workspace I']
+alt-m = ['workspace M']  # messages
+alt-n = ['workspace N']  # note takings
+alt-o = ['workspace O']  # organize
+alt-p = ['workspace P']  # plan
+# alt-q = ['workspace Q']
+alt-r = ['workspace R']  # reuninons
+# alt-s = 'workspace S']
+alt-t = ['workspace T']  # terminal
+# alt-u = ['workspace U']
+alt-v = ['workspace V']  # video
+# alt-w = ['workspace W']
+# alt-x = ['workspace X']
+# alt-y = ['workspace Y']
+# alt-z = ['workspace Z']
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1'] # general purpose workspaces
-alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2'] # general purpose workspaces
-alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3'] # general purpose workspaces
-alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4'] # general purpose workspaces
-alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5'] # general purpose workspaces
-# alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']  # general purpose workspaces
-# alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']  # general purpose workspaces
-# alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']  # general purpose workspaces
-# alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']  # general purpose workspaces
-alt-shift-a = ['move-node-to-workspace A', 'workspace A']  # audio
-alt-shift-b = ['move-node-to-workspace B', 'workspace B']  # browsers
-alt-shift-c = ['move-node-to-workspace C', 'workspace C']  # money calculations
-# alt-shift-d = ['move-node-to-workspace D', 'workspace D']
-# alt-shift-e = ['move-node-to-workspace E', 'workspace E']
-alt-shift-g = ['move-node-to-workspace G', 'workspace G']  # trash or not focused apps
-# alt-shift-i = ['move-node-to-workspace I', 'workspace I']
-alt-shift-m = ['move-node-to-workspace M', 'workspace M']  # messages
-alt-shift-n = ['move-node-to-workspace N', 'workspace N']  # note taking
-alt-shift-o = ['move-node-to-workspace O', 'workspace O']  # organize
-alt-shift-p = ['move-node-to-workspace P', 'workspace P']  # plan
-# alt-shift-q = ['move-node-to-workspace Q', 'workspace Q']
-alt-shift-r = ['move-node-to-workspace R', 'workspace R']  # reunions
-# alt-shift-s = ['move-node-to-workspace S', 'workspace S']
-alt-shift-t = ['move-node-to-workspace T', 'workspace T']  # terminal
-# alt-shift-u = ['move-node-to-workspace U', 'workspace U']
-alt-shift-v = ['move-node-to-workspace V', 'workspace V']  # video
-# alt-shift-w = ['move-node-to-workspace W', 'workspace W']
-# alt-shift-x = ['move-node-to-workspace X', 'workspace X']
-# alt-shift-y = ['move-node-to-workspace Y', 'workspace Y']
-# alt-shift-z = ['move-node-to-workspace Z', 'workspace Z']
+# alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+# alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # general purpose workspaces
+alt-shift-a = ['move-node-to-workspace A', 'workspace A', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # audio
+alt-shift-b = ['move-node-to-workspace B', 'workspace B', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # browsers
+alt-shift-c = ['move-node-to-workspace C', 'workspace C', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # money calculations
+# alt-shift-d = ['move-node-to-workspace D', 'workspace D', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+# alt-shift-e = ['move-node-to-workspace E', 'workspace E', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+alt-shift-g = ['move-node-to-workspace G', 'workspace G', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # trash or not focused apps
+# alt-shift-i = ['move-node-to-workspace I', 'workspace I', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+alt-shift-m = ['move-node-to-workspace M', 'workspace M', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # messages
+alt-shift-n = ['move-node-to-workspace N', 'workspace N', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # note taking
+alt-shift-o = ['move-node-to-workspace O', 'workspace O', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # organize
+alt-shift-p = ['move-node-to-workspace P', 'workspace P', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # plan
+# alt-shift-q = ['move-node-to-workspace Q', 'workspace Q', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+alt-shift-r = ['move-node-to-workspace R', 'workspace R', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # reunions
+# alt-shift-s = ['move-node-to-workspace S', 'workspace S', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+alt-shift-t = ['move-node-to-workspace T', 'workspace T', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # terminal
+# alt-shift-u = ['move-node-to-workspace U', 'workspace U', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+alt-shift-v = ['move-node-to-workspace V', 'workspace V', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # video
+# alt-shift-w = ['move-node-to-workspace W', 'workspace W', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+# alt-shift-x = ['move-node-to-workspace X', 'workspace X', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+# alt-shift-y = ['move-node-to-workspace Y', 'workspace Y', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+# alt-shift-z = ['move-node-to-workspace Z', 'workspace Z', 'exec-and-forget sketchybar2 --trigger space_windows_change']
 
-alt-shift-f = 'move-node-to-workspace F'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
+
+alt-shift-f = 'macos-native-fullscreen'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
@@ -342,8 +378,6 @@ if.app-id = 'io.freetubeapp.freetube'
 # You can use workspace-to-monitor-force-assignment syntax to assign workspaces to always appear on particular monitors
 # Assign the first matched monitor to a workspace.
 [workspace-to-monitor-force-assignment]
-1 = ['^built-in retina display$']
-2 = ['^asus xg17a$']
 A = ['^built-in retina display$', '^asus xg17a$']
 B = ['^built-in retina display$', '^asus xg17a$']
 C = ['^built-in retina display$', '^asus xg17a$']

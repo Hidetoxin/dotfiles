@@ -9,7 +9,7 @@ sbar.bar({
 	shadow = false,
 	topmost = "window",
 	y_offset = 0,
-	position = "top",
+	position = os.getenv("SBAR_POSITION"),
 	padding_left = confs.defaults.bar.padding_left,
 	padding_right = confs.defaults.bar.padding_left,
 	font_smoothing = true,
