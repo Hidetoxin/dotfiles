@@ -1,5 +1,9 @@
 local confs = require("confs")
 
+local highlight_color = confs.colors.white_bright
+local background_color = confs.colors.black
+local foreground_color = confs.colors.green
+
 local item_order = ""
 
 sbar.exec("aerospace list-workspaces --all", function(spaces)
@@ -7,56 +11,45 @@ sbar.exec("aerospace list-workspaces --all", function(spaces)
 		local space = sbar.add("item", "space." .. space_name, {
 
 			position = "right",
-			padding_left = 1,
-			padding_right = 1,
+			padding_left = confs.defaults.paddings.padding_left,
+			padding_right = confs.defaults.paddings.padding_right,
 
 			icon = {
+				font = confs.fonts.items.labels.nums,
 				color = confs.colors.white_bright,
 				string = space_name,
-				padding_left = 7,
-				padding_right = 3,
-				highlight_color = confs.colors.black,
-
-				-- font = {
-				-- 	family = settings.font.numbers,
-				-- },
+				padding_left = confs.defaults.items.icon.padding_left + 0,
+				padding_right = confs.defaults.items.icon.padding_right + 4,
 			},
 
 			label = {
-				font = "sketchybar-app-font:Regular:16.0",
-				color = confs.colors.yellow,
-				y_offset = -1,
-				padding_right = 12,
-				highlight_color = confs.colors.black,
+				font = confs.fonts.items.icons.sbar,
+				padding_left = confs.defaults.items.label.padding_left + 4,
+				padding_right = confs.defaults.items.label.padding_right + 0,
 			},
 
-			background = {
-				-- color = confs.colors.black,
-				height = 26,
-				border_width = 1,
-				-- border_color = confs.colors.green,
-			},
+			popup = {},
+
+			background = {},
 		})
 
 		local space_bracket = sbar.add("bracket", { space.name }, {
-			-- padding_left = 10,
-			-- padding_right = 10,
 			background = {
-				color = confs.colors.black,
-				height = 28,
-				border_width = 1,
-				border_color = confs.colors.green,
-				highlight_color = confs.colors.green,
+				color = background_color,
+				height = confs.defaults.backgrounds.brackets.height,
+				border_color = foreground_color,
+				border_width = confs.defaults.backgrounds.brackets.border_width,
+				corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 			},
 		})
 
 		-- Padding space
 		local space_padding = sbar.add("item", "space.padding." .. space_name, {
 			script = "",
-			width = 5,
-			-- width = settings.group_paddings,
-			-- padding_left = 10,
-			-- padding_right = 10,
+			width = confs.defaults.paddings.width,
+			position = "right",
+			padding_left = confs.defaults.paddings.padding_left,
+			padding_right = confs.defaults.paddings.padding_right,
 		})
 
 		space:subscribe("aerospace_workspace_change", function(env)
@@ -73,13 +66,14 @@ sbar.exec("aerospace list-workspaces --all", function(spaces)
 				},
 
 				background = {
-					border_color = selected and confs.colors.black or confs.colors.green,
+					border_color = selected and foreground_color or background_color,
 				},
 			})
+
 			space_bracket:set({
 				background = {
-					color = selected and confs.colors.green or confs.colors.black,
-					border_color = selected and confs.colors.black or confs.colors.green,
+					color = selected and foreground_color or background_color,
+					border_color = selected and highlight_color or foreground_color,
 				},
 			})
 		end)

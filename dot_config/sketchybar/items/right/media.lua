@@ -1,5 +1,8 @@
 local confs = require("confs")
 
+local primary_color = confs.colors.white_bright
+local background_color = confs.colors.black
+
 local whitelist = {
 	["Music"] = true,
 	["Spotify"] = true,
@@ -20,15 +23,14 @@ local media_cover = sbar.add("item", {
 
 	popup = {
 		align = "center",
-		color = confs.colors.orange,
+		color = primary_color,
 		horizontal = true,
 
 		background = {
 			color = confs.colors.black,
-			-- -- height = 40,
 			blur_radius = 0.9,
 			border_width = 2.5,
-			border_color = confs.colors.orange,
+			border_color = color,
 			corner_radius = 12,
 		},
 	},
@@ -58,7 +60,7 @@ local media_artist = sbar.add("item", {
 	label = {
 		width = 0,
 		-- color = confs.colors.with_alpha(confs.colors.orange, 0.6),
-		color = confs.colors.orange,
+		color = primary_color,
 		y_offset = 6,
 		max_chars = 18,
 
@@ -80,7 +82,7 @@ local media_title = sbar.add("item", {
 
 	label = {
 		width = 0,
-		color = confs.colors.orange,
+		color = primary_color,
 		y_offset = -5,
 		max_chars = 16,
 
@@ -90,13 +92,17 @@ local media_title = sbar.add("item", {
 	},
 })
 
-sbar.add("bracket", "media.bracket", { media_cover.name, media_artist.name, media_title.name }, {
+sbar.add("bracket", "media.bracket", {
+	media_cover.name,
+	media_artist.name,
+	media_title.name,
+}, {
 	background = {
-		color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
-		border_color = confs.colors.orange,
-		corner_radius = 12,
+		color = background_color,
+		height = confs.defaults.backgrounds.brackets.height,
+		border_color = primary_color,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
@@ -105,7 +111,7 @@ sbar.add("item", {
 	click_script = "nowplaying-cli previous",
 
 	icon = {
-		color = confs.colors.orange,
+		color = primary_color,
 		string = confs.icons.text.media.back,
 	},
 
@@ -119,7 +125,7 @@ sbar.add("item", {
 	click_script = "nowplaying-cli togglePlayPause",
 
 	icon = {
-		color = confs.colors.orange,
+		color = primary_color,
 		string = confs.icons.text.media.play_pause,
 	},
 
@@ -133,7 +139,7 @@ sbar.add("item", {
 	click_script = "nowplaying-cli next",
 
 	icon = {
-		color = confs.colors.orange,
+		color = primary_color,
 		string = confs.icons.text.media.forward,
 	},
 

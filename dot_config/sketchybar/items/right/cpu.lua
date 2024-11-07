@@ -4,46 +4,35 @@ local confs = require("confs")
 -- the cpu load data, which is fired every 2.0 seconds.
 sbar.exec("killall cpu_load >/dev/null; $CONFIG_DIR/utils/clang/cpu/bin/cpu_load cpu_update 2.0")
 
+local primary_color = confs.colors.blue
+local background_color = confs.colors.black
+
 local cpu = sbar.add("graph", "widgets.cpu", 42, {
 	position = "right",
-	-- padding_right = settings.paddings + 6,
 	padding_right = 3 + 6,
 
 	icon = {
 		string = confs.icons.text.cpu,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
 	},
 
 	label = {
+		font = confs.fonts.items.small.nums,
 		width = 0,
 		align = "right",
 		string = "cpu ??%",
 		y_offset = 4,
-		padding_right = 0,
-
-		font = {
-			size = 9.0,
-			-- style = settings.font.style_map["Bold"],
-			-- family = settings.font.numbers,
-			style = confs.fonts.styles.bold,
-			family = confs.fonts.numbers,
-		},
+		padding_left = confs.defaults.items.label.padding_left + 4,
+		padding_right = confs.defaults.items.label.padding_right + 0,
 	},
 
 	graph = {
-		color = confs.colors.blue,
+		color = primary_color,
 	},
 
 	background = {
-		height = 22,
-		drawing = true,
-
-		color = {
-			alpha = 0,
-		},
-
-		border_color = {
-			alpha = 0,
-		},
+		color = primary_color,
 	},
 })
 
@@ -52,7 +41,7 @@ cpu:subscribe("cpu_update", function(env)
 	local load = tonumber(env.total_load)
 	cpu:push({ load / 100. })
 
-	local color = confs.colors.blue
+	local color = confs.colors.white_bright
 	if load > 30 then
 		if load < 60 then
 			color = confs.colors.yellow
@@ -64,7 +53,9 @@ cpu:subscribe("cpu_update", function(env)
 	end
 
 	cpu:set({
-		graph = { color = color },
+		graph = {
+			color = color,
+		},
 		label = "cpu " .. env.total_load .. "%",
 	})
 end)
@@ -76,18 +67,33 @@ end)
 -- Background around the cpu item
 sbar.add("bracket", "widgets.cpu.bracket", { cpu.name }, {
 	background = {
-		-- color = confs.colors.background,
-		color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
-		border_color = confs.colors.green,
-		corner_radius = 12,
+		color = background_color,
+		height = confs.defaults.backgrounds.brackets.height,
+		border_color = primary_color,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
 -- Background around the cpu item
 sbar.add("item", "widgets.cpu.padding", {
 	-- width = settings.group_paddings,
-	width = 5,
+	width = confs.defaults.paddings.width,
 	position = "right",
+	padding_left = confs.defaults.paddings.padding_left,
+	padding_right = confs.defaults.paddings.padding_right,
+
+	icon = {
+		drawing = confs.defaults.paddings.icon.drawing,
+	},
+
+	label = {
+		drawing = confs.defaults.paddings.label.drawing,
+	},
+
+	background = {
+		drawing = confs.defaults.paddings.background.drawing,
+	},
 })
+
+-- vim: ts=2 sts=2 sw=2 et

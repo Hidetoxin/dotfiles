@@ -1,27 +1,31 @@
 local confs = require("confs")
 
-local color = confs.colors.orange
 local popup_width = 250
+
+local primary_color = confs.colors.orange
+local highlight_color = confs.colors.orange_bright
+local background_color = confs.colors.black
 
 local volume_percent = sbar.add("item", "widgets.volume1", {
 	position = "right",
 
 	icon = {
-		color = color,
+		color = primary_color,
 		drawing = false,
-		highlight = true,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
 	},
 
 	label = {
-		color = color,
+		font = confs.fonts.items.labels.nums,
+		color = primary_color,
 		string = "??%",
-		highlight = true,
-		padding_left = -1,
+		padding_left = confs.defaults.items.label.padding_left + 4,
+		padding_right = confs.defaults.items.label.padding_right + 0,
+	},
 
-		font = {
-			-- family = settings.font.numbers,
-			family = confs.fonts.numbers,
-		},
+	background = {
+		color = primary_color,
 	},
 })
 
@@ -32,12 +36,11 @@ local volume_icon = sbar.add("item", "widgets.volume2", {
 	icon = {
 		width = 0,
 		align = "left",
-		color = color,
+		color = primary_color,
 		string = confs.icons.text.volume._100,
+		highlight = false,
 
 		font = {
-			-- size = 14.0,
-			-- style = settings.font.style_map["Regular"],
 			size = confs.fonts.size.icons,
 			style = confs.fonts.styles.regular,
 		},
@@ -45,10 +48,11 @@ local volume_icon = sbar.add("item", "widgets.volume2", {
 
 	label = {
 		width = 25,
+		color = primary_color,
 		align = "left",
+		highlight = false,
+
 		font = {
-			-- size = 14.0,
-			-- style = settings.font.style_map["Regular"],
 			size = confs.fonts.size.icons,
 			style = confs.fonts.styles.regular,
 		},
@@ -61,15 +65,18 @@ local volume_bracket = sbar.add("bracket", "widgets.volume.bracket", {
 }, {
 	popup = {
 		align = "center",
+
+		background = {
+			border_color = primary_color,
+		},
 	},
 
 	background = {
-		-- color = confs.colors.background,
-		color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
-		border_color = color,
-		corner_radius = 12,
+		color = background_color,
+		height = confs.defaults.backgrounds.brackets.height,
+		border_color = primary_color,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
@@ -84,9 +91,10 @@ local volume_slider = sbar.add("slider", popup_width, {
 	click_script = 'osascript -e "set volume output volume $PERCENTAGE"',
 
 	slider = {
-		highlight_color = color,
+		highlight_color = primary_color,
 
 		knob = {
+			color = highlight_color,
 			string = "􀀁",
 			drawing = true,
 		},
@@ -94,12 +102,12 @@ local volume_slider = sbar.add("slider", popup_width, {
 		background = {
 			height = 6,
 			corner_radius = 3,
-			color = confs.colors.black,
+			color = background_color,
 		},
 	},
 
 	background = {
-		color = confs.colors.black,
+		color = background_color,
 		height = 2,
 		y_offset = -20,
 	},

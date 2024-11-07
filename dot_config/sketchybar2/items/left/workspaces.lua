@@ -1,47 +1,32 @@
 local confs = require("confs")
 
+local highlight_color = confs.colors.white_bright
+local background_color = confs.colors.black
+local foreground_color = confs.colors.yellow
+
 local spaces = {}
 
 for i = 1, 10, 1 do
 	local space = sbar.add("space", "space." .. i, {
 		space = i,
 		position = "left",
-		padding_left = 1,
-		padding_right = 1,
+		padding_left = confs.defaults.paddings.padding_left,
+		padding_right = confs.defaults.paddings.padding_right,
 
 		icon = {
-			color = confs.colors.white,
+			font = confs.fonts.items.labels.nums,
 			string = i,
-			padding_left = 15,
-			padding_right = 8,
-			highlight_color = confs.colors.black,
-
-			-- font = {
-			-- 	family = settings.font.numbers,
-			-- },
+			padding_left = confs.defaults.items.icon.padding_left + 0,
+			padding_right = confs.defaults.items.icon.padding_right + 4,
 		},
 
 		label = {
-			font = "sketchybar-app-font:Regular:16.0",
-			color = confs.colors.yellow,
-			y_offset = -1,
-			padding_right = 20,
-			highlight_color = confs.colors.black,
+			font = confs.fonts.items.icons.sbar,
+			padding_left = confs.defaults.items.label.padding_left + 4,
+			padding_right = confs.defaults.items.label.padding_right + 0,
 		},
 
-		popup = {
-			background = {
-				border_width = 5,
-				-- border_color = confs.colors.black,
-			},
-		},
-
-		background = {
-			-- color = confs.colors.background,
-			height = 26,
-			-- border_color = confs.colors.black,
-			border_width = 1,
-		},
+		popup = {},
 	})
 
 	spaces[i] = space
@@ -49,38 +34,47 @@ for i = 1, 10, 1 do
 	-- Single item bracket for space items to achieve double border on highlight
 	local space_bracket = sbar.add("bracket", { space.name }, {
 		background = {
-			color = confs.colors.black,
-			height = 28,
-			border_width = 2,
-			border_color = confs.colors.green,
+			color = background_color,
+			height = confs.defaults.backgrounds.brackets.height,
+			border_color = foreground_color,
+			border_width = confs.defaults.backgrounds.brackets.border_width,
+			corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 		},
 	})
 
 	-- Padding space
 	sbar.add("space", "space.padding." .. i, {
 		space = i,
-		width = 5,
-		-- width = settings.group_paddings,
+		width = confs.defaults.paddings.width,
 		script = "",
+		position = "left",
+		padding_left = confs.defaults.paddings.padding_left,
+		padding_right = confs.defaults.paddings.padding_right,
+
+		icon = {
+			drawing = confs.defaults.paddings.icon.drawing,
+		},
+
+		label = {
+			drawing = confs.defaults.paddings.label.drawing,
+		},
+
+		background = {
+			drawing = confs.defaults.paddings.background.drawing,
+		},
 	})
 
 	local space_popup = sbar.add("item", {
 		position = "popup." .. space.name,
-		padding_left = 5,
-		padding_right = 0,
 
 		background = {
 			drawing = true,
-			image = {
-				scale = 0.2,
-				corner_radius = 9,
-			},
 		},
 	})
 
 	space:subscribe("space_change", function(env)
 		local selected = env.SELECTED == "true"
-		local color = selected and confs.colors.grey or confs.colors.background
+
 		space:set({
 			icon = {
 				highlight = selected,
@@ -90,39 +84,41 @@ for i = 1, 10, 1 do
 				highlight = selected,
 			},
 
-			background = {
-				border_color = selected and confs.colors.black or confs.colors.background,
-			},
+			background = {},
 		})
 		space_bracket:set({
 			background = {
-				color = selected and confs.colors.green or confs.colors.black,
-				border_color = selected and confs.colors.black or confs.colors.green,
+				color = selected and foreground_color or background_color,
+				border_color = selected and highlight_color or foreground_color,
 			},
 		})
 	end)
 
-	-- space:subscribe("mouse.clicked", function(env)
-	-- 	if env.BUTTON == "other" then
-	-- 		space_popup:set({
-	-- 			background = {
-	-- 				image = "space." .. env.SID,
-	-- 			},
-	-- 		})
-	--
-	-- 		space:set({
-	-- 			popup = {
-	-- 				drawing = "toggle",
-	-- 			},
-	-- 		})
-	-- 	else
-	-- 		local op = (env.BUTTON == "right") and "--destroy" or "--focus"
-	-- 		sbar.exec("yabai -m space " .. op .. " " .. env.SID)
-	-- 	end
-	-- end)
+	space:subscribe("mouse.clicked", function(env)
+		if env.BUTTON == "other" then
+			space_popup:set({
+				background = {
+					image = "space." .. env.SID,
+				},
+			})
+
+			space:set({
+				popup = {
+					drawing = "toggle",
+				},
+			})
+		else
+			local op = (env.BUTTON == "right") and "--destroy" or "--focus"
+			-- sbar.exec("yabai -m space " .. op .. " " .. env.SID)
+		end
+	end)
 
 	space:subscribe("mouse.exited", function(_)
-		space:set({ popup = { drawing = false } })
+		space:set({
+			popup = {
+				drawing = false,
+			},
+		})
 	end)
 end
 
@@ -150,3 +146,5 @@ space_window_observer:subscribe("space_windows_change", function(env)
 		})
 	end)
 end)
+
+-- vim: ts=2 sts=2 sw=2 et

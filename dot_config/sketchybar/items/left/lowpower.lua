@@ -1,85 +1,73 @@
 local confs = require("confs")
 
-local color = confs.colors.orange
+local primary_color = confs.colors.orange
+local secondary_color = confs.colors.red
+local tertiary_color = confs.colors.yellow
+local background_color = confs.colors.black
+
+local item_color = primary_color
+
 local label = confs.icons.syms.error
 local modeValue = 0
 
 local lowpower = sbar.add("item", "lowpower", {
 	position = "left",
-	padding_left = 8,
-	padding_right = 8,
 
 	icon = {
-		-- drawing = false,
-		font = {
-			-- family = settings.font.numbers,
-			family = "Sf Mono",
-		},
-		color = color,
 		string = label,
-		highlight = true,
-		padding_left = 6,
-		padding_right = 6,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
 	},
 
 	label = {
 		drawing = false,
-		-- font = {
-		-- 	-- family = settings.font.numbers,
-		-- 	family = "Sf Mono",
-		-- },
-		-- color = color,
-		-- string = label,
-		-- padding_left = 6,
-		-- padding_right = 6,
+	},
+
+	popup = {
+		drawing = false,
 	},
 
 	background = {
-		color = confs.colors.red,
-		height = 24,
-		-- border_color = colors.red,
-		border_width = 0,
-		corner_radius = 6,
+		color = item_color,
 	},
 })
 
 local lowpower_bracket = sbar.add("bracket", "lowpower.bracket", { lowpower.name }, {
 	background = {
-		color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
-		border_color = color,
-		corner_radius = 12,
+		color = background_color,
+		height = confs.defaults.backgrounds.brackets.height,
+		border_color = item_color,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
 local function setModeValue(v)
 	modeValue = v
 	if v == 1 then
-		color = confs.colors.yellow
 		label = confs.icons.syms.slow
+		item_color = tertiary_color
 		sbar.exec("sudo pmset -a lowpower 1")
 	else
-		color = confs.colors.red
 		label = confs.icons.syms.fast
+		item_color = secondary_color
 		sbar.exec("sudo pmset -a lowpower 0")
 	end
 
 	lowpower:set({
 		icon = {
-			color = confs.colors.black,
 			string = label,
-			background_color = confs.colors.red,
+			background_color = item_color,
 		},
 
 		background = {
-			color = color,
+			color = item_color,
 		},
 	})
 
 	lowpower_bracket:set({
 		background = {
-			border_color = color,
+			border_color = item_color,
 		},
 	})
 end
@@ -102,9 +90,22 @@ lowpower:subscribe("mouse.clicked", function()
 end)
 
 sbar.add("item", "lowpower.right_padding", {
-	-- width = settings.group_paddings,
-	width = 5,
+	width = confs.defaults.paddings.width,
 	position = "left",
+	padding_left = confs.defaults.paddings.padding_left,
+	padding_right = confs.defaults.paddings.padding_right,
+
+	icon = {
+		drawing = confs.defaults.paddings.icon.drawing,
+	},
+
+	label = {
+		drawing = confs.defaults.paddings.label.drawing,
+	},
+
+	background = {
+		drawing = confs.defaults.paddings.background.drawing,
+	},
 })
 
 -- vim: ts=2 sts=2 sw=2 et

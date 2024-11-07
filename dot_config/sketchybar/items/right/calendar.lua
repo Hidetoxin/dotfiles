@@ -1,37 +1,47 @@
 local confs = require("confs")
 
+local primary_color = confs.colors.red
+local background_color = confs.colors.black
+
 -- Padding item required because of bracket
 sbar.add("item", "cal.right_padding", {
-	width = 5,
+	width = confs.defaults.paddings.width,
 	position = "right",
+	padding_left = confs.defaults.paddings.padding_left,
+	padding_right = confs.defaults.paddings.padding_right,
+
+	icon = {
+		drawing = confs.defaults.paddings.icon.drawing,
+	},
+
+	label = {
+		drawing = confs.defaults.paddings.label.drawing,
+	},
+
+	background = {
+		drawing = confs.defaults.paddings.background.drawing,
+	},
 })
 
 -- Add the current `time` item
 local time = sbar.add("item", "time", {
 	position = "right",
 	update_freq = 5,
-	padding_left = 2,
-	padding_right = 8,
 
 	icon = {
+		color = primary_color,
 		string = confs.icons.text.calendar.time,
-		color = confs.colors.red,
-		highlight = true,
-		padding_left = 8,
-		padding_right = 2,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
 	},
 
 	label = {
-		highlight = true,
-		padding_left = 2,
-		padding_right = 8,
+		padding_left = confs.defaults.items.label.padding_left + 4,
+		padding_right = confs.defaults.items.label.padding_right + 0,
 	},
 
 	background = {
-		color = confs.colors.red,
-		height = 24,
-		border_width = 0,
-		corner_radius = 6,
+		color = primary_color,
 	},
 })
 
@@ -51,25 +61,18 @@ end)
 local date = sbar.add("item", "date", {
 	position = "right",
 	update_freq = 60,
-	padding_left = 8,
-	padding_right = 2,
 
 	icon = {
-		color = confs.colors.red,
+		color = primary_color,
 		string = confs.icons.text.calendar.date,
-		padding_left = 8,
-		padding_right = 2,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
 	},
 
 	label = {
-		color = confs.colors.red,
-		padding_left = 2,
-		padding_right = 8,
-	},
-
-	background = {
-		height = 24,
-		border_width = 0,
+		color = primary_color,
+		padding_left = confs.defaults.items.label.padding_left + 4,
+		padding_right = confs.defaults.items.label.padding_right + 0,
 	},
 })
 
@@ -86,12 +89,17 @@ date:subscribe("mouse.clicked", function(env)
 end)
 
 -- Double border for apple using a single item bracket
-sbar.add("bracket", "cal.bracket", { date.name, time.name }, {
+sbar.add("bracket", "cal.bracket", {
+	date.name,
+	time.name,
+}, {
 	background = {
-		color = confs.colors.background,
-		height = 40,
-		border_width = 2,
-		border_color = confs.colors.red,
-		corner_radius = 12,
+		color = background_color,
+		height = confs.defaults.backgrounds.brackets.height,
+		border_color = primary_color,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
+
+-- vim: ts=2 sts=2 sw=2 et

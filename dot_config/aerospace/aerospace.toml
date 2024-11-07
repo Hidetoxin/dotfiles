@@ -134,7 +134,11 @@ alt-j = 'focus down'
 alt-k = 'focus up'
 alt-l = 'focus right'
 
-alt-f = ['fullscreen --no-outer-gaps']
+alt-f = [
+  'exec-and-forget sketchybar -m --bar hidden=toggle',
+  'exec-and-forget sketchybar2 -m --bar hidden=toggle',
+  'fullscreen --no-outer-gaps'
+]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'

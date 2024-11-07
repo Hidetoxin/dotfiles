@@ -1,45 +1,51 @@
 local confs = require("confs")
 
-local battery = sbar.add("item", "battery", {
+local primary_color = confs.colors.green
+local secondary_color = confs.colors.yellow
+local tertiary_color = confs.colors.orange
+local quaternary_color = confs.colors.red
+local background_color = confs.colors.black
+
+-- Padding item required because of bracket
+sbar.add("item", "battery.right_padding", {
+	width = confs.defaults.paddings.width,
 	position = "right",
-	update_freq = 180,
-	padding_left = 8,
-	padding_right = 8,
+	padding_left = confs.defaults.paddings.padding_left,
+	padding_right = confs.defaults.paddings.padding_right,
 
 	icon = {
-		highlight = true,
-		padding_left = 6,
-		padding_right = 6,
-
-		font = {
-			-- size = 19.0,
-			-- style = settings.font.style_map["Regular"],
-			size = confs.fonts.size.icons,
-			style = confs.fonts.styles.regular,
-		},
+		drawing = confs.defaults.paddings.icon.drawing,
 	},
 
 	label = {
-		highlight = true,
-		padding_left = 6,
-		padding_right = 6,
-
-		font = {
-			-- family = settings.font.numbers,
-			family = confs.fonts.numbers,
-		},
-	},
-
-	popup = {
-		align = "center",
+		drawing = confs.defaults.paddings.label.drawing,
 	},
 
 	background = {
-		color = confs.colors.green,
-		height = 24,
-		-- border_color = colors.red,
-		border_width = 0,
-		corner_radius = 6,
+		drawing = confs.defaults.paddings.background.drawing,
+	},
+})
+
+local battery = sbar.add("item", "battery", {
+	position = "right",
+	update_freq = 180,
+
+	icon = {
+		font = confs.fonts.items.icons.text,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
+	},
+
+	label = {
+		font = confs.fonts.items.labels.nums,
+		padding_left = confs.defaults.items.label.padding_left + 4,
+		padding_right = confs.defaults.items.label.padding_right + 0,
+	},
+
+	popup = {},
+
+	background = {
+		color = primary_color,
 	},
 })
 
@@ -61,13 +67,15 @@ local remaining_time = sbar.add("item", {
 		padding_left = 6,
 		padding_right = 6,
 	},
+})
 
+local battery_bracket = sbar.add("bracket", "battery.bracket", { battery.name }, {
 	background = {
 		color = confs.colors.black,
-		-- height = 24,
-		-- border_color = colors.g,
-		border_width = 2.5,
-		corner_radius = 6,
+		height = confs.defaults.backgrounds.brackets.height,
+		border_color = confs.colors.green,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
@@ -82,7 +90,7 @@ battery:subscribe({ "routine", "power_source_change", "system_woke" }, function(
 			label = charge .. "%"
 		end
 
-		local color = confs.colors.green
+		local color = primary_color
 		local charging, _, _ = batt_info:find("AC Power")
 
 		if charging then
@@ -94,13 +102,13 @@ battery:subscribe({ "routine", "power_source_change", "system_woke" }, function(
 				icon = confs.icons.text.battery._75
 			elseif found and charge > 40 then
 				icon = confs.icons.text.battery._50
-				color = confs.colors.yellow
+				color = secondary_color
 			elseif found and charge > 20 then
 				icon = confs.icons.text.battery._25
-				color = confs.colors.orange
+				color = tertiary_color
 			else
 				icon = confs.icons.text.battery._0
-				color = confs.colors.red
+				color = quaternary_color
 			end
 		end
 
@@ -111,7 +119,6 @@ battery:subscribe({ "routine", "power_source_change", "system_woke" }, function(
 
 		battery:set({
 			icon = {
-				-- color = color,
 				string = icon,
 			},
 
@@ -119,25 +126,32 @@ battery:subscribe({ "routine", "power_source_change", "system_woke" }, function(
 				string = lead .. label,
 			},
 
+			popup = {
+				background = {
+					border_color = color,
+				},
+			},
+
 			background = {
 				color = color,
+			},
+		})
+
+		battery_bracket:set({
+			background = {
 				border_color = color,
-				border_width = 0,
-				corner_radius = 6,
 			},
 		})
 
 		remaining_time:set({
 			icon = {
 				color = color,
+				highlight = false,
 			},
 
 			label = {
 				color = color,
-			},
-
-			background = {
-				border_color = color,
+				highlight = false,
 			},
 		})
 	end)
@@ -155,24 +169,30 @@ battery:subscribe("mouse.clicked", function(env)
 		sbar.exec("pmset -g batt", function(batt_info)
 			local found, _, remaining = batt_info:find(" (%d+:%d+) remaining")
 			local label = found and remaining .. "h" or "No estimate"
-			remaining_time:set({ label = label })
+			remaining_time:set({
+				label = label,
+			})
 		end)
 	end
 end)
 
-sbar.add("bracket", "battery.bracket", { battery.name }, {
+sbar.add("item", "battery.left_padding", {
+	width = confs.defaults.paddings.width,
+	position = "right",
+	padding_left = confs.defaults.paddings.padding_left,
+	padding_right = confs.defaults.paddings.padding_right,
+
+	icon = {
+		drawing = confs.defaults.paddings.icon.drawing,
+	},
+
+	label = {
+		drawing = confs.defaults.paddings.label.drawing,
+	},
+
 	background = {
-		-- color = confs.colors.background,
-		color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
-		border_color = confs.colors.green,
-		corner_radius = 12,
+		drawing = confs.defaults.paddings.background.drawing,
 	},
 })
 
-sbar.add("item", "battery.padding", {
-	-- width = settings.group_paddings,
-	width = 5,
-	position = "right",
-})
+-- vim: ts=2 sts=2 sw=2 et

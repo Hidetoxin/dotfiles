@@ -4,11 +4,12 @@ local confs = require("confs")
 -- https://felixkratz.github.io/SketchyBar/config/bar
 sbar.bar({
 	color = confs.colors.transparent,
-	margin = 0,
+	margin = confs.defaults.bar.margin,
 	height = 56,
+	-- height = confs.defaults.bar.height,
 	shadow = false,
 	topmost = "window",
-	y_offset = 0,
+	y_offset = confs.defaults.bar.y_offset,
 	position = os.getenv("SBAR_POSITION"),
 	padding_left = confs.defaults.bar.padding_left,
 	padding_right = confs.defaults.bar.padding_left,

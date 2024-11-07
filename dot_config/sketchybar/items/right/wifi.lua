@@ -6,6 +6,11 @@ sbar.exec("killall network_load >/dev/null; $CONFIG_DIR/utils/clang/network/bin/
 
 local popup_width = 250
 
+local primary_color = confs.colors.magenta
+local secondary_color = confs.colors.blue_bright
+local tertiary_color = confs.colors.red_bright
+local background_color = confs.colors.black
+
 local wifi_up = sbar.add("item", "widgets.wifi1", {
 	width = 0,
 	position = "right",
@@ -14,26 +19,12 @@ local wifi_up = sbar.add("item", "widgets.wifi1", {
 
 	icon = {
 		string = confs.icons.text.wifi.upload,
-		padding_right = 0,
-
-		font = {
-			size = 9.0,
-			-- style = settings.font.style_map["Bold"],
-			style = confs.fonts.styles.bold,
-		},
+		padding_right = 3,
 	},
 
 	label = {
-		color = confs.colors.red,
+		font = confs.fonts.items.small.nums,
 		string = "??? Bps",
-
-		font = {
-			size = 9.0,
-			-- style = settings.font.style_map["Bold"],
-			-- family = settings.font.numbers,
-			style = confs.fonts.styles.bold,
-			family = confs.fonts.numbers,
-		},
 	},
 })
 
@@ -44,34 +35,29 @@ local wifi_down = sbar.add("item", "widgets.wifi2", {
 
 	icon = {
 		string = confs.icons.text.wifi.download,
-		padding_right = 0,
-
-		font = {
-			size = 9.0,
-			-- style = settings.font.style_map["Bold"],
-			style = confs.fonts.styles.bold,
-		},
+		padding_right = 3,
 	},
 
 	label = {
-		color = confs.colors.blue,
+		font = confs.fonts.items.small.nums,
 		string = "??? Bps",
-
-		font = {
-			size = 9.0,
-			-- style = settings.font.style_map["Bold"],
-			-- family = settings.font.numbers,
-			style = confs.fonts.styles.bold,
-			family = confs.fonts.numbers,
-		},
 	},
 })
 
 local wifi = sbar.add("item", "widgets.wifi.padding", {
 	position = "right",
 
+	icon = {
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
+	},
+
 	label = {
 		drawing = false,
+	},
+
+	background = {
+		color = primary_color,
 	},
 })
 
@@ -84,15 +70,18 @@ local wifi_bracket = sbar.add("bracket", "widgets.wifi.bracket", {
 	popup = {
 		align = "center",
 		height = 30,
+
+		background = {
+			border_color = primary_color,
+		},
 	},
 
 	background = {
-		color = confs.colors.black,
-		-- color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
-		border_color = confs.colors.green,
-		corner_radius = 12,
+		color = background_color,
+		height = confs.defaults.backgrounds.brackets.height,
+		border_color = primary_color,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
@@ -192,18 +181,18 @@ local router = sbar.add("item", {
 })
 
 sbar.add("item", {
-	-- width = settings.group_paddings,
 	width = 5,
 	position = "right",
 })
 
 wifi_up:subscribe("network_update", function(env)
-	local up_color = (env.upload == "000 Bps") and confs.colors.grey or confs.colors.red
-	local down_color = (env.download == "000 Bps") and confs.colors.grey or confs.colors.blue
+	local up_color = (env.upload == "000 Bps") and confs.colors.grey or secondary_color
+	local down_color = (env.download == "000 Bps") and confs.colors.grey or tertiary_color
 
 	wifi_up:set({
 		icon = {
 			color = up_color,
+			highlight = false,
 		},
 
 		label = {
@@ -215,6 +204,7 @@ wifi_up:subscribe("network_update", function(env)
 	wifi_down:set({
 		icon = {
 			color = down_color,
+			highlight = false,
 		},
 
 		label = {
@@ -240,6 +230,9 @@ local function hide_details()
 	wifi_bracket:set({
 		popup = {
 			drawing = false,
+			-- backgound = {
+			-- 	border_color = primary_color,
+			-- },
 		},
 	})
 end
@@ -250,11 +243,16 @@ local function toggle_details()
 		wifi_bracket:set({
 			popup = {
 				drawing = true,
+				-- backgound = {
+				-- 	border_color = primary_color,
+				-- },
 			},
 		})
 
 		sbar.exec("networksetup -getcomputername", function(result)
-			hostname:set({ label = result })
+			hostname:set({
+				label = result,
+			})
 		end)
 
 		sbar.exec("ipconfig getifaddr en0", function(result)
@@ -316,3 +314,5 @@ hostname:subscribe("mouse.clicked", copy_label_to_clipboard)
 ip:subscribe("mouse.clicked", copy_label_to_clipboard)
 mask:subscribe("mouse.clicked", copy_label_to_clipboard)
 router:subscribe("mouse.clicked", copy_label_to_clipboard)
+
+-- vim: ts=2 sts=2 sw=2 et

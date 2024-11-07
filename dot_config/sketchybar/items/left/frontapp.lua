@@ -15,6 +15,10 @@ sbar.add("event", "swap_menus_and_spaces")
 local max_items = 15
 local menu_items = {}
 
+local primary_color = confs.colors.purple
+local secondary_color = confs.colors.cyan
+local background_color = confs.colors.black
+
 for i = 1, max_items, 1 do
 	local menu = sbar.add("item", "menu." .. i, {
 
@@ -28,20 +32,12 @@ for i = 1, max_items, 1 do
 		},
 
 		label = {
-			-- font = {
-			--   style = settings.font.style_map[i == 1 and "Heavy" or "Semibold"]
-			-- },
-			highlight = true,
-			padding_left = 6,
-			padding_right = 6,
+			padding_left = confs.defaults.items.label.padding_left + 4,
+			padding_right = confs.defaults.items.label.padding_right + 0,
 		},
 
 		background = {
-			color = confs.colors.purple,
-			height = 24,
-			-- border_color = colors.red,
-			border_width = 0,
-			corner_radius = 6,
+			color = primary_color,
 		},
 	})
 
@@ -51,16 +47,19 @@ end
 sbar.add("bracket", { "/menu\\..*/" }, {
 	background = {
 		color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
+		height = confs.defaults.backgrounds.brackets.height,
 		border_color = confs.colors.purple,
-		corner_radius = 12,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
 local menu_padding = sbar.add("item", "menu.padding", {
-	width = 5,
+	width = confs.defaults.paddings.width,
 	drawing = false,
+	position = "left",
+	padding_left = confs.defaults.paddings.padding_left,
+	padding_right = confs.defaults.paddings.padding_right,
 })
 
 local function update_menus(env)
@@ -255,34 +254,20 @@ local space_window_observer = sbar.add("item", {
 })
 
 local spaces_indicator = sbar.add("item", {
-	padding_left = 8,
-	padding_right = 8,
+	position = "left",
 
 	icon = {
-		color = confs.colors.grey,
 		string = confs.icons.text.switch.on,
-		highlight = true,
-		padding_left = 6,
-		padding_right = 6,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
 	},
 
 	label = {
 		drawing = false,
-		-- color = confs.colors.background,
-		-- width = 0,
-		-- string = "Spaces",
-		-- padding_left = 0,
-		-- padding_right = 8,
 	},
 
 	background = {
-		-- color = confs.colors.with_alpha(confs.colors.grey, 0.0),
-		-- border_color = confs.colors.with_alpha(confs.colors.background, 0.0),
-		color = confs.colors.cyan,
-		height = 24,
-		-- border_color = colors.red,
-		border_width = 0,
-		corner_radius = 6,
+		color = secondary_color,
 	},
 })
 
@@ -370,50 +355,27 @@ local confs = require("confs")
 
 local front_app = sbar.add("item", "front_app", {
 	display = "active",
-	updates = true,
-	padding_left = 8,
-	padding_right = 8,
+	position = "left",
 
 	icon = {
 		font = "sketchybar-app-font:Regular:16.0",
-		color = confs.colors.cyan,
-		padding_left = 6,
-		padding_right = 6,
-		-- drawing = false,
-		-- string = confs.icons.apps[env.INFO],
+		color = secondary_color,
+		padding_left = confs.defaults.items.icon.padding_left + 0,
+		padding_right = confs.defaults.items.icon.padding_right + 4,
 	},
 
 	label = {
-		color = confs.colors.cyan,
-		highlight = true,
-		padding_left = 6,
-		padding_right = 6,
-		highlight_color = confs.colors.cyan,
-
-		font = {
-			size = 12.0,
-			-- style = settings.font.style_map["Black"],
-			-- size = confs.fonts.size.labels,
-			-- style = confs.fonts.styles.black,
-		},
+		color = secondary_color,
 	},
-
-	-- background = {
-	-- 	color = confs.colors.cyan,
-	-- 	height = 24,
-	-- 	-- border_color = colors.red,
-	-- 	border_width = 0,
-	-- 	corner_radius = 6,
-	-- },
 })
 
 sbar.add("bracket", "frontapp.bracket", { spaces_indicator.name, front_app.name }, {
 	background = {
 		color = confs.colors.black,
-		height = 40,
-		border_width = 2.5,
+		height = confs.defaults.backgrounds.brackets.height,
 		border_color = confs.colors.cyan,
-		corner_radius = 12,
+		border_width = confs.defaults.backgrounds.brackets.border_width,
+		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
 	},
 })
 
@@ -432,3 +394,5 @@ end)
 front_app:subscribe("mouse.clicked", function(env)
 	sbar.trigger("swap_menus_and_spaces")
 end)
+
+-- vim: ts=2 sts=2 sw=2 et
