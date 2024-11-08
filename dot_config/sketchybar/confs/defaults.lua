@@ -89,6 +89,8 @@ local defaults <const> = {
 	},
 
 	aliases = { -- default configuration for aliases
+		width = 15,
+		update_freq = 60,
 	},
 
 	sliders = { -- default configuration for sliders

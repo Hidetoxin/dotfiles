@@ -349,6 +349,12 @@ local text <const> = {
 		loading = "",
 		clipboard = "󰅇",
 
+		svim = {
+			nvim = "",
+			insert = "󰬐",
+			normal = "󰬕",
+		},
+
 		wifi = {
 			router = "󰑩",
 			upload = "",
