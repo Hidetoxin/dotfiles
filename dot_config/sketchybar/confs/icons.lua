@@ -348,6 +348,7 @@ local text <const> = {
 		apple = "",
 		loading = "",
 		clipboard = "󰅇",
+		aerospace = "",
 
 		svim = {
 			nvim = "",

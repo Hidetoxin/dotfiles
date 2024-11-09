@@ -1,6 +1,6 @@
 local confs = require("confs")
 
-local primary_color = confs.colors.blue
+local primary_color = confs.colors.green_bright
 local background_color = confs.colors.black
 
 local svim = sbar.add("item", "svim", {
@@ -31,7 +31,7 @@ local svim = sbar.add("item", "svim", {
 
 svim:subscribe("svim_update", function(env)
 	local mode = env.MODE
-	local cmdline = env.CMDLINE
+	-- local cmdline = env.CMDLINE
 	local mode_icon = mode
 
 	if mode == "" then
@@ -49,7 +49,7 @@ svim:subscribe("svim_update", function(env)
 	})
 end)
 
--- Double border for apple using a single item bracket
+-- Double border for svim using a single item bracket
 sbar.add("bracket", "svim.bracket", { svim.name }, {
 	background = {
 		color = background_color,

@@ -2,9 +2,66 @@ local confs = require("confs")
 
 local highlight_color = confs.colors.white_bright
 local background_color = confs.colors.black
-local foreground_color = confs.colors.green
+local foreground_color = confs.colors.blue
 
 local item_order = ""
+-- local empty_spaces_names = ""
+--
+-- local empty_spaces = sbar.add("item", "empty_spaces", {
+-- 	position = "right",
+--
+-- 	icon = {
+-- 		font = confs.fonts.items.icons.text,
+-- 		string = confs.icons.text.aerospace,
+-- 		padding_left = confs.defaults.items.icon.padding_left + 0,
+-- 		padding_right = confs.defaults.items.icon.padding_right + 4,
+-- 	},
+--
+-- 	label = {
+-- 		font = confs.fonts.items.labels.text,
+-- 		string = "AeroSpace",
+-- 		padding_left = confs.defaults.items.label.padding_left + 4,
+-- 		padding_right = confs.defaults.items.label.padding_right + 0,
+-- 	},
+--
+-- 	popup = {
+-- 		drawing = false,
+-- 	},
+--
+-- 	background = {
+-- 		color = foreground_color,
+-- 	},
+-- })
+--
+-- -- Double border for empty_spaces using a single item bracket
+-- sbar.add("bracket", "empty_spaces.bracket", { empty_spaces.name }, {
+-- 	background = {
+-- 		color = background_color,
+-- 		height = confs.defaults.backgrounds.brackets.height,
+-- 		border_color = foreground_color,
+-- 		border_width = confs.defaults.backgrounds.brackets.border_width,
+-- 		corner_radius = confs.defaults.backgrounds.brackets.corner_radius,
+-- 	},
+-- })
+--
+-- sbar.add("item", "empty_spaces.left_padding", {
+-- 	width = confs.defaults.paddings.width,
+-- 	position = "right",
+-- 	padding_left = confs.defaults.paddings.padding_left,
+-- 	padding_right = confs.defaults.paddings.padding_right,
+--
+-- 	icon = {
+-- 		drawing = confs.defaults.paddings.icon.drawing,
+-- 	},
+--
+-- 	label = {
+-- 		drawing = confs.defaults.paddings.label.drawing,
+-- 	},
+--
+-- 	background = {
+-- 		drawing = confs.defaults.paddings.background.drawing,
+-- 	},
+-- })
 
 sbar.exec("aerospace list-workspaces --all", function(spaces)
 	for space_name in spaces:gmatch("[^\r\n]+") do
@@ -54,7 +111,7 @@ sbar.exec("aerospace list-workspaces --all", function(spaces)
 
 		space:subscribe("aerospace_workspace_change", function(env)
 			local selected = env.FOCUSED_WORKSPACE == space_name
-			-- local color = selected and confs.colors.green or confs.colors.green
+
 			space:set({
 
 				icon = {
@@ -86,6 +143,7 @@ sbar.exec("aerospace list-workspaces --all", function(spaces)
 			sbar.exec("aerospace list-windows --format %{app-name} --workspace " .. space_name, function(windows)
 				local no_app = true
 				local icon_line = ""
+
 				for app in windows:gmatch("[^\r\n]+") do
 					no_app = false
 					local lookup = confs.icons.apps[app]
@@ -96,19 +154,20 @@ sbar.exec("aerospace list-workspaces --all", function(spaces)
 				if no_app then
 					icon_line = " —"
 				end
+
 				sbar.animate("tanh", 10, function()
 					space:set({
-						label = icon_line,
+						label = {
+							string = icon_line,
+						},
 					})
 				end)
 			end)
 		end)
 
 		item_order = item_order .. " " .. space.name .. " " .. space_padding.name
-		-- item_order = string.reverse(item_order)
-		-- table.sort(item_order, function(a, b)
-		-- 	return a > b
-		-- end)
 	end
 	-- sbar.exec("sketchybar --reorder apple " .. item_order .. " front_app")
 end)
+
+-- vim: ts=2 sts=2 sw=2 et
