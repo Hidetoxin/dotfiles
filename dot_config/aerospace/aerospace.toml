@@ -164,7 +164,7 @@ alt-shift-equal = 'resize smart +50'
 alt-a = ['workspace A']  # audio
 alt-b = ['workspace B']  # browsers
 alt-c = ['workspace C']  # money calculations
-# alt-d = ['workspace D']
+alt-d = ['workspace D']  # development
 # alt-e = ['workspace E']
 alt-g = ['workspace G']  # trash or not focused apps
 # alt-i = ['workspace I']
@@ -175,7 +175,7 @@ alt-p = ['workspace P']  # plan
 # alt-q = ['workspace Q']
 alt-r = ['workspace R']  # reuninons
 # alt-s = 'workspace S']
-alt-t = ['workspace T']  # terminal
+# alt-t = ['workspace T']  # terminal
 # alt-u = ['workspace U']
 alt-v = ['workspace V']  # video
 # alt-w = ['workspace W']
@@ -196,7 +196,7 @@ alt-v = ['workspace V']  # video
 alt-shift-a = ['move-node-to-workspace A', 'workspace A', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # audio
 alt-shift-b = ['move-node-to-workspace B', 'workspace B', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # browsers
 alt-shift-c = ['move-node-to-workspace C', 'workspace C', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # money calculations
-# alt-shift-d = ['move-node-to-workspace D', 'workspace D', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+alt-shift-d = ['move-node-to-workspace D', 'workspace D', 'exec-and-forget sketchybar2 --trigger space_windows_change']
 # alt-shift-e = ['move-node-to-workspace E', 'workspace E', 'exec-and-forget sketchybar2 --trigger space_windows_change']
 alt-shift-g = ['move-node-to-workspace G', 'workspace G', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # trash or not focused apps
 # alt-shift-i = ['move-node-to-workspace I', 'workspace I', 'exec-and-forget sketchybar2 --trigger space_windows_change']
@@ -207,7 +207,7 @@ alt-shift-p = ['move-node-to-workspace P', 'workspace P', 'exec-and-forget sketc
 # alt-shift-q = ['move-node-to-workspace Q', 'workspace Q', 'exec-and-forget sketchybar2 --trigger space_windows_change']
 alt-shift-r = ['move-node-to-workspace R', 'workspace R', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # reunions
 # alt-shift-s = ['move-node-to-workspace S', 'workspace S', 'exec-and-forget sketchybar2 --trigger space_windows_change']
-alt-shift-t = ['move-node-to-workspace T', 'workspace T', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # terminal
+# alt-shift-t = ['move-node-to-workspace T', 'workspace T', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # terminal
 # alt-shift-u = ['move-node-to-workspace U', 'workspace U', 'exec-and-forget sketchybar2 --trigger space_windows_change']
 alt-shift-v = ['move-node-to-workspace V', 'workspace V', 'exec-and-forget sketchybar2 --trigger space_windows_change']  # video
 # alt-shift-w = ['move-node-to-workspace W', 'workspace W', 'exec-and-forget sketchybar2 --trigger space_windows_change']
@@ -283,7 +283,24 @@ if.app-id = 'com.pixyzehn.Expenses'
 run = 'move-node-to-workspace C'
 if.app-id = 'com.touchbits.subscriptions'
 
-# Non-focused / garpage applications
+# Development applications
+[[on-window-detected]]
+run = 'move-node-to-workspace D'
+if.app-id = 'com.apple.Terminal'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace D'
+if.app-id = 'net.kovidgoyal.kitty'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace D'
+if.app-id = 'com.github.wez.wezterm'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace D'
+if.app-id = 'com.visualstudio.code.oss'
+
+# Non-focused / general applications
 [[on-window-detected]]
 run = 'move-node-to-workspace G'
 if.app-id = 'ch.protonvpn.mac'
@@ -291,6 +308,14 @@ if.app-id = 'ch.protonvpn.mac'
 [[on-window-detected]]
 run = 'move-node-to-workspace G'
 if.app-id = 'com.protonmail.bridge'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace G'
+if.app-id = 'com.apple.FontBook'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace G'
+if.app-id = 'com.apple.systempreferences'
 
 [[on-window-detected]]
 run = 'move-node-to-workspace G'
@@ -357,15 +382,6 @@ if.app-id = 'com.apple.reminders'
 run = 'move-node-to-workspace R'
 if.app-id = 'com.apple.Facetime'
 
-# Terminal applications
-[[on-window-detected]]
-run = 'move-node-to-workspace T'
-if.app-id = 'net.kovidgoyal.kitty'
-
-[[on-window-detected]]
-run = 'move-node-to-workspace T'
-if.app-id = 'com.github.wez.wezterm'
-
 # Video applications
 [[on-window-detected]]
 run = 'move-node-to-workspace V'
@@ -382,6 +398,8 @@ if.app-id = 'io.freetubeapp.freetube'
 # You can use workspace-to-monitor-force-assignment syntax to assign workspaces to always appear on particular monitors
 # Assign the first matched monitor to a workspace.
 [workspace-to-monitor-force-assignment]
+
+# Main display as primary
 A = ['^built-in retina display$', '^asus xg17a$']
 B = ['^built-in retina display$', '^asus xg17a$']
 C = ['^built-in retina display$', '^asus xg17a$']
@@ -390,6 +408,7 @@ M = ['^built-in retina display$', '^asus xg17a$']
 N = ['^built-in retina display$', '^asus xg17a$']
 O = ['^built-in retina display$', '^asus xg17a$']
 P = ['^built-in retina display$', '^asus xg17a$']
-R = ['^asus xg17a$', '^built-in retina display$']
-T = ['^asus xg17a$', '^built-in retina display$']
 V = ['^built-in retina display$', '^asus xg17a$']
+
+# Second display as primary
+D = ['^asus xg17a$', '^built-in retina display$']
