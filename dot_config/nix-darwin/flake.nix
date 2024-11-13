@@ -1,4 +1,5 @@
 # Setup by looking at:
+#
 #   - https://github.com/LnL7/nix-darwin
 #   - https://github.com/zhaofengli/nix-homebrew
 #   - https://www.youtube.com/watch?v=Z8BL8mdzWHI
@@ -134,4 +135,5 @@
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
 
   };
+
 }

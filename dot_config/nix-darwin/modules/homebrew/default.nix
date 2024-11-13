@@ -43,7 +43,7 @@ in {
     taps = with taps; all;
     brews = with brews; all;
     casks = with casks; all;
-    masApps = masapps;
+    masApps = with masapps; all;
     whalebrews = with whalebrews; all;
 
   };

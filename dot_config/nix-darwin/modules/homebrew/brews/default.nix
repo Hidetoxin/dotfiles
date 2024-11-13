@@ -1,38 +1,57 @@
 rec {
-  all = [
-    "lua"  # scripting language
-    "mas"  # `appstore` application manager
-    "wtf"  # check word definitions
 
+  dev = [  # development tools and utilities
     # "jenv"  # `java` environment manager
-    # "skhd"  # hotkey daemon
-    "kusa"  # display `github` contributors graph
+    "goenv"  # `go` environment manager
     "mult"  # run a command multiple times
     "revq"  # review `github` pull requests
-    "svim"  # type on any text field using `vim`
-
-    # "yabai"  # `bspwm` inspired window manager
-    "goenv"  # `go` environment manager
     "serpl"  #  `tui` for replacing and re-naming
     "sigrs"  # `tui` for `grep` on streaming
-
-    "arttime"  # clock / timer / pattern-based time manager
-    "borders"  # add borders to the windows
     "diffnav"  # `delta` with a file tree
+  ];
 
-    # "punchout"  # log time in `jira`
-    # "tfschema"  # schema checker for `terraform`
+  fun = [  # some fun packages
+    "arttime"  # clock / timer / pattern-based time manager
+  ];
 
-    "cocainate"  # prevent `macos` going to sleep
 
+  sbar = [  # sketchybar dependencies
+    "lua"  # scripting language
     "sf-symbols"  # font for `sf` symbols
     "sketchybar"  # status bar for `macos`
+    "font-sf-pro"  # font for `sf` symbols
+    "font-sf-mono"  # font for `sf` symbols
+    "nowplaying-cli"  # retrieves currently playing media
+    "switchaudio-osx"  # change macos audio source
+  ];
+
+  utils = [  # general utilities
+    # "punchout"  # log time in `jira`
+
+    "mas"  # `appstore` application manager
+    "wtf"  # check word definitions
+    "kusa"  # display `github` contributors graph
+    "svim"  # type on any text field using `vim`
+    "cocainate"  # prevent `macos` going to sleep
+    "eg-examples"  # useful examples 
+    "macos-trash"  # send files to `macos` trash
+  ];
+
+  devops = [  # devops tools and utilities
+    # "tfschema"  # schema checker for `terraform`
 
     "aws-console"  # open `aws` console on a browser
-    "eg-examples"  # useful examples 
-    "font-sf-pro"  # font for `sf` symbols
-    "macos-trash"  # send files to `macos` trash
-    "font-sf-mono"  # font for `sf` symbols
   ];
+
+  browsers = [  # web browsers
+  ];
+
+  meetings = [  # meeting programs and utilities 
+  ];
+
+  messaging = [  # messaging programs and utilities
+  ];
+
+  all = dev ++ fun ++ sbar ++ utils ++ devops ++ browsers ++ meetings ++ messaging;
 
 }
