@@ -1,7 +1,7 @@
 { pkgs, ...}: let
 
   # Modularize all the `nix-pkgs` applications to have a cleaner and shorter file.
-  # https://www.reddit.com/r/NixOS/comments/vmlw54/split_packages_into_groups/
+  #   - https://www.reddit.com/r/nixos/comments/vmlw54/split_packages_into_groups/
   packages = import ./packages {
     inherit pkgs;
   };
@@ -31,8 +31,6 @@ in {
     # List packages installed in system profile. To search by name, run:
     # $ nix-env -qaP | grep wget
     systemPackages = with packages; all;
-    # systemPackages = with pkgs; [
-    #   git
-    # ];
+
   };
 }

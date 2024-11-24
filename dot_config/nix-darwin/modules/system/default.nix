@@ -1,4 +1,4 @@
-{ self, pkgs, hostname, ... }:
+{ self, pkgs, config, hostname, ... }:
 
   ###################################################################################
   #
@@ -104,13 +104,13 @@
 
     # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
     activationScripts = {
-      postUserActivation.text = ''
-        # activateSettings -u will reload the settings from the database and apply them to the current session,
-        # so we do not need to logout and login again to make the changes take effect.
-        /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-      '';
-      #
-      # # Script to fix apps not being findable by `spotlight search`
+      # postUserActivation.text = ''
+      #   # activateSettings -u will reload the settings from the database and apply them to the current session,
+      #   # so we do not need to logout and login again to make the changes take effect.
+      #   /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+      # '';
+
+      # Script to fix apps not being findable by `spotlight search`
       # system.activationScripts.applications.text = let
       #   env = pkgs.buildEnv {
       #     name = "system-applications";
@@ -129,7 +129,8 @@
       #     echo "copying $src" >&2
       #     ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
       #   done
-      #       '';
+      #   '';
+
     };
 
   };  #system 

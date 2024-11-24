@@ -25,6 +25,7 @@ rec {
      "Numbers" = 409203825;  # spreadsheet application
      "Crouton" = 1461650987;  # recipe manager
      "Keynote" = 409183694;  # presentation application
+     "Upscayl" = 6468265473;  # `ai` image upscaler
      "Expenses" = 1492055171;  # track expenses
      "Linkeeper" = 6449708232;  # bookmark manager
      "Bitwarden" = 1352778147;  # password manager
@@ -62,8 +63,8 @@ rec {
    };
 
    messaging = {  # messaging programs and utilities
+     # "KakaoTalk" = 869223134;  # messaging application
      "WhatsApp" = 310633997;  # messaging application
-     "KakaoTalk" = 869223134;  # messaging application
    };
 
   all = dev // fun // games // media // utils // devops // safari  // browsers // meetings // messaging;

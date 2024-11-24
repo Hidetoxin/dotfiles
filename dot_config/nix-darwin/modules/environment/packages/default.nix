@@ -40,6 +40,7 @@ rec {
     # tinycare-tui  # `tui` dashboard
     # config-file-validator  # validate different configuration file types
 
+
   py = [  # python utilities
     # python312Packages.howdoi  # coding answers in the terminal
   ];
@@ -56,7 +57,6 @@ rec {
     # mkdocs  # documentation with `markdown`
     # nodenv  # `node` environment manager
     # pyright  # `python` type checker
-    # gitmoji-cli # using emojis on commit messages
     # bash-language-server  # `bash` language server
 
     atac  # `postman` like `tui`
@@ -67,6 +67,7 @@ rec {
     codespell  # spell linter
     commitizen  # create comitting rules
     lazydocker  # `docker` tui
+    gitmoji-cli # using emojis on commit messages
     lua-language-server  # `lua` language server
     yaml-language-server # `yaml` language server
   ];
@@ -98,10 +99,9 @@ rec {
   ];
 
   media = [  # media maanagement applications
+    # calibre  # `ebook` management
     # freetube  # `youtube` privacy frontend
     # yacreader  # comicbook reader
-
-    calibre  # `ebook` management
 
     # cava  # `tui` audio visualizer
     # jp2a  # convert `jpg` images to `ascii`
@@ -128,10 +128,10 @@ rec {
   utils = [  # general utilities
     # rar  # un-archiver
     # krita  # painting application
+    # cryptomator  # file encryption
     # standardnotes  # privacy focused notes application
 
     espanso  # text expander
-    cryptomator  # file encryption
 
     # nb `cli` note taker
     # tt  # typing test
@@ -231,14 +231,14 @@ rec {
     vivid  # `LS_COLORS` generator
     zinit  # `zinit` plugin manager
 
-    tshark  # `cli` for `wireshark`
-    gowall # convert a image's color scheme or palette
-    gh-cal  # `github` contributions calender terminal viewer
     bottom  # `ps` alternative
     direnv  # environment manage
+    gh-cal  # `github` contributions calender terminal viewer
     gnused  # `gnu`version of sed 
     go-2fa  # `cli` for 2fa
+    gowall # convert a image's color scheme or palette
     jobber  # `cron` alternative
+    miller  # `awk`, `sed`, `cut`, `join`, and `sort` for data formats such as `csv`, `tsv`, `json`, `json lines`, and positionally-indexed.
     neovim  # `vim` alternative
     nomino  # `rename` alternative
     rclone  # sync files across clouds
@@ -246,6 +246,7 @@ rec {
     rename  # file re-namer
     restic  # backup tool
     rmlint  # rm linter
+    tshark  # `cli` for `wireshark`
     zoxide  # `cd` alternative
 
     chezmoi  # dotfiles manager
@@ -290,20 +291,21 @@ rec {
   ];
 
   macos = [  # packages only for `macos`
+    # keka  # `macos` archiver
+    # yabai  #  `bspm` inspired tiling window for `macos`
     # motrix  # download manager
+    # skimpdf  # `pdf` reader
 
     iina  # media player for `macos`
-    keka  # `macos` archiver
     skhd  #  hotkey daemon for `macos`
-    yabai  #  `bspm` inspired tiling window for `macos`
-    skimpdf  # `pdf` reader
     keycastr  # show your key presses
     shortcat # system wide `vimium` clone
     sketchybar  # customizable status bar for `macos`
     jankyborders  #  highlight the current active window
     transmission  # torrent client
-    alt-tab-macos  # `windos` like window switching
+    alt-tab-macos  # `windows` like window switching
     net-news-wire  # `rss` reader
+    karabiner-elements  # utility for keyboard customization 
     sketchybar-app-font  # font to show icons in sketchybar
   ];
 
@@ -350,6 +352,7 @@ rec {
     # ollama  # run language models locally
     # ansible  # simple automation
     # awscli2  # `aws` `cli`
+    # granted  # cloud access
     # kubectx  # tool to switch between contexts
     # vagrant  # build complete development environments
     # molecule  # `ansible` test framework
@@ -407,7 +410,7 @@ rec {
     # jitsi-meet  # video conference application
   ];
 
-  messaging = [
+  messaging = [  # messaging programs and utilities
     # signal-desktop  # privacy focused messaging application
 
     # whatsgo  # `whatsapp` client `tui`
@@ -416,6 +419,6 @@ rec {
     signal-cli  # `cli` for `signal`
   ];
 
-  all = py ++ dev ++ macos ++ github ++ devops ++ browsers ++ meetings ++ messaging;
+  all = py ++ dev ++ fun ++ games ++ media ++ utils ++ macos ++ github ++ devops ++ browsers ++ meetings ++ messaging;
 
 }

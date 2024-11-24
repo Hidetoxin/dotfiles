@@ -6,7 +6,9 @@
 
     settings = {
 
-      # trusted-users = [ username ];
+      # trusted-users = [
+      #   username
+      # ];
 
       # Necessary for using flakes on this system.
       experimental-features = [

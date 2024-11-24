@@ -1,11 +1,12 @@
 # Setup by looking at:
 #
-#   - https://github.com/LnL7/nix-darwin
-#   - https://github.com/zhaofengli/nix-homebrew
+#   - https://github.com/lanjoni/snowflake
+#   - https://davi.sh/til/nix/nix-macos-setup/
+#   - https://github.com/alt-f4-llc/kickstart.nix
 #   - https://www.youtube.com/watch?v=Z8BL8mdzWHI
+#   - https://github.com/yannbertrand/macos-defaults
+#   - https://github.com/zmre/mac-nix-simple-example
 #   - https://github.com/ryan4yin/nix-darwin-kickstarter
-#   - https://github.com/zmre/mac-nix-simple-example/tree/master
-#   - https://github.com/yannbertrand/macos-defaults?tab=readme-ov-file
 #   - https://gist.github.com/elliottminns/211ef645ebd484eb9a5228570bb60ec3
 
 # Run this file with the below commnad:
@@ -34,34 +35,40 @@
   # This is the standard format for flake.nix. `inputs` are the dependencies of the flake,
   # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
-    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
 
-    darwin = {
+    # Nix packages
+    # - https://github.com/nixos/nixpkgs
+    nixpkgs = {
+      # url = "github:nixos/nixpkgs/nixpkgs-unstable";
+      url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    };
+
+    # Nix for `macos`
+    # - https://github.com/lnl7/nix-darwin/tree/master
+    nix-darwin = {
       url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     # Installs `brew` declaratively
+    # - https://github.com/zhaofengli/nix-homebrew
     nix-homebrew = {
       url = "github:zhaofengli/nix-homebrew";
     };
 
     # Manages configs links things into your home directory
-    # home-manager = {
-    #   url = "github:nix-community/home-manager/master";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    # - https://github.com/nix-community/home-manager
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # homebrew-core = {
-    #   url = "github:homebrew/homebrew-core";
-    #   flake = false;
-    # };
-
-    # homebrew-cask = {
-    #   url = "github:homebrew/homebrew-cask";
-    #   flake = false;
-    # };
+    # Nix module for `darwin` which fixes a few common problems encountered by users of Nix on Macs
+    # - https://github.com/hraban/mac-app-util
+    mac-app-util = {
+      url = "github:hraban/mac-app-util/master";
+    };
 
   };
 
@@ -72,8 +79,10 @@
   # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
   outputs = inputs @ {
     self,
-    darwin,
     nixpkgs,
+    nix-darwin,
+    nix-homebrew,
+    mac-app-util,
     ...
   }: let
 
@@ -91,31 +100,39 @@
   in {
 
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#hidetoxin
-    # darwinConfigurations."hidetoxin" = nix-darwin.lib.darwinSystem {
-    #   modules = [
-    #     configuration
-    #     ./modules/system
-    #     ./modules/homebrew
-    #     # ./modules/environment
-    #     nix-homebrew.darwinModules.nix-homebrew {
-    #       nix-homebrew = {
-    #         user = "$USER";  #  user owning `homebrew` prefix
-    #         enable = true;
-    #         autoMigrate = true;
-    #         enableRosetta = true;  # for apple silicon
-    #       };
-    #     }
-    #   ];
-    # };
+    # $ darwin-rebuild build --flake ~/.config/nix-darwin#macbookair
+    darwinConfigurations."${hostname}" = nix-darwin.lib.darwinSystem {
 
-    # Expose the package set, including overlays, for convenience.
-    # darwinPackages = self.darwinConfigurations."hidetoxin".pkgs;
-
-
-    darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
       inherit system specialArgs;
+
       modules = [
+
+        # Load `mac-app-util` module for showing `nix` installed apps on `spotlight` search
+        mac-app-util.darwinModules.default
+
+        # Load `nix-homebrew` module for programatically installing `homebrew`
+        nix-homebrew.darwinModules.nix-homebrew {
+          nix-homebrew = {
+            user = "${username}";  #  user owning `homebrew` prefix
+            enable = true;
+            autoMigrate = true;
+            enableRosetta = true;  # for apple silicon
+          };
+        }
+
+        # Load `home-manager` module for managing the users configurations and preferences
+        # home-manager.darwinModules.home-manager {
+        #   home-manager = {
+        #     useGlobalPkgs = true;
+        #     useUserPackages = true;
+        #     extraSpecialArgs = { inherit pwnvim; };
+        #     users."${username}".imports = [ 
+        #       ./modules/home-manager
+        #     ];
+        #   };
+        # }
+
+        # Load my personal configuration
         ./modules/nix
         ./modules/fonts
         ./modules/users
@@ -127,12 +144,16 @@
         ./modules/services
         ./modules/networking
         ./modules/environment
-        # ./modules/nix-homebrew
+
       ];
+
     };
 
-    # nix code formatter
+    # Nix code formatter
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
+
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations."${hostname}".pkgs;
 
   };
 
