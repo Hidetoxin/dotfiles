@@ -1,0 +1,6 @@
+require("items.right.calendar")
+require("items.right.battery")
+require("items.right.wifi")
+require("items.right.cpu")
+require("items.right.volume")
+require("items.right.media")

@@ -7,7 +7,14 @@ you'll also need to tweak the secrets as this repository is specific to my use
 case. Once you tweaked the secrets you can just run the below command:
 
 ``` sh
-chezmoi init hidetoxin/dotfiles
+xcode-select --install  # install `xcode`
+softwareupdate --install-rosetta --agree-to-license  # install `rosetta`
+sh <(curl -L https://nixos.org/nix/install)  # install `nix`
+nix flake init -t nix-darwin --extra-experimental-features "nix-command flakes"  # setup `nix flakes`
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix  # setup `nix darwin`
+darwin-rebuild switch --flake "$HOME/.config/nix#$(scutil --get LocalHostName)"  # apply `nix` configuration
+chezmoi init hidetoxin  # initialize configuration dotfiles
+chezmoi apply  # copy all dotfiles to their respective configurations
 ```
 
 ## :keyboard: SHORTCUTS

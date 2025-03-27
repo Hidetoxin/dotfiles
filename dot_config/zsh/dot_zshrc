@@ -1,33 +1,89 @@
 # vim: syntax=sh
+#
+# https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
+#
+# .zshrc is for interactive shells. You set options for the interactive shell there with the setopt and unsetopt
+# commands. You can also load shell modules, set your history options, change your prompt, set up zle and completion,
+# etcetera. You also set any variables that are only used in the interactive shell (e.g. $LS_COLORS).
+#
+# .zshenv -> .zprofile -> .zshrc -> .zlogin -> .zlogout
+#
+# Also used this as startpoint:
+# - https://github.com/dreamsofautonomy/zensh/blob/main/.zshrc
 
-# SOURCE ZINIT PLUGIN MANAGER
-source "$(brew --prefix zinit)/zinit.zsh" \
-    && debug_info "Sourcing file '$(brew --prefix zinit)/zinit.zsh'"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# SOURCE ZINIT SETTINGS
-if [ -d "$XDG_CONFIG_HOME/zinit" ]; then
-    for file in "$XDG_CONFIG_HOME"/zinit/*.zsh; do
-        debug_info "Sourcing file '$file'"
+
+# Source `zinit` plugin manager
+# source "$(brew --prefix zinit)/zinit.zsh" \
+# autoload -Uz _zinit
+# (( ${+_comps} )) && _comps[zinit]=_zinit
+#
+# source `zinit` settings
+# if [ -d "$XDG_CONFIG_HOME/zinit" ]; then
+#     for file in "$XDG_CONFIG_HOME"/zinit/*.zsh; do
+#         source "$file"
+#     done
+# fi
+
+# Set the directory we want to store `zinit` and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+# Download `zinit` if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone 'https://github.com/zdharma-continuum/zinit.git' "$ZINIT_HOME"
+fi
+
+# Source / load `zinit`
+source "${ZINIT_HOME}/zinit.zsh"
+
+# Source zinit snippets, plugins and integrations
+if [ -d "${XDG_CONFIG_HOME:-${HOME}/.config}/zinit" ]; then
+    for file in "${XDG_CONFIG_HOME:-${HOME}/.config}/zinit"/*.zsh; do
         source "$file"
     done
 fi
 
-# SOURCE SHELL SETTINGS
-if [ -d "$XDG_CONFIG_HOME/shell" ]; then
-    for file in "$XDG_CONFIG_HOME"/shell/*.sh; do
-        debug_info "Sourcing file '$file'"
+# To customize prompt, run `p10k configure` or edit `~/.p10k.zsh`
+[[ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/p10k/p10k.zsh" ]] \
+    || source "${XDG_CONFIG_HOME:-${HOME}/.config}/p10k/p10k.zsh"
+
+# Keybindings
+bindkey -v
+# bindkey "ç" fzf-cd-widget                           \
+#     && bindkey -M viins 'jj' vi-cmd-mode \
+
+# Load completions
+autoload -Uz compinit && compinit
+
+# Options for `zinit`
+zinit cdreplay -q  # after compinit
+
+# Completion styling
+zstyle ':completion:*' menu no
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # ignore case
+
+# History options
+setopt sharehistory
+setopt appendhistory
+setopt hist_ignore_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+
+# Source shell settings such as aliases, functions and integrations
+if [ -d "${XDG_CONFIG_HOME:-${HOME}/.config}/shell" ]; then
+    for file in "${XDG_CONFIG_HOME:-${HOME}/.config}/shell"/*.zsh; do
         source "$file"
     done
 fi
 
-# SOURCE P10K POWERLINE SETTINGS
-[ -f "$XDG_CONFIG_HOME/p10k/p10k.zsh" ]        \
-    && source "$XDG_CONFIG_HOME/p10k/p10k.zsh" \
-    && debug_info "Sourcing file '$XDG_CONFIG_HOME/p10k/p10k.zsh'"
-
-# SETUP KEYBINDINGS
-bindkey "ç" fzf-cd-widget                           \
-    && bindkey -M viins 'jj' vi-cmd-mode \
-    && debug_info "Setting keybindings for 'zsh'"
+# Make sure brew utilities are first on the path
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"

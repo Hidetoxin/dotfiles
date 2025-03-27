@@ -1,0 +1,21 @@
+# vim: syntax=gitconfig
+
+[user]
+    name    = "{{ (bitwarden "item" .bw.mbam1.id).identity.firstName }} {{ (bitwarden "item" .bw.mbam1.id).identity.middleName }}"
+    email   = "{{ (bitwarden "item" .bw.mbam1.id).identity.email }}"
+    signkey = "{{ (bitwardenFields "item" .bw.mbam1.gpg).Id.value }}"
+
+[commit]
+    gpgsign = true
+
+[github]
+    user = "{{ (bitwarden "item" .bw.mbam1.id).identity.username }}"
+
+[url "https://github"]
+    insteadOf = "git://mbam1.github"
+
+[url "https://gitlab"]
+    insteadOf = "git://mbam1.gitlab"
+
+[url "https://bitbucket"]
+    insteadOf = "git://mbam1.bitbucket"
