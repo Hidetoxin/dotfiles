@@ -1,0 +1,6 @@
+# vim: syntax=yaml
+
+github.com:
+    user: "{{ (bitwarden "item" .bw.mbam1.id).identity.username }}"
+    oauth_token: "{{ (bitwardenFields "item" .bw.mbam1.id).GitHubToken.value }}"
+    git_protocol: "ssh"

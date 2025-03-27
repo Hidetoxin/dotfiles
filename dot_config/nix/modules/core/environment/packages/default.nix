@@ -118,7 +118,7 @@ rec {
     python312Packages.howdoi  # coding answers in the terminal
   ];  # na
 
-  gh = [  # github-cli extensions
+  ghe = [  # github-cli extensions
     gh  # `github` cli
     gh-f  # `fzf` extension
     gh-s  # `fzf` extension
@@ -308,6 +308,6 @@ rec {
     vscodium  # privacy focused fork of `vscode`
   ];  # guis
 
-  all = cli ++ tui ++ dev ++ fun ++ gui;
+  all = cli ++ tui ++ dev ++ fun ++ ghe ++ gui;
 
 }  # rec
