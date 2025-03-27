@@ -1,4 +1,4 @@
-# vim: syntax=zsh
+# vim: syntax=sh
 
 # Common aliases
 alias .-='cd -'
@@ -13,7 +13,7 @@ alias .8='cd ../../../../../../../..'
 alias .9='cd ../../../../../../../../..'
 alias mkdir='mkdir -p'
 
-# Vim like aliases
+# Ad daliases to simulate `vim`
 alias :q='exit 0'
 alias :qa='exit 0'
 alias :wq='exit 0'
@@ -45,13 +45,33 @@ alias forrest='curl ascii.live/forrest'
 alias tictactoe='telnet pixelomer.com'
 
 # If `bw` is installed
-[ -n "$(command -v bw)" ]     \
-    && alias bwlo='bw logout' \
-    && alias bwli='eval $(bw login $(pass show bw/user) $(pass show bw/pass) --code $(2fa bw) | rg "export" | sed "s/\$ //g")'
+[ -n "$(command -v bw)" ]                                                      \
+    && alias bwlo='bw logout && unset BW_SESSION'                              \
+    && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"' \
+    && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(2fa self/bw/2fa) --raw)"'
+
+# If `gpg` is installed
+[ -n "$(command -v gpg)" ]                                \
+    && gpglp='gpg --list-keys --keyid-format=long'        \
+    && gpgls='gpg --list-secret-keys --keyid-format=long' \
+    && gpgnew='gpg --quick-gen-key --batch --passphrase ""'
 
 # If `bat` is installed
-[ -n "$(command -v bat)" ]     \
+[ -n "$(command -v bat)" ] \
     && alias b='bat'
+
+# If `cat` is installed
+[ -n "$(command -v bat)" ] \
+    && alias c='cat'
+
+# If `erd` is installed
+[ -n "$(command -v erd)" ]                                          \
+    && alias erd='erd --icons --human --layout inverted'            \
+    && alias erd1='erd --icons --human --level 1 --layout inverted' \
+    && alias erd2='erd --icons --human --level 2 --layout inverted' \
+    && alias erd3='erd --icons --human --level 3 --layout inverted' \
+    && alias erd4='erd --icons --human --level 4 --layout inverted' \
+    && alias erd5='erd --icons --human --level 5 --layout inverted'
 
 # If `eza` is installed
 [ -n "$(command -v eza)" ]                                          \
@@ -66,25 +86,54 @@ alias tictactoe='telnet pixelomer.com'
     && alias l9='eza -F -lah --git --icons ../../../../../../../..' \
     && alias tree='eza --git --tree --icons'
 
+# If `just` is installed
+[ -n "$(command -v just)" ] \
+    && alias j='just'
+
 # If `navi` is installed
 [ -n "$(command -v navi)" ]         \
     && alias navit='navi --tldr'    \
     && alias navip='navi --print'   \
     && alias navic='navi --cheatsh'
 
-# If `tmux` is installed
-[ -n "$(command -v tmux)" ] \
-    && alias tmux='TERM=xterm-256color tmux'
+# If `opentofu` is installed
+[ -n "$(command -v tofu)" ]                             \
+    && alias tt='tofu'                                  \
+    && alias ttr='tofu run-all'                         \
+    && alias tti='tofu init'                            \
+    && alias ttri='tofu run-all init'                   \
+    && alias ttp='tofu plan'                            \
+    && alias ttrp='tofu run-all plan'                   \
+    && alias tts='tofu show'                            \
+    && alias ttrs='tofu run-all show'                   \
+    && alias tta='tofu apply'                           \
+    && alias ttra='tofu run-all apply'                  \
+    && alias tto='tofu output -json'                    \
+    && alias ttc='tofu console'                         \
+    && alias ttd='tofu destroy'                         \
+    && alias ttrd='tofu run-all destroy'                \
+    && alias ttr='tofu refresh'                         \
+    && alias ttv='tofu validate'                        \
+    && alias ttrv='tofu run-all validate'               \
+    && alias ttu='tofu force-unlock'                    \
+    && alias tta!='tofu apply -auto-approve'            \
+    && alias ttra!='tofu run-all apply -auto-approve'   \
+    && alias ttd!='tofu destroy -auto-approve'          \
+    && alias ttrd!='tofu run-all destroy -auto-approve'
 
 # If `nvim` is installed
 [ -n "$(command -v nvim)" ] \
     && alias v='nvim'       \
     && alias sv='sudo nvim'
 
+# If `tmux` is installed
+[ -n "$(command -v tmux)" ] \
+    && alias tmux='TERM=xterm-256color tmux'
+
 # If `imgcat` is installed
 [ -n "$(command -v imgcat)" ] \
     && alias ic='imgcat'      \
-    && alias icf='imgcat --width=$COLUMNS --heigh=$LINES'
+    && alias icf='imgcat --width=$COLUMNS --heigh=$LINES"'
 
 # If `packer` is installed
 [ -n "$(command -v packer)" ]        \
@@ -131,9 +180,54 @@ alias tictactoe='telnet pixelomer.com'
     && alias mold='molecule destroy'  \
     && alias molc='molecule converge'
 
+# If `frogmouth` is installed
+[ -n "$(command -v frogmouth)" ] \
+    && alias fm='frogmouth'
+
 # If `infracost` is installed
 [ -n "$(command -v infracost)" ] \
     &&  alias ic='infracost'
+
+# If `terraform` is installed
+[ -n "$(command -v terraform)" ]                              \
+    && alias tf='terraform'                                  \
+    && alias tfr='terraform run-all'                         \
+    && alias tfi='terraform init'                            \
+    && alias tfri='terraform run-all init'                   \
+    && alias tfp='terraform plan'                            \
+    && alias tfrp='terraform run-all plan'                   \
+    && alias tfs='terraform show'                            \
+    && alias tfrs='terraform run-all show'                   \
+    && alias tfa='terraform apply'                           \
+    && alias tfra='terraform run-all apply'                  \
+    && alias tfo='terraform output -json'                    \
+    && alias tfc='terraform console'                         \
+    && alias tfd='terraform destroy'                         \
+    && alias tfrd='terraform run-all destroy'                \
+    && alias tfr='terraform refresh'                         \
+    && alias tfv='terraform validate'                        \
+    && alias tfrv='terraform run-all validate'               \
+    && alias tfu='terraform force-unlock'                    \
+    && alias tfa!='terraform apply -auto-approve'            \
+    && alias tfra!='terraform run-all apply -auto-approve'   \
+    && alias tfd!='terraform destroy -auto-approve'          \
+    && alias tfrd!='terraform run-all destroy -auto-approve'
+
+# If `terramate` is installed
+[ -n "$(command -v terramate)" ]                     \
+    && alias tm='terramate'                          \
+    && alias tmd='terramate debug show metadata'     \
+    && alias tmls='terramate list'                   \
+    && alias tmcs='terramate list --changed'         \
+    && alias tmcr='terramate create --all-terraform' \
+    && alias tmcl='terramate experimental clone'     \
+    && alias tmgen='terramate generate'              \
+    && alias tmfmt='terramate format'                \
+    && alias tmrun='terramate run --'                \
+    && alias tmtti='terramate run -- tofu init'      \
+    && alias tmttp='terramate run -- tofu plan'      \
+    && alias tmtfi='terramate run -- terraform init' \
+    && alias tmtfp='terramate run -- terraform plan'
 
 # If `terragrunt` is installed
 [ -n "$(command -v terragrunt)" ]                             \
@@ -160,7 +254,7 @@ alias tictactoe='telnet pixelomer.com'
     && alias tgd!='terragrunt destroy -auto-approve'          \
     && alias tgrd!='terragrunt run-all destroy -auto-approve'
 
-# If lazydocker is installed
+# If `lazydocker` is installed
 [ -n "$(command -v lazydocker)" ] \
     && alias ldkr='lazydocker'
 
@@ -168,10 +262,21 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v aws-console)" ] \
     && alias awsc='aws-console'
 
+# If `terraform-docs` is installed
+[ -n "$(command -v terraform-docs)" ] \
+    && alias tdoc='terraform-docs'    \
+    && alias tdocm='terraform-docs markdown table'
+
+# If `darwin-rebuild` is installed
+[ -n "$(command -v darwin-rebuild)" ]                                                         \
+    && alias dr='darwin-rebuild'                                                              \
+    && alias drc='darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
+    && alias drs='darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
+
 # If `markdownlint-cli` is installed
-[ -n "$(command -v markdownlint)" ] \
-    && alias mdl='markdownlint'     \
+# [ -n "$(command -v markdownlint)" ] \
+#     && alias mdl='markdownlint'
 
 # If `taskwarrior-tui` is installed
-[ -n "$(command -v taskwarrior-tui)" ] \
-    && alias taskt='taskwarrior-tui'
+# [ -n "$(command -v taskwarrior-tui)" ] \
+#     && alias taskt='taskwarrior-tui'
