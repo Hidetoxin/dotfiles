@@ -1,13 +1,9 @@
 # vim: syntax=sh
 
-# LOAD ALL APP MAPPINGS
-.load "appsrc"    # application shortcuts
+# List of apps to ignore
+.blacklist[
+  "kitty"
+]
 
-# LOAD ALL MODAL MAPPINGS
-.load "modalsrc"  # modals definitions
-    .load "barrc"     # bar mode definitions
-    .load "gridrc"    # move mode definitions
-    .load "moverc"    # grid mode definitions
-    .load "swaprc"    # swap mode definitions
-    .load "focusrc"   # focus mode definitions
-    .load "resizerc"  # resize mode definitions
+# Load all app mappings
+# .load "apps/yabai/config"

@@ -1,0 +1,10 @@
+# vim: syntax=sh
+
+# Load all `yabai` related mappings
+.load "./modals"  # modals definitions
+.load "./bar"     # bar mode definitions
+.load "./grid"    # move mode definitions
+.load "./move"    # grid mode definitions
+.load "./swap"    # swap mode definitions
+.load "./focus"   # focus mode definitions
+.load "./resize"  # resize mode definitions
