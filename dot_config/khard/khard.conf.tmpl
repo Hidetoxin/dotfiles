@@ -1,3 +1,5 @@
+# vim: syntax=dosini
+
 # example configuration file for khard version > 0.14.0
 # place it under ~/.config/khard/khard.conf
 # This file is parsed by the configobj library.  The syntax is described at
@@ -5,28 +7,28 @@
 
 [addressbooks]
 
-[[{{ .computer.type }}]]
-path = ~/.local/share/khard/{{ .computer.type }}/
+[[computer.type]]
+path = ~/.local/share/khard/
 
 [general]
 debug          = no
 editor         = nvim, -i, NONE
-default_action = list
 merge_editor   = vimdiff
+default_action = list
 
 [contact table]
-display                      = first_name
-group_by_addressbook         = no
-reverse                      = no
-show_nicknames               = no
-show_uids                    = yes
 sort                         = last_name
+display                      = first_name
+reverse                      = no
+show_uids                    = yes
+show_nicknames               = no
 localize_dates               = yes
+group_by_addressbook         = no
 preferred_phone_number_type  = pref, cell, home
 preferred_email_address_type = pref, work, home
 
 [vcard]
 private_objects        = Jabber, Skype, Twitter
+skip_unparsable        = no
 preferred_version      = 3.0
 search_in_source_files = no
-skip_unparsable        = no

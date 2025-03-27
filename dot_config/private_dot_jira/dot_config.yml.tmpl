@@ -1,10 +1,19 @@
+# vim: syntax=yaml
+login: ""
+server: ""
 board:
   id: 24548
-  name: "AZ Devops - scrum board"
+  name: ""
   type: "scrum"
+
 epic:
-  name: "customfield_11101"
-  link: "customfield_11100"
+  name: ""
+  link: ""
+
+project:
+  key: ""
+  type: ""
+
 installation: "Local"
 issue:
   types:
@@ -76,8 +85,3 @@ issue:
     name: "Test Plan Xray"
     handle: ""
     subtask: false
-project:
-  key: "DEVOP"
-  type: ""
-login: "{{ .jira.user }}"
-server: "{{ .jira.url }}"
