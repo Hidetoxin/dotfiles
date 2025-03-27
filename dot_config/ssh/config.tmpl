@@ -1,14 +1,26 @@
 # vim: syntax=sshconfig
 
-# SSH CONFIGURATIONS
-Host *
-    UserKnownHostsFile    /dev/null
-    StrictHostKeyChecking no
+Host mbam1.github.com
+    User                     git
+    Hostname                 github.com
+    IdentityFile             ~/.config/ssh/id_github_mbam1
+    IdentitiesOnly           yes
+    PreferredAuthentications publickey
 
-Host github.com
-    User                  git
-    IdentityFile          ~/.ssh/id_rsa_git
+{{- if (eq .chezmoi.hostname "mbam2") }}
+Host mbam2.github.com
+    User                     git
+    Hostname                 github.com
+    IdentityFile             ~/.config/ssh/id_github_mbam2
+    IdentitiesOnly           yes
+    PreferredAuthentications publickey
+{{- end }}
 
-{{- if (eq .computer.type "work") }}
-# ADD WORK ONLY CONFIGURATIONS
+{{- if (eq .chezmoi.hostname "mbpm3") }}
+Host mbpm3.github.com
+    User                     git
+    Hostname                 github.com
+    IdentityFile             ~/.config/ssh/id_github_mbpm3
+    IdentitiesOnly           yes
+    PreferredAuthentications publickey
 {{- end }}

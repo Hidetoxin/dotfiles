@@ -1,4 +1,4 @@
-# FILES USED ONLY ON MACOS
+# Files used only on `macos`
 {{ if ne .chezmoi.os "darwin" }}
 .config/svim/*
 .config/skhd/*
@@ -6,12 +6,15 @@
 .config/sketchybar/*
 {{ end }}
 
-# FILES USED ONLY ON SELF COMPUTER
-{{- if ne .computer.type "self" }}
+{{- if ne .chezmoi.hostname "mbam1" }}
 {{- end }}
 
-# FILES USED ONLY ON WORK COMPUTER
-{{- if ne .computer.type "work" }}
+{{- if ne .chezmoi.hostname "mbam2" }}
+.config/aws/*
+.config/.jira/*
+{{- end }}
+
+{{- if ne .chezmoi.hostname "mbpm3" }}
 .config/aws/*
 .config/.jira/*
 {{- end }}

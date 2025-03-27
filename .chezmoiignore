@@ -1,8 +1,8 @@
-# FILES TO IGNORE
+# Files to ignore
 README.md
 .tmuxinator.yml
 
-# FILES USED ONLY ON MACOS
+# Files only used on `macos`
 {{ if ne .chezmoi.os "darwin" }}
 .config/svim/*
 .config/skhd/*
@@ -10,12 +10,19 @@ README.md
 .config/sketchybar/*
 {{ end }}
 
-# FILES USED ONLY ON SELF COMPUTER
-{{- if ne .computer.type "self" }}
+# Files only used on `mbam1`
+{{- if ne .chezmoi.hostname "mbam1" }}
 {{- end }}
 
-# FILES USED ONLY ON WORK COMPUTER
-{{- if ne .computer.type "work" }}
+# Files only used on `mbam2`
+{{- if ne .chezmoi.hostname "mbam2" }}
+.config/aws/config
+.config/aws/credentials
+.config/.jira/.config.yml
+{{- end }}
+
+# Files only used on `mbpm3`
+{{- if ne .chezmoi.hostname "mbpm3" }}
 .config/aws/config
 .config/aws/credentials
 .config/.jira/.config.yml
