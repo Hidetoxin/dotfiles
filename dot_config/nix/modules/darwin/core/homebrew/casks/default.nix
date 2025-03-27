@@ -8,7 +8,6 @@ rec {
     "lunar" # control screen brightness
     "battery"  # maintain battery at 80%
     "homerow"  # system wide `vimium` clone
-    "monarch"  #  `spotlight` alternative
     "dmenu-mac"  # `dmenu` for macos
     "bleunlock"  # locks and unlocks your `mac` by proximity of your iphone, apple watch, or any other bluetooth low energy device.
     "airbattery"  # check the status of all your `bluetooth` batteries
@@ -19,6 +18,7 @@ rec {
   gui = [
     "keyclu"  # aplication shortcuts
     "homerow"  #  `os` wide clone of `vimium`
+    "monarch"  #  `spotlight` alternative
     "aerospace"  # `i3` alternative window manager
     "eloston-chromium"  # privacy focused fork of `chromium`
     "karabiner-elements"  # utility for keyboard customization
