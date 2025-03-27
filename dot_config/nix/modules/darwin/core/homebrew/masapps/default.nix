@@ -20,6 +20,8 @@ rec {
 
    app = {
      "Velja" = 1607635845;  # browser picker
+     "Anybox"  = 1593408455;  # application to save links, videos, notes, etc.
+     "GoodLinks" = 1474335294;  # read it later application
      "Bitwarden" = 1352778147;  # password manager
      "Amphetamine" = 937984704;  # keep your mac from going to sleep
    };  # app
