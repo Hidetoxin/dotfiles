@@ -9,7 +9,7 @@ return {
     priority = 1000, -- Make sure to load this before all the other start plugins.
     opts = {
       inverse = true,
-      dim_inactive = true,
+      dim_inactive = false,
       transparent_mode = true,
     },
     init = function()

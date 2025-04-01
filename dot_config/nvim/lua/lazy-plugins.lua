@@ -31,7 +31,7 @@ require('lazy').setup({
   -- require 'kickstart/plugins/telescope',
   -- require 'kickstart/plugins/lspconfig',
   -- require 'kickstart/plugins/tokyonight',
-  -- require 'kickstart/plugins/treesitter',
+  require 'kickstart/plugins/treesitter',
   require 'kickstart/plugins/todo-comments',
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
