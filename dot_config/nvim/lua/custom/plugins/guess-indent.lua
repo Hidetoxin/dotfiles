@@ -3,8 +3,11 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-    'fabridamicelli/cronex.nvim',
-    opts = {},
+  {
+    'nmac427/guess-indent.nvim',
+    opts = {
+    },
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et

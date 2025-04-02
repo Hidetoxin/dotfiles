@@ -3,8 +3,20 @@
 --
 -- See the kickstart.nvim README for more information
 return {
-    'fabridamicelli/cronex.nvim',
-    opts = {},
+  {
+    'nvzone/showkeys',
+    cmd = 'ShowkeysToggle',
+    opts = {
+      timeout = 1,
+      maxkeys = 5,
+      -- more opts
+    },
+
+    keys = {
+      { '<leader>ks', '<cmd>ShowkeysToggle<CR>', desc = 'Toggle Show Keys' },
+    },
+
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et
