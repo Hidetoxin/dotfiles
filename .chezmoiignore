@@ -25,5 +25,6 @@ README.md
 {{- end }}
 
 # Files to ignore on all hosts
+.config/gh/hosts.yml
 .config/aws/config
 .config/aws/credentials
