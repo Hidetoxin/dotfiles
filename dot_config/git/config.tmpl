@@ -18,18 +18,18 @@
     syntax-theme           = "gruvbox-dark"
     whitespace-error-style = "22 reverse"
 
-[infludeIf "gitdir:~/Code/mbam1.github.com"]
+[infludeIf "gitdir:~/.local/share/chezmoi/"]
     path = "~/.config/git/config-mbam1"
 
-[infludeIf "gitdir:~/.local/share/chezmoi"]
+[infludeIf "gitdir:~/Code/mbam1.github.com/"]
     path = "~/.config/git/config-mbam1"
 
 {{ if (eq .chezmoi.hostname "mbam2") }}
-[infludeIf "gitdir:~/Code/mbam2.github.com"]
+[infludeIf "gitdir:~/Code/mbam2.github.com/"]
     path = "~/.config/git/config-mbam2"
 {{ end }}
 
 {{ if (eq .chezmoi.hostname "mbpm3") }}
-[infludeIf "gitdir:~/Code/mbpm3.github.com"]
+[infludeIf "gitdir:~/Code/mbpm3.github.com/"]
     path = "~/.config/git/config-mbpm3"
 {{ end }}
