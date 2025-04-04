@@ -268,10 +268,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias tdocm='terraform-docs markdown table'
 
 # If `darwin-rebuild` is installed
-[ -n "$(command -v darwin-rebuild)" ]                                                         \
-    && alias dr='darwin-rebuild'                                                              \
-    && alias drc='darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
-    && alias drs='darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
+[ -n "$(command -v darwin-rebuild)" ]                                                                             \
+    && alias dr='darwin-rebuild'                                                                                  \
+    && alias drc='cd ~/.config/nix && darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
+    && alias drs='cd ~/.config/nix && darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
 
 # If `markdownlint-cli` is installed
 # [ -n "$(command -v markdownlint)" ] \

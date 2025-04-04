@@ -1,26 +1,17 @@
-# vim: syntax=yaml
-
 # When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
 prompt: "enabled"
-
 # A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
 pager: "bat"
-
 # What editor `gh` should run when creating issues, pull requests, etc. If blank, will refer to environment.
 editor: "nvim"
-
 # What web browser `gh` should use when opening URLs. If blank, will refer to environment.
 browser: ""
-
 # Aliases allow you to create nicknames for `gh` commands
 aliases:
     co: "pr checkout"
-    mbam1: "!cp ~/.config/gh/hosts-mbam1.yml ~/.config/gh/hosts.yml && gh auth status"
-    mbam2: "!cp ~/.config/gh/hosts-mbam2.yml ~/.config/gh/hosts.yml && gh auth status"
-    mbpm3: "!cp ~/.config/gh/hosts-mbpm3.yml ~/.config/gh/hosts.yml && gh auth status"
-
+    creds: "!cd ~/.config/gh && ln -s hosts-$1.yml hosts.yml && gh auth status"
 # What protocol to use when performing git operations. Supported values: ssh, https
 git_protocol: "ssh"
-
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket: ""
+version: "1"

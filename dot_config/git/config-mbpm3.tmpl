@@ -12,12 +12,23 @@
 [github]
     user = "{{ (bitwarden "item" .bw.mbpm3.id).identity.username }}"
 
-[url "https://github"]
-    insteadOf = "git://mbpm3.github"
+[url "ssh://git@mbpm3.github.com/"]
+	insteadOf = "https://github.com/"
+[url "ssh://git@mbpm3.github.com/"]
+	insteadOf = "ssh://git@github.com/"
 
-[url "https://gitlab"]
-    insteadOf = "git://mbpm3.gitlab"
+[url "ssh://git@mbpm3gitlab.com/"]
+	insteadOf = "https://gitlab.com/"
+[url "ssh://git@mbpm3.gitlab.com/"]
+	insteadOf = "ssh://git@gitlab.com/"
 
-[url "https://bitbucket"]
-    insteadOf = "git://mbpm3.bitbucket"
+[url "ssh://git@mbpm3.bitbucket.org/"]
+	insteadOf = "https://bitbucket.org/"
+[url "ssh://git@mbpm3.bitbucket.org/"]
+	insteadOf = "ssh://git@bitbucket.org/"
+
+[url "ssh://git@mbpm3.codeberg.org/"]
+	insteadOf = "https://codeberg.org/"
+[url "ssh://git@mbpm3.codeberg.org/"]
+	insteadOf = "ssh://git@codeberg.org/"
 {{- end }}

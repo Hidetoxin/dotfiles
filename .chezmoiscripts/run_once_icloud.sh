@@ -7,4 +7,4 @@ if [ ! -d "${cloud}" ]; then
     mkdir "${cloud}"
 fi
 
-cd "${cloud}" && ln -s $HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs iCloud
+cd "${cloud}" && ln -nsf $HOME/Library/Mobile\ Documents/com\~apple\~CloudDocs iCloud

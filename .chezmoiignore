@@ -16,14 +16,15 @@ README.md
 
 # Files only used on `mbam2`
 {{- if ne .chezmoi.hostname "mbam2" }}
-.config/aws/config
-.config/aws/credentials
 .config/.jira/.config.yml
 {{- end }}
 
 # Files only used on `mbpm3`
 {{- if ne .chezmoi.hostname "mbpm3" }}
-.config/aws/config
-.config/aws/credentials
 .config/.jira/.config.yml
 {{- end }}
+
+# Files to ignore on all hosts
+.config/gh/hosts.yml
+.config/aws/config
+.config/aws/credentials

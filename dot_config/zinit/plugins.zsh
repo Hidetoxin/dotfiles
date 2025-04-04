@@ -29,6 +29,10 @@ zinit ice --lucid \
 zinit ice --lucid \
     && zinit light 'michaelaquilina/zsh-you-should-use'
 
+# Search sub-strings on your history file
+zinit ice --lucid \
+    && zinit light 'zsh-users/zsh-history-substring-search'
+
 # Add syntax highlighting for the shell
 zinit ice --lucid \
     && zinit light 'zdharma-continuum/fast-syntax-highlighting'
