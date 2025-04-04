@@ -1,0 +1,14 @@
+# vim: syntax=toml
+
+[toplevel]
+creds =
+  !f() {
+    cd ~/.config/aws && ln -nsf config-${1} config && ln -nsf credentials-${1} credentials
+  }; f
+
+[command sts]
+whoami = get-caller-identity
+
+[command ec2]
+list-sgs = describe-security-groups --query "SecurityGroups[].[GroupId, GroupName]" --output text
+instance-profiles = !aws iam list-instance-profiles
