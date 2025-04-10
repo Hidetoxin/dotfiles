@@ -7,12 +7,19 @@ you'll also need to tweak the secrets as this repository is specific to my use
 case. Once you tweaked the secrets you can just run the below command:
 
 ``` sh
+# Install `macos` requirements
 xcode-select --install  # install `xcode`
 softwareupdate --install-rosetta --agree-to-license  # install `rosetta`
+
+# Install and setup `nix` package manager on `macos`
 sh <(curl -L https://nixos.org/nix/install)  # install `nix`
 nix flake init -t nix-darwin --extra-experimental-features "nix-command flakes"  # setup `nix flakes`
 nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/.config/nix  # setup `nix darwin`
 darwin-rebuild switch --flake "$HOME/.config/nix#$(scutil --get LocalHostName)"  # apply `nix` configuration
+
+
+# Install my personal `dotfiles`
+export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(2fa self/bw/2fa) --raw)"  # login to `bitwarden`
 chezmoi init hidetoxin  # initialize configuration dotfiles
 chezmoi apply  # copy all dotfiles to their respective configurations
 ```
