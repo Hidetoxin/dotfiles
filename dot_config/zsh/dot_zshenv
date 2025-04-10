@@ -67,9 +67,6 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v $_BREW/brew)" ] \
     && eval "$($_BREW/brew shellenv)"
 
-[ -n "$(command -v bw)" ] \
-    && export BW_PASSWORD="$(pass show 'self/bw/pass')"
-
 [ -n "$(command -v rg)" ] \
     && export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/ripgrep/ripgrep.conf"
 
