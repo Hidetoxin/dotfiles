@@ -19,8 +19,8 @@ README.md
 .config/.jira/.config.yml
 {{- end }}
 
-# Files only used on `mbpm3`
-{{- if ne .chezmoi.hostname "mbpm3" }}
+# Files only used on `mbpm4m`
+{{- if ne .chezmoi.hostname "mbpm4m" }}
 .config/.jira/.config.yml
 {{- end }}
 

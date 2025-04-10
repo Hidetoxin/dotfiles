@@ -13,7 +13,7 @@
     gpg = "a08d2585-8e1a-4f2e-a1e6-b2ac00e5bba9"
     ssh = "7475e2b6-a941-4edc-989a-b2a1004bf21f"
 
-  [bw.mbpm3]
+  [bw.mbpm4m]
     id  = "acab2971-9da1-437b-a95c-b2ac004554ce"
     gpg = "9d7ab76e-976f-42db-999d-b2ac00e5dccd"
     ssh = "c1475cc1-ffd2-4d52-b9a5-b2ac0045f19c"

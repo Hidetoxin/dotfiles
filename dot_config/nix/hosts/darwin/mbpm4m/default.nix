@@ -1,4 +1,4 @@
-{...}: {  # mbpm3
+{...}: {  # mbpm4m
 
   imports = [
     ../../../modules/core  # common configs for all systems

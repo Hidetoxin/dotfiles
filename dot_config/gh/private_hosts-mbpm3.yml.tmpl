@@ -1,8 +1,0 @@
-# vim: syntax=yaml
-
-{{- if (eq .chezmoi.hostname "mbpm3") }}
-github.com:
-    user: "{{ (bitwarden "item" .bw.mbpm3.id).identity.username }}"
-    oauth_token: "{{ (bitwardenFields "item" .bw.mbpm3.id).GitHubToken.value }}"
-    git_protocol: "ssh"
-{{- end }}

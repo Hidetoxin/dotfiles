@@ -171,16 +171,16 @@
     };  # end `mbam2` host
 
     # Build `darwin` flake using:
-    # $ darwin-rebuild build --flake ~/.config/nix#mbpm3
-    # $ darwin-rebuild switch --flake ~/.config/nix#mbpm3
-    darwinConfigurations."mbpm3" = nix-darwin.lib.darwinSystem {
+    # $ darwin-rebuild build --flake ~/.config/nix#mbpm4m
+    # $ darwin-rebuild switch --flake ~/.config/nix#mbpm4m
+    darwinConfigurations."mbpm4m" = nix-darwin.lib.darwinSystem {
 
       inherit system specialArgs;
 
       modules = [
 
-        # Load specific configurations for `mbpm3`
-        ./hosts/darwin/mbpm3
+        # Load specific configurations for `mbpm4m`
+        ./hosts/darwin/mbpm4m
 
         # Load `mac-app-util` module for showing `nix` installed apps on `spotlight` search
         mac-app-util.darwinModules.default
@@ -197,7 +197,7 @@
 
       ];
 
-    };  # end `mbpm3` host
+    };  # end `mbpm4m` host
 
     # Nix code formatter
     formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
