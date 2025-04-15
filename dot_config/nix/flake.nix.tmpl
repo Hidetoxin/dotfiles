@@ -1,3 +1,4 @@
+# vim: syntax=nix
 # Inspirations for this setup:
 #
 #  - https://github.com/lanjoni/snowflake
@@ -90,8 +91,8 @@
 
     # TODO replace with your own username, system and hostname
     system = "aarch64-darwin"; # aarch64-darwin (apple silicon) or `x86_64-darwin`
-    username = "$USER";
-    hostname = "$HOST";
+    username = "{{ .chezmoi.username }}";
+    hostname = "{{ .chezmoi.hostname }}";
 
     specialArgs =
       inputs
@@ -100,7 +101,7 @@
       };
 
   in {
-      
+
     # $ darwin-rebuild build --flake ~/.config/nix#mbam1
     # $ darwin-rebuild switch --flake ~/.config/nix#mbam1
     darwinConfigurations."mbam1" = nix-darwin.lib.darwinSystem {
