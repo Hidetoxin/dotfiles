@@ -146,7 +146,7 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export KUBECACHEDIR="${XDG_CACHE_HOME:-$HOME/.cache}/kube"
 
 [ -n "$(command -v gh-dash)" ] \
-    && export GH_DASH_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/gh-dash"
+    && export GH_DASH_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/gh-dash/config.yml"
 
 [ -n "$(command -v passage)" ]                                              \
     && export PASSAGE_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/passage"  \
