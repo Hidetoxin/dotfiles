@@ -67,6 +67,9 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v $_BREW/brew)" ] \
     && eval "$($_BREW/brew shellenv)"
 
+[ -n "$(command -v az)" ] \
+    && export AZURE_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/azure"
+
 [ -n "$(command -v rg)" ] \
     && export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/ripgrep/ripgrep.conf"
 
