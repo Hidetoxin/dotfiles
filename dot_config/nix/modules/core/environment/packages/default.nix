@@ -250,7 +250,9 @@ rec {
     xdg-ninja  # check your home for `xdg` format
     watchexec  # `entr` alternative
 
+    circumflex  # browsing `hacker news` in your terminal
     difftastic  # syntax-aware diff
+    pre-commit  # instal a pre-commit hook on your `git` repo
 
     ripgrep-all  # `ripgrep` alternative
     tree-sitter  #  incremental parser library
@@ -263,6 +265,8 @@ rec {
     universal-ctags  # fast source code browsing
 
     bat-extras.prettybat  # helper scripts for `bat`
+
+    passExtensions.pass-otp  # add `otp` functionality to `pass`
   ];  # cli
 
   tui = [
@@ -286,6 +290,7 @@ rec {
     air  # `live reload of `go` applications
     atac  # `postman` like `tui`
     hugo  # a static website generator
+    vial  # a `qmk` fork
     typst # `latex` alternative
     runme  # run commands inside your documents
     pandoc  # document file converter

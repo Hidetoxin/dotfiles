@@ -14,6 +14,7 @@ rec {
 
   cli = [
     "hakky54/senzu"  # `senzu`
+    "antoniorodr/memo"  # `memo`
     "applegamer22/tap"  # `cocainate`
   ];  #cli
 
@@ -22,6 +23,7 @@ rec {
   ];  # tui
 
   gui = [
+    "notwadegrimridge/brew"  # `pingplace`
   ];  # gui
 
   dmn = [
@@ -32,8 +34,8 @@ rec {
   brew = [  # `homebrew` default taps
     # "homebrew/core"  # not needed anymore
     # "homebrew/cask"  # not needed anymore
-    "homebrew/bundle"
-    "homebrew/services"
+    # "homebrew/bundle"  # not needed anymore
+    # "homebrew/services"  # not needed anymore
   ];  # brew
 
   all = cli ++ gui ++ tui ++ dmn ++ brew;
