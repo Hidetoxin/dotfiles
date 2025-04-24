@@ -14,7 +14,7 @@
 .config/.jira/*
 {{- end }}
 
-{{- if ne .chezmoi.hostname "mbpm3" }}
+{{- if ne .chezmoi.hostname "mbpm4m" }}
 .config/aws/*
 .config/.jira/*
 {{- end }}

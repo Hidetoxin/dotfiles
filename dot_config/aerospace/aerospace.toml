@@ -332,11 +332,23 @@ if.app-id = 'com.apple.MobileSMS'
 
 [[on-window-detected]]
 run = 'move-node-to-workspace M'
+if.app-id = 'com.microsoft.teams2'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace M'
 if.app-id = 'net.whatsapp.WhatsApp'
 
 [[on-window-detected]]
 run = 'move-node-to-workspace M'
+if.app-id = 'com.microsoft.Outlook'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace M'
 if.app-id = 'com.kakao.KakaoTalkMac'
+
+[[on-window-detected]]
+run = 'move-node-to-workspace M'
+if.app-id = 'com.tinyspeck.slackmacgap'
 
 [[on-window-detected]]
 run = 'move-node-to-workspace M'
@@ -394,6 +406,15 @@ if.app-id = 'com.colliderli.iina'
 [[on-window-detected]]
 run = 'move-node-to-workspace V'
 if.app-id = 'io.freetubeapp.freetube'
+
+# Floating windows
+[[on-window-detected]]
+run = 'layout floating'
+if.app-id = 'com.apple.AppStore'
+
+[[on-window-detected]]
+run = 'layout floating'
+if.app-id = 'com.apple.systempreferences'
 
 # You can use workspace-to-monitor-force-assignment syntax to assign workspaces to always appear on particular monitors
 # Assign the first matched monitor to a workspace.

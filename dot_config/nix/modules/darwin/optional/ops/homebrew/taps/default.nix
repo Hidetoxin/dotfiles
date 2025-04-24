@@ -4,6 +4,7 @@ rec {
   ];  # na
 
   cli = [
+    "epilande/tap"  # `codegrab`
     "env0/terratag"  # `terrratag` 
   ];  #cli
 

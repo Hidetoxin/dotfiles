@@ -5,8 +5,6 @@ creds =
   !f() {
     cd ~/.config/aws && ln -nsf config-${1} config && ln -nsf credentials-${1} credentials
   }; f
-
-[command sts]
 whoami = get-caller-identity
 
 [command ec2]

@@ -7,7 +7,7 @@
     program = "gpg2"
 
 [pull]
-    rebase = false
+    rebase = true
 
 [core]
     pager  = "delta"
@@ -18,18 +18,18 @@
     syntax-theme           = "gruvbox-dark"
     whitespace-error-style = "22 reverse"
 
-[infludeIf "gitdir:~/.local/share/chezmoi/"]
+[includeIf "gitdir:~/.local/share/chezmoi/"]
     path = "~/.config/git/config-mbam1"
 
-[infludeIf "gitdir:~/Code/mbam1.github.com/"]
+[ingludeIf "gitdir:~/Code/mbam1.github.com/"]
     path = "~/.config/git/config-mbam1"
 
 {{ if (eq .chezmoi.hostname "mbam2") }}
-[infludeIf "gitdir:~/Code/mbam2.github.com/"]
+[ingludeIf "gitdir:~/Code/mbam2.github.com/"]
     path = "~/.config/git/config-mbam2"
 {{ end }}
 
-{{ if (eq .chezmoi.hostname "mbpm3") }}
-[infludeIf "gitdir:~/Code/mbpm3.github.com/"]
-    path = "~/.config/git/config-mbpm3"
+{{ if (eq .chezmoi.hostname "mbpm4m") }}
+[includeIf "gitdir:~/Code/mbpm4m.github.com/"]
+    path = "~/.config/git/config-mbpm4m"
 {{ end }}

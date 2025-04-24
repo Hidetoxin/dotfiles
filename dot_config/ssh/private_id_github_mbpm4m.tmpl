@@ -1,0 +1,3 @@
+{{- if (eq .chezmoi.hostname "mbpm4m") }}
+{{- (bitwarden "item" .bw.mbpm4m.ssh).sshKey.privateKey }}
+{{- end }}

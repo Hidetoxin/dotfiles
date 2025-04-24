@@ -1,9 +1,25 @@
 # vim: syntax=sh
 
-# Import public gpg key
+# Import public `gpg` key
 % gpg
 gpg --import "<pubic_key>"
 
-# Import private gpg key
+# Import private `gpg` key
 % gpg
 gpg --allow-secret-key-import --import "<private_key""
+
+# Create new `gpg` key
+% gpg
+gpg --quick-gen-key --batch --passphrase '' "<email>"
+
+# List secret keys
+% gpg
+gpg --list-secret-keys --keyid-format=long
+
+# Export `gpg` public key
+% gpg
+gpg --armor --export "<id>" | pbcopy
+
+# Export `gpg` private key
+% gpg
+gpg --armor --export-secret-keys "<id>" | pbcopy

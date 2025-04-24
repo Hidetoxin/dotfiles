@@ -23,6 +23,7 @@ rec {
   ];  # fun
 
   cli = [
+    "memo"  # control `apple notes` and `apple reminders` from the `cli`
     "senzu"  # get battery on `macos`
     "cocainate"  # prevent `macos` going to sleep
     "macos-trash"  # send files to `macos` trash
@@ -36,9 +37,11 @@ rec {
   dev = [
     "lua"
     "goenv"  # `go` environment manager
+    "posting"  # `postman` alike interface
   ];  # dev
 
   gui = [
+    "pingplace"  # custoize your notification position
   ];  #gui
 
   dmn = [

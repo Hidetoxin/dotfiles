@@ -58,13 +58,6 @@ rec {
     terraform-docs  # `terraform` document generator
   ];  # tf
 
-  aws = [
-    awsume  # `aws` profile manager
-    awscli2  # `aws` `cli`
-    aws-gate  # `aws` client manager for `ssm`
-    aws-vault  # get `aws` credentials
-  ];  # aws
-
   git = [
     gitleaks  # scan `git` repos for secrets
     commitizen  # create comitting rules
@@ -110,13 +103,21 @@ rec {
   ];  # bench
 
   cloud = [
-    azure-cli
+    stu  # `aws` bucket explorer
+    bicep # `cli` tool for working with `bicep` files
+    awsume  # `aws` profile manager
+    awscli2  # `aws` `cli`
+    aws-gate  # `aws` client manager for `ssm`
+    aws-vault  # get `aws` credentials
+    azure-cli  # `cli` for `microsoft azure`
+    bicep-lsp  # `lsp` for `bicep`
   ];  # cloud
 
   tools = [
     lnav  # log viewer
+    actionlint  # linter for `github` workflows
   ];  # tools
 
-  all = tf ++ aws ++ git ++ net ++ k8s ++ sec ++ bench ++ cloud ++ tools;
+  all = tf ++ git ++ net ++ k8s ++ sec ++ bench ++ cloud ++ tools;
 
 }  # rec
