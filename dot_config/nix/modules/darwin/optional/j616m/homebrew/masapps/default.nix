@@ -7,8 +7,7 @@ rec {
    };  # app
 
    ext = {
-     "Okta Extension App" = 1439967473;  # use `okta` authentication
-   };
+   };  # ext
 
   all = app // ext;
 
