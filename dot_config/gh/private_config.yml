@@ -9,7 +9,7 @@ browser: ""
 # Aliases allow you to create nicknames for `gh` commands
 aliases:
     co: "pr checkout"
-    creds: "!cd ~/.config/gh && ln -s hosts-$1.yml hosts.yml && gh auth status"
+    creds: "!cd ~/.config/gh && ln -nfs hosts-$1.yml hosts.yml && cd ~/.config/gama && ln -nfs config-$1.yaml config.yaml && gh auth status"
 # What protocol to use when performing git operations. Supported values: ssh, https
 git_protocol: "ssh"
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.

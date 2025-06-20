@@ -118,7 +118,8 @@ rec {
 
   tools = [
     lnav  # log viewer
-    wrkflw  # `tui` for `github` workflows
+    wrkflw  # `tui` for running local `github` workflows
+    gama-tui # `tui` for running `github` workflows
     jfrog-cli  # `cli` for `jfrog` artifact hosting
     actionlint  # linter for `github` workflows
   ];  # tools

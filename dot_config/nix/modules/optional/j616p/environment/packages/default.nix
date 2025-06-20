@@ -6,6 +6,8 @@ rec {
   ];  # na
 
   cli = [
+    slack-cli  # `cli` client for `slack`
+    jira-cli-go  # `cli` client for `jira`
   ];  # cli
 
   tui = [

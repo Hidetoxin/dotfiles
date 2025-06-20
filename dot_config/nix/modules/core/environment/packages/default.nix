@@ -246,6 +246,7 @@ rec {
     tealdeer  # `tldr` alternative
     tomato-c  # pomodoro timer
     visidata  # exploring and arranging tabular data 
+    yamllint  # `yaml` linter
 
     mcfly-fzf  # `history` alternative 
     xdg-ninja  # check your home for `xdg` format
