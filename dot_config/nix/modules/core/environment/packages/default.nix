@@ -11,6 +11,7 @@ rec {
     jalm  # generate generate progress bar form `cron` expressions
     play  # `tui` playground for your favorite programs, such as `grep`, `sed` and `awk`
     mdtt  # edit `markdown` tables
+    vial  # a `qmk` fork
     vops  # `vault` cluster management tool
     flawz  # `tui` for browsing the security vulnerabilities
     tlock  # store and manage your authentication tokens
@@ -150,6 +151,7 @@ rec {
     fq  # `jq` for binaries
     fx  # terminal json viewr
     jq  # `json` processor
+    yq  # `yaml` processor
     sd  # `sed`alternative
     sl  # `ls` mispelled for fun
     xh  # tool for `http` requests
@@ -240,7 +242,6 @@ rec {
     sampler  # `tui for `shell` commands
     sshpass  # `ssh` non-interactive authentication
     termscp  # feature rich terminal file transfer
-    thefuck  # corrects mispelled commands
 
     tealdeer  # `tldr` alternative
     tomato-c  # pomodoro timer
@@ -258,6 +259,7 @@ rec {
     tree-sitter  #  incremental parser library
 
     code-minimap  # minimap renderer
+    pay-respects  # corrects mispelled commands
 
     # bitwarden-cli  # `cli` for `bitwarden`
     speedtest-cli  # check your internet speed
@@ -290,7 +292,6 @@ rec {
     air  # `live reload of `go` applications
     atac  # `postman` like `tui`
     hugo  # a static website generator
-    vial  # a `qmk` fork
     typst # `latex` alternative
     runme  # run commands inside your documents
     pandoc  # document file converter

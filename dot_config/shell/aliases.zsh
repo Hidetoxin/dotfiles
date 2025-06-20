@@ -130,6 +130,10 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v tmux)" ] \
     && alias tmux='TERM=xterm-256color tmux'
 
+# If `delta` is installed
+[ -n "$(command -v delta)" ] \
+    && alias d='delta'
+
 # If `imgcat` is installed
 [ -n "$(command -v imgcat)" ] \
     && alias ic='imgcat'      \
@@ -268,10 +272,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias tdocm='terraform-docs markdown table'
 
 # If `darwin-rebuild` is installed
-[ -n "$(command -v darwin-rebuild)" ]                                                                             \
-    && alias dr='darwin-rebuild'                                                                                  \
-    && alias drc='cd ~/.config/nix && darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
-    && alias drs='cd ~/.config/nix && darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
+[ -n "$(command -v darwin-rebuild)" ]                                                                                  \
+    && alias dr='sudo darwin-rebuild'                                                                                  \
+    && alias drc='cd ~/.config/nix && sudo darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
+    && alias drs='cd ~/.config/nix && sudo darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
 
 # If `markdownlint-cli` is installed
 # [ -n "$(command -v markdownlint)" ] \

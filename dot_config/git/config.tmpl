@@ -24,9 +24,9 @@
 [ingludeIf "gitdir:~/Code/mbam1.github.com/"]
     path = "~/.config/git/config-mbam1"
 
-{{ if (eq .chezmoi.hostname "mbpm4") }}
-[includeIf "gitdir:~/Code/mbpm4.github.com/"]
-    path = "~/.config/git/config-mbpm4"
+{{ if (eq .chezmoi.hostname "mbpm4p") }}
+[includeIf "gitdir:~/Code/mbpm4p.github.com/"]
+    path = "~/.config/git/config-mbpm4p"
 {{ end }}
 
 {{ if (eq .chezmoi.hostname "mbpm4m") }}

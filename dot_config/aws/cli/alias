@@ -3,7 +3,7 @@
 [toplevel]
 creds =
   !f() {
-    cd ~/.config/aws && ln -nsf config-${1} config && ln -nsf credentials-${1} credentials
+    cd ~/.config/aws && ln -nsf config-${1} config
   }; f
 whoami = get-caller-identity
 

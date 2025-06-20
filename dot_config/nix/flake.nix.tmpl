@@ -145,14 +145,14 @@
     # Build `darwin` flake using:
     # $ darwin-rebuild build --flake ~/.config/nix#mbpm4m
     # $ darwin-rebuild switch --flake ~/.config/nix#mbpm4m
-    darwinConfigurations."mbpm4" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."mbpm4p" = nix-darwin.lib.darwinSystem {
 
       inherit system specialArgs;
 
       modules = [
 
         # Load specific configurations for `mbpm4m`
-        ./hosts/darwin/mbpm4m
+        ./hosts/darwin/mbpm4p
 
         # Load `mac-app-util` module for showing `nix` installed apps on `spotlight` search
         mac-app-util.darwinModules.default
@@ -169,7 +169,7 @@
 
       ];
 
-    };  # end `mbpm4m` host
+    };  # end `mbpm4p` host
 
     # Build `darwin` flake using:
     # $ darwin-rebuild build --flake ~/.config/nix#mbpm4m
