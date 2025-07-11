@@ -1,10 +1,11 @@
 rec {
 
   na = [
+    "dhth/tap"  # `punchout`
   ];  # na
 
   cli = [
-    "dhth/tap"  # `punchout`
+    "scalvert/tap/glean-cli"  # `glean-cli`
   ];  #cli
 
   gui = [

@@ -10,7 +10,7 @@ rec {
   ];  # cli
 
   gui = [
-    "docker"  # container manager
+    "docker-desktop"  # container manager
   ];  # gui
 
   font = [

@@ -78,11 +78,8 @@ rec {
   ];  # np
 
   na = [
-    nb # `cli` note taker
     gtt  # `tui` for translation
     lua  # scripting language
-    nap  # `tui` for code snippets
-    pet  # `cli` snippets manager
     prs  # `pass` alternative
     w3m  # `cli` browser
     wtf  # `tui` dashboard
@@ -100,6 +97,7 @@ rec {
     pueue  # daemon for managing long running commands
     pyenv  # `python`` manager
     aichat # `cli` ai assistant
+    dogdns  # `dig` alternative
     jobber  # `crk`, `sed`, `cut`, `join`, and `sort` for data formats such as `csv`, `tsv`, `json`, `json lines`, and positionally-indexed.
     nsnake  # snake game
     zellij  # `tmux` alternative
@@ -126,6 +124,7 @@ rec {
     gh-eco  # explore the ecosystem
     gh-dash  # display dashboar with requests and issues
     gh-notify  # display `github` notifications
+    gh-copilot  # use `copilot` on the `cli`
     gh-markdown-preview  # `markdown` preview
   ];  # gh
 
@@ -151,10 +150,11 @@ rec {
     fq  # `jq` for binaries
     fx  # terminal json viewr
     jq  # `json` processor
-    yq  # `yaml` processor
+    nb # `cli` note taker
     sd  # `sed`alternative
     sl  # `ls` mispelled for fun
     xh  # tool for `http` requests
+    yq  # `yaml` processor
 
     age  # `gpg` alternative
     bat  # `cat` alternative
@@ -169,6 +169,8 @@ rec {
     jnv  #  `tui` for `jq`
     jqp  # `tui` for `jq`
     mtr  # combines the functionality of the `traceroute` and `ping`
+    nap  # `tui` for code snippets
+    pet  # `cli` snippets manager
     vhs  # generate terminal `gif`
     viu  # `imgcat` alternative
     xan  # `cli` for `csv` files
@@ -195,6 +197,7 @@ rec {
     cheat  # `tldr` alternative
     dasel  # `jq` alternative for `csv`, `xml` `json`, `yaml` and `toml`
     delta  # syntax-highlighting pager for git
+    doggo  # modern `dig` alternative
     gnupg  # privacy guard
     gping  # `ping alternative`
     helix  # `vim` inspired text editor
@@ -213,7 +216,6 @@ rec {
     bottom  # `ps` alternative
     catimg  # `cli` image printing
     direnv  # environment manage
-    dogdns  # `dig` alternative
     gh-cal  # `github` contributions calender terminal viewer
     gnused  # `gnu`version of sed 
     go-2fa  # `cli` for 2fa
@@ -263,6 +265,7 @@ rec {
     pay-respects  # corrects mispelled commands
 
     # bitwarden-cli  # `cli` for `bitwarden`
+    hl-log-viewer  # make logs readable
     speedtest-cli  # check your internet speed
 
     universal-ctags  # fast source code browsing
