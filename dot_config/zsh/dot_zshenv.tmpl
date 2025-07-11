@@ -67,6 +67,9 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v $_BREW/brew)" ] \
     && eval "$($_BREW/brew shellenv)"
 
+[ -n "$(command -v gh)" ] \
+    && eval "$(gh copilot alias -- zsh)"
+
 [ -n "$(command -v az)" ] \
     && export AZURE_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/azure"
 
@@ -134,6 +137,9 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export NODENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/nodenv" \
     && export NODE_OPTIONS='--no-deprecation'
 
+[ -n "$(command -v argocd)" ] \
+    && eval "$(argocd completion zsh)"
+
 [ -n "$(command -v packer)" ]                                    \
     && export PACKER_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/packer/packer.json" \
     && export PACKER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/packer"
@@ -159,3 +165,14 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export AWS_VAULT_BACKEND='pass'                                \
     && export AWS_VAULT_PASS_PREFIX='aws'                             \
     && export AWS_VAULT_PASS_PASSWORD_STORE_DIR="$PASSWORD_STORE_DIR"
+
+[ -n "$(command -v pay-respects)" ] \
+    && eval "$(pay-respects zsh)"
+
+{{- if (eq .chezmoi.hostname "mbpm4p") }}
+[ -n "$(command -v jira)" ] \
+    && export JIRA_API_TOKEN="{{ (bitwarden "item" .bw.mbpm4p.id).JiraToken.value }}"
+
+[ -n "$(command -v gemini)" ] \
+    && export GEMINI_API_KEY="{{ (bitwarden "item" .bw.mbpm4p.id).GeminiToken.value }}"
+{{- end }}
