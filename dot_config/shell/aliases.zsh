@@ -45,9 +45,11 @@ alias forrest='curl ascii.live/forrest'
 alias tictactoe='telnet pixelomer.com'
 
 # If `bw` is installed
-[ -n "$(command -v bw)" ]                                                      \
-    && alias bwlo='bw logout && unset BW_SESSION'                              \
-    && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"' \
+[ -n "$(command -v bw)" ]                                                              \
+    && alias bwpp='bw generate --passphrase --words 3'                                 \
+    && alias bwpw='bw generate --number --special --lowercase --uppercase --length 16' \
+    && alias bwlo='bw logout && unset BW_SESSION'                                      \
+    && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"'         \
     && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(2fa self/bw/2fa) --raw)"'
 
 # If `gpg` is installed
@@ -85,6 +87,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias l8='eza -F -lah --git --icons ../../../../../../..'    \
     && alias l9='eza -F -lah --git --icons ../../../../../../../..' \
     && alias tree='eza --git --tree --icons'
+
+# If `jira` is installed
+[ -n "$(command -v jira)" ] \
+    && alias jme="$(jira --status '~Done' --assignee "$(whoami)")"
 
 # If `just` is installed
 [ -n "$(command -v just)" ] \
@@ -151,6 +157,10 @@ alias tictactoe='telnet pixelomer.com'
 # If `aichat` is installed
 [ -n "$(command -v aichat)" ] \
     && alias aic='aichat'
+
+# If `argocd` is installed
+[ -n "$(command -v argocd)" ] \
+    && alias argo='argocd'
 
 # If `awsume` is installed
 [ -n "$(command -v awsume)" ] \
