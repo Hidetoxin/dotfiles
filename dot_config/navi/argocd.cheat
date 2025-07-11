@@ -1,0 +1,30 @@
+# vim: syntax=sh
+
+# Login into `argocd`
+% argocd, login
+$ argocd login '<host>' --skip-test-tls --grpc-web --username "admin" --password "$(kubectl -n argocd get secrets 'argocd-initial-admin-secret' -o json | jq -r '.data.password' | base64 --decode)"
+
+# Sync application
+% argocd, sync
+$ app: argocd app list | sed '1d' | awk '{print $1}' | fzf --preview "argocd app get '{}'"
+argocd app sync '<app>'
+
+# Preview application diff
+% argocd, diff
+$ app: argocd app list | sed '1d' | awk '{print $1}' | fzf --preview "argocd app get '{}'"
+argocd app diff '<app>'
+
+# View application logs
+% argocd, logs
+$ app: argocd app list | sed '1d' | awk '{print $1}' | fzf --preview "argocd app get '{}'"
+argocd app logs '<app>' # --container
+
+# View application history
+% argocd, history
+$ app: argocd app list | sed '1d' | awk '{print $1}' | fzf --preview "argocd app get '{}'"
+argocd app history '<app>'
+
+# Rollback application
+% argocd, rollback
+$ app: argocd app list | sed '1d' | awk '{print $1}' | fzf --preview "argocd app get '{}'"
+argocd app rollback '<app>'
