@@ -215,6 +215,7 @@ rec {
 
     bottom  # `ps` alternative
     catimg  # `cli` image printing
+    curlie  # better `curl`
     direnv  # environment manage
     gh-cal  # `github` contributions calender terminal viewer
     gnused  # `gnu`version of sed 
@@ -293,18 +294,23 @@ rec {
   ];  # tuis
 
   dev = [  # development tools and utilities
+    uv  # `python` package installer
     air  # `live reload of `go` applications
     atac  # `postman` like `tui`
     hugo  # a static website generator
     typst # `latex` alternative
     runme  # run commands inside your documents
-    pandoc  # document file converter
     gopls  # `go` language server
     kondo  # clean project files
+    shfmt  # shell parser and formatter
+    jq-lsp  # `jq` language server
+    pandoc  # document file converter
     pyright  # `python` type checker
     graphviz  # graph vizualization tools
+    just-lsp  # `just` language server
     codespell  # spell linter
     gowitness  # website screenshot utility
+    shellcheck  # shell script analysis tool
     gitmoji-cli # using emojis on commit messages
     imagemagick  # edit images on the `cli`
     lua-language-server  # `lua` language server
