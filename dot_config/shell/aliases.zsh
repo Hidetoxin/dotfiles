@@ -89,12 +89,14 @@ alias tictactoe='telnet pixelomer.com'
     && alias tree='eza --git --tree --icons'
 
 # If `jira` is installed
-[ -n "$(command -v jira)" ] \
-    && alias jme="$(jira --status '~Done' --assignee "$(whoami)")"
+  [ -n "$(command -v jira)" ]                                               \
+    && alias jme="jira issue list --status '~Done' --assignee '$(jira me)'" \
+    && alias jdo="jira issue list --jql \"assignee IS EMPTY AND status = 'To Do'\""
 
 # If `just` is installed
-[ -n "$(command -v just)" ] \
-    && alias j='just'
+[ -n "$(command -v just)" ]                            \
+    && alias j='just --choose --global-justfile'       \
+    && alias .j='just'
 
 # If `navi` is installed
 [ -n "$(command -v navi)" ]         \

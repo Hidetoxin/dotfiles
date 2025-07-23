@@ -171,8 +171,9 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 
 {{- if (eq .chezmoi.hostname "mbpm4p") }}
 [ -n "$(command -v jira)" ] \
-    && export JIRA_API_TOKEN="{{ (bitwarden "item" .bw.mbpm4p.id).JiraToken.value }}"
+    && export JIRA_PAGER='bat --paging=always' \
+    && export JIRA_API_TOKEN='{ (bitwardenFields "item" .bw.mbpm4p.id).JiraToken.value }}'
 
 [ -n "$(command -v gemini)" ] \
-    && export GEMINI_API_KEY="{{ (bitwarden "item" .bw.mbpm4p.id).GeminiToken.value }}"
+    && export GEMINI_API_KEY='{{ (bitwardenFields "item" .bw.mbpm4p.id).GeminiToken.value }}'
 {{- end }}

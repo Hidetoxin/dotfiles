@@ -1,17 +1,41 @@
-# When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
-prompt: "enabled"
+---
+
+version: 1
+
 # A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
-pager: "bat"
+pager: bat
 # What editor `gh` should run when creating issues, pull requests, etc. If blank, will refer to environment.
-editor: "nvim"
+editor: nvim
+
+# When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
+prompt: enabled
+
 # What web browser `gh` should use when opening URLs. If blank, will refer to environment.
-browser: ""
+browser: ''
+
 # Aliases allow you to create nicknames for `gh` commands
 aliases:
-    co: "pr checkout"
-    creds: "!cd ~/.config/gh && ln -nfs hosts-$1.yml hosts.yml && cd ~/.config/gama && ln -nfs config-$1.yaml config.yaml && gh auth status"
+
+    # PR related aliases
+    co: pr checkout
+    prc: pr create
+    prv: pr view -w $1
+
+    # Repo related aliases
+    b: browse
+
+    # Issue related aliases
+    me: issues --assignee '@me' --state 'open'
+
+    # Release related aliases
+    rel: gh release view --jq '.[].name' --json 'name'
+    rels: gh release list --jq '.[].name' --json 'name'
+
+    # Identity related aliases
+    creds: !cd ~/.config/gh && ln -nfs hosts-$1.yml hosts.yml && cd ~/.config/gama && ln -nfs config-$1.yaml config.yaml && gh auth status
+
 # What protocol to use when performing git operations. Supported values: ssh, https
-git_protocol: "ssh"
+git_protocol: ssh
+
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
-http_unix_socket: ""
-version: "1"
+http_unix_socket: ''

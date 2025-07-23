@@ -1,12 +1,73 @@
 # vim: syntax=toml
 
 [toplevel]
+# Authentication alises
 creds =
   !f() {
-    cd ~/.config/aws && ln -nsf config-${1} config
+    cd ~/.config/aws && ln -nsf "config-${1}" config
   }; f
-whoami = get-caller-identity
+whoami = sts get-caller-identity --output 'json' | jq
+
+# Region and AvailabilityZones aliases
+ls-azs = aws ec2 describe-availability-zones --query 'AvailabilityZones[*].ZoneName' --output 'json' | jq
+ls-regions = aws ec2 describe-regions --query "Regions[].RegionName" --output 'json' | jq
 
 [command ec2]
-list-sgs = describe-security-groups --query "SecurityGroups[].[GroupId, GroupName]" --output text
+# SecurityGroups aliases
+rm-sg =
+  !f() {
+    aws ec2 delete-security-group \
+      --group-id "${1}" \
+      --output 'json'
+  }; f
+ls-sgs = describe-security-groups --query "SecurityGroups[].[VpcId, GroupId, GroupName]" --output 'text'
+
+# `VPC` aliases
+ls-vpcs = describe-vpcs --query 'Vpcs[*].[VpcId, CidrBlock]' --output 'text'
+ls-subnets = describe-subnets --query 'Subnets[*].[VpcId,SubnetId,AvailabilityZone,CidrBlock]' --output 'text'
+
+# `EC2` aliases
 instance-profiles = !aws iam list-instance-profiles
+
+[command rds]
+# `RDS` cluster aliases
+fd-clus =
+  !f() {
+    aws rds describe-db-clusters \
+      --query "DBClusters[?starts_with(Engine, 'aurora') && contains(DBClusterIdentifier, '${1}')].DBClusterIdentifier" \
+      --output 'json' \
+    | jq
+  }; f
+desc-clus =
+  !f() {
+    aws rds describe-db-clusters \
+      --db-cluster-identifier "${1}" \
+      --output 'json' \
+    | jq
+  }; f
+
+# `RDS` instance aliases
+fd-inst =
+  !f() {
+    aws rds describe-db-instances \
+      --query "DBInstances[?starts_with(Engine, 'aurora') && contains(DBInstanceIdentifier, '${1}')].DBInstanceIdentifier" \
+      --output 'json' \
+    | jq
+  }; f
+desc-inst =
+  !f() {
+    aws rds describe-db-instances \
+      --db-instance-identifier "${1}" 
+      --output 'json' \
+    | jq
+  }; f
+
+# `RDS` subnet group aliases
+ls-subnets = describe-db-subnet-groups --query 'DBSubnetGroups[*].[VpcId,DBSubnetGroupName]' --output 'text'
+fd-subnets =
+  !f() {
+    aws rds describe-db-subnet-groups \
+      --query "DBSubnetGroups[contains(DBSubnetGroupName, '${1}')]" \
+      --output 'json' \
+    | jq
+  }; f
