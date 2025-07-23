@@ -12,10 +12,10 @@ rec {
   ];  # fun
 
   cli = [
-    "codegrab"  # grab code to feed into an `llm`
-    "tfschema"  # schema checker for `terraform`
-    "terratag"  # apply tags to `terraform` resources
-    "aws-console"  # open `aws` console on a browser
+  "codegrab"  # grab code to feed into an `llm`
+  "tfschema"  # schema checker for `terraform`
+  "terratag"  # apply tags to `terraform` resources
+  "aws-console"  # open `aws` console on a browser
   ];  # cli
 
   dev = [

@@ -298,6 +298,7 @@ rec {
     air  # `live reload of `go` applications
     atac  # `postman` like `tui`
     hugo  # a static website generator
+    vial  # a `qmk` fork
     typst # `latex` alternative
     runme  # run commands inside your documents
     gopls  # `go` language server

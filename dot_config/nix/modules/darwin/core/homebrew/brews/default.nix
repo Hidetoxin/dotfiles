@@ -42,6 +42,7 @@ rec {
   ];  # dev
 
   gui = [
+    "pingplace"  # custoize your notification position
   ];  #gui
 
   dmn = [

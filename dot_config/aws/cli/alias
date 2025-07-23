@@ -6,6 +6,7 @@ creds =
   !f() {
     cd ~/.config/aws && ln -nsf "config-${1}" config
   }; f
+
 whoami = sts get-caller-identity --output 'json' | jq
 
 # Region and AvailabilityZones aliases
