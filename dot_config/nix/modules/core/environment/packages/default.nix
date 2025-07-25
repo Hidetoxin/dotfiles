@@ -121,7 +121,9 @@ rec {
     gh  # `github` cli
     gh-f  # `fzf` extension
     gh-s  # `fzf` extension
+    gh-cal  # contributions calender terminal viewer
     gh-eco  # explore the ecosystem
+    gh-pos  # safely clean up your local branches
     gh-dash  # display dashboar with requests and issues
     gh-notify  # display `github` notifications
     gh-copilot  # use `copilot` on the `cli`

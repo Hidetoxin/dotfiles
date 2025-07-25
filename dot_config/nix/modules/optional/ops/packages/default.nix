@@ -70,6 +70,7 @@ rec {
 
   net = [
     bmon  # network bandwith monitor
+    ipcalc  # simple `ip` calculator
     tshark  # `cli` for `wireshark`
   ];  # net
 
