@@ -1,20 +1,13 @@
 # Files used only on `macos`
 {{ if ne .chezmoi.os "darwin" }}
-.config/svim/*
-.config/skhd/*
-.config/yabai/*
-.config/sketchybar/*
 {{ end }}
 
+# Files used only on `macos`
 {{- if ne .chezmoi.hostname "mbam1" }}
 {{- end }}
 
-{{- if ne .chezmoi.hostname "mbam2" }}
-.config/aws/*
-.config/.jira/*
+{{- if ne .chezmoi.hostname "mbpm4p" }}
 {{- end }}
 
 {{- if ne .chezmoi.hostname "mbpm4m" }}
-.config/aws/*
-.config/.jira/*
 {{- end }}

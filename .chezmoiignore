@@ -4,27 +4,29 @@ README.md
 
 # Files only used on `macos`
 {{ if ne .chezmoi.os "darwin" }}
-.config/svim/*
-.config/skhd/*
-.config/yabai/*
-.config/sketchybar/*
+.config/svim/**
+.config/skhd/**
+.config/yabai/**
+.config/aerospace/**
+.config/sketchybar/**
 {{ end }}
 
 # Files only used on `mbam1`
 {{- if ne .chezmoi.hostname "mbam1" }}
 {{- end }}
 
-# Files only used on `mbam2`
-{{- if ne .chezmoi.hostname "mbam2" }}
-.config/.jira/.config.yml
+# Files only used on `mbpm4p`
+{{- if ne .chezmoi.hostname "mbpm4p" }}
 {{- end }}
 
 # Files only used on `mbpm4m`
 {{- if ne .chezmoi.hostname "mbpm4m" }}
-.config/.jira/.config.yml
 {{- end }}
 
 # Files to ignore on all hosts
 .config/gh/hosts.yml
 .config/aws/config
 .config/aws/credentials
+.config/nix/flake.lock
+.config/kube/**
+.config/nvim/lazy-lock.json
