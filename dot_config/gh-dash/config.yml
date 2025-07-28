@@ -1,7 +1,51 @@
 # vim: syntax=yaml
 ---
 
-# yaml-language-server: $schema=https://dlvhdr.github.io/gh-dash/configuration/gh-dash/schema.json
+yaml-language-server: $schema=https://dlvhdr.github.io/gh-dash/configuration/gh-dash/schema.json
+
+pager:
+  diff: diffnav
+
+theme:
+  ui:
+    table:
+      compact: false
+    sectionsShowCount: true
+  colors:
+    text:
+      faint: "#fbf1c7"  # beige
+      success: "#98971a"  # green
+      warning: "#d79921"  # yellow
+      primary: "#458588"  # blue
+      inverted: "#282828"  # black
+      secondary: "#b16286"  # purple
+    border:
+      faint: "#fbf1c7"  # beige
+      primary: "#fbf1c7"  # beige
+      secondary: "#fbf1c7"  # beige
+    background:
+      selected: "#3c3836"  # gray
+
+defaults:
+  view: prs
+  prsLimit: 20
+  issuesLimit: 20
+  refetchIntervalMinutes: 5
+  layout:
+    prs:
+      base:
+        hidden: true
+      repoName:
+        grow: true,
+        width: 10
+        hidden: false
+  preview:
+    open: true
+    width: 70
+
+# repoPaths:
+#   dlvhdr/*: ~/code/personal/*
+
 # prSections:
 #   - title: Mine
 #     filters: is:open author:@me repo:dlvhdr/gh-dash updated:>={{ nowModify "-3w" }} sort:updated-desc
@@ -12,36 +56,14 @@
 #     filters: repo:dlvhdr/gh-dash -author:@me is:open updated:>={{ nowModify "-2.5w" }}
 #   - title: All
 #     filters: repo:dlvhdr/gh-dash
-# issuesSections:
-#   - title: Open
-#     filters: author:@me repo:dlvhdr/gh-dash is:open -author:@me sort:reactions
-#   - title: Creator
-#     filters: author:@me repo:dlvhdr/gh-dash is:open
-#   - title: All
-#     filters: repo:dlvhdr/gh-dash sort:reactions
-#
-# pager:
-#   diff: diffnav
-# defaults:
-#   view: prs
-#   refetchIntervalMinutes: 5
-#   layout:
-#     prs:
-#       repoName:
-#         grow: true,
-#         width: 10
-#         hidden: false
-#       base:
-#         hidden: true
-#
-#   preview:
-#     open: true
-#     width: 70
-#   prsLimit: 20
-#   issuesLimit: 20
-# repoPaths:
-#   dlvhdr/*: ~/code/personal/*
-#
+
+issuesSections:
+  - title: Me 
+    filters: >-
+      author:@me
+      is:open -author:@me
+      sort:reactions
+
 # keybindings:
 #   universal:
 #     - key: g
@@ -68,27 +90,3 @@
 #       name: approve
 #       command: >
 #         gh pr review --repo {{.RepoName}} --approve --body "$(gum input --prompt='Approval Comment: ')" {{.PrNumber}}
-
-theme:
-  ui:
-    table:
-      compact: false
-    sectionsShowCount: true
-
-  colors:
-
-    text:
-      faint: "#fbf1c7"  # beige
-      success: "#98971a"  # green
-      warning: "#d79921"  # yellow
-      primary: "#458588"  # blue
-      inverted: "#282828"  # black
-      secondary: "#b16286"  # purple
-
-    background:
-      selected: "#3c3836"  # gray
-
-    border:
-      faint: "#fbf1c7"  # beige
-      primary: "#fbf1c7"  # beige
-      secondary: "#fbf1c7"  # beige

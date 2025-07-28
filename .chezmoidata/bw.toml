@@ -7,13 +7,16 @@
     id  = "02117aeb-0793-49d8-abf3-b2a500068325"
     gpg = "c04c32f7-a932-4e72-b683-b2ac0158dd77"
     ssh = "012a6d53-b73d-43a2-a6a1-b2a100504eba"
+    aws = ""
 
-  [bw.mbam2]
-    id  = "6f453bf9-4f96-4ee2-915b-b2a50005ed47"
-    gpg = "a08d2585-8e1a-4f2e-a1e6-b2ac00e5bba9"
-    ssh = "7475e2b6-a941-4edc-989a-b2a1004bf21f"
+  [bw.mbpm4p]
+    id  = "f102b4ca-5257-4523-8b5a-b2e4002de883"
+    gpg = "798f5bb8-49d2-4f72-be0d-b2e4002d46e8"
+    ssh = "a7447385-8ac7-4604-86ee-b2e3012ec288"
+    aws = "78927d48-a39b-4ce4-91a9-b3010140e3a3"
 
   [bw.mbpm4m]
     id  = "acab2971-9da1-437b-a95c-b2ac004554ce"
     gpg = "9d7ab76e-976f-42db-999d-b2ac00e5dccd"
     ssh = "c1475cc1-ffd2-4d52-b9a5-b2ac0045f19c"
+    aws = ""

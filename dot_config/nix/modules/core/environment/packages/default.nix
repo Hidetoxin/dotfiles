@@ -11,6 +11,7 @@ rec {
     jalm  # generate generate progress bar form `cron` expressions
     play  # `tui` playground for your favorite programs, such as `grep`, `sed` and `awk`
     mdtt  # edit `markdown` tables
+    vial  # a `qmk` fork
     vops  # `vault` cluster management tool
     flawz  # `tui` for browsing the security vulnerabilities
     tlock  # store and manage your authentication tokens
@@ -77,10 +78,8 @@ rec {
   ];  # np
 
   na = [
-    nb # `cli` note taker
     gtt  # `tui` for translation
     lua  # scripting language
-    nap  # `tui` for code snippets
     pet  # `cli` snippets manager
     prs  # `pass` alternative
     w3m  # `cli` browser
@@ -99,6 +98,7 @@ rec {
     pueue  # daemon for managing long running commands
     pyenv  # `python`` manager
     aichat # `cli` ai assistant
+    dogdns  # `dig` alternative
     jobber  # `crk`, `sed`, `cut`, `join`, and `sort` for data formats such as `csv`, `tsv`, `json`, `json lines`, and positionally-indexed.
     nsnake  # snake game
     zellij  # `tmux` alternative
@@ -122,9 +122,12 @@ rec {
     gh  # `github` cli
     gh-f  # `fzf` extension
     gh-s  # `fzf` extension
+    gh-cal  # contributions calender terminal viewer
     gh-eco  # explore the ecosystem
+    gh-pos  # safely clean up your local branches
     gh-dash  # display dashboar with requests and issues
     gh-notify  # display `github` notifications
+    gh-copilot  # use `copilot` on the `cli`
     gh-markdown-preview  # `markdown` preview
   ];  # gh
 
@@ -150,9 +153,11 @@ rec {
     fq  # `jq` for binaries
     fx  # terminal json viewr
     jq  # `json` processor
+    nb # `cli` note taker
     sd  # `sed`alternative
     sl  # `ls` mispelled for fun
     xh  # tool for `http` requests
+    yq  # `yaml` processor
 
     age  # `gpg` alternative
     bat  # `cat` alternative
@@ -167,6 +172,7 @@ rec {
     jnv  #  `tui` for `jq`
     jqp  # `tui` for `jq`
     mtr  # combines the functionality of the `traceroute` and `ping`
+    nap  # `tui` for code snippets
     vhs  # generate terminal `gif`
     viu  # `imgcat` alternative
     xan  # `cli` for `csv` files
@@ -193,6 +199,7 @@ rec {
     cheat  # `tldr` alternative
     dasel  # `jq` alternative for `csv`, `xml` `json`, `yaml` and `toml`
     delta  # syntax-highlighting pager for git
+    doggo  # modern `dig` alternative
     gnupg  # privacy guard
     gping  # `ping alternative`
     helix  # `vim` inspired text editor
@@ -210,8 +217,8 @@ rec {
 
     bottom  # `ps` alternative
     catimg  # `cli` image printing
+    curlie  # better `curl`
     direnv  # environment manage
-    dogdns  # `dig` alternative
     gh-cal  # `github` contributions calender terminal viewer
     gnused  # `gnu`version of sed 
     go-2fa  # `cli` for 2fa
@@ -230,6 +237,7 @@ rec {
     zoxide  # `cd` alternative
 
     chezmoi  # dotfiles manager
+    diffnav  # pager based on `delta`
     erdtree  # file-tree visualizer and disk usage analyzer
     gitlint  # `git` linter
     gnumake  # generation of files from source
@@ -240,11 +248,11 @@ rec {
     sampler  # `tui for `shell` commands
     sshpass  # `ssh` non-interactive authentication
     termscp  # feature rich terminal file transfer
-    thefuck  # corrects mispelled commands
 
     tealdeer  # `tldr` alternative
     tomato-c  # pomodoro timer
     visidata  # exploring and arranging tabular data 
+    yamllint  # `yaml` linter
 
     mcfly-fzf  # `history` alternative 
     xdg-ninja  # check your home for `xdg` format
@@ -258,8 +266,10 @@ rec {
     tree-sitter  #  incremental parser library
 
     code-minimap  # minimap renderer
+    pay-respects  # corrects mispelled commands
 
     # bitwarden-cli  # `cli` for `bitwarden`
+    hl-log-viewer  # make logs readable
     speedtest-cli  # check your internet speed
 
     universal-ctags  # fast source code browsing
@@ -287,19 +297,24 @@ rec {
   ];  # tuis
 
   dev = [  # development tools and utilities
+    uv  # `python` package installer
     air  # `live reload of `go` applications
     atac  # `postman` like `tui`
     hugo  # a static website generator
     vial  # a `qmk` fork
     typst # `latex` alternative
     runme  # run commands inside your documents
-    pandoc  # document file converter
     gopls  # `go` language server
     kondo  # clean project files
+    shfmt  # shell parser and formatter
+    jq-lsp  # `jq` language server
+    pandoc  # document file converter
     pyright  # `python` type checker
     graphviz  # graph vizualization tools
+    just-lsp  # `just` language server
     codespell  # spell linter
     gowitness  # website screenshot utility
+    shellcheck  # shell script analysis tool
     gitmoji-cli # using emojis on commit messages
     imagemagick  # edit images on the `cli`
     lua-language-server  # `lua` language server

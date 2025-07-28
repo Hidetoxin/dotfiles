@@ -1,0 +1,34 @@
+# vim: syntax=gitconfig
+
+{{- if (eq .chezmoi.hostname "mbpm4p") }}
+[user]
+    name    = "{{ (bitwarden "item" .bw.mbpm4p.id).identity.firstName }} {{ (bitwarden "item" .bw.mbpm4p.id).identity.middleName }}"
+    email   = "{{ (bitwarden "item" .bw.mbpm4p.id).identity.email }}"
+    signkey = "{{ (bitwardenFields "item" .bw.mbpm4p.gpg).Id.value }}"
+
+[commit]
+    gpgsign = true
+
+[github]
+    user = "{{ (bitwarden "item" .bw.mbpm4p.id).identity.username }}"
+
+[url "ssh://git@mbpm4p.github.com/"]
+	insteadOf = "https://github.com/"
+[url "ssh://git@mbpm4p.github.com/"]
+	insteadOf = "ssh://git@github.com/"
+
+[url "ssh://git@mbpm4pgitlab.com/"]
+	insteadOf = "https://gitlab.com/"
+[url "ssh://git@mbpm4p.gitlab.com/"]
+	insteadOf = "ssh://git@gitlab.com/"
+
+[url "ssh://git@mbpm4p.bitbucket.org/"]
+	insteadOf = "https://bitbucket.org/"
+[url "ssh://git@mbpm4p.bitbucket.org/"]
+	insteadOf = "ssh://git@bitbucket.org/"
+
+[url "ssh://git@mbpm4p.codeberg.org/"]
+	insteadOf = "https://codeberg.org/"
+[url "ssh://git@mbpm4p.codeberg.org/"]
+	insteadOf = "ssh://git@codeberg.org/"
+{{- end }}

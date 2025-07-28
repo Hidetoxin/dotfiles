@@ -20,7 +20,6 @@ rec {
     "monarch"  #  `spotlight` alternative
     "shortcat"  #  `os` wide clone of `vimium`
     "aerospace"  # `i3` alternative window manager
-    "eloston-chromium"  # privacy focused fork of `chromium`
     "karabiner-elements"  # utility for keyboard customization
   ];  # gui
 

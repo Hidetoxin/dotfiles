@@ -1,11 +1,11 @@
 rec {
 
   na = [
-  "aiws"  # `aws` command line with `ai`
-  "kplay" #  `tui` playground for `kafka`
-  "surf"  # `grep` for `infrastructure`
-  "humanlog"  # pretty logs
-  "telophasecli"  #  manages your `aws` organization as `iac`
+    "aiws"  # `aws` command line with `ai`
+    "kplay" #  `tui` playground for `kafka`
+    "surf"  # `grep` for `infrastructure`
+    "humanlog"  # pretty logs
+    "telophasecli"  #  manages your `aws` organization as `iac`
   ];  # na
 
   fun = [

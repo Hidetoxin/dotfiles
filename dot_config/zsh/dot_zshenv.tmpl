@@ -1,0 +1,177 @@
+# vim: syntax=sh
+#
+# https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
+#
+# .zshenv is always sourced. It often contains exported variables that should
+# be available to other programs. For example, $PATH, $EDITOR, and $PAGER are
+# often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an
+# alternative location for the rest of your zsh configuration.
+#
+# .zshenv -> .zprofile -> .zshrc -> .zlogin -> .zlogout
+#
+# Add the below code to '/etc/zshenv' so it can pick-iup this file
+# #!/bin/zsh
+#
+# if [[ -z "$XDG_CONFIG_HOME" ]]
+# then
+#     export XDG_CONFIG_HOME="$HOME/.config"
+# fi
+#
+# if [[ -d "$XDG_CONFIG_HOME/zsh" ]]
+# then
+#     export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+# fi
+
+# Setup `xdg` base directories
+# https://wiki.archlinux.org/index.php/XDG_Base_Directory
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.state"
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Setup `xdg` user directories
+export XDG_MUSIC_DIR="$HOME/Music"
+export XDG_VIDEOS_DIR="$HOME/Videos"
+export XDG_DESKTOP_DIR="$HOME/Desktop"
+export XDG_PICTURES_DIR="$HOME/Pictures"
+export XDG_DOWNLOAD_DIR="$HOME/Downloads"
+export XDG_DOCUMENTS_DIR="$HOME/Documents"
+export XDG_TEMPLATES_DIR="$HOME/Templates"
+export XDG_PUBLICSHARE_DIR="$HOME/Public"
+
+# Setup history settings
+export HISTDUP='erase'
+export HISTSIZE=65536
+export SAVEHIST="$HISTSIZE"
+export HISTFILE="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh/history"
+ 
+# Add user scripts to path
+export PATH="$PATH:$XDG_DATA_HOME/../bin"
+
+# Setup language settings
+export LANG='en_US.UTF-8'
+
+# Setup editing settings
+export PAGER='bat'
+export EDITOR='nvim'
+
+# Setup `zsh` settings
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+
+# Setup `brew` settings
+[ -d '/opt/homebrew/bin/' ]      \
+    && _BREW='/opt/homebrew/bin' \
+    || _BREW='/usr/local/bin'
+
+[ -n "$(command -v $_BREW/brew)" ] \
+    && eval "$($_BREW/brew shellenv)"
+
+[ -n "$(command -v az)" ] \
+    && export AZURE_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/azure"
+
+[ -n "$(command -v rg)" ] \
+    && export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/ripgrep/ripgrep.conf"
+
+[ -n "$(command -v k9s)" ] \
+    && export K9SCONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/k9s"
+
+[ -n "$(command -v gpg)" ] \
+    && export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/sahre}/gnupg"
+
+[ -n "$(command -v aws)" ]                                                    \
+    && export AWS_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/aws/config" \
+    && export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/aws/credentials"
+
+[ -n "$(command -v bat)" ] \
+    && export BAT_CONFIG_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/bat/bat.conf"
+
+[ -n "$(command -v fzf)" ]                                                                       \
+    && export FZF_TMUX_HEIGHT='80%'                                                              \
+    && export FZF_DEFAULT_OPTS="                                                  \
+        --prompt='~ ❯ '                                                           \
+        --height='80%'                                                            \
+        --marker='✗'                                                              \
+        --pointer='▶'                                                             \
+        --border                                                                  \
+        --inline-info                                                             \
+        --layout=reverse                                                          \
+        --preview                                                                 \
+            '([[ -f {} ]] &&                                                      \
+            (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && \
+            (exa --tree --icons --color=always {} | less)) || echo {} 2> /dev/null | head -200'" \
+    && export FZF_DEFAULT_COMMAND='fd --type f'                                                  \
+    && export FZF_COMPLETION_TRIGGER='**'
+
+[ -n "$(command -v pass)" ] \
+    && export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME}/.config}/pass"
+
+[ -n "$(command -v navi)" ] \
+    && export NAVI_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/navi"
+
+[ -n "$(command -v mcfly)" ]                \
+    && export MCFLY_FUZZY=true              \
+    && export MCFLY_RESULTS=100             \
+    && export MCFLY_KEY_SCHEME='vim'        \
+    && export MCFLY_RESULTS_SORT='LAST_RUN' \
+    && export MCFLY_INTERFACE_VIEW='BOTTOM'
+
+[ -n "$(command -v vivid)" ] \
+    && export LS_COLORS="$(vivid -m 24-bit generate gruvbox-dark)"
+
+[ -n "$(command -v goenv)" ]                                            \
+    && export GOPATH="${XDG_DATA_HOME:-${HOME}/.local/share}/go"        \
+    && export GOENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/goenv" \
+    && export GOENV_GOPATH_PREFIX="$GOPATH"
+
+[ -n "$(command -v pyenv)" ] \
+    && export PYENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/pyenv"
+
+[ -n "$(command -v rbenv)" ] \
+    && export RBENV_ROOT="${XDG_DATA_HOME:-$HOME}/.local/share}/rbenv"
+
+[ -n "$(command -v nodenv)" ]                     \
+    && export NODENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/nodenv" \
+    && export NODE_OPTIONS='--no-deprecation'
+
+[ -n "$(command -v argocd)" ] \
+    && eval "$(argocd completion zsh)"
+
+[ -n "$(command -v packer)" ]                                    \
+    && export PACKER_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/packer/packer.json" \
+    && export PACKER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/packer"
+
+[ -n "$(command -v aichat)" ] \
+    && export AICHAT_CONFIG_DIR="$XDG_CONFIG_HOME/aichat"
+
+[ -n "$(command -v zellij)" ] \
+    && export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zellij"
+
+[ -n "$(command -v kubectl)" ]                                             \
+    && export KUBECONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/kube/config" \
+    && export KUBECACHEDIR="${XDG_CACHE_HOME:-$HOME/.cache}/kube"
+
+[ -n "$(command -v gh-dash)" ] \
+    && export GH_DASH_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/gh-dash/config.yml"
+
+[ -n "$(command -v passage)" ]                                              \
+    && export PASSAGE_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/passage"  \
+    && export PASSAGE_IDENTITIES_FILE="${XDG_DATA_HOME:-${HOME}/.local/share}/passage/identities"
+
+[ -n "$(command -v aws-vault)" ]                                      \
+    && export AWS_VAULT_BACKEND='pass'                                \
+    && export AWS_VAULT_PASS_PREFIX='aws'                             \
+    && export AWS_VAULT_PASS_PASSWORD_STORE_DIR="$PASSWORD_STORE_DIR"
+
+[ -n "$(command -v pay-respects)" ] \
+    && eval "$(pay-respects zsh)"
+
+{{- if (eq .chezmoi.hostname "mbpm4p") }}
+[ -n "$(command -v jira)" ] \
+    && export JIRA_PAGER='bat --paging=always' \
+    && export JIRA_API_TOKEN='{ (bitwardenFields "item" .bw.mbpm4p.id).JiraToken.value }}'
+    && export JIRA_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/jira/config.yml"
+
+[ -n "$(command -v gemini)" ] \
+    && export GEMINI_API_KEY='{{ (bitwardenFields "item" .bw.mbpm4p.id).GeminiToken.value }}'
+{{- end }}

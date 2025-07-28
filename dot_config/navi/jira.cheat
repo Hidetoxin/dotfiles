@@ -1,0 +1,15 @@
+# vim: syntax=sh
+
+# $ var:
+# View all `jira` issues assigned to me
+% jira, issues, me
+jira issue list --status '~Done' --assignee "$(jira me)"
+
+# View all un-assigned `jira` issues
+%jira, issues, todo
+jira issue list --jql "assignee IS EMPTY AND status = 'To Do'"
+
+# Coment a `jira` issue assigned to me
+$ issue: jira issue list --plain --status '~Done' --columns 'key' --assignee "$(jira me)" | fzf --preview 'jira issue view {}'
+% jira, issues, comment
+jira issue comment add '<issue>'

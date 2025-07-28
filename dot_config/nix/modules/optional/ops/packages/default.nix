@@ -16,22 +16,18 @@ rec {
 
   na = [
     eget  # install pre-built binaries from `github`
-    sops  # simple and flexible tool for managing secrets
     aiws  # `ai` for `aws`
     ttop  # `top` like system monitoring tool
-    helm  # charts for `k8s`
     s-tui  # stress-terminal `tui` monitoring tool
     tsung  # benchmark framework for various protocols
     s5cmd  # parallel `s3` and local filesystem execution tool
     vault  # tool for managing secrets
     damon  # `tui` for `nomad`
-    trivy  # vulnerability scanner for containers
     packer  # create computer images
     wander  # `tui` for `nomad`
     ollama  # run language models locally
     granted  # cloud access
     vagrant  # build complete development environments
-    kubectx  # tool to switch between contexts
     ansible  # simple automation
     molecule  # `ansible` test framework
     sniffnet  # monitor your Internet traffic
@@ -53,6 +49,7 @@ rec {
     checkov  # code analysis tool for `iac`
     terrascan  #  `terraform` security linter
     terramate  # code generation, stacks, orchestration, change detection, data sharing and more to `terraform`
+    terraformer  # reverse `terraform`
     terracognita  # `terraform` state importer
     terraform-ls  # `terraform` language server
     terraform-docs  # `terraform` document generator
@@ -73,6 +70,7 @@ rec {
 
   net = [
     bmon  # network bandwith monitor
+    ipcalc  # simple `ip` calculator
     tshark  # `cli` for `wireshark`
   ];  # net
 
@@ -82,13 +80,19 @@ rec {
 
   k8s = [
     k9s # `tui` for `k8s`
+    argocd  # declarative continuous deployment for `k8s`
+    helm-ls  # language server for `helm`
     kubectl  # `cli` for `k8s`
+    kubectx  # tool to switch between `k8s` contexts
     hadolint  # `docker` file linter
     helm-docs  # generate documentation for `helm` charts
     lazydocker  # `docker` tui
+    kubernetes-helm  # charts for `k8s`
   ];  # k8s
 
   sec = [
+    sops  # simple and flexible tool for managing secrets
+    trivy  # vulnerability scanner for containers
     unbound  # validating, recursive, caching `dns` resolver
     termshark  # `tui` for `wireshark-cli`
     osv-scanner # `osv` for scanning vulnerabilities
@@ -99,13 +103,13 @@ rec {
   bench = [
     vegeta  # versatile `http` load testing tool
     hyperfine  # `cli` benchmark tools
-
   ];  # bench
 
   cloud = [
     stu  # `aws` bucket explorer
     bicep # `cli` tool for working with `bicep` files
     awsume  # `aws` profile manager
+    eksctl  # `cli` for `eks`
     awscli2  # `aws` `cli`
     aws-gate  # `aws` client manager for `ssm`
     aws-vault  # get `aws` credentials
@@ -115,6 +119,9 @@ rec {
 
   tools = [
     lnav  # log viewer
+    wrkflw  # `tui` for running local `github` workflows
+    gama-tui # `tui` for running `github` workflows
+    jfrog-cli  # `cli` for `jfrog` artifact hosting
     actionlint  # linter for `github` workflows
   ];  # tools
 
