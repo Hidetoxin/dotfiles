@@ -147,8 +147,8 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v zellij)" ] \
     && export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zellij"
 
-[ -n "$(command -v kubectl)" ]                                      \
-    && export KUBECONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/kube" \
+[ -n "$(command -v kubectl)" ]                                             \
+    && export KUBECONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/kube/config" \
     && export KUBECACHEDIR="${XDG_CACHE_HOME:-$HOME/.cache}/kube"
 
 [ -n "$(command -v gh-dash)" ] \
@@ -170,6 +170,7 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v jira)" ] \
     && export JIRA_PAGER='bat --paging=always' \
     && export JIRA_API_TOKEN='{ (bitwardenFields "item" .bw.mbpm4p.id).JiraToken.value }}'
+    && export JIRA_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/jira/config.yml"
 
 [ -n "$(command -v gemini)" ] \
     && export GEMINI_API_KEY='{{ (bitwardenFields "item" .bw.mbpm4p.id).GeminiToken.value }}'

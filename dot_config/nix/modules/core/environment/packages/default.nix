@@ -80,6 +80,7 @@ rec {
   na = [
     gtt  # `tui` for translation
     lua  # scripting language
+    pet  # `cli` snippets manager
     prs  # `pass` alternative
     w3m  # `cli` browser
     wtf  # `tui` dashboard
@@ -172,7 +173,6 @@ rec {
     jqp  # `tui` for `jq`
     mtr  # combines the functionality of the `traceroute` and `ping`
     nap  # `tui` for code snippets
-    pet  # `cli` snippets manager
     vhs  # generate terminal `gif`
     viu  # `imgcat` alternative
     xan  # `cli` for `csv` files
@@ -237,6 +237,7 @@ rec {
     zoxide  # `cd` alternative
 
     chezmoi  # dotfiles manager
+    diffnav  # pager based on `delta`
     erdtree  # file-tree visualizer and disk usage analyzer
     gitlint  # `git` linter
     gnumake  # generation of files from source
