@@ -7,11 +7,11 @@ Host mbam1.github.com
     IdentitiesOnly           yes
     PreferredAuthentications publickey
 
-{{- if (eq .chezmoi.hostname "mbam2") }}
-Host mbam2.github.com
+{{- if (eq .chezmoi.hostname "mbpm4p") }}
+Host mbpm4p.github.com
     User                     git
     Hostname                 github.com
-    IdentityFile             ~/.config/ssh/id_github_mbam2
+    IdentityFile             ~/.config/ssh/id_github_mbpm4p
     IdentitiesOnly           yes
     PreferredAuthentications publickey
 {{- end }}

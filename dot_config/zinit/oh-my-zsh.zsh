@@ -135,10 +135,6 @@ zinit ice --lucid --wait=0 --if="[ -n $(command -v git) ]" \
 zinit ice --lucid --wait=0 --if="[ -n $(command -v pre-commit) ]" \
     && zinit snippet 'OMZ::plugins/pre-commit/pre-commit.plugin.zsh'
 
-# Correct command pressing `esc - esc`
-zinit ice --lucid --wait=0  \
-    && zinit snippet 'OMZ::plugins/thefuck/thefuck.plugin.zsh'
-
 # Toggle `fg` and `bg` commands pressing `ctrl + z`
 zinit ice --lucid --wait=0  \
     && zinit snippet 'OMZ::plugins/fancy-ctrl-z/fancy-ctrl-z.plugin.zsh'

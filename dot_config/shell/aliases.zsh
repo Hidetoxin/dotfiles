@@ -45,9 +45,11 @@ alias forrest='curl ascii.live/forrest'
 alias tictactoe='telnet pixelomer.com'
 
 # If `bw` is installed
-[ -n "$(command -v bw)" ]                                                      \
-    && alias bwlo='bw logout && unset BW_SESSION'                              \
-    && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"' \
+[ -n "$(command -v bw)" ]                                                              \
+    && alias bwpp='bw generate --passphrase --words 3'                                 \
+    && alias bwpw='bw generate --number --special --lowercase --uppercase --length 16' \
+    && alias bwlo='bw logout && unset BW_SESSION'                                      \
+    && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"'         \
     && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(2fa self/bw/2fa) --raw)"'
 
 # If `gpg` is installed
@@ -86,9 +88,15 @@ alias tictactoe='telnet pixelomer.com'
     && alias l9='eza -F -lah --git --icons ../../../../../../../..' \
     && alias tree='eza --git --tree --icons'
 
+# If `jira` is installed
+  [ -n "$(command -v jira)" ]                                               \
+    && alias jme="jira issue list --status '~Done' --assignee '$(jira me)'" \
+    && alias jdo="jira issue list --jql \"assignee IS EMPTY AND status = 'To Do'\""
+
 # If `just` is installed
-[ -n "$(command -v just)" ] \
-    && alias j='just'
+[ -n "$(command -v just)" ]                            \
+    && alias j='just --choose --global-justfile'       \
+    && alias .j='just'
 
 # If `navi` is installed
 [ -n "$(command -v navi)" ]         \
@@ -130,6 +138,10 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v tmux)" ] \
     && alias tmux='TERM=xterm-256color tmux'
 
+# If `delta` is installed
+[ -n "$(command -v delta)" ] \
+    && alias d='delta'
+
 # If `imgcat` is installed
 [ -n "$(command -v imgcat)" ] \
     && alias ic='imgcat'      \
@@ -147,6 +159,10 @@ alias tictactoe='telnet pixelomer.com'
 # If `aichat` is installed
 [ -n "$(command -v aichat)" ] \
     && alias aic='aichat'
+
+# If `argocd` is installed
+[ -n "$(command -v argocd)" ] \
+    && alias argo='argocd'
 
 # If `awsume` is installed
 [ -n "$(command -v awsume)" ] \
@@ -268,10 +284,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias tdocm='terraform-docs markdown table'
 
 # If `darwin-rebuild` is installed
-[ -n "$(command -v darwin-rebuild)" ]                                                                             \
-    && alias dr='darwin-rebuild'                                                                                  \
-    && alias drc='cd ~/.config/nix && darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
-    && alias drs='cd ~/.config/nix && darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
+[ -n "$(command -v darwin-rebuild)" ]                                                                                  \
+    && alias dr='sudo darwin-rebuild'                                                                                  \
+    && alias drc='cd ~/.config/nix && sudo darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
+    && alias drs='cd ~/.config/nix && sudo darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
 
 # If `markdownlint-cli` is installed
 # [ -n "$(command -v markdownlint)" ] \

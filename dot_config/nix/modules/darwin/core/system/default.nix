@@ -1,4 +1,4 @@
-{ self, pkgs, config, hostname, ... }:
+{ self, pkgs, config, username, hostname, ... }:
 
   ###################################################################################
   #
@@ -13,6 +13,9 @@
 {
 
   system = {
+
+    # For multi-user support
+    primaryUser = "${username}";
 
     # Used for backwards compatibility, please read the changelog before changing.
     # $ darwin-rebuild changelog

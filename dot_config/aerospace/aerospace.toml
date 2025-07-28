@@ -71,7 +71,7 @@ on-focused-monitor-changed = [
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 outer.top        = [
-  { monitor.'^built-in retina display$' = 60 },
+  { monitor.'^built-in retina display$' = 30 },
   { monitor.'^asus xg17a$' = 60 },
     60
 ]
@@ -96,7 +96,7 @@ inner.vertical   = [
     10
 ]
 inner.horizontal = [
-  { monitor.'^built-in retina display$' = 10 },
+  { monitor.'^built-in retina display$' = 18 },
   { monitor.'^asus xg17a$' = 10 },
     10
 ]

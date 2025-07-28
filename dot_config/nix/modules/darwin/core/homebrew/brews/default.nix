@@ -13,6 +13,7 @@ rec {
     "kunkun"  #`raycast` alternative
     "kanata"  # keyboard re-mapper
     "diffnav"  # `delta` with a file tree
+    "pingplace"  # customize your notification position
     "s-search"  #  web search
     "leader-key"  #`raycast` alternative
     "eg-examples"  # useful examples 

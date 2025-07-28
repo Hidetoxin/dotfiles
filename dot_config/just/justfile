@@ -1,0 +1,3 @@
+set shell := ["bash", "-uc"]
+
+import '~/.config/just/aws'
