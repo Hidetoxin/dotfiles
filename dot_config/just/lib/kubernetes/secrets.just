@@ -7,6 +7,5 @@ k8s-get-secrets:
     | fzf --preview "kubectl get secret {} -o json | jq -r '.data | map_values(@base64d)'" \
   )" && \
   kubectl get secret "${SECRET_NAME}" \
-    --namespace '{{ k8s_ns }}' \
     --output 'json' \
   | jq '.data | map_values(@base64d)'

@@ -5,7 +5,7 @@ argocd-sync:
   APP_NAME="$(argocd app list \
     | sed '1d'\
     | awk '{print $1}' \
-    | fzf --query 'argocd/{{ app_name }}' --preview 'argocd app get {}' \
+    | fzf --query 'argocd/' --preview 'argocd app get {}' \
   )" && \
   argocd app sync "${APP_NAME}"
 
@@ -16,7 +16,7 @@ argo-ls-res:
   APP_NAME="$(argocd app list \
     | sed '1d'\
     | awk '{print $1}' \
-    | fzf --query 'argocd/{{ app_name }}' --preview 'argocd app get {}' \
+    | fzf --query 'argocd/' --preview 'argocd app get {}' \
   )" && \
   argocd app resources "${APP_NAME}"
 
