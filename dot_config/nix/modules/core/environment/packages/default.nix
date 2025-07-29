@@ -97,6 +97,7 @@ rec {
     dooit  # `tui` todo manager
     pueue  # daemon for managing long running commands
     basilk  # `tui` manage your tasks with minimal `kanban` logic
+    pyenv  # `python`` manager
     dogdns  # `dig` alternative
     jobber  # `crk`, `sed`, `cut`, `join`, and `sort` for data formats such as `csv`, `tsv`, `json`, `json lines`, and positionally-indexed.
     nsnake  # snake game
@@ -123,6 +124,7 @@ rec {
     gh-s  # `fzf` extension
     gh-cal  # contributions calender terminal viewer
     gh-eco  # explore the ecosystem
+    gh-pos  # safely clean up your local branches
     gh-dash  # display dashboar with requests and issues
     gh-notify  # display `github` notifications
     gh-copilot  # use `copilot` on the `cli`
