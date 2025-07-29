@@ -1,21 +1,20 @@
----
-# vim: syntax=yaml
-
 {{- if (eq .chezmoi.hostname "mbpm4m") }}
+---
+
 github:
-  token: "{{ (bitwardenFields "item" .bw.mbpm4m.id).GitHubToken.value }}"
+  token: {{ (bitwardenFields "item" .bw.mbpm4m.id).GitHubToken.value }}
 
 keys:
-  tab: "tab"
-  quit: "ctrl+c"
-  enter: "enter"
-  refresh: "ctrl+r"
-  live_mode: "ctrl+l"  # Toggle live mode on/off
-  switch_tab_left: "shift+left"
-  switch_tab_right: "shift+right"
+  tab: tab
+  quit: ctrl+c
+  enter: enter
+  refresh: ctrl+r
+  live_mode: ctrl+L  # Toggle live mode on/off
+  switch_tab_left: ctrl+l
+  switch_tab_right: ctrl+h
 
 settings:
   live_mode:
     enabled: true  # Enable live mode at startup
-    interval: "15s"  # Refresh interval for live updates
+    interval: 15s  # Refresh interval for live updates
 {{- end }}
