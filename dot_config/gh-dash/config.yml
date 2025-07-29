@@ -43,50 +43,44 @@ defaults:
     open: true
     width: 70
 
-# repoPaths:
-#   dlvhdr/*: ~/code/personal/*
+repoPaths: {}
 
-# prSections:
-#   - title: Mine
-#     filters: is:open author:@me repo:dlvhdr/gh-dash updated:>={{ nowModify "-3w" }} sort:updated-desc
-#     layout:
-#       author:
-#         hidden: true
-#   - title: Review
-#     filters: repo:dlvhdr/gh-dash -author:@me is:open updated:>={{ nowModify "-2.5w" }}
-#   - title: All
-#     filters: repo:dlvhdr/gh-dash
+keybindings:
+  # prs: {}
+  # issues: {}
+  universal:
+    - key: g
+      name: lazygit
+      command: >
+        cd {{ .RepoPath }} && lazygit
+
+prSections:
+  - title:  Ready
+    filters: >-
+      is:open
+      author:@me
+      -is:draft
+  - title:  Drafts
+    filters: >-
+      is:open
+      is:draft
+      author:@me
+  - title:  Review
+    filters: >-
+      is:open
+      review-requested:@me
 
 issuesSections:
-  - title: Me 
+  - title:  Me
     filters: >-
-      author:@me
-      is:open -author:@me
-      sort:reactions
-
-# keybindings:
-#   universal:
-#     - key: g
-#       name: lazygit
-#       command: >
-#         cd {{.RepoPath}} && lazygit
-#   prs:
-#     - key: O
-#       builtin: checkout
-#     - key: C
-#       name: code review
-#       command: >
-#         tmux new-window -c {{.RepoPath}} '
-#         nvim -c ":silent Octo pr edit {{.PrNumber}}"
-#         '
-#     # - key: b
-#     #   name: code review
-#     #   command: cd {{.RepoPath}} && gh pr view {{.PrNumber}} --json statusCheckRollup | command jq -rcj '.statusCheckRollup.[] | select(.context == "buildkite/mono") | .targetUrl' | xargs open
-#     - key: a
-#       name: lazygit add
-#       command: >
-#         cd {{.RepoPath}} && git add -A && lazygit
-#     - key: v
-#       name: approve
-#       command: >
-#         gh pr review --repo {{.RepoName}} --approve --body "$(gum input --prompt='Approval Comment: ')" {{.PrNumber}}
+      is:open
+      assignee:@me
+      -status:Done
+  - title:  All
+    filters: >-
+      is:open
+      is:private
+      label:in-progress
+      -label:paused
+      -label:backlog
+      -status:Done
