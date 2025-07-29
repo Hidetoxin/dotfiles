@@ -1,3 +1,28 @@
 set shell := ["bash", "-uc"]
 
-import '~/.config/just/aws'
+import '~/.config/just/lib/aws/ec2.just'
+import '~/.config/just/lib/aws/rds.just'
+import '~/.config/just/lib/aws/secret-manager.just'
+
+import '~/.config/just/lib/azure/network.just'
+import '~/.config/just/lib/azure/deployment.just'
+import '~/.config/just/lib/azure/key-vault.just'
+import '~/.config/just/lib/azure/subscription.just'
+import '~/.config/just/lib/azure/resource-group.just'
+import '~/.config/just/lib/azure/cognitive-services.just'
+import '~/.config/just/lib/azure/container-instance.just'
+
+import '~/.config/just/lib/github/cicd.just'
+import '~/.config/just/lib/github/repos.just'
+import '~/.config/just/lib/github/release.just'
+import '~/.config/just/lib/github/workflow.just'
+
+import '~/.config/just/lib/kubernetes/pods.just'
+import '~/.config/just/lib/kubernetes/helm.just'
+import '~/.config/just/lib/kubernetes/argocd.just'
+import '~/.config/just/lib/kubernetes/secrets.just'
+import '~/.config/just/lib/kubernetes/services.just'
+import '~/.config/just/lib/kubernetes/crossplane.just'
+
+default:
+  @just --list
