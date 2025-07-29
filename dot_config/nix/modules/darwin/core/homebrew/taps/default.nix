@@ -6,7 +6,6 @@ rec {
     "dhth/tap"  # `omm` / `prs` / `mult` / `hours`
     "ryu0118/kusa"  # `kusa`
     "lihaoyun6/tap"  # `airbattery`
-    "dlvhdr/formulae"  # `diffnav`
     "loteoo/formulas"  # `ks`
     "koekeishiya/formulae/skhd"  # `skhd`
     "koekeishiya/formulae/yabai"  # `yabai`

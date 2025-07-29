@@ -22,7 +22,6 @@ rec {
     enola  # `sherlock` alternative
     moulti  # collapse script outputs
     rucola  # `markdown` note manager
-    basilk  # `tui` manage your tasks with minimal `kanban` logic
     haylxon  # take screenshots of webpages
     mintaka  # runs long-running processes in parallel
     posting  # `postman` like `tui`
@@ -60,6 +59,7 @@ rec {
     dotenvhub  #  `tui` for managing `env` files
     tuitorial  #  `tui` for writing tutorials on the terminal
     reddit-tui  # `tui` for `reddit`
+    gh-pos  # safely clean up your local branches
 
     # gh q kawarimidoll/gh-q
     # gh i gennaro-tedesco/gh-i
@@ -84,11 +84,11 @@ rec {
     prs  # `pass` alternative
     w3m  # `cli` browser
     wtf  # `tui` dashboard
-    buku  # `cli` bookmark manager
     khal  #  `cli` calendar application
     mods  # `ai` on the `cli`
     pipx  # `python` isolated script runner
     qrcp  # transfer files via `qr` by `wifi`
+    vial  # a `qmk` fork
     sesh  # session manager for `tmux`
     smug  # `tmux` session manager
     ttyd  # share terminal over the web
@@ -96,8 +96,8 @@ rec {
     atuin  # `history` alternative
     dooit  # `tui` todo manager
     pueue  # daemon for managing long running commands
+    basilk  # `tui` manage your tasks with minimal `kanban` logic
     pyenv  # `python`` manager
-    aichat # `cli` ai assistant
     dogdns  # `dig` alternative
     jobber  # `crk`, `sed`, `cut`, `join`, and `sort` for data formats such as `csv`, `tsv`, `json`, `json lines`, and positionally-indexed.
     nsnake  # snake game
@@ -179,6 +179,7 @@ rec {
     zsh  # the zshell
 
     bash  # bourne again shell
+    buku  # `cli` bookmark manager
     btop  # `top` alternative
     ddgr  # `ddg` for `cli`
     dust  # `du` command alternative
@@ -199,6 +200,7 @@ rec {
     cheat  # `tldr` alternative
     dasel  # `jq` alternative for `csv`, `xml` `json`, `yaml` and `toml`
     delta  # syntax-highlighting pager for git
+    dooit  # `tui` todo manager
     doggo  # modern `dig` alternative
     gnupg  # privacy guard
     gping  # `ping alternative`
@@ -215,6 +217,7 @@ rec {
     ytfzf  # `youtube` video finder
     zinit  # `zinit` plugin manager
 
+    aichat  # `cli` ai assistant
     bottom  # `ps` alternative
     catimg  # `cli` image printing
     curlie  # better `curl`
@@ -266,6 +269,7 @@ rec {
     tree-sitter  #  incremental parser library
 
     code-minimap  # minimap renderer
+    dooit-extras  # extra utilities for `dooit`
     pay-respects  # corrects mispelled commands
 
     # bitwarden-cli  # `cli` for `bitwarden`
@@ -301,7 +305,6 @@ rec {
     air  # `live reload of `go` applications
     atac  # `postman` like `tui`
     hugo  # a static website generator
-    vial  # a `qmk` fork
     typst # `latex` alternative
     runme  # run commands inside your documents
     gopls  # `go` language server
@@ -324,6 +327,7 @@ rec {
 
   gui = [
     espanso  # text expander
+    ghostty  # terminal emulator written in `zig`
     wezterm  # terminal emulator written in `rust`
     vscodium  # privacy focused fork of `vscode`
   ];  # guis

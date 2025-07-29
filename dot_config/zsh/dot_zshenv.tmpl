@@ -169,7 +169,7 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 {{- if (eq .chezmoi.hostname "mbpm4p") }}
 [ -n "$(command -v jira)" ] \
     && export JIRA_PAGER='bat --paging=always' \
-    && export JIRA_API_TOKEN='{ (bitwardenFields "item" .bw.mbpm4p.id).JiraToken.value }}'
+    && export JIRA_API_TOKEN='{ (bitwardenFields "item" .bw.mbpm4p.id).JiraToken.value }}' \
     && export JIRA_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/jira/config.yml"
 
 [ -n "$(command -v gemini)" ] \
