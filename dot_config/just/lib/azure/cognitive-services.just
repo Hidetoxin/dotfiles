@@ -1,17 +1,19 @@
 [group('cognitive-services')]
 [group('azure')]
-[doc('List the deployments on a resource group.')]
+[doc('List the `soft-deleted` cognitive services.')]
 az-cs-ls:
-  az cognitiveservices account list-deleted --output 'table'
+  az cognitiveservices account list-deleted \
+    --output 'table'
 
 # [group('cognitive-services')]
 # [group('azure')]
-# [doc('List the deployments on a resource group.')]
-# az-cs-del:
-#   az cognitiveservices account list-deleted --output 'table'
-# 
-# [group('cognitive-services')]
-# [group('azure')]
-# [doc('List the deployments on a resource group.')]
+# [doc('Prune  the `soft-deleted` cognitive services.')]
 # az-cs-prune:
-#   az cognitiveservices account purge --name '' --resource-group ''
+#   SVC="$(\
+#     az cognitiveservices account list-deleted \
+#       --query '' | \
+#     fzf \
+#   )"
+#   az cognitiveservices account purge \
+#     --name "${SVC}" \
+#     --resource-group "${RG}"
