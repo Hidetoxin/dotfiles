@@ -1,19 +1,10 @@
-# EXTERNAL REPOSITORIES
-[".cache/tpm/tpm"]
-  url  = "https://github.com/tmux-plugins/tpm"
-  type = "git-repo"
+# External repositories
+[".cache/tmux/plugins/tpm-redux"]
+  url           = "https://github.com/ryanmacg/tpm-redux"
+  type          = "git-repo"
+  refreshPeriod = "7d"
 
-# [".cache/color-scripts"]
-#   url           = "https://gitlab.com/dwt1/shell-color-scripts"
-#   type          = "git-repo"
-#   refreshPeriod = "24h"
-
-# [".cache/pokemon-scripts"]
-#   url           = "https://gitlab.com/phoneybadger/pokemon-colorscripts"
-#   type          = "git-repo"
-#   refreshPeriod = "24h"
-
-# EXTERNAL BINARIES
+# External binaries
 # [".local/bin/siggo"]  # leave comment as an example
 #   url        = "https://github.com/derricw/siggo/releases/download/0.12.0/siggo-0.12.0-darwin-amd64.tar.gz"
 #   type       = "file"
@@ -21,3 +12,5 @@
 #   [".local/bin/siggo".filter]
 #     args    = ["--extract", "--file", "/dev/stdin", "--gzip", "--to-stdout", "bin/siggo"]
 #     command = "tar"
+
+# vim: et ts=2 sts=2 sw=2 syntax=toml
