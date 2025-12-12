@@ -50,7 +50,6 @@
     # - https://github.com/lnl7/nix-darwin/tree/master
     nix-darwin = {
       url = "github:lnl7/nix-darwin";
-      # inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -89,7 +88,7 @@
     ...
   }: let
 
-    # TODO replace with your own username, system and hostname
+    # TODO: replace with your own username, system and hostname
     system = "aarch64-darwin"; # aarch64-darwin (apple silicon) or `x86_64-darwin`
     username = "{{ .chezmoi.username }}";
     hostname = "{{ .chezmoi.hostname }}";
@@ -209,3 +208,5 @@
   };
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

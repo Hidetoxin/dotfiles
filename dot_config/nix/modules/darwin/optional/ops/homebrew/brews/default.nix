@@ -2,9 +2,8 @@ rec {
 
   na = [
     "aiws"  # `aws` command line with `ai`
-    "kplay" #  `tui` playground for `kafka`
     "surf"  # `grep` for `infrastructure`
-    "humanlog"  # pretty logs
+    "kplay" #  `tui` playground for `kafka`
     "telophasecli"  #  manages your `aws` organization as `iac`
   ];  # na
 
@@ -12,10 +11,12 @@ rec {
   ];  # fun
 
   cli = [
-  "codegrab"  # grab code to feed into an `llm`
-  "tfschema"  # schema checker for `terraform`
-  "terratag"  # apply tags to `terraform` resources
-  "aws-console"  # open `aws` console on a browser
+    "codegrab"  # grab code to feed into an `llm`
+    "tfschema"  # schema checker for `terraform`
+    "terratag"  # apply tags to `terraform` resources
+    "container"  # `mac` container alternative
+    "aws-console"  # open `aws` console on a browser
+    "lazycontainer"  # `mac` alternative for `lazydocker`
   ];  # cli
 
   dev = [
@@ -27,3 +28,5 @@ rec {
   all = fun ++ cli ++ dev ++ dmn;
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

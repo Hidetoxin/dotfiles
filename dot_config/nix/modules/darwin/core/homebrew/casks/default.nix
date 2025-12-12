@@ -13,14 +13,14 @@ rec {
     "airbattery"  # check the status of all your `bluetooth` batteries
     "pearcleaner"  # `macos` cleaner
     "jordanbaird-ice"  # menu manager
+    "karabiner-elements"  # utility for keyboard customization
   ];  # na
 
   gui = [
     "keyclu"  # aplication shortcuts
     "monarch"  #  `spotlight` alternative
-    "shortcat"  #  `os` wide clone of `vimium`
     "aerospace"  # `i3` alternative window manager
-    "karabiner-elements"  # utility for keyboard customization
+    "quakenotch"  # `quake` style terminal
   ];  # gui
 
   font = [
@@ -33,3 +33,5 @@ rec {
   all = gui ++ font;
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

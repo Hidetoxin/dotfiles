@@ -1,13 +1,13 @@
 rec {
 
    na = [
+    "docker"  # container manager
     "yattee"  # video viewer for `individuous`
     "kindle-comic-creator"  # `kindle` tools
     "kindle-comic-converter"  # `kindle` tools
   ];  # na
 
   dev = [  # development tools and utilities
-    "docker"  # container manager
   ];
 
   gui = [
@@ -24,3 +24,5 @@ rec {
   all = gui ++ font;
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

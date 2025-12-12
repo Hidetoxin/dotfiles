@@ -9,11 +9,10 @@ rec {
     "jenv"  # `java` environment manager
     "revq"  # review `github` pull requests
     "serpl"  #  `tui` for replacing and re-naming
-    "sigrs"  # `tui` for `grep` on streaming
     "kunkun"  #`raycast` alternative
     "kanata"  # keyboard re-mapper
-    "pingplace"  # customize your notification position
     "s-search"  #  web search
+    "pingplace"  # customize your notification position
     "leader-key"  #`raycast` alternative
     "eg-examples"  # useful examples 
   ];  # na
@@ -41,8 +40,7 @@ rec {
   ];  # dev
 
   gui = [
-    "pingplace"  # custoize your notification position
-  ];  #gui
+  ];  # gui
 
   dmn = [
     "svim"  # type on any text field using `vim`
@@ -53,3 +51,5 @@ rec {
   all = fun ++ cli ++ tui ++ dev ++ gui ++ dmn;
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

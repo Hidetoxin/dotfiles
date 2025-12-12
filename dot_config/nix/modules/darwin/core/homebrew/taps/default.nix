@@ -1,12 +1,12 @@
 rec {
 
   na = [
-    "ynqa/tap"  # `sigrs`
     "k3ii/tap"  # `revq` / conze`
     "dhth/tap"  # `omm` / `prs` / `mult` / `hours`
     "ryu0118/kusa"  # `kusa`
     "lihaoyun6/tap"  # `airbattery`
     "loteoo/formulas"  # `ks`
+    "notwadegrimridge/brew"  # `pingplace`
     "koekeishiya/formulae/skhd"  # `skhd`
     "koekeishiya/formulae/yabai"  # `yabai`
   ];  # na
@@ -22,7 +22,6 @@ rec {
   ];  # tui
 
   gui = [
-    "notwadegrimridge/brew"  # `pingplace`
   ];  # gui
 
   dmn = [
@@ -31,12 +30,10 @@ rec {
   ];  # dmn
 
   brew = [  # `homebrew` default taps
-    # "homebrew/core"  # not needed anymore
-    # "homebrew/cask"  # not needed anymore
-    # "homebrew/bundle"  # not needed anymore
-    # "homebrew/services"  # not needed anymore
   ];  # brew
 
   all = cli ++ gui ++ tui ++ dmn ++ brew;
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

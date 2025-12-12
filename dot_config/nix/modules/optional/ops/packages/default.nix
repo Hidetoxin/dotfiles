@@ -34,6 +34,7 @@ rec {
     minikube # run `k8s` locally
     vault-env  # run processes with secrets from `vault`
     infracost  # cloud cost estimates for `terraform`
+    lazydocker  # `docker` tui
     ripsecrets  # tool to prevent committing secret keys
     noseyparker  # secret finder
     openapi-tui  #  browse and run `apis` defined with `openapi`
@@ -81,12 +82,12 @@ rec {
   k8s = [
     k9s # `tui` for `k8s`
     argocd  # declarative continuous deployment for `k8s`
+    # cruise  # `tui` for managing containers
     helm-ls  # language server for `helm`
     kubectl  # `cli` for `k8s`
     kubectx  # tool to switch between `k8s` contexts
     hadolint  # `docker` file linter
     helm-docs  # generate documentation for `helm` charts
-    lazydocker  # `docker` tui
     kubernetes-helm  # charts for `k8s`
   ];  # k8s
 

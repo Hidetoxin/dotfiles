@@ -94,16 +94,18 @@ rec {
     ttyd  # share terminal over the web
     yank  # yank terminal output
     atuin  # `history` alternative
+    gotip  # interative test picker for `go`
     dooit  # `tui` todo manager
     pueue  # daemon for managing long running commands
-    basilk  # `tui` manage your tasks with minimal `kanban` logic
     pyenv  # `python`` manager
+    basilk  # `tui` manage your tasks with minimal `kanban` logic
     dogdns  # `dig` alternative
     jobber  # `crk`, `sed`, `cut`, `join`, and `sort` for data formats such as `csv`, `tsv`, `json`, `json lines`, and positionally-indexed.
     nsnake  # snake game
     zellij  # `tmux` alternative
     calcure  # `tui` calendar
     cmatrix  # simulates the matrix theme
+    jiratui  # `tui` for `jira`
     ltex-ls  # `latex` language server
     the-way  #  `cli` snipet manager
     youplot  # `cli` for drawing plots
@@ -124,16 +126,16 @@ rec {
     gh-s  # `fzf` extension
     gh-cal  # contributions calender terminal viewer
     gh-eco  # explore the ecosystem
-    gh-pos  # safely clean up your local branches
     gh-dash  # display dashboar with requests and issues
     gh-notify  # display `github` notifications
-    gh-copilot  # use `copilot` on the `cli`
+    github-copilot-cli  # chat for `copilot`
     gh-markdown-preview  # `markdown` preview
   ];  # gh
 
   fun = [  # fun utilities
     neo  # simulates the matrix theme
     lavat  # lava lamp simulation 
+    lolcat  # colorize your output
     krabby  # print pokemon sprites in your terminal
     sssnake  # snake game that plays itself
     typioca  # cozy typing speed tester in terminal
@@ -173,6 +175,7 @@ rec {
     jqp  # `tui` for `jq`
     mtr  # combines the functionality of the `traceroute` and `ping`
     nap  # `tui` for code snippets
+    sig  # interactive `grep`
     vhs  # generate terminal `gif`
     viu  # `imgcat` alternative
     xan  # `cli` for `csv` files
@@ -182,6 +185,7 @@ rec {
     buku  # `cli` bookmark manager
     btop  # `top` alternative
     ddgr  # `ddg` for `cli`
+    doxx  # view `docx` files on the `cli`
     dust  # `du` command alternative
     entr  # run arbitrary commands
     glow  # render `markdown on the cli`
@@ -210,11 +214,13 @@ rec {
     p7zip  # `zip` alternative
     procs  # `ps` alternative`
     rsync  # sync local files
+    serie  # rich `git` commit graph
     tokei  # check code quickly
     ugrep  # `grep` alternative
     viddy  # `watch` alternative
     vivid  # `LS_COLORS` generator
     ytfzf  # `youtube` video finder
+    xleak  # view `xlsx` files on the `cli`
     zinit  # `zinit` plugin manager
 
     aichat  # `cli` ai assistant
@@ -252,6 +258,7 @@ rec {
     sshpass  # `ssh` non-interactive authentication
     termscp  # feature rich terminal file transfer
 
+    ast-grep  # tool for code structural search, lint, and rewriting
     tealdeer  # `tldr` alternative
     tomato-c  # pomodoro timer
     visidata  # exploring and arranging tabular data 
@@ -292,8 +299,11 @@ rec {
     scooter  # `tui` for find and replace
     gpg-tui  # `tui` for `gpg`
     lazygit  # `git` tui
+    tabview  # `tui` for visualizing `csv` files
     invidtui  # `tui` for `invidious`
+    opencode  # `tui` for using using an `ai` agent on the terminal
     frogmouth  # `tui` for viewing `markdown`
+    regex-tui  # `tui` for testing `regex` queries
     presenterm  # `tui` for presenting on the terminal
     twitch-tui # `twitch` chat in the terminal
     tidy-viewer  # board  `tui`
@@ -305,6 +315,7 @@ rec {
     air  # `live reload of `go` applications
     atac  # `postman` like `tui`
     hugo  # a static website generator
+    hurl  # run `http` requests from a text file
     typst # `latex` alternative
     runme  # run commands inside your documents
     gopls  # `go` language server
@@ -327,11 +338,13 @@ rec {
 
   gui = [
     espanso  # text expander
-    ghostty  # terminal emulator written in `zig`
     wezterm  # terminal emulator written in `rust`
     vscodium  # privacy focused fork of `vscode`
+    ghostty-bin  # terminal emulator written in `zig`
   ];  # guis
 
   all = cli ++ tui ++ dev ++ fun ++ ghe ++ gui;
 
 }  # rec
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix
