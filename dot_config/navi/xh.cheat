@@ -1,7 +1,13 @@
-# vim: syntax=sh
-
-# Do an HTTP request using a token
+# Do an `http` request using a token
 % xh, jq, fzf
-$ url: echo "$REST_API_URL"
+$ url: echo "${REST_API_URL}"
 $ token_type: printf "Token\nBearer" | fzf
-xh --json --verify="no" <method> "<url>/<endpoint>" "Authorization: <token_type> $REST_API_TOKEN" | jq
+xh \
+  --json \
+  --verify='no' \
+  '<method>' \
+  '<url>/<endpoint>' \
+  "Authorization: <token_type> ${REST_API_TOKEN}" | \
+jq
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

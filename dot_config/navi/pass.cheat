@@ -1,10 +1,15 @@
-# vim: syntax=sh
-
-# Initialize pass
+# Initialize `pass`
 % pass, gpg, fzf
-$ id: gpg --list-secret-keys | rg '[0-9A-Z]{40,40}' | sed 's/ //g' | awk '{print substr($1,length($1)-15) }' | fzf --preview 'gpg --list-secret-keys {}'
-pass init <id>
+$ id: gpg --list-secret-keys | rg '[0-9A-Z]{40,40}' | sed 's/ //g' | awk '{print substr($1,length($1)-15)}' | fzf --header 'Choose a `gpg` key' --prompt 'gpg key  ' --preview 'gpg --list-secret-keys {}'
+pass init '<id>'
 
-# Add password to pass
+# Add password to `pass`
 % pass
-pass insert <path>
+pass insert '<path>'
+
+# Create `pass` directory
+% pass
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/pass" \
+     && mkdir --parents "${PASSWORD_STORE_DIR}"
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

@@ -1,21 +1,21 @@
-# vim: syntax=sh
-
-# Install node version
+# Install `node` version
 % nodenv, node, fzf
-$ remote_version: nodenv install --list | sed '1d' | sed 's/ //g' | fzf
-nodenv install -v <remote_version>
+$ remote_version: nodenv install --list | sed '1d' | sed 's/ //g' | fzf --header 'Choose a `node` version' --prompt 'node version  '
+nodenv install -v '<remote_version>'
 
-# Un-install node version
+# Un-install `node` version
 % nodenv, node, fzf
-$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf
-nodenv uninstall <version>
+$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf --header 'Choose a `node` version' --prompt 'node version  '
+nodenv uninstall '<version>'
 
-# Create node virtualenv
+# Create `node` virtualenv
 % nodenv, node, fzf
-$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf
-nodenv virtualenv <version> <name>
+$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf --header 'Choose a `node` version' --prompt 'node version  '
+nodenv virtualenv '<version>' '<name>'
 
-# Set global node version
+# Set global `node` version
 % nodenv, node, fzf
-$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf
-nodenv global <version>
+$ version: nodenv versions | sed '1d' | sed 's/ //g' | fzf --header 'Choose a `node` version' --prompt 'node version  '
+nodenv global '<version>'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

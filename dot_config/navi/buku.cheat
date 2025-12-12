@@ -1,5 +1,3 @@
-# vim: syntax=sh
-
 # Export bookmarks as *.md, *.db, *.org or *.html
 % buku
 buku --export <file>
@@ -7,3 +5,5 @@ buku --export <file>
 # Add bookmark to buku
 % buku
 buku --add <url> --tag <tags> --title <title> --comment <comment>
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

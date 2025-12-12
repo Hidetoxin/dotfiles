@@ -1,16 +1,16 @@
-# vim: syntax=sh
-
 # Install go version
 % goenv, go, fzf
-$ remote_version: goenv install --list | sed '1d' | sed 's/ //g' | fzf
-goenv install -v <remote_version>
+$ remote_version: goenv install --list | sed '1d' | sed 's/ //g' | fzf --prompt '`go` version  ' --header 'Choose a `go` version'
+goenv install -v '<remote_version>'
 
 # Un-install go version
 % goenv, go, fzf
-$ version: goenv versions | fzf
-goenv uninstall <version>
+$ version: goenv versions | fzf --prompt '`go` version  ' --header 'Choose a `go` version'
+goenv uninstall '<version>'
 
 # Set global go version
 % goenv, go, fzf
-$ version: goenv versions | sed '1d' | sed 's/ //g' | fzf
-goenv global <version>
+$ version: goenv versions | sed '1d' | sed 's/ //g' | fzf --prompt '`go` version  ' --header 'Choose a `go` version'
+goenv global '<version>'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

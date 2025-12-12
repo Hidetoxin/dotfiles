@@ -1,5 +1,3 @@
-# vim: syntax=sh
-
 # Login into `argocd`
 % argocd, login
 $ argocd login '<host>' --skip-test-tls --grpc-web --username "admin" --password "$(kubectl -n argocd get secrets 'argocd-initial-admin-secret' -o json | jq -r '.data.password' | base64 --decode)"
@@ -28,3 +26,5 @@ argocd app history '<app>'
 % argocd, rollback
 $ app: argocd app list | sed '1d' | awk '{print $1}' | fzf --preview "argocd app get '{}'"
 argocd app rollback '<app>'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

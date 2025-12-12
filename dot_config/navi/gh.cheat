@@ -1,17 +1,13 @@
-# vim: syntax=sh
-
 # Create a github repository
 % gh
-gh repo create --confirm --enable-wiki=false --enable-issues=false <repo>
+gh repo create --confirm --enable-wiki='false' --enable-issues='false' '<repo>'
 
 # Login to github account
 % gh
 gh auth login
 
-#
-% gh, fzf
-gh workflow list | fzf --preview
-
 # Add organization secret to github actions
 % gh
 gh secret set '<secret_name>' --org '<organization>' --app 'actions'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

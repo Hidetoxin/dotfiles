@@ -1,6 +1,4 @@
-# vim: syntax=sh
-
-# Add contact
+# Add new contact
 % khard, contacts
 khard new
 
@@ -14,4 +12,6 @@ khard list
 
 # Show contact info
 % khard, contacts
-khard show <name>
+khard show '<name>'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh
