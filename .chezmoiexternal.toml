@@ -2,7 +2,7 @@
 [".cache/tmux/plugins/tpm-redux"]
   url           = "https://github.com/ryanmacg/tpm-redux"
   type          = "git-repo"
-  refreshPeriod = "7d"
+  refreshPeriod = "168h"  # every week
 
 # External binaries
 # [".local/bin/siggo"]  # leave comment as an example
