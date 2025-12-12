@@ -25,3 +25,5 @@ export COLOR_WHITE_BRIGHT='0xe0ebdbb2'
 export COLOR_GREEN_BRIGHT='0xe0b8bb26'
 export COLOR_YELLOW_BRIGHT='0xe0fabd2f'
 export COLOR_MAGENTA_BRIGHT='0xe0d3869b'
+#
+# vim: et ts=4 sts=4 sw=4 syntax=sh

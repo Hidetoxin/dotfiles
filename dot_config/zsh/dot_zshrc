@@ -15,7 +15,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-${HOME}/.cache}/p10k/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 
@@ -69,6 +69,13 @@ zinit cdreplay -q  # after compinit
 zstyle ':completion:*' menu no
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # ignore case
 
+# Source shell settings such as aliases, functions and integrations
+if [ -d "${XDG_CONFIG_HOME:-${HOME}/.config}/shell" ]; then
+    for file in "${XDG_CONFIG_HOME:-${HOME}/.config}/shell"/*.zsh; do
+        source "$file"
+    done
+fi
+
 # History options
 setopt sharehistory
 setopt appendhistory
@@ -78,12 +85,7 @@ setopt hist_find_no_dups
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 
-# Source shell settings such as aliases, functions and integrations
-if [ -d "${XDG_CONFIG_HOME:-${HOME}/.config}/shell" ]; then
-    for file in "${XDG_CONFIG_HOME:-${HOME}/.config}/shell"/*.zsh; do
-        source "$file"
-    done
-fi
-
 # Make sure brew utilities are first on the path
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

@@ -1,5 +1,3 @@
-# vim: syntax=sh
-
 # Common aliases
 alias .-='cd -'
 alias ..='cd ..'
@@ -50,7 +48,7 @@ alias tictactoe='telnet pixelomer.com'
     && alias bwpw='bw generate --number --special --lowercase --uppercase --length 16' \
     && alias bwlo='bw logout && unset BW_SESSION'                                      \
     && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"'         \
-    && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(2fa self/bw/2fa) --raw)"'
+    && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(2fa self/bw) --raw)"'
 
 # If `gpg` is installed
 [ -n "$(command -v gpg)" ]                                \
@@ -88,21 +86,32 @@ alias tictactoe='telnet pixelomer.com'
     && alias l9='eza -F -lah --git --icons ../../../../../../../..' \
     && alias tree='eza --git --tree --icons'
 
+
+# If `ioreg is installed
+[ -n "$(command -v ioreg)" ] \
+    && alias umdl="ioreg -l | rg 'unique-model' | tr '[A-Z]' '[a-z]' | awk -F'\"' '{print \$4}'"
+
 # If `jira` is installed
-  [ -n "$(command -v jira)" ]                                               \
-    && alias jme="jira issue list --status '~Done' --assignee '$(jira me)'" \
-    && alias jdo="jira issue list --jql \"assignee IS EMPTY AND status = 'To Do'\""
+[ -n "$(command -v jira)" ]                                                      \
+    && alias jme="jira issue list --status '~Done' --assignee '$(jira me)'"      \
+    && alias jdo="jira issue list --jql \"assignee IS EMPTY AND status = 'To Do' \""
 
 # If `just` is installed
-[ -n "$(command -v just)" ]                            \
-    && alias j='just --choose --global-justfile'       \
-    && alias .j='just'
+[ -n "$(command -v just)" ]                       \
+    && alias j='just --global-justfile'           \
+    && alias jc='just --choose --global-justfile' \
+    && alias .j='just'                            \
+    && alias .jc='just --choose'
 
 # If `navi` is installed
 [ -n "$(command -v navi)" ]         \
     && alias navit='navi --tldr'    \
     && alias navip='navi --print'   \
     && alias navic='navi --cheatsh'
+
+# If `yazi` is installed
+[ -n "$(command -v yazi)" ] \
+    && alias y='yazi'
 
 # If `opentofu` is installed
 [ -n "$(command -v tofu)" ]                             \
@@ -142,6 +151,10 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v delta)" ] \
     && alias d='delta'
 
+# If `gping` is installed
+[ -n "$(command -v gping)" ] \
+    && alias pii='gping 9.9.9.9'
+
 # If `imgcat` is installed
 [ -n "$(command -v imgcat)" ] \
     && alias ic='imgcat'      \
@@ -168,9 +181,22 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v awsume)" ] \
     && alias awsume='. awsume'
 
+# If `copilot` is installed
+[ -n "$(command -v copilot)" ] \
+    &&  alias co='copilot --banner --allow-all-paths' \
+    &&  alias cop='copilot -allow-all-paths --prompt'
+
+# If `diffnav` is installed
+[ -n "$(command -v diffnav)" ] \
+    &&  alias dn='diffnav'
+
+# If `gh-dash` is installed
+[ -n "$(command -v gh-dash)" ] \
+    &&  alias gdh='gh-dash'
+
 # If `lazygit` is installed
 [ -n "$(command -v lazygit)" ] \
-    && alias lgit="lazygit"    \
+    && alias lg="lazygit"
 
 # If `gpg-tui` is installed
 [ -n "$(command -v gpg-tui)" ] \
@@ -196,6 +222,11 @@ alias tictactoe='telnet pixelomer.com'
     && alias mold='molecule destroy'  \
     && alias molc='molecule converge'
 
+# If `container` is installed
+[ -n "$(command -v container)" ] \
+    && alias cnt='container'     \
+    && alias cnts='container system'
+
 # If `frogmouth` is installed
 [ -n "$(command -v frogmouth)" ] \
     && alias fm='frogmouth'
@@ -203,6 +234,10 @@ alias tictactoe='telnet pixelomer.com'
 # If `infracost` is installed
 [ -n "$(command -v infracost)" ] \
     &&  alias ic='infracost'
+
+# If `cocainate` is installed
+[ -n "$(command -v cocainate)" ] \
+    && alias cola='cocainate'
 
 # If `terraform` is installed
 [ -n "$(command -v terraform)" ]                              \
@@ -270,6 +305,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias tgd!='terragrunt destroy -auto-approve'          \
     && alias tgrd!='terragrunt run-all destroy -auto-approve'
 
+# If `actionlint` is installed
+[ -n "$(command -v actionlint)" ] \
+    && alias al='actionlint'
+
 # If `lazydocker` is installed
 [ -n "$(command -v lazydocker)" ] \
     && alias ldkr='lazydocker'
@@ -289,10 +328,4 @@ alias tictactoe='telnet pixelomer.com'
     && alias drc='cd ~/.config/nix && sudo darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
     && alias drs='cd ~/.config/nix && sudo darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
 
-# If `markdownlint-cli` is installed
-# [ -n "$(command -v markdownlint)" ] \
-#     && alias mdl='markdownlint'
-
-# If `taskwarrior-tui` is installed
-# [ -n "$(command -v taskwarrior-tui)" ] \
-#     && alias taskt='taskwarrior-tui'
+# vim: et ts=4 sts=4 sw=4 syntax=sh
