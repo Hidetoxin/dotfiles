@@ -1,5 +1,6 @@
 -- Enable lsp
 vim.lsp.enable({
+  'just',
   'bicep',
   'bashls',
   'lua_ls',
