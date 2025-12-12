@@ -17,19 +17,19 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
--- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -50,15 +50,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.keymap.set('i', 'jk', '<esc>', { noremap = false, silent = true, desc = 'Use `jk` instead of the `esc` key as a more ergonomic option' })
 vim.keymap.set('n', '<c-s>', ':w<CR>', { noremap = true, silent = false, desc = 'Use `ctrl + s` to save the current buffer' })
 
--- Remap windows keys
-vim.keymap.set('n', '<up>', '<c-w><up>', { noremap = false, silent = false, desc = 'Use `up` key to move to the up window' })
-vim.keymap.set('n', '<down>', '<c-w><down>', { noremap = false, silent = false, desc = 'Use `down` key to move to the down window' })
-vim.keymap.set('n', '<left>', '<c-w><left>', { noremap = false, silent = false, desc = 'Use `left` key to move to the left window' })
-vim.keymap.set('n', '<right>', '<c-w><right>', { noremap = false, silent = false, desc = 'Use `right` key to move to the right window' })
-
 -- Close mapping
 vim.keymap.set('n', '<leader>qa', ':qa!<CR>', { noremap = false, silent = false, desc = 'Close `neovim` and all buffers without saving' })
 vim.keymap.set('n', '<leader>bd', ':bd<CR>', { noremap = false, silent = false, desc = 'Close current buffer' })
 vim.keymap.set('n', '<leader>ba', ':bufdo bd<CR>', { noremap = false, silent = false, desc = 'Close all buffers' })
+
+-- Keymaps associated with plugins
+-- oil.nvim
+vim.keymap.set('n', '-', '<cmd>Oil --float<CR>', { desc='Open parent directory in oil' })
 
 -- vim: ts=2 sts=2 sw=2 et

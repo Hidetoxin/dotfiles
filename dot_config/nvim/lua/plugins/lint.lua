@@ -5,8 +5,9 @@ return {
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
+      --
       lint.linters_by_ft = {
-        markdown = { 'markdownlint' },
+        -- markdown = { 'markdownlint' },
       }
 
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
@@ -53,3 +54,5 @@ return {
     end,
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et

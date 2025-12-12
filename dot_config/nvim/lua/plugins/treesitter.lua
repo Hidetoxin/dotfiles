@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  {
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     config = function ()
@@ -14,35 +15,8 @@ return {
             auto_install = true,
             sync_install = false,
             ensure_installed = {
-              'c',
-              'go',
-              'jq',
-              'hcl',
-              'ini',
               'lua',
-              'vim',
-              'bash',
-              'diff',
-              'html',
-              'just',
-              'json',
-              'tmux',
-              'toml',
-              'yaml',
               'bicep',
-              'cmake',
-              'query',
-              'typst',
-              'luadoc',
-              'vimdoc',
-              'python',
-              'markdown',
-              'gitignore',
-              'terraform',
-              'dockerfile',
-              'typescript',
-              'ssh_config',
-              'markdown_inline',
             },
 
             incremental_selection = {
@@ -56,6 +30,7 @@ return {
             },
         })
     end
+  }
 }
 
 -- vim: ts=2 sts=2 sw=2 et

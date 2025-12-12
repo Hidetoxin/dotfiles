@@ -10,7 +10,6 @@ return {
         },
     },
     -- Optional dependencies
-    -- dependencies = { 'nvim-tree/nvim-web-devicons' }, -- use if you prefer nvim-web-devicons
     dependencies = { { 'echasnovski/mini.icons', opts = {} } },
 }
 

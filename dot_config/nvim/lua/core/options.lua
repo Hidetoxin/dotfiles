@@ -82,4 +82,11 @@ vim.opt.cursorlineopt = 'both'
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Make pop-up windows border rounded
+vim.opt.winborder = 'rounded'
+
+-- Configure how new splits should be opened
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 -- vim: ts=2 sts=2 sw=2 et
