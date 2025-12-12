@@ -1,6 +1,4 @@
-# vim: syntax=yaml
 ---
-
 yaml-language-server: $schema=https://dlvhdr.github.io/gh-dash/configuration/gh-dash/schema.json
 
 pager:
@@ -11,6 +9,7 @@ theme:
     table:
       compact: false
     sectionsShowCount: true
+
   colors:
     text:
       faint: "#fbf1c7"  # beige
@@ -19,10 +18,12 @@ theme:
       primary: "#458588"  # blue
       inverted: "#282828"  # black
       secondary: "#b16286"  # purple
+
     border:
       faint: "#fbf1c7"  # beige
       primary: "#fbf1c7"  # beige
       secondary: "#fbf1c7"  # beige
+
     background:
       selected: "#3c3836"  # gray
 
@@ -31,6 +32,7 @@ defaults:
   prsLimit: 20
   issuesLimit: 20
   refetchIntervalMinutes: 5
+
   layout:
     prs:
       base:
@@ -39,6 +41,7 @@ defaults:
         grow: true,
         width: 10
         hidden: false
+
   preview:
     open: true
     width: 70
@@ -55,28 +58,31 @@ keybindings:
         cd {{ .RepoPath }} && lazygit
 
 prSections:
-  - title:  Ready
+  - title: Ready 
     filters: >-
       is:open
       author:@me
       -is:draft
-  - title:  Drafts
+
+  - title: Drafts 
     filters: >-
       is:open
       is:draft
       author:@me
-  - title:  Review
+
+  - title: Review 
     filters: >-
       is:open
       review-requested:@me
 
 issuesSections:
-  - title:  Me
+  - title: Me 
     filters: >-
       is:open
       assignee:@me
       -status:Done
-  - title:  All
+
+  - title: All 
     filters: >-
       is:open
       is:private
@@ -84,3 +90,5 @@ issuesSections:
       -label:paused
       -label:backlog
       -status:Done
+
+# vim: et ts=2 sts=2 sw=2 syntax=yaml

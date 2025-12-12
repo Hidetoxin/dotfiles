@@ -1,5 +1,3 @@
-# vim: syntax=gitconfig
-
 [ghq]
     root = "~/Code"
 
@@ -23,6 +21,9 @@
 
 [push]
     autoSetupRemote = true
+
+[pager]
+  diff = "diffnav"
 
 [alias]
   l      = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -62,3 +63,5 @@
 [includeIf "gitdir:~/Code/mbpm4m.github.com/"]
     path = "~/.config/git/config-mbpm4m"
 {{ end }}
+
+# vim: et ts=4 sts=4 sw=4 syntax=gitconfig

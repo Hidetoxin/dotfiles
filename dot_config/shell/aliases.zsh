@@ -192,7 +192,7 @@ alias tictactoe='telnet pixelomer.com'
 
 # If `gh-dash` is installed
 [ -n "$(command -v gh-dash)" ] \
-    &&  alias gdh='gh-dash'
+    &&  alias ghd='gh-dash'
 
 # If `lazygit` is installed
 [ -n "$(command -v lazygit)" ] \

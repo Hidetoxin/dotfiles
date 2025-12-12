@@ -1,9 +1,9 @@
 ---
-
 version: 1
 
 # A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
-pager: bat
+pager: bat 
+
 # What editor `gh` should run when creating issues, pull requests, etc. If blank, will refer to environment.
 editor: nvim
 
@@ -16,26 +16,36 @@ browser: ''
 # Aliases allow you to create nicknames for `gh` commands
 aliases:
 
-    # PR related aliases
-    co: pr checkout
-    prc: pr create
-    prv: pr view -w $1
+  # PR related aliases
+  co: pr checkout
+  prc: pr create
+  prd: '!GH_PAGER="diffnav" gh pr diff'
+  prv: pr view --web
 
-    # Repo related aliases
-    b: browse
+  # Workflow related aliases
+  rw: run watch
+  rdl: run download
 
-    # Issue related aliases
-    me: issues --assignee '@me' --state 'open'
+  # Repo related aliases
+  v: browse --no-browser
+  b: '!gh browse --no-browser | pbcopy'
 
-    # Release related aliases
-    rel: gh release view --jq '.[].name' --json 'name'
-    rels: gh release list --jq '.[].name' --json 'name'
+  # Issue related aliases
+  me: issues --assignee '@me' --state 'open'
 
-    # Identity related aliases
-    creds: !cd ~/.config/gh && ln -nfs hosts-$1.yml hosts.yml && cd ~/.config/gama && ln -nfs config-$1.yaml config.yaml && gh auth status
+  # Release related aliases
+  rel: release view --jq '.[].name' --json 'name'
+  rels: release list --jq '.[].name' --json 'name'
+  reldl: '!gh release download $1'
+  reldel: '!gh release delete $1 --yes --cleanup-tag'
+
+  # Identity related aliases
+  creds: '!cd ~/.config/gh && ln -nfs hosts-$1.yml hosts.yml && cd ~/.config/gama && ln -nfs config-$1.yaml config.yaml && gh auth status'
 
 # What protocol to use when performing git operations. Supported values: ssh, https
 git_protocol: ssh
 
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket: ''
+
+# vim: et ts=2 sts=2 sw=2 syntax=yaml
