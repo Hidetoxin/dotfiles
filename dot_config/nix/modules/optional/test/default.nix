@@ -30,9 +30,7 @@ in {
     # systemPackages = with pkgs; packages;
     # List packages installed in system profile. To search by name, run:
     # $ nix-env -qaP | grep wget
-    systemPackages = packages.all;
+    systemPackages = with packages; all;
 
   };
 }
-
-# vim: et ts=2 sts=2 sw=2 syntax=nix

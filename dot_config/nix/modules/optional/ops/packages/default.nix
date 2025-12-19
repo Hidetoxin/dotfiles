@@ -2,130 +2,161 @@
 
 rec {
 
-  np = [
-    grit  # log parser
-    targe  # `ai` assisted `iam` manager
-    kafe  # `tui` for `kafka`
-    whispr  # inject secrets on any cloud
-    backhub  # backup you `github` repos
-    elastop  # `tui` for `elasticsearch`
-    helm-tui  # `tui` for `helm`
-    opengrep  # `semgrep` alternative
-    easycron  # `tui` for validating cron expresions
-  ];  # np
+  # Tooling for working with the `c` and `c++` languages
+  c-pkgs = [
+    gnumake  # generation of files from source
+  ];
 
-  na = [
-    eget  # install pre-built binaries from `github`
-    aiws  # `ai` for `aws`
-    ttop  # `top` like system monitoring tool
-    s-tui  # stress-terminal `tui` monitoring tool
-    tsung  # benchmark framework for various protocols
+  # Tooling for working with the `go` language
+  go-pkgs = [
+    air  # `live reload of `go` applications
+    gdlv  # `tui` for `delve` debugger
+    hugo  # a static website generator
+    gopls  # `go` language server
+    gotip  # interative test picker for `go`
+    delve  # `go` debugger
+  ];
+
+  # Tooling for working with the `aws` cloud
+  aws-pkgs = [
+    stu  # `aws` bucket explorer
     s5cmd  # parallel `s3` and local filesystem execution tool
-    vault  # tool for managing secrets
-    damon  # `tui` for `nomad`
-    packer  # create computer images
-    wander  # `tui` for `nomad`
-    ollama  # run language models locally
+    eksctl  # `cli` for `eks`
+    awsume  # `aws` profile manager
+    awscli2  # `aws` `cli`
     granted  # cloud access
-    vagrant  # build complete development environments
+    aws-gate  # `aws` client manager for `ssm`
+    aws-vault  # get `aws` credentials
+  ];
+
+  ssh-pkgs = [
+    sshs # `tui` for `ssh`
+    sshpass  # `ssh` non-interactive authentication
+    lazyssh  # `tui` for `ssh`
+  ];  # tuis
+
+  # Tooling for working with log files
+  logs-pkgs = [
+    lnav  # log viewer
+    toolong  # view, tail, merge, and search log files
+    lazyjournal  # `tui` for `journalctl`, file system logs, as well as `docker` and `podman` containers
+    hl-log-viewer  # make logs readable
+  ];
+
+  # Tooling for working with the `rust` language
+  rust-pkgs = [
+    crates-tui  # `tui` for exploring `crates.io`
+  ];
+
+  # Tooling for working with `nomad`
+  nomad-pkgs = [
+    nomad  # distributed, highly available, datacenter-aware scheduler
+    damon  # `tui` for `nomad`
+    wander  # `tui` for `nomad`
+  ];
+
+  # Tooling for working with `vault`
+  vault-pkgs = [
+    vsh  # `vault` interactive shell
+    vault  # tool for managing secrets
+    vault-env  # run processes with secrets from `vault`
+    vault-medusa # tool for importing and exporting `vault` secrets
+    vault-ssh-plus  # automatically use `vault` `ssh` client key signing
+  ];
+
+  # Tooling for working with `ansible` playbooks
+  ansible-pkgs = [
     ansible  # simple automation
     molecule  # `ansible` test framework
-    sniffnet  # monitor your Internet traffic
-    minikube # run `k8s` locally
-    vault-env  # run processes with secrets from `vault`
-    infracost  # cloud cost estimates for `terraform`
-    lazydocker  # `docker` tui
-    ripsecrets  # tool to prevent committing secret keys
-    noseyparker  # secret finder
-    openapi-tui  #  browse and run `apis` defined with `openapi`
     ansible-lint  # `ansible` linter
-    vault-medusa # tool for importing and exporting `vault` secrets
     ansible-language-server  # `ansible` language server
   ];
 
-  tf = [
+  security-pkgs = [
+    flawz  # `tui` for browsing the security vulnerabilities
+    trivy  # vulnerability scanner for containers
+    lazytrivy  # `tui` for `trivy`
+    ripsecrets  # tool to prevent committing secret keys
+    noseyparker  # secret finder
+    osv-scanner # `osv` for scanning vulnerabilities
+    certbot-full  # obtain certs and extensibly update server configurations
+    certificate-ripper  # `cli` tool to extract server certificates
+  ];
+
+  # Tooling for working with artifact managers
+  artifacts-pkgs = [
+    jfrog-cli  # `cli` for `jfrog` artifact hosting
+  ];
+
+  # Tooling for working and querying databases
+  databases-pkgs = [
+    lazysql  # `tui` for `sql`
+    rainfrog  # db management `tui` for `postgres`
+  ];
+
+  # Tooling for working with `terraform` templates
+  terraform-pkgs = [
     tenv # `terraform` manager
     tfsec  # `terraform` security linter
     tflint  # `terraform` linter
     checkov  # code analysis tool for `iac`
+    infracost  # cloud cost estimates for `terraform`
     terrascan  #  `terraform` security linter
     terramate  # code generation, stacks, orchestration, change detection, data sharing and more to `terraform`
     terraformer  # reverse `terraform`
     terracognita  # `terraform` state importer
     terraform-ls  # `terraform` language server
     terraform-docs  # `terraform` document generator
-  ];  # tf
-
-  git = [
-    gitleaks  # scan `git` repos for secrets
-    commitizen  # create comitting rules
-    bfg-repo-cleaner  # `git` repository cleaner
-    git-repo-updater  # update multiple `git` repositories
   ];
 
-  dev = [
-    bandit  # security oriented static analyser for `python`
-    mkdocs  # documentation with `markdown`
-    nodenv  # `node` environment manager
-  ];
-
-  net = [
-    bmon  # network bandwith monitor
-    ipcalc  # simple `ip` calculator
-    tshark  # `cli` for `wireshark`
-  ];  # net
-
-  dbs = [
-    lazysql  # `sql` tui
-  ];  # dbs
-
-  k8s = [
+  # Tooling for working with `kubernetes`
+  kubernetes-pkgs = [
     k9s # `tui` for `k8s`
     argocd  # declarative continuous deployment for `k8s`
     # cruise  # `tui` for managing containers
     helm-ls  # language server for `helm`
     kubectl  # `cli` for `k8s`
     kubectx  # tool to switch between `k8s` contexts
+    helm-tui  # `tui` for `helm`
     hadolint  # `docker` file linter
+    # minikube # run `k8s` locally
     helm-docs  # generate documentation for `helm` charts
+    lazydocker  # `docker` tui
     kubernetes-helm  # charts for `k8s`
-  ];  # k8s
+  ];
 
-  sec = [
-    sops  # simple and flexible tool for managing secrets
-    trivy  # vulnerability scanner for containers
-    unbound  # validating, recursive, caching `dns` resolver
-    termshark  # `tui` for `wireshark-cli`
-    osv-scanner # `osv` for scanning vulnerabilities
-    certbot-full  # obtain certs and extensibly update server configurations
-    certificate-ripper  # `cli` tool to extract server certificates
-  ];  # sec
-
-  bench = [
+  # Tooling for doing benchmarking tests
+  benchmarking-pkgs = [
+    s-tui  # stress-terminal `tui` monitoring tool
+    tsung  # benchmark framework for various protocols
     vegeta  # versatile `http` load testing tool
     hyperfine  # `cli` benchmark tools
-  ];  # bench
+  ];
 
-  cloud = [
-    stu  # `aws` bucket explorer
-    bicep # `cli` tool for working with `bicep` files
-    awsume  # `aws` profile manager
-    eksctl  # `cli` for `eks`
-    awscli2  # `aws` `cli`
-    aws-gate  # `aws` client manager for `ssm`
-    aws-vault  # get `aws` credentials
-    azure-cli  # `cli` for `microsoft azure`
-    bicep-lsp  # `lsp` for `bicep`
-  ];  # cloud
+  # Tooling for virtualization
+  virtualization-pkgs = [
+    packer  # create computer images
+    vagrant  # build complete development environments
+  ];
 
-  tools = [
-    lnav  # log viewer
-    wrkflw  # `tui` for running local `github` workflows
-    gama-tui # `tui` for running `github` workflows
-    jfrog-cli  # `cli` for `jfrog` artifact hosting
-    actionlint  # linter for `github` workflows
-  ];  # tools
-
-  all = tf ++ git ++ net ++ k8s ++ sec ++ bench ++ cloud ++ tools;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    # ++ c-pkgs
+    # ++ go-pkgs
+    # ++ aws-pkgs
+    ++ ssh-pkgs
+    ++ logs-pkgs
+    # ++ rust-pkgs
+    # ++ nomad-pkgs
+    # ++ vault-pkgs
+    # ++ ansible-pkgs
+    # ++ security-pkgs
+    # ++ artifacts-pkgs
+    # ++ databases-pkgs
+    # ++ terraform-pkgs
+    # ++ kubernetes-pkgs
+    # ++ benchmarking-pkgs
+    # ++ virtualization-pkgs
+    ++ [];
 
 }  # rec
