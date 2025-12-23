@@ -50,6 +50,7 @@ export PATH="$PATH:$XDG_DATA_HOME/../bin"
 export LANG='en_US.UTF-8'
 
 # Setup editing settings
+export TERM='xterm-256color'
 export PAGER='bat'
 export EDITOR='nvim'
 
@@ -156,10 +157,10 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export PASSAGE_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/passage"  \
     && export PASSAGE_IDENTITIES_FILE="${XDG_DATA_HOME:-${HOME}/.local/share}/passage/identities"
 
-[ -n "$(command -v aws-vault)" ]                                      \
-    && export AWS_VAULT_BACKEND='pass'                                \
-    && export AWS_VAULT_PASS_PREFIX='aws'                             \
-    && export AWS_VAULT_PASS_PASSWORD_STORE_DIR="$PASSWORD_STORE_DIR"
+[ -n "$(command -v aws-vault)" ]          \
+    && export AWS_VAULT_BACKEND='pass'    \
+    && export AWS_VAULT_PASS_PREFIX='aws' \
+    && export AWS_VAULT_PASS_PASSWORD_STORE_DIR="${PASSWORD_STORE_DIR}"
 
 {{- if (eq .chezmoi.hostname "mbpm4p") }}
 [ -n "$(command -v jira)" ] \

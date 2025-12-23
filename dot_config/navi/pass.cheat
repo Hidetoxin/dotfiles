@@ -12,4 +12,8 @@ pass insert '<path>'
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/pass" \
      && mkdir --parents "${PASSWORD_STORE_DIR}"
 
+# Insert an `otp` code to `pass`
+% pass, otp
+pass otp insert --secret --issuer '<issuer>' '<path>'
+
 # vim: et ts=4 sts=4 sw=4 syntax=sh

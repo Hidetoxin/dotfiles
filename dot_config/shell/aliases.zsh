@@ -48,7 +48,7 @@ alias tictactoe='telnet pixelomer.com'
     && alias bwpw='bw generate --number --special --lowercase --uppercase --length 16' \
     && alias bwlo='bw logout && unset BW_SESSION'                                      \
     && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"'         \
-    && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(2fa self/bw) --raw)"'
+    && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(pass otp show self/bw/2fa) --raw)"'
 
 # If `gpg` is installed
 [ -n "$(command -v gpg)" ]                                \
