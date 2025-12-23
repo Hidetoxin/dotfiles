@@ -13,9 +13,11 @@ rec {
     gh-eco  # explore the ecosystem
     wrkflw  # `tui` for running local `github` workflows
     zizmor  # tool for finding security issues in `github` actions setups
+    ghalint  # `github` actions linter for security best practice
     gh-dash  # display dashboar with requests and issues
     ghfetch  #  `github` fetch information
     gama-tui # `tui` for running `github` workflows
+    watchgha  # live display of current `github` action runs
     gh-notify  # display `github` notifications
     actionlint  # linter for `github` workflows
     gh-contribs  # `github` contribution graph `cli`
@@ -50,6 +52,7 @@ rec {
     tig  # `tui` for `git`
     delta  # syntax-highlighting pager for git
     serie  # rich `git` commit graph
+    debase  # `tui` for drag-and-drop manipulation of `git` commits
     lazygit  # `git` tui
     diffnav  # pager based on `delta`
     gitlint  # `git` linter
@@ -81,6 +84,7 @@ rec {
   nix-pkgs = [  # `nix` tooling
     nil  # `nix` language server
     nixd  # `nix` language server
+    nix-search-cli  # `cli` for searching packages on `search.nixos.org`
   ];
 
   # Tooling for working on web applications
@@ -103,6 +107,7 @@ rec {
     up  # `tui` for pipes
     bash  # bourne again shell
     shfmt  # shell parser and formatter
+    shellspec  # `bdd` unit testing framework for all `posix` shells
     shellcheck  # shell script analysis tool
     bash-language-server  # `bash` language server
   ];
@@ -119,6 +124,7 @@ rec {
     sig  # interactive `grep` for streaming
     zsh  # the zshell
     halp  # get help for the `cli`
+    mise  # front-end to your dev env
     navi  # interactive cheatsheet
     pass  # `cli` password manager
     play  # `tui` playground for your favorite programs, such as `grep`, `sed` and `awk`
@@ -139,8 +145,9 @@ rec {
     neovim  # `vim` alternative
     nomino  # `rename` alternative
     rename  # file re-namer
-    rmlint  # rm linter
+    rmlint  # `rm` linter
     zoxide  # `cd` alternative
+    asdf-vm  # extendable version manager with support for `ruby`, `node.js`, `erlang` & more
     chezmoi  # dotfiles manager
     erdtree  # file-tree visualizer and disk usage analyzer
     mkalias  # package to fix apps not being findable by `spotlight search`
@@ -148,6 +155,8 @@ rec {
     ripgrep  # `grep` alternative
     scooter  # `tui` for find and replace
     ast-grep  # tool for code structural search, lint, and rewriting
+    dos2unix  # convert text files with `dos` or `mac` line breaks to `unix`
+    rich-cli  # `cli` interface for `rich`
     tealdeer  # `tldr` alternative
     mcfly-fzf  # `history` alternative 
     xdg-ninja  # check your home for `xdg` format
@@ -157,17 +166,30 @@ rec {
     ripgrep-all  # `ripgrep` alternative
     pay-respects  # corrects mispelled commands
     bitwarden-cli  # `cli` for `bitwarden`
+    yaziPlugins.git  # show the status of `git` in `yazi`
+    yaziPlugins.diff  # `diff` the selected file with the hovered file in `yazi`
+    yaziPlugins.glow  # show `glow` preview in `yazi`
+    yaziPlugins.sudo  # call `sudo` in `yazi`
+    yaziPlugins.chmod  # execute `chmod` on the selected files in `yazi`
+    yaziPlugins.miller  # execute `miller` in `yazi`
+    yaziPlugins.mactag  # show `macos` on the selected files in `yazi`
+    yaziPlugins.lazygit  # execute `lazygit` in `yazi`
     bat-extras.prettybat  # helper scripts for `bat`
-    passExtensions.pass-otp
-    passExtensions.pass-import
+    yaziPlugins.full-border # show a border in `yazi`
+    passExtensions.pass-otp  # `otp` extension for `pass`
+    yaziPlugins.rich-preview  # use `rich-cli` for previewing files in `yazi`
+    passExtensions.pass-import  # import any password manager secrets to `pass`
+    yaziPlugins.relative-motions  # use`vim` relative motions
   ];
 
   # Tooling for working with documents
-  docs-pkgs = [  # tooling for workign with documents
+  docs-pkgs = [
+    tdf  # `tui` based `pdf` viewer
     xan  # `cli` for `csv` files
     doxx  # view `docx` files on the `cli`
     docfd  # `tui` multiline fuzzy document finder
     xleak  # view `xlsx` files on the `cli`
+    mdbook  # create books from `markdown`
     mkdocs  # documentation with `markdown`
     pandoc  # document file converter
     slides  # `cli` for creating slides
@@ -190,6 +212,7 @@ rec {
     jnv  #  `tui` for `jq`
     jqp  # `tui` for `jq`
     gron  # make `json` greppable
+    otree  # tool to view objects (`json`, `yaml`, `toml`, `xml`) in `tui` tree widget
     jless  # pager for `json`
     miller  # like `awk`, `sed`, `cut`, `join`, and `sort` for `csv`, `tsv`, `toml`, `json`
     jq-lsp  # `jq` language server
@@ -205,6 +228,7 @@ rec {
     yamlfix  # `yaml` formatter that keeps your comments
     yamlfmt  # `yaml` formatter
     yamllint  # `yaml` linter
+    yaml2json  # convert `yaml` to `json`
     yaml-language-server # `yaml` language server
   ];
 
@@ -227,6 +251,7 @@ rec {
     # jira-cli-go  # `cli` client for `jira`
     dooit-extras  # extra utilities for `dooit`
     # taskwarrior3  # `cli` for managing todo lists
+    # taskwarrior-tui  # `tui` for `taskwarrior`
   ];
 
   # Tooling for working with the `typst` language
@@ -234,6 +259,7 @@ rec {
     typst # `latex` alternative
     typstyle  # formatter for `typst`
     # typst-lsp  # `typst` language server
+    typst-live  # hot reloading for your `typst` files
   ];
 
   backup-pkgs = [
@@ -312,7 +338,10 @@ rec {
     mado  # `markdown` linter
     mdcat  # `cat` for `markdown`
     rumdl  # `markdown` linter
+    treemd  # `tui`/`cli` `markdown` navigator with tree-based structural navigation
     frogmouth  # `tui` for viewing `markdown`
+    mermaid-cli  # generation of diagrams from text in a similar manner as `markdown`
+    # mermaid-filter  # `pandoc` filter for creating diagrams in `markdown` docs FIX: not available on `darwin`
   ];
 
   # Tooling for linting and non-scpecific language `lsp`'s

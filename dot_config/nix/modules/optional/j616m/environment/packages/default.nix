@@ -55,6 +55,9 @@ rec {
     pyright  # `python` type checker
   ];
 
+  powershell-pkgs = [
+  ];
+
   # Tooling for working with `typescript`
   typescript-pkgs = [
     deno  # runtime for `javascript` and `typescript`
@@ -67,6 +70,7 @@ rec {
     ++ azure-pkgs
     ++ vscode-pkgs
     ++ python-pkgs
+    ++ powershell-pkgs
     ++ typescript-pkgs
     ++ [];
 

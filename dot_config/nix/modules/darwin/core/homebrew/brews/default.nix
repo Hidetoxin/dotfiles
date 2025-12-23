@@ -36,7 +36,6 @@ rec {
   dev = [
     "lua"
     "goenv"  # `go` environment manager
-    "posting"  # `postman` alike interface
   ];  # dev
 
   gui = [
