@@ -19,7 +19,7 @@ cicd-ci WF='invoker-ci':
 [group('github')]
 [group('single-repo')]
 [group('workflow')]
-cicd-cd ENV='dev-02' WF='invoker-cd':
+cicd-cd ENV='dev02' WF='invoker-cd':
     REL="$( \
         gh release view \
           --jq '.name' \
