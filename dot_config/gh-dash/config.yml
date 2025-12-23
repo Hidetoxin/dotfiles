@@ -74,6 +74,7 @@ prSections:
     filters: >-
       is:open
       review-requested:@me
+      -is:draft
 
 issuesSections:
   - title: Me 

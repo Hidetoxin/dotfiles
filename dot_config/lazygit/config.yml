@@ -34,7 +34,7 @@ git:
     mode: merge  # one of "merge" | "rebase" | "ff-only"
 
   pagers:
-    - pager: delta
+    - pager: delta --paging=never
       colorArg: always
       useConfig: false
 

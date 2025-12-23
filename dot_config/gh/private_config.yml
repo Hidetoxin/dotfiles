@@ -2,7 +2,7 @@
 version: 1
 
 # A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
-pager: bat 
+pager: bat
 
 # What editor `gh` should run when creating issues, pull requests, etc. If blank, will refer to environment.
 editor: nvim
@@ -33,11 +33,14 @@ aliases:
   # Issue related aliases
   me: issues --assignee '@me' --state 'open'
 
+  # Enhance related aliases
+  e: '!ENHANCE_THEME="gruvbox_dark" gh enhance "$(gh pr view --jq ".url" --json "url")"'
+
   # Release related aliases
   rel: release view --jq '.[].name' --json 'name'
   rels: release list --jq '.[].name' --json 'name'
   reldl: '!gh release download $1'
-  reldel: '!gh release delete $1 --yes --cleanup-tag'
+  relrm: '!gh release delete $1 --yes --cleanup-tag'
 
   # Identity related aliases
   creds: '!cd ~/.config/gh && ln -nfs hosts-$1.yml hosts.yml && cd ~/.config/gama && ln -nfs config-$1.yaml config.yaml && gh auth status'
