@@ -1,7 +1,7 @@
 local wezterm = require('wezterm')
 local config = {}
 
-config.term = 'wezterm'
+config.term = 'xterm-256color'
 
 config.font = wezterm.font('Hack Nerd Font Mono')
 config.font_size = 15
