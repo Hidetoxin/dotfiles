@@ -6,22 +6,33 @@ rec {
   gh-pkgs = [  # `github` tooling
     gh  # `github` cli
     act  # run your `github` actions locally
+    ghr  # upload multiple artifacts to `github` release in parallel
     eget  # install pre-built binaries from `github`
     gh-f  # `fzf` extension
     gh-s  # `fzf` extension
     gh-cal  # `github` contributions calender terminal viewer
     gh-eco  # explore the ecosystem
+    gh-poi  # `github` extension to safely clean up your local branches
+    pinact  # pin `github` actions versions
     wrkflw  # `tui` for running local `github` workflows
     zizmor  # tool for finding security issues in `github` actions setups
     ghalint  # `github` actions linter for security best practice
     gh-dash  # display dashboar with requests and issues
     ghfetch  #  `github` fetch information
     gama-tui # `tui` for running `github` workflows
+    octoscan  # static vulnerability scanner for `github` action workflows
     watchgha  # live display of current `github` action runs
+    git-hound  # reconnaissance tool for `github` code search
     gh-notify  # display `github` notifications
     actionlint  # linter for `github` workflows
+    codeowners  # `cli` and `go` library for `github`'s codeowners file
     gh-contribs  # `github` contribution graph `cli`
+    star-history  # command line program to generate a graph showing number of `github` stars
+    action-validator  # tool to validate `github` action and workflow `yaml` files
+    github-commenter  # `cli` utility for creating `github` comments on commits, pull request reviews or issues
     gh-markdown-preview  # `markdown` preview
+    github-markdown-toc-go  # easy `toc` creation for `github`
+    github-distributed-owners  # generate `github` codeowners files from owners files
   ];
 
   # Tooling `cli` utilities for fun
@@ -37,33 +48,57 @@ rec {
     typioca  # cozy typing speed tester in terminal
     charasay  #  `cowsay` alternative
     pipes-rs  # animated pipes screensaver
+    chess-tui  # chess `tui` implementation in `rust`
     fastfetch  # `neofetch` alternative
     pokemonsay  # `cowsay` alternative
     # asciiquarium  # render aquarium in `acii`
     gambit-chess  # play chess
+    solitaire-tui  # klondike solitaire for the terminal
     asciiquarium-transparent  # render aquarium in `ascii`
     dwt1-shell-color-scripts  # collection of `shell` color scripts collected by `dt`
   ];
 
   # Tooling and extensions for working with `git`
-  git-pkgs = [  # tooling for `git`
+  git-pkgs = [
+    mr  # multiple repository management tool
+    fac  # `cui` for fixing `git` conflicts
     ghq  # `git` repo manager
     git  # version control manager
     tig  # `tui` for `git`
-    delta  # syntax-highlighting pager for git
+    gibo  # shell script for easily accessing `gitignore` boilerplates
+    gitu  # `tui` client for `git` inspired by `magit`
+    delta  # syntax-highlighting pager for `git`
+    gitcs  # scan local `git` repositories and generate a visual contributions graph
+    gitty  # contextual information about your `git` projects, right on the command-line
+    hanko  # keeps your `git` allowed signers file up to date
     serie  # rich `git` commit graph
     debase  # `tui` for drag-and-drop manipulation of `git` commits
+    gimoji  # easily add emojis to your `git` commit messages
+    git-up  # `git` pull replacement that rebases all local branches when pulling
+    gitsnip  # `cli` tool to download specific folders from a `git` repository
     lazygit  # `git` tui
     diffnav  # pager based on `delta`
     gitlint  # `git` linter
+    git-gone  # cleanup stale `git` branches of merge requests
+    git-jump  # improved navigation between `git` branches
+    gitfetch  # `neofetch`-style cli tool for `git` provider statistics
     gitleaks  # scan `git` repos for secrets
+    gitlogue  # cinematic `git` commit replay tool for the terminal
     onefetch  # `git` repo summary
+    git-cliff  # highly customizable changelog generator that follows conventional commit specifications
+    # git-graph  # command line tool to show clear `git` graphs arranged for your branching model FIX: broken
     commitizen  # create comitting rules
     difftastic  # syntax-aware diff
+    meteor-git  # `cli` tool for writing conventional commits
     pre-commit  # instal a pre-commit hook on your `git` repo
+    git-metrics  # `git` extension to be able to track metrics about your project, within the `git` repository
     gitmoji-cli # using emojis on commit messages
+    # diff-so-fancy  # good-looking diffs filter for `git`
+    git-pages-cli  # command-line application for uploading a site to a `git-pages` server
+    pass-git-helper  # `git` credential helper interfacing with `pass`
     bfg-repo-cleaner  # `git` repository cleaner
     git-repo-updater  # update multiple `git` repositories
+    git-delete-merged-branches  # command-line tool to delete merged `git` branches
   ];
 
   # Tooling for working with the `lua` scripting language
@@ -76,6 +111,7 @@ rec {
   # Tooling for working with `csv` files
   csv-pkgs = [
     dasel  # `jq` alternative for `csv`, `xml` `json`, `yaml` and `toml`
+    tabiew  # view and query delimiter separated value documents, such as `csv` and `tsv`
     tabview  # `tui` for visualizing `csv` files
     tidy-viewer  # print formatted `csv`, `ipc` `parquet` and `feather`
   ];
@@ -84,6 +120,8 @@ rec {
   nix-pkgs = [  # `nix` tooling
     nil  # `nix` language server
     nixd  # `nix` language server
+    nixfmt  # formatter for `nix` code
+    nix-inspect  # `tui` for inspecting `nix` configs and other expressions
     nix-search-cli  # `cli` for searching packages on `search.nixos.org`
   ];
 
@@ -121,12 +159,12 @@ rec {
     eza  # `ls` command alternative
     fzf  # fuzzy finder
     grc  # text colourizer
+    lla  # blazing-fast `ls` replacement with superpowers
     sig  # interactive `grep` for streaming
     zsh  # the zshell
     halp  # get help for the `cli`
     mise  # front-end to your dev env
     navi  # interactive cheatsheet
-    pass  # `cli` password manager
     play  # `tui` playground for your favorite programs, such as `grep`, `sed` and `awk`
     wget  # retrieve files via `https`
     sttr  # apply operations on strings
@@ -137,6 +175,7 @@ rec {
     mcfly  # `history` alternative commnand
     p7zip  # `zip` alternative
     ugrep  # `grep` alternative
+    vgrep  # user-friendly pager for `grep`/`git-grep`/`ripgrep`
     viddy  # `watch` alternative
     vivid  # `LS_COLORS` generator
     zinit  # `zsh` plugin manager
@@ -150,6 +189,7 @@ rec {
     asdf-vm  # extendable version manager with support for `ruby`, `node.js`, `erlang` & more
     chezmoi  # dotfiles manager
     erdtree  # file-tree visualizer and disk usage analyzer
+    gocheat  # `tui` cheatsheet for keybindings, hotkeys and more
     mkalias  # package to fix apps not being findable by `spotlight search`
     gpg-tui  # `tui` for `gpg`
     ripgrep  # `grep` alternative
@@ -162,6 +202,7 @@ rec {
     xdg-ninja  # check your home for `xdg` format
     television  # fast general purpose fuzzy finder `tui`
     cmd-wrapped  # view your `shell` history stats
+    passepartui  # `tui` for `pass`
     tree-sitter  #  incremental parser library
     ripgrep-all  # `ripgrep` alternative
     pay-respects  # corrects mispelled commands
@@ -176,10 +217,10 @@ rec {
     yaziPlugins.lazygit  # execute `lazygit` in `yazi`
     bat-extras.prettybat  # helper scripts for `bat`
     yaziPlugins.full-border # show a border in `yazi`
-    passExtensions.pass-otp  # `otp` extension for `pass`
     yaziPlugins.rich-preview  # use `rich-cli` for previewing files in `yazi`
-    passExtensions.pass-import  # import any password manager secrets to `pass`
     yaziPlugins.relative-motions  # use`vim` relative motions
+    (pass.withExtensions (exts: [ exts.pass-otp exts.pass-import ]))  # `cli` password manager with extensions
+
   ];
 
   # Tooling for working with documents
@@ -236,6 +277,8 @@ rec {
   notes-pkgs = [
     # nb  # notebook for the `cli`
     rucola  # `markdown` note manager
+    # tui-journal  # your journal app if you live in a terminal
+    bagels  # powerful expense tracker that lives in your terminal
   ];
 
   # Tooling for `todo` items and tasks
@@ -247,7 +290,9 @@ rec {
     # wtfutil  # `tui` dashboard
     # calcure  # `tui` calendar
     # jiratui  # `tui` for `jira`
+    timr-tui  # `tui` to organize your time: pomodoro, countdown, timer
     tomato-c  # pomodoro timer
+    # tasktimer  # task timer (tt) is a dead simple `tui` task timer
     # jira-cli-go  # `cli` client for `jira`
     dooit-extras  # extra utilities for `dooit`
     # taskwarrior3  # `cli` for managing todo lists
@@ -276,12 +321,15 @@ rec {
   coding-pkgs = [
     nap  # `tui` for code snippets
     pet  # `cli` snippets manager
+    bork  # `tui` chat client tailored for livecoding on `twitch`
     entr  # run arbitrary commands
     # helix  # `vim` inspired text editor
     kondo  # clean project files
     tokei  # check code quickly
     runme  # run commands inside your documents
     espanso  # text expander `gui`
+    hextazy  # `tui` hexeditor in `rust` with colored bytes
+    neovide  # `gui` for `neovim`
     treefmt  # one `cli` to format the code tree
     wezterm  # `gui` terminal emulator written in `rust`
     youplot  # `cli` for drawing plots
@@ -327,6 +375,8 @@ rec {
     # gtt  # `tui` for translation FIX: `alsa` not available on `darwin`
     ddgr  # `ddg` for `cli`
     haylxon  # take screenshots of webpages
+    is-fast  # check the internet as fast as possible
+    wiki-tui  # simple and easy to use `wikipedia` text user interface
     gowitness  # website screenshot utility
     circumflex  # browsing `hacker news` in your terminal
     python312Packages.howdoi  # coding answers in the terminal
@@ -339,6 +389,7 @@ rec {
     mdcat  # `cat` for `markdown`
     rumdl  # `markdown` linter
     treemd  # `tui`/`cli` `markdown` navigator with tree-based structural navigation
+    mdfried  # `markdown` viewer `tui` for the terminal, with big text and image rendering
     frogmouth  # `tui` for viewing `markdown`
     mermaid-cli  # generation of diagrams from text in a similar manner as `markdown`
     # mermaid-filter  # `pandoc` filter for creating diagrams in `markdown` docs FIX: not available on `darwin`
@@ -358,6 +409,8 @@ rec {
     yt-dlp  # `youtube` downloader
     invidtui  # `tui` for `invidious`
     twitch-dl  # `cli` tool for downloading videos from `twitch`
+    # ytermusic  # `tui` based `youtube` music player FIX: depende on `alsa`
+    ytui-music  # `youtube` client in terminal for music
     twitch-tui # `twitch` chat in the terminal
     youtube-tui  #  `tui` for `youtube`
   ];
@@ -367,7 +420,8 @@ rec {
     prs  # `pass` alternative
     sops  # simple and flexible tool for managing secrets
     tlock  # store and manage your authentication tokens `tui`
-    go-2fa  # `cli` for 2fa
+    andcli  # `tui` for `2fa`
+    go-2fa  # `cli` for `2fa`
     passage  # `pass` alternative that uses `age` instead of `gpg`
   ];
 
@@ -380,6 +434,7 @@ rec {
     # ttop  # `top` like system monitoring tool
     procs  # `ps` alternative`
     bottom  # `ps` alternative
+    caligula  # user-friendly, lightweight `tui` for disk imaging
   ];
 
   # Add mpty arrays for easily commenting the packages that I don't need

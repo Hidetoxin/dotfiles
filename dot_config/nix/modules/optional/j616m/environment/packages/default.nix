@@ -10,6 +10,7 @@ rec {
     # opencode  # `tui` for using using an `ai` agent on the terminal
     # gemini-cli  # `tui` for using `gemini`
     # claude-code  # `tui` for using `claude`
+    copilot-language-server  # use `copilot` with any editor or ide via `lsp`
     github-copilot-cli  # chat for `copilot`
   ];
 
@@ -40,6 +41,7 @@ rec {
     vscode-extensions.waderyan.gitblame
     vscode-extensions.github.copilot-chat
     vscode-extensions.bierner.markdown-mermaid
+    vscode-extensions.editorconfig.editorconfig
     vscode-extensions.ms-azuretools.vscode-bicep
     vscode-extensions.vscode-icons-team.vscode-icons
     vscode-extensions.shd101wyy.markdown-preview-enhanced
@@ -56,6 +58,8 @@ rec {
   ];
 
   powershell-pkgs = [
+    powershell  # shell and scripting language based on `.net`
+    powershell-editor-services  # `powershell` development support in any editor or application
   ];
 
   # Tooling for working with `typescript`

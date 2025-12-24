@@ -80,6 +80,7 @@ rec {
     smug  # `tmux` session manager
     ttyd  # share terminal over the web
     yank  # yank terminal output
+    tuios  # terminal-based window manager
     atuin  # `history` alternative
     pueue  # daemon for managing long running commands
     jobber  # alternative to `cron` with sophisticated status-reporting and error-handling

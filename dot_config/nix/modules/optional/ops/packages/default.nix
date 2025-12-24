@@ -33,14 +33,17 @@ rec {
     sshs # `tui` for `ssh`
     sshpass  # `ssh` non-interactive authentication
     lazyssh  # `tui` for `ssh`
+    fast-ssh  # `tui` tool to use the `ssh` config for connections
   ];  # tuis
 
   # Tooling for working with log files
   logs-pkgs = [
     lnav  # log viewer
     toolong  # view, tail, merge, and search log files
+    # tuistash  # `tui` for `logstash`
     lazyjournal  # `tui` for `journalctl`, file system logs, as well as `docker` and `podman` containers
     hl-log-viewer  # make logs readable
+    systemctl-tui  # `tui` for interacting with `systemd` services and their logs
   ];
 
   # Tooling for working with the `rust` language
@@ -69,9 +72,11 @@ rec {
     ansible  # simple automation
     molecule  # `ansible` test framework
     ansible-lint  # `ansible` linter
+    ansible-navigator  # `tui` for `ansible`
     ansible-language-server  # `ansible` language server
   ];
 
+  # Tooling for security scanning
   security-pkgs = [
     flawz  # `tui` for browsing the security vulnerabilities
     trivy  # vulnerability scanner for containers
@@ -88,21 +93,30 @@ rec {
     jfrog-cli  # `cli` for `jfrog` artifact hosting
   ];
 
+  # Tooling for working with `openstack`
+  openstack-pkgs = [
+    openstack-rs  # `cli` and `tui` implemented in `rust` for `openstack`
+  ];
+
   # Tooling for working and querying databases
   databases-pkgs = [
     lazysql  # `tui` for `sql`
-    rainfrog  # db management `tui` for `postgres`
+    vi-mongo  # `tui` for `mongodb`
+    rainfrog  # db management `tui` for `postgress`
   ];
 
   # Tooling for working with `terraform` templates
   terraform-pkgs = [
     tenv # `terraform` manager
+    tfk8s  # utility to convert `kubernetes` manifests to terraform`'s format
     tfsec  # `terraform` security linter
+    tftui  # `tui` to view and interact with `terraform` state
     tflint  # `terraform` linter
     checkov  # code analysis tool for `iac`
     infracost  # cloud cost estimates for `terraform`
     terrascan  #  `terraform` security linter
     terramate  # code generation, stacks, orchestration, change detection, data sharing and more to `terraform`
+    tfmigrate  # `terraform` / `opentofu` state migration tool for `gitops`
     terraformer  # reverse `terraform`
     terracognita  # `terraform` state importer
     terraform-ls  # `terraform` language server
@@ -112,21 +126,26 @@ rec {
   # Tooling for working with `kubernetes`
   kubernetes-pkgs = [
     k9s # `tui` for `k8s`
+    oxker  # simple `tui` to view & control `docker` containers
     argocd  # declarative continuous deployment for `k8s`
     # cruise  # `tui` for managing containers
     helm-ls  # language server for `helm`
     kubectl  # `cli` for `k8s`
     kubectx  # tool to switch between `k8s` contexts
+    kubetui  # `tui` tool for real-time monitoring and exploration of `k8s`
     helm-tui  # `tui` for `helm`
     hadolint  # `docker` file linter
     # minikube # run `k8s` locally
     helm-docs  # generate documentation for `helm` charts
     lazydocker  # `docker` tui
+    podman-tui  # `tui` for `podman`
+    gomanagedocker  # `tui` tool to manage your `docker` images, containers and volumes
     kubernetes-helm  # charts for `k8s`
   ];
 
   # Tooling for doing benchmarking tests
   benchmarking-pkgs = [
+    oha  # `http` load generator inspired by `rakyll`/`hey` with `tui` animation
     s-tui  # stress-terminal `tui` monitoring tool
     tsung  # benchmark framework for various protocols
     vegeta  # versatile `http` load testing tool
