@@ -1,0 +1,21 @@
+[settings]
+icon_running = ●
+icon_stopped = ○
+menu_width = 60%
+menu_height = 50%
+popup_width = 90%
+popup_height = 90%
+
+[menu:git]
+desc = Tools related to git
+
+[app:git/lazygit]
+cmd = lazygit
+
+[menu:dots]
+desc = Folders to edit my dotfiles
+
+[dirbrowser:dots/chezmoi]
+directory = ~/.local/share/chezmoi
+
+# vim: et ts=2 sts=2 sw=2 syntax=dosini

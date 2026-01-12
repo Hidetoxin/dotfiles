@@ -7,7 +7,7 @@ rec {
     gh  # `github` cli
     act  # run your `github` actions locally
     ghr  # upload multiple artifacts to `github` release in parallel
-    eget  # install pre-built binaries from `github`
+    # eget  # install pre-built binaries from `github`
     gh-f  # `fzf` extension
     gh-s  # `fzf` extension
     gh-cal  # `github` contributions calender terminal viewer
@@ -161,6 +161,7 @@ rec {
     eza  # `ls` command alternative
     fzf  # fuzzy finder
     grc  # text colourizer
+    gum  # pretty readline
     lla  # blazing-fast `ls` replacement with superpowers
     sig  # interactive `grep` for streaming
     zsh  # the zshell
@@ -176,6 +177,7 @@ rec {
     gnupg  # privacy guard
     mcfly  # `history` alternative commnand
     p7zip  # `zip` alternative
+    pwgen  # password generator
     ugrep  # `grep` alternative
     vgrep  # user-friendly pager for `grep`/`git-grep`/`ripgrep`
     viddy  # `watch` alternative
@@ -315,7 +317,7 @@ rec {
     rdfind  # find duplicate files bases on content
     rclone  # sync files across clouds
     restic  # backup tool
-    termscp  # feature rich terminal file transfer
+    # termscp  # feature rich terminal file transfer # FIX: broken
     # neverest  # sync, backup and restore emails
   ];
 
@@ -376,6 +378,7 @@ rec {
   internet-pkgs = [
     # gtt  # `tui` for translation FIX: `alsa` not available on `darwin`
     ddgr  # `ddg` for `cli`
+    browsh  # text-based browser, rendering to `tty` and browsers
     haylxon  # take screenshots of webpages
     is-fast  # check the internet as fast as possible
     wiki-tui  # simple and easy to use `wikipedia` text user interface

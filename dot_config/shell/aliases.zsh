@@ -56,16 +56,16 @@ alias tictactoe='telnet pixelomer.com'
 
 # If `gpg` is installed
 [ -n "$(command -v gpg)" ]                                \
-    && gpglp='gpg --list-keys --keyid-format=long'        \
-    && gpgls='gpg --list-secret-keys --keyid-format=long' \
-    && gpgnew='gpg --quick-gen-key --batch --passphrase ""'
+    && alias gpglp='gpg --list-keys --keyid-format=long'        \
+    && alias gpgls='gpg --list-secret-keys --keyid-format=long' \
+    && alias gpgnew='gpg --quick-gen-key --batch --passphrase ""'
 
 # If `bat` is installed
 [ -n "$(command -v bat)" ] \
     && alias b='bat'
 
 # If `cat` is installed
-[ -n "$(command -v bat)" ] \
+[ -n "$(command -v cat)" ] \
     && alias c='cat'
 
 # If `erd` is installed
@@ -94,6 +94,10 @@ alias tictactoe='telnet pixelomer.com'
 # If `lla` is installed
 [ -n "$(command -v lla)" ] \
     && alias ls='lla --table .'
+
+# If `bats` is installed
+[ -n "$(command -v bats)" ] \
+    && alias bats='bats --print-output-on-failure'
 
 # If `gama` is installed
 [ -n "$(command -v gama)" ] \
@@ -212,11 +216,11 @@ alias tictactoe='telnet pixelomer.com'
 
 # If `lazygit` is installed
 [ -n "$(command -v lazygit)" ] \
-    && alias lg="lazygit"
+    && alias lg='GIT_EDITOR="meteor --skip-intro --as-git-editor" lazygit'
 
 # If `gpg-tui` is installed
 [ -n "$(command -v gpg-tui)" ] \
-    &&  alias gpgt='gpg-tui --style colored'
+    && alias gpgt='gpg-tui --style colored'
 
 # If `gitlogue` is installed
 [ -n "$(command -v gitlogue)" ] \
