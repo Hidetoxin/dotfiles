@@ -80,7 +80,7 @@ rec {
     diffnav  # pager based on `delta`
     gitlint  # `git` linter
     git-gone  # cleanup stale `git` branches of merge requests
-    git-jump  # improved navigation between `git` branches
+    # git-jump  # improved navigation between `git` branches FIX: broken
     gitfetch  # `neofetch`-style cli tool for `git` provider statistics
     gitleaks  # scan `git` repos for secrets
     gitlogue  # cinematic `git` commit replay tool for the terminal
@@ -94,6 +94,7 @@ rec {
     git-metrics  # `git` extension to be able to track metrics about your project, within the `git` repository
     gitmoji-cli # using emojis on commit messages
     # diff-so-fancy  # good-looking diffs filter for `git`
+    lazyworktree  # `tui` for efficient `git` worktree management
     git-pages-cli  # command-line application for uploading a site to a `git-pages` server
     pass-git-helper  # `git` credential helper interfacing with `pass`
     bfg-repo-cleaner  # `git` repository cleaner
@@ -143,6 +144,7 @@ rec {
   # Tooling for working with `bash` scripts
   bash-pkgs = [
     up  # `tui` for pipes
+    bats  # `bash` automated testing system
     bash  # bourne again shell
     shfmt  # shell parser and formatter
     shellspec  # `bdd` unit testing framework for all `posix` shells

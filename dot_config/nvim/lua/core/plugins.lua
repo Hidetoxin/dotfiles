@@ -28,9 +28,12 @@ require('lazy').setup({
   --
   require 'plugins/oil',
   require 'plugins/noice',
+  require 'plugins/snacks',
   require 'plugins/conform',
   require 'plugins/gruvbox',
   require 'plugins/lualine',
+  require 'plugins/codediff',
+  require 'plugins/gitsigns',
   require 'plugins/treesitter',
   require 'plugins/todo-comments',
 

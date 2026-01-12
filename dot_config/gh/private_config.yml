@@ -30,11 +30,14 @@ aliases:
   v: browse --no-browser
   b: '!gh browse --no-browser | pbcopy'
 
-  # Issue related aliases
-  me: issues --assignee '@me' --state 'open'
-
   # Enhance related aliases
   e: '!ENHANCE_THEME="gruvbox_dark" gh enhance "$(gh pr view --jq ".url" --json "url")"'
+
+  # Authentication related aliases
+  as: auth status
+
+  # Issue related aliases
+  me: issues --assignee '@me' --state 'open'
 
   # Release related aliases
   rel: release view --jq '.[].name' --json 'name'

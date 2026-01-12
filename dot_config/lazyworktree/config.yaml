@@ -1,0 +1,54 @@
+---
+
+sort_mode: switched  # Options: "path", "active" (commit date), "switched" (last accessed)
+show_icons: true
+worktree_dir: ~/.local/share/worktrees
+max_diff_chars: 200000
+auto_fetch_prs: false
+search_auto_select: false
+fuzzy_finder_input: false
+max_untracked_diffs: 10
+
+theme: gruvbox-dark
+pager: "less --use-color --wordwrap -qcR -P 'Press q to exit..'"
+editor: nvim
+
+git_pager: delta
+git_pager_args:
+  - --syntax-theme
+  - Dracula
+
+trust_mode: tofu # Options: "tofu" (default), "never", "always"
+merge_method: rebase # Options: "rebase" (default), "merge"
+
+# Branch name generation for issues and PRs
+issue_branch_name_template: issue-{number}-{title} # Template with {number}, {title} placeholders
+pr_branch_name_template: "pr-{number}-{title}" # Template with {number}, {title} placeholders
+
+# AI-powered branch name generation (works for changes, issues, and PRs)
+# branch_name_script: "" # Script to generate branch names from diff/issue/PR content
+# init_commands:
+#   - link_topsymlinks
+# terminate_commands:
+#   - echo "Cleaning up $WORKTREE_NAME"
+
+# custom_commands:
+#   t:
+#     wait: true
+#     command: make test
+#     show_help: true
+#     description: Run tests
+
+# Custom worktree creation menu items
+# custom_create_menus:
+#   - label: "From JIRA ticket"
+#     description: "Create from JIRA issue"
+#     command: "jayrah browse 'SRVKP' --choose"
+#     interactive: true  # TUI-based commands need this to suspend lazyworktree
+#     post_command: "git commit --allow-empty -m 'Initial commit for ${WORKTREE_BRANCH}'"
+#     post_interactive: false  # Run post-command in background
+#   - label: "From clipboard"
+#     description: "Use clipboard as branch name"
+#     command: "pbpaste"
+
+# vim: et ts=2 sts=2 sw=2 syntax=yaml

@@ -50,6 +50,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias bwun='export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD)"'         \
     && alias bwli='export BW_SESSION="$(bw login $(pass show self/bw/user) $(pass show self/bw/pass) --code $(pass otp show self/bw/2fa) --raw)"'
 
+# If `gh` is installed
+[ -n "$(command -v gh)" ] \
+    && alias ghe='gh enhance'
+
 # If `gpg` is installed
 [ -n "$(command -v gpg)" ]                                \
     && gpglp='gpg --list-keys --keyid-format=long'        \
@@ -74,27 +78,31 @@ alias tictactoe='telnet pixelomer.com'
     && alias erd5='erd --icons --human --level 5 --layout inverted'
 
 # If `eza` is installed
-[ -n "$(command -v eza)" ]                                          \
-    && alias l1='eza -F -lah --git --icons ..'                      \
-    && alias l2='eza -F -lah --git --icons ../..'                   \
-    && alias l3='eza -F -lah --git --icons ../../..'                \
-    && alias l4='eza -F -lah --git --icons ../../../..'             \
-    && alias l5='eza -F -lah --git --icons ../../../../..'          \
-    && alias l6='eza -F -lah --git --icons ../../../../../..'       \
-    && alias l7='eza -F -lah --git --icons ../../../../../..'       \
-    && alias l8='eza -F -lah --git --icons ../../../../../../..'    \
-    && alias l9='eza -F -lah --git --icons ../../../../../../../..' \
+[ -n "$(command -v eza)" ]                                                                                                                                  \
+    && alias ll='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first .'                       \
+    && alias l1='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ..'                      \
+    && alias l2='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../..'                   \
+    && alias l3='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../../..'                \
+    && alias l4='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../../../..'             \
+    && alias l5='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../../../../..'          \
+    && alias l6='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../../../../../..'       \
+    && alias l7='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../../../../../..'       \
+    && alias l8='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../../../../../../..'    \
+    && alias l9='eza --all --git --long --icons --header --git-repos --classify=auto --octal-permissions --group-directories-first ../../../../../../../..' \
     && alias tree='eza --git --tree --icons'
 
+# If `lla` is installed
+[ -n "$(command -v lla)" ] \
+    && alias ls='lla --table .'
 
-# If `ioreg is installed
-[ -n "$(command -v ioreg)" ] \
-    && alias umdl="ioreg -l | rg 'unique-model' | tr '[A-Z]' '[a-z]' | awk -F'\"' '{print \$4}'"
+# If `gama` is installed
+[ -n "$(command -v gama)" ] \
+    && alias ghw='gama'
 
 # If `jira` is installed
-[ -n "$(command -v jira)" ]                                                      \
-    && alias jme="jira issue list --status '~Done' --assignee '$(jira me)'"      \
-    && alias jdo="jira issue list --jql \"assignee IS EMPTY AND status = 'To Do' \""
+[ -n "$(command -v jira)" ]                                                 \
+    && alias jme='jira issue list --status "~Done" --assignee "$(jira me)"' \
+    && alias jdo="jira issue list --jql \"assignee IS EMPTY AND status = 'To Do'\""
 
 # If `just` is installed
 [ -n "$(command -v just)" ]                       \
@@ -109,11 +117,16 @@ alias tictactoe='telnet pixelomer.com'
     && alias navip='navi --print'   \
     && alias navic='navi --cheatsh'
 
-# If `yazi` is installed
-[ -n "$(command -v yazi)" ] \
-    && alias y='yazi'
+# If `nvim` is installed
+[ -n "$(command -v nvim)" ] \
+    && alias v='nvim'       \
+    && alias sv='sudo nvim'
 
-# If `opentofu` is installed
+# If `tmux` is installed
+[ -n "$(command -v tmux)" ] \
+    && alias tmux='TERM=xterm-256color tmux'
+
+# If `tofu` is installed
 [ -n "$(command -v tofu)" ]                             \
     && alias tt='tofu'                                  \
     && alias ttr='tofu run-all'                         \
@@ -138,14 +151,9 @@ alias tictactoe='telnet pixelomer.com'
     && alias ttd!='tofu destroy -auto-approve'          \
     && alias ttrd!='tofu run-all destroy -auto-approve'
 
-# If `nvim` is installed
-[ -n "$(command -v nvim)" ] \
-    && alias v='nvim'       \
-    && alias sv='sudo nvim'
-
-# If `tmux` is installed
-[ -n "$(command -v tmux)" ] \
-    && alias tmux='TERM=xterm-256color tmux'
+# If `yazi` is installed
+[ -n "$(command -v yazi)" ] \
+    && alias y='yazi'
 
 # If `delta` is installed
 [ -n "$(command -v delta)" ] \
@@ -159,6 +167,10 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v imgcat)" ] \
     && alias ic='imgcat'      \
     && alias icf='imgcat --width=$COLUMNS --heigh=$LINES"'
+
+# If `ioreg is installed
+[ -n "$(command -v ioreg)" ] \
+    && alias umdl="ioreg -l | rg 'unique-model' | tr '[A-Z]' '[a-z]' | awk -F'\"' '{print \$4}'"
 
 # If `packer` is installed
 [ -n "$(command -v packer)" ]        \
@@ -176,6 +188,10 @@ alias tictactoe='telnet pixelomer.com'
 # If `argocd` is installed
 [ -n "$(command -v argocd)" ] \
     && alias argo='argocd'
+
+# If `meteor` is installed
+[ -n "$(command -v meteor)" ] \
+    && alias m='meteor'
 
 # If `awsume` is installed
 [ -n "$(command -v awsume)" ] \
@@ -202,6 +218,10 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v gpg-tui)" ] \
     &&  alias gpgt='gpg-tui --style colored'
 
+# If `gitlogue` is installed
+[ -n "$(command -v gitlogue)" ] \
+    && alias glrc='gitlogue --loop --commit $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@.*/@@")..$(git rev-parse --abbrev-ref HEAD)'
+
 # If `himalaya` is installed
 [ -n "$(command -v himalaya)" ]      \
     && alias hmly='himalaya'         \
@@ -221,23 +241,6 @@ alias tictactoe='telnet pixelomer.com'
     && alias molc='molecule create'   \
     && alias mold='molecule destroy'  \
     && alias molc='molecule converge'
-
-# If `container` is installed
-[ -n "$(command -v container)" ] \
-    && alias cnt='container'     \
-    && alias cnts='container system'
-
-# If `frogmouth` is installed
-[ -n "$(command -v frogmouth)" ] \
-    && alias fm='frogmouth'
-
-# If `infracost` is installed
-[ -n "$(command -v infracost)" ] \
-    &&  alias ic='infracost'
-
-# If `cocainate` is installed
-[ -n "$(command -v cocainate)" ] \
-    && alias cola='cocainate'
 
 # If `terraform` is installed
 [ -n "$(command -v terraform)" ]                              \
@@ -280,6 +283,35 @@ alias tictactoe='telnet pixelomer.com'
     && alias tmtfi='terramate run -- terraform init' \
     && alias tmtfp='terramate run -- terraform plan'
 
+# If `cocainate` is installed
+[ -n "$(command -v cocainate)" ] \
+    && alias cola='cocainate'
+
+# If `container` is installed
+[ -n "$(command -v container)" ] \
+    && alias cnt='container'     \
+    && alias cnts='container system'
+
+# If `frogmouth` is installed
+[ -n "$(command -v frogmouth)" ] \
+    && alias fm='frogmouth'
+
+# If `infracost` is installed
+[ -n "$(command -v infracost)" ] \
+    &&  alias ic='infracost'
+
+# If `actionlint` is installed
+[ -n "$(command -v actionlint)" ] \
+    && alias al='actionlint'
+
+# If `lazydocker` is installed
+[ -n "$(command -v lazydocker)" ] \
+    && alias ldkr='lazydocker'
+
+# If `nix-search` is installed
+[ -n "$(command -v nix-search)" ] \
+    && alias nixs='nix-search'
+
 # If `terragrunt` is installed
 [ -n "$(command -v terragrunt)" ]                             \
     && alias tg='terragrunt'                                  \
@@ -305,17 +337,13 @@ alias tictactoe='telnet pixelomer.com'
     && alias tgd!='terragrunt destroy -auto-approve'          \
     && alias tgrd!='terragrunt run-all destroy -auto-approve'
 
-# If `actionlint` is installed
-[ -n "$(command -v actionlint)" ] \
-    && alias al='actionlint'
-
-# If `lazydocker` is installed
-[ -n "$(command -v lazydocker)" ] \
-    && alias ldkr='lazydocker'
-
 # If `aws-console` is installed
 [ -n "$(command -v aws-console)" ] \
     && alias awsc='aws-console'
+
+# If `lazyworktree` is installed
+[ -n "$(command -v lazyworktree)" ] \
+    && alias lwt='lazyworktree'
 
 # If `terraform-docs` is installed
 [ -n "$(command -v terraform-docs)" ] \
