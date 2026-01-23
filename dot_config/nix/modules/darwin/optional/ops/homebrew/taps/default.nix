@@ -1,27 +1,29 @@
 rec {
 
-  na = [
-  ];  # na
-
-  cli = [
+  ai-pkgs = [
     "epilande/tap"  # `codegrab`
-    "env0/terratag"  # `terrratag` 
-  ];  #cli
+    "huseyinbabal/tap"  # `aiws`
+  ];
 
-  tui = [
+  aws-pkgs = [
+    "isan-rivkin/toolbox"  # `kq` / `r53` /`surf` / `boltdbweb`
+    "santiago-labs/telophasecli"  # `telophasecli`
+  ];
+
+  cloud-pkgs = [
     "dhth/tap"  # `kplay`
-  ];  # tui
+  ];
 
-  gui = [
-  ];  # gui
+  terraform-pkgs = [
+    "env0/terratag"  # `terrratag` 
+  ];
 
-  dmn = [
-  ];  # dmn
-
-  brew = [
-  ];  # brew
-
-  all = cli ++ gui ++ tui ++ dmn ++ brew;
+  all = []
+    # ++ aws-pkgs
+    # ++ ai-pkgs
+    # ++ cloud-pkgs
+    # ++ terraform-pkgs
+    ++ [];
 
 }
 

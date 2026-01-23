@@ -1,36 +1,44 @@
 rec {
 
-   na = [
-    "kap"  # screen recorder
-    "loop"  # window manager
-    "trex"  # copy assistant
-    "lulu"  # firewall
-    "lunar" # control screen brightness
-    "battery"  # maintain battery at 80%
-    "homerow"  # system wide `vimium` clone
-    "dmenu-mac"  # `dmenu` for macos
-    "bleunlock"  # locks and unlocks your `mac` by proximity of your iphone, apple watch, or any other bluetooth low energy device.
-    "airbattery"  # check the status of all your `bluetooth` batteries
-    "pearcleaner"  # `macos` cleaner
-    "jordanbaird-ice"  # menu manager
-    "karabiner-elements"  # utility for keyboard customization
-  ];  # na
-
-  gui = [
+  gui-pkgs = [
+    # "kap"  # screen recorder
+    # "loop"  # window manager
+    # "trex"  # copy assistant
+    # "lulu"  # firewall
+    "ovim"  # `macos` system-wide `vim` keybindings and modal editor
+    # "lunar" # control screen brightness
+    "glide"  # a breezy tiling window manager for `macos`
     "keyclu"  # aplication shortcuts
-    "monarch"  #  `spotlight` alternative
+    # "kunkun"  #`raycast` alternative
+    "ghostty"  # fast, native, feature-rich terminal emulator pushing modern features
+    "firefox"  # `gecko` web browser
+    # "homerow"  # system wide `vimium` clone
+    # "monarch"  #  `spotlight` alternative
+    # "battery"  # maintain battery at 80%
+    # "bleunlock"  # locks and unlocks your `mac` by proximity of your iphone, apple watch, or any other bluetooth low energy device.
+    # "dmenu-mac"  # `dmenu` for macos
+    # "pingplace"  # customize your notification position
     "aerospace"  # `i3` alternative window manager
+    # "leader-key"  #`raycast` alternative
     "quakenotch"  # `quake` style terminal
-  ];  # gui
+    # "airbattery"  # check the status of all your `bluetooth` batteries
+    # "pearcleaner"  # `macos` cleaner
+    "jordanbaird-ice"  # menu manager
+    # "karabiner-elements"  # utility for keyboard customization
+  ];
 
-  font = [
+  font-pkgs = [
     "sf-symbols"  # apple developer symbols
     "font-sf-pro"  # apple developer symbols font
     "font-sf-mono"  # apple developer symbols font
     "font-sketchybar-app-font"  # font to show icons in sketchybar
-  ]; # font
+  ];
 
-  all = gui ++ font;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    ++ gui-pkgs
+    ++ font-pkgs
+    ++ [];
 
 }
 

@@ -1,31 +1,49 @@
 rec {
 
-  na = [
+  ai-pkgs = [
     "aiws"  # `aws` command line with `ai`
-    "surf"  # `grep` for `infrastructure`
-    "kplay" #  `tui` playground for `kafka`
-    "telophasecli"  #  manages your `aws` organization as `iac`
-  ];  # na
-
-  fun = [
-  ];  # fun
-
-  cli = [
     "codegrab"  # grab code to feed into an `llm`
-    "tfschema"  # schema checker for `terraform`
-    "terratag"  # apply tags to `terraform` resources
-    "container"  # `mac` container alternative
+  ];
+
+  aws-pkgs = [
+    "r53"  # `cli` tool for `route53` to quickly query values of records
+    "surf"  # `grep` for `infrastructure`
     "aws-console"  # open `aws` console on a browser
+    "telophasecli"  #  manages your `aws` organization as `iac`
+  ];
+
+  cloud-pkgs = [
+    "kplay" #  `tui` playground for `kafka`
+  ];
+
+  container-pkgs= [
+    "container"  # `mac` container alternative
     "lazycontainer"  # `mac` alternative for `lazydocker`
   ];  # cli
 
-  dev = [
-  ];  # dev
+  databases-pkgs = [
+    "boltdbweb"  # `boltdb` web ui
+  ];
 
-  dmn = [
-  ];  # dmn
+  terraform-pkgs = [
+    "tfschema"  # schema checker for `terraform`
+    "terratag"  # apply tags to `terraform` resources
+  ];
 
-  all = fun ++ cli ++ dev ++ dmn;
+  kubernetes-pkgs = [
+    "kq"  # `cli` tool for querying all your `kubernetes` clusters
+  ];
+
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    # ++ ai-pkgs
+    # ++ aws-pkgs
+    # ++ cloud-pkgs
+    # ++ container-pkgs
+    # ++ databases-pkgs
+    # ++ terraform-pkgs
+    # ++ kubernetes-pkgs
+    ++ [];
 
 }
 

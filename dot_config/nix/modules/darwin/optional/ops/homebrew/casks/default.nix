@@ -1,22 +1,28 @@
 rec {
 
-  na = [
-    "sloth"  # `slo` generator for `prometheus `
+  ai-pkgs = [
     "ollamac"  # desktop app for `ollama`
-    "docker-desktop"  # container manager
   ];  # na
 
-  cli = [
-     "session-manager-plugin"  # `aws` session manager
-  ];  # cli
+  aws-pkgs = [
+    "session-manager-plugin"  # `aws` session manager
+  ];
 
-  gui = [
-  ];  # gui
+  docker-pkgs = [
+    "docker-desktop"  # container manager
+  ];
 
-  font = [
-  ]; # font
+  kubernetes-pkgs = [
+    "sloth"  # `slo` generator for `prometheus `
+  ];
 
-  all = cli ++ gui ++ font;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    # ++ ai-pkgs
+    # ++ aws-pkgs
+    # ++ docker-pkgs
+    # ++ kubernetes-pkgs
+    ++ [];
 
 }
 

@@ -1,53 +1,50 @@
 rec {
 
-  na = [
-    "ks"  #  uses the native `keychain`
-    "wtf"  # check word definitions
-    "prs"  # check pull requests
-    "mult"  # run a command multiple times
-    "kusa"  # display `github` contributors graph
-    "jenv"  # `java` environment manager
-    "revq"  # review `github` pull requests
-    "serpl"  #  `tui` for replacing and re-naming
-    "kunkun"  #`raycast` alternative
-    "kanata"  # keyboard re-mapper
-    "s-search"  #  web search
-    "pingplace"  # customize your notification position
-    "leader-key"  #`raycast` alternative
-    "eg-examples"  # useful examples 
-  ];  # na
+  fun-pkgs = [
+    # "arttime"  # clock / timer / pattern-based time manager
+  ];
 
-  fun = [
-    "arttime"  # clock / timer / pattern-based time manager
-  ];  # fun
-
-  cli = [
+  cli-pkgs = [
+    # "ks"  #  uses the native `keychain`
+    # "wtf"  # check word definitions
+    # "prs"  # check pull requests
+    # "kusa"  # display `github` contributors graph
     "memo"  # control `apple notes` and `apple reminders` from the `cli`
+    "act3"  # view your last 3 `github` workflow runs
+    # "mult"  # run a command multiple times
+    # "revq"  # review `github` pull requests
     "senzu"  # get battery on `macos`
+    # "serpl"  #  `tui` for replacing and re-naming
+    # "kanata"  # keyboard re-mapper
+    # "s-search"  #  web search
     "cocainate"  # prevent `macos` going to sleep
+    "lazyactions"  # `tui` for `github` workflows
+    # "eg-examples"  # useful examples 
     "macos-trash"  # send files to `macos` trash
-    "bitwarden-cli"  # `cli` for `bitwarden`
-  ];  # cli
+  ];
 
-  tui = [
-    "is-fast"  # internet search from the terminal
-  ];  # tui
+  tui-pkgs = [
+  ];
 
-  dev = [
+  dev-pkgs = [
     "lua"
-    "goenv"  # `go` environment manager
-  ];  # dev
+  ];
 
-  gui = [
-  ];  # gui
-
-  dmn = [
-    "svim"  # type on any text field using `vim`
+  dmn-pkgs = [
+    # "svim"  # type on any text field using `vim`
+    "skhd"  # simple hotkey daemon for `macos`
     "borders"  #  highlight the current active window
     "sketchybar"  # customizable status bar for `macos`
   ];  # dmn
 
-  all = fun ++ cli ++ tui ++ dev ++ gui ++ dmn;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    ++ fun-pkgs
+    ++ cli-pkgs
+    ++ tui-pkgs
+    ++ dev-pkgs
+    ++ dmn-pkgs
+    ++ [];
 
 }
 

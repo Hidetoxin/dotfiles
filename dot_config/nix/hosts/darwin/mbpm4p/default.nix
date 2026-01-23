@@ -6,6 +6,7 @@
     ../../../modules/optional/ops  # install `devops` tooling
     ../../../modules/optional/j616p  # specific tooling for `j616p`
     ../../../modules/darwin/optional/ops  # install `devops` tooling for `darwin`
+    ../../../modules/darwin/optional/j616p  # install host specific tooling for `darwin`
   ];
 
 }

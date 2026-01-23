@@ -1,23 +1,18 @@
 rec {
 
-  na = [
-    "dhth/tap"  # `punchout`
-  ];  # na
-
-  cli = [
+  ai-pkgs = [
     "scalvert/tap/glean-cli"  # `glean-cli`
-  ];  #cli
+  ];
 
-  gui = [
-  ];  # gui
+  cli-pkgs = [
+    "dhth/tap"  # `punchout`
+  ];
 
-  dmn = [
-  ];  # dmn
-
-  brew = [
-  ];  # brew
-
-  all = cli ++ gui ++ dmn ++ brew;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    # ++ ai-pkgs
+    # ++ cli-pkgs
+    ++ []
 
 }
 

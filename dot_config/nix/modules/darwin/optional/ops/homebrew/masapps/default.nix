@@ -1,15 +1,16 @@
 rec {
 
-   na = {
-   };  # na
-
-   app = {
-   };  # app
-
-   ext = {
+   app-pkgs = {
    };
 
-  all = app // ext;
+   ext-pkgs = {
+   };
+
+ # Add empty dictionaries for easily commenting the packages that I don't need
+  all = {}
+    // app-pkgs
+    // ext-pkgs
+    // {};
 
 }
 

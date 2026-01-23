@@ -20,11 +20,11 @@ in {
   #  NOTE: Your can find all available options in:
   #    https://daiderd.com/nix-darwin/manual/index.html
   #
-  # TODO Fell free to modify this file to fit your needs.
+  # NOTE: Fell free to modify this file to fit your needs.
   #
   ##########################################################################
 
-  # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
+  # NOTE: To make this work, homebrew need to be installed manually, see https://brew.sh
   #
   # The apps installed by homebrew are not managed by nix, and not reproducible!
   # But on `macOS`, `homebrew` has a much larger selection of apps than `nixpkgs`, especially for `GUI` apps!
@@ -34,16 +34,16 @@ in {
     enable = true;
 
     onActivation = {
-      upgrade = true;
+      upgrade = false;
       cleanup = "zap";
       autoUpdate = true;
     };
 
-    # TODO Feel free to add your favorite apps here.
+    # NOTE: Feel free to add your favorite apps here.
     taps = with taps; all;
     brews = with brews; all;
     casks = with casks; all;
-    masApps = with masapps; all;
+    # masApps = with masapps; all;
     whalebrews = with whalebrews; all;
 
   };

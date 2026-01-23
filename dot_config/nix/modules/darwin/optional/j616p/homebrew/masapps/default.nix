@@ -1,15 +1,12 @@
 rec {
 
-   na = {
-   };  # na
+   safari-pkgs = {
+   };
 
-   app = {
-   };  # app
-
-   ext = {
-   };  # ext
-
-  all = app // ext;
+  # Add empty dictionaries for easily commenting the packages that I don't need
+  all = {}
+    // safari-pkgs
+    // {};
 
 }
 

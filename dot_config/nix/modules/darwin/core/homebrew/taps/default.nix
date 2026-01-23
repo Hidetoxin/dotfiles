@@ -1,38 +1,38 @@
 rec {
 
-  na = [
-    "k3ii/tap"  # `revq` / conze`
-    "dhth/tap"  # `omm` / `prs` / `mult` / `hours`
-    "ryu0118/kusa"  # `kusa`
-    "lihaoyun6/tap"  # `airbattery`
-    "loteoo/formulas"  # `ks`
-    "notwadegrimridge/brew"  # `pingplace`
-    "koekeishiya/formulae/skhd"  # `skhd`
-    "koekeishiya/formulae/yabai"  # `yabai`
-  ];  # na
-
-  cli = [
+  cli-pkgs = [
+    # "k3ii/tap"  # `revq` / conze`
+    "dhth/tap"  # `omm` / `prs` / `act3` / `mult` / `hours`
+    "nnnkkk7/tap"  # `lazyactions`
+    # "ryu0118/kusa"  # `kusa`
+    # "lihaoyun6/tap"  # `airbattery`
     "hakky54/senzu"  # `senzu`
+    # "loteoo/formulas"  # `ks`
     "antoniorodr/memo"  # `memo`
     "applegamer22/tap"  # `cocainate`
-  ];  #cli
+  ];
 
-  tui = [
-    "magic-jd/tap"  #  `is-fast`
-  ];  # tui
+  tui-pkgs = [
+  ];
 
-  gui = [
-  ];  # gui
+  gui-pkgs = [
+    "tonisives/tap"  # `ovim`
+    # "notwadegrimridge/brew"  # `pingplace`
+  ];
 
-  dmn = [
+  dmn-pkgs = [
     "nikitabobko/tap"  # `aerospace`
+    "asmvik/formulae"  # `skhd` / `yabai`
     "felixkratz/formulae"  # `svim` / `jankyborders` / `sketchybar`
-  ];  # dmn
+  ];
 
-  brew = [  # `homebrew` default taps
-  ];  # brew
-
-  all = cli ++ gui ++ tui ++ dmn ++ brew;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    ++ cli-pkgs
+    ++ gui-pkgs
+    ++ tui-pkgs
+    ++ dmn-pkgs
+    ++ [];
 
 }
 

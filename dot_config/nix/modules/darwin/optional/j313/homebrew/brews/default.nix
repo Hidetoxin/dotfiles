@@ -1,24 +1,24 @@
 rec {
 
-  na = [
-  ];  # na
+  fun-pkgs = [
+  ];
 
-  fun = [
-  ];  # fun
+  cli-pkgs = [
+  ];
 
-  cli = [
-  ];  # cli
+  dev-pkgs = [
+  ];
 
-  dev = [
-  ];  # dev
+  dmn-pkgs = [
+  ];
 
-  dmn = [
-  ];  # dmn
-
-  gui = [
-  ];  # gui
-
-  all = fun ++ cli ++ dev ++ dmn ++ gui;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    ++ fun-pkgs
+    ++ cli-pkgs
+    ++ dev-pkgs
+    ++ dmn-pkgs
+    ++ [];
 
 }
 

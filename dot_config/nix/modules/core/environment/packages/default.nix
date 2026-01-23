@@ -67,6 +67,7 @@ rec {
     tig  # `tui` for `git`
     gibo  # shell script for easily accessing `gitignore` boilerplates
     gitu  # `tui` client for `git` inspired by `magit`
+    prek  # better `pre-commit`, re-engineered in rust
     delta  # syntax-highlighting pager for `git`
     gitcs  # scan local `git` repositories and generate a visual contributions graph
     gitty  # contextual information about your `git` projects, right on the command-line
@@ -90,7 +91,7 @@ rec {
     commitizen  # create comitting rules
     difftastic  # syntax-aware diff
     meteor-git  # `cli` tool for writing conventional commits
-    pre-commit  # instal a pre-commit hook on your `git` repo
+    # pre-commit  # instal a pre-commit hook on your `git` repo
     git-metrics  # `git` extension to be able to track metrics about your project, within the `git` repository
     gitmoji-cli # using emojis on commit messages
     # diff-so-fancy  # good-looking diffs filter for `git`
@@ -395,7 +396,7 @@ rec {
     rumdl  # `markdown` linter
     treemd  # `tui`/`cli` `markdown` navigator with tree-based structural navigation
     mdfried  # `markdown` viewer `tui` for the terminal, with big text and image rendering
-    frogmouth  # `tui` for viewing `markdown`
+    # frogmouth  # `tui` for viewing `markdown`
     mermaid-cli  # generation of diagrams from text in a similar manner as `markdown`
     # mermaid-filter  # `pandoc` filter for creating diagrams in `markdown` docs FIX: not available on `darwin`
   ];
