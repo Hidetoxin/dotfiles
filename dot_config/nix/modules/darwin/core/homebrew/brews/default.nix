@@ -15,7 +15,7 @@ rec {
     # "revq"  # review `github` pull requests
     "senzu"  # get battery on `macos`
     # "serpl"  #  `tui` for replacing and re-naming
-    # "kanata"  # keyboard re-mapper
+    "kanata"  # keyboard re-mapper
     # "s-search"  #  web search
     "cocainate"  # prevent `macos` going to sleep
     "lazyactions"  # `tui` for `github` workflows

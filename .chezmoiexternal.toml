@@ -1,4 +1,9 @@
 # External repositories
+[".local/share/bin/kanage"]
+  url           = "https://raw.githubusercontent.com/myagoo/kanage/refs/heads/main/kanage"
+  type          = "file"
+  refreshPeriod = "168h"  # every week
+
 [".cache/tmux/plugins/tpm-redux"]
   url           = "https://github.com/ryanmacg/tpm-redux"
   type          = "git-repo"

@@ -44,7 +44,7 @@ export SAVEHIST="$HISTSIZE"
 export HISTFILE="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh/history"
  
 # Add user scripts to path
-export PATH="$PATH:$XDG_DATA_HOME/../bin"
+export PATH="$PATH:${XDG_DATA_HOME:-${HOME}/.local/share}/bin"
 
 # Setup language settings
 export LANG='en_US.UTF-8'
@@ -102,14 +102,17 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export FZF_DEFAULT_COMMAND='fd --type f'                                                  \
     && export FZF_COMPLETION_TRIGGER='**'
 
-[ -n "$(command -v pass)" ] \
-    && export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME}/.config}/pass"
+[ -n "$(command -v code)" ] \
+    && export VSCODE_PORTABLE="${XDG_DATA_HOME:-${HOME}/.local/share}/vscode"
 
 [ -n "$(command -v mise)" ] \
     && export MISE_ENV="{{ .chezmoi.hostname }}"
 
 [ -n "$(command -v navi)" ] \
     && export NAVI_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/navi"
+
+[ -n "$(command -v pass)" ] \
+    && export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME}/.config}/pass"
 
 [ -n "$(command -v mcfly)" ]                \
     && export MCFLY_FUZZY=true              \
