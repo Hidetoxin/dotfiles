@@ -1,0 +1,6 @@
+[ui]
+theme         = "Gruvbox"
+outline_width = 30
+
+[terminal]
+color_mode = "auto"

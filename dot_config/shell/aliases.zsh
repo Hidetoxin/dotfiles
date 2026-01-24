@@ -52,7 +52,7 @@ alias tictactoe='telnet pixelomer.com'
 
 # If `gh` is installed
 [ -n "$(command -v gh)" ] \
-    && alias ghe='gh enhance'
+    && alias ghe='ENHANCE_THEME="gruvbox_dark" gh enhance "$(gh pr view --jq ".url" --json "url")"'
 
 # If `gpg` is installed
 [ -n "$(command -v gpg)" ]                                \
@@ -201,6 +201,10 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v awsume)" ] \
     && alias awsume='. awsume'
 
+# If `treemd` is installed
+[ -n "$(command -v treemd)" ] \
+    && alias tmd='treemd'
+
 # If `copilot` is installed
 [ -n "$(command -v copilot)" ] \
     &&  alias co='copilot --banner --allow-all-paths' \
@@ -234,6 +238,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias hmlyr='himalaya read'   \
     && alias hmlyre='himalaya reply' \
     && alias hmlyrm='himalaya delete'
+
+# If `gh-notify` is installed
+[ -n "$(command -v gh-notify)" ] \
+    &&  alias ghn='gh-notify'
 
 # If `molecule` is installed
 [ -n "$(command -v molecule)" ]       \
@@ -344,6 +352,10 @@ alias tictactoe='telnet pixelomer.com'
 # If `aws-console` is installed
 [ -n "$(command -v aws-console)" ] \
     && alias awsc='aws-console'
+
+# If `lazyactions` is installed
+[ -n "$(command -v lazyactions)" ] \
+    &&  alias gha='lazyactions'
 
 # If `lazyworktree` is installed
 [ -n "$(command -v lazyworktree)" ] \
