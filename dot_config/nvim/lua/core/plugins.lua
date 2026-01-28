@@ -34,6 +34,7 @@ require('lazy').setup({
   require 'plugins/lualine',
   require 'plugins/codediff',
   require 'plugins/gitsigns',
+  require 'plugins/markview',
   require 'plugins/treesitter',
   require 'plugins/todo-comments',
 
