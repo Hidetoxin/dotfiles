@@ -21,6 +21,10 @@ zinit ice --lucid --if="[ -n $(command -v mise) ]" \
     && zinit light 'wintermi/zsh-mise'
 
 # Add completions
+zinit ice --lucid --depht=1 \
+    && zinit light 'jeffreytse/zsh-vi-mode'
+
+# Add completions
 zinit ice --lucid \
     && zinit light 'zsh-users/zsh-completions'
     # zicompinit; zicdreplay  # FIX: fzf-tab

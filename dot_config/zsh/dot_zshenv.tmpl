@@ -149,6 +149,9 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v zellij)" ] \
     && export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zellij"
 
+[ -n "$(command -v zoxide)" ] \
+    && export ZOXIDE_CMD_OVERRIDE='cd'
+
 [ -n "$(command -v copilot)" ] \
     && export COPILOT_CLI_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/copilot"
 

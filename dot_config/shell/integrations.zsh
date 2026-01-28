@@ -38,4 +38,7 @@
 [ -n "$(command -v pay-respects)" ] \
     && eval "$(pay-respects zsh)"
 
+[ -f "${XDG_CACHE_HOME}/tmux/plugins/nunchux/shell-init.zsh" ] \
+    && source "${XDG_CACHE_HOME}/tmux/plugins/nunchux/shell-init.zsh"
+
 # vim: et ts=4 sts=4 sw=4 syntax=sh

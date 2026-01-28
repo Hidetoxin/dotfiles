@@ -176,14 +176,9 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v ioreg)" ] \
     && alias umdl="ioreg -l | rg 'unique-model' | tr '[A-Z]' '[a-z]' | awk -F'\"' '{print \$4}'"
 
-# If `packer` is installed
-[ -n "$(command -v packer)" ]        \
-    && alias pkr='packer'            \
-    && alias pkri='packer init'      \
-    && alias pkrb='packer build'     \
-    && alias pkrc='packer console'   \
-    && alias pkrv='packer validate'  \
-    && alias pkrin='packer inspect'
+# If `afplay` is installed
+[ -n "$(command -v afplay)" ] \
+    && alias beep='afplay /System/Library/Sounds/Glass.aiff'
 
 # If `aichat` is installed
 [ -n "$(command -v aichat)" ] \
@@ -193,17 +188,30 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v argocd)" ] \
     && alias argo='argocd'
 
-# If `meteor` is installed
-[ -n "$(command -v meteor)" ] \
-    && alias m='meteor'
-
 # If `awsume` is installed
 [ -n "$(command -v awsume)" ] \
     && alias awsume='. awsume'
 
+# If `meteor` is installed
+[ -n "$(command -v meteor)" ] \
+    && alias m='meteor'
+
+# If `packer` is installed
+[ -n "$(command -v packer)" ]        \
+    && alias pkr='packer'            \
+    && alias pkri='packer init'      \
+    && alias pkrb='packer build'     \
+    && alias pkrc='packer console'   \
+    && alias pkrv='packer validate'  \
+    && alias pkrin='packer inspect'
+
 # If `treemd` is installed
 [ -n "$(command -v treemd)" ] \
     && alias tmd='treemd'
+
+# If `zoxide` is installed
+[ -n "$(command -v zoxide)" ] \
+    && alias cdi='zoxide query --interactive'
 
 # If `copilot` is installed
 [ -n "$(command -v copilot)" ] \
