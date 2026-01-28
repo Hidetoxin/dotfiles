@@ -2,7 +2,14 @@
 [group('api')]
 [group('ghcr')]
 [group('github')]
-ghcr-repo:
+ghcr-pkgs:
+    TYPE="$( \
+        gum choose \
+            --cursor ' > ' \
+            --header 'Choose a package type' \
+            --selected 'container' \
+            'npm' 'nuget' 'maven' 'rubygems' 'container' \
+    )" && \
     ORG="$( \
         gh repo view \
           --jq '.owner.login' \
@@ -15,10 +22,23 @@ ghcr-repo:
           --json 'name' | \
         tr '[A-Z]' '[a-z]' \
     )" && \
-    gh api \
-        "/orgs/${ORG}/packages/container/${REPO}%2F${REPO}-app/versions?filters[version_type]=tagged" | \
-    jq \
-        --raw-output \
-        '.[].metadata.container.tags | select(length > 0)'
+    PKG="$( \
+        gh api "/orgs/${ORG}/packages?package_type=${TYPE}" \
+            --jq '.[].name' | \
+        fzf \
+            --query "${REPO}" \
+            --header 'Choose a package' \
+            --prompt 'pkg name  ' | \
+        sed 's/\//%2F/g' \
+    )" && \
+    gh api "/orgs/${ORG}/packages/${TYPE}/${PKG}/versions" \
+        --jq '[.[].metadata.container.tags[] | select(test("^v?[0-9]+\\.[0-9]+\\.[0-9]+$"))] | .[]' \
+        --paginate | \
+    sort \
+        --reverse \
+        --version-sort | \
+    fzf \
+        --header 'Choose a semver' \
+        --prompt 'semver 󰰫 '
 
 # vim: et ts=4 sts=4 sw=4 syntax=just

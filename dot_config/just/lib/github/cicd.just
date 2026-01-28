@@ -2,7 +2,14 @@
 [group('github')]
 [group('single-repo')]
 [group('workflow')]
-cicd-ci WF='invoker-ci':
+cicd-ci:
+    WF="$( \
+        gum file \
+            --file \
+            --header 'Choose a github workflow...' \
+            "$(git rev-parse --show-toplevel)/.github/workflows" | \
+        xargs basename \
+    )" && \
     REPOWNER="$( \
         gh repo view \
           --jq '.nameWithOwner' \
@@ -13,13 +20,26 @@ cicd-ci WF='invoker-ci':
     gh workflow run \
         --ref "${BRANCH}" \
         --repo "${REPOWNER}" \
-        '{{ WF }}.yml'
+        "${WF}"
 
 [doc('Run the `invoker-cd.yml` workflow with the current branch and current release.')]
 [group('github')]
 [group('single-repo')]
 [group('workflow')]
-cicd-cd ENV='dev02' WF='invoker-cd':
+cicd-cd env='dev02':
+    WF="$( \
+        gum file \
+            --file \
+            --header 'Choose a github workflow...' \
+            "$(git rev-parse --show-toplevel)/.github/workflows" | \
+        xargs basename \
+    )" && \
+    ENV="$( \
+        gum input \
+            --value '{{ env }}' \
+            --char-limit 5 \
+            --placeholder 'Type the environment name...' \
+    )" && \
     REL="$( \
         gh release view \
           --jq '.name' \
@@ -42,14 +62,26 @@ cicd-cd ENV='dev02' WF='invoker-cd':
         --ref "${BRANCH}" \
         --repo "${REPOWNER}" \
         --raw-field versions="${REPO}=${REL}" \
-        --raw-field environmentName='{{ ENV }}' \
-        '{{ WF }}.yml'
+        --raw-field environmentName="${ENV}" \
+        "${WF}"
 
 [doc('Run the `invoker-release.yml` workflow with the current branch.')]
 [group('github')]
 [group('single-repo')]
 [group('workflow')]
-cicd-rel REL='3000.0.0' WF='invoker-release':
+cicd-rel rel='3000.0.0':
+    WF="$( \
+        gum file \
+            --file \
+            --header 'Choose a github workflow...' \
+            "$(git rev-parse --show-toplevel)/.github/workflows" | \
+        xargs basename \
+    )" && \
+    REL="$( \
+        gum input \
+            --value '{{ rel }}' \
+            --placeholder 'Type the release name...' \
+    )" && \
     BRANCH="$(git branch --show-current)" && \
     REPOWNER="$( \
         gh repo view \
@@ -82,8 +114,8 @@ cicd-rel REL='3000.0.0' WF='invoker-release':
     gh workflow run \
         --ref "${BRANCH}" \
         --repo "${REPOWNER}" \
-        --raw-field release_ver='{{ REL }}' \
+        --raw-field release_ver="${REL}" \
         --raw-field release_commit="$(git rev-parse HEAD)" \
-        '{{ WF }}.yml'
+        "${WF}"
 
 # vim: et ts=4 sts=4 sw=4 syntax=just
