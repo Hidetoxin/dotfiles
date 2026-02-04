@@ -66,7 +66,7 @@ rec {
     git  # version control manager
     tig  # `tui` for `git`
     gibo  # shell script for easily accessing `gitignore` boilerplates
-    gitu  # `tui` client for `git` inspired by `magit`
+    # gitu  # `tui` client for `git` inspired by `magit`
     prek  # better `pre-commit`, re-engineered in rust
     delta  # syntax-highlighting pager for `git`
     gitcs  # scan local `git` repositories and generate a visual contributions graph
@@ -88,7 +88,7 @@ rec {
     onefetch  # `git` repo summary
     git-cliff  # highly customizable changelog generator that follows conventional commit specifications
     # git-graph  # command line tool to show clear `git` graphs arranged for your branching model FIX: broken
-    commitizen  # create comitting rules
+    # commitizen  # create comitting rules
     difftastic  # syntax-aware diff
     meteor-git  # `cli` tool for writing conventional commits
     # pre-commit  # instal a pre-commit hook on your `git` repo
@@ -138,6 +138,7 @@ rec {
     hurl  # run `http` requests from a text file
     curlie  # better `curl`
     posting  # `postman` like `tui`
+    resterm # `postman` like `tui`
     openapi-tui  #  browse and run `apis` defined with `openapi`
     # ungoogled-chromium  # privacy focused fork of `chromium`
   ];
@@ -158,21 +159,24 @@ rec {
     fd  # `find` command alternative
     fq  # `jq` for binaries
     sd  # `sed`alternative
+    tz  # timezone helper
     bat  # `cat` alternative
     eza  # `ls` command alternative
     fzf  # fuzzy finder
     grc  # text colourizer
     gum  # pretty readline
     lla  # blazing-fast `ls` replacement with superpowers
+    rbw  # unofficial command line client for `bitwarden`
     sig  # interactive `grep` for streaming
     zsh  # the zshell
+    grex  # `cli` tool for generating regular expressions from user-provided test cases
     halp  # get help for the `cli`
     mise  # front-end to your dev env
     navi  # interactive cheatsheet
     play  # `tui` playground for your favorite programs, such as `grep`, `sed` and `awk`
     wget  # retrieve files via `https`
+    # senv  # don't leak secrets on their terminal window  #FIX: is broken
     sttr  # apply operations on strings
-    tmux  # terminal multiplexer
     yazi  # `tui` file manager
     cheat  # `tldr` alternative
     gnupg  # privacy guard
@@ -212,6 +216,7 @@ rec {
     ripgrep-all  # `ripgrep` alternative
     pay-respects  # corrects mispelled commands
     bitwarden-cli  # `cli` for `bitwarden`
+    bat-extras.core  # helper scripts for `bat`
     yaziPlugins.git  # show the status of `git` in `yazi`
     yaziPlugins.diff  # `diff` the selected file with the hovered file in `yazi`
     yaziPlugins.glow  # show `glow` preview in `yazi`
@@ -220,7 +225,6 @@ rec {
     yaziPlugins.miller  # execute `miller` in `yazi`
     yaziPlugins.mactag  # show `macos` on the selected files in `yazi`
     yaziPlugins.lazygit  # execute `lazygit` in `yazi`
-    bat-extras.prettybat  # helper scripts for `bat`
     yaziPlugins.full-border # show a border in `yazi`
     yaziPlugins.rich-preview  # use `rich-cli` for previewing files in `yazi`
     yaziPlugins.relative-motions  # use`vim` relative motions
@@ -269,6 +273,20 @@ rec {
     tombi  # `toml` formatter / linter / language server
   ];
 
+  # Tooling for working with `tmux`
+  tmux-pkgs = [
+    twm  # customizable workspace manager for `tmux`
+    tmux  # terminal multiplexer
+    sesh  # session manager for `tmux`
+    smug  # `tmux` session manager
+    # tuios  # terminal-based window manager
+    thumbs  # `tmux-fingers` written in `rust`
+    tuxmux  # `tmux` session manager
+    # zellij  # `tmux` alternative
+    tmux-xpanes  # `tmux` based terminal divider
+    tmux-sessionizer  # fastest way to manage projects as `tmux` sessions
+  ];
+
   yaml-pkgs = [
     yq  # `yaml` processor
     yamlfix  # `yaml` formatter that keeps your comments
@@ -296,7 +314,7 @@ rec {
     # calcure  # `tui` calendar
     # jiratui  # `tui` for `jira`
     timr-tui  # `tui` to organize your time: pomodoro, countdown, timer
-    tomato-c  # pomodoro timer
+    # tomato-c  # pomodoro timer  # FIX: broken
     # tasktimer  # task timer (tt) is a dead simple `tui` task timer
     # jira-cli-go  # `cli` client for `jira`
     dooit-extras  # extra utilities for `dooit`
@@ -403,7 +421,8 @@ rec {
 
   # Tooling for linting and non-scpecific language `lsp`'s
   spelling-pkgs = [  # `lsp` tooling
-    vale  # syntax linter
+    # vale  # syntax linter
+    jiten  # japanese dict
     harper  # grammar checker `lsp`
     textlint  # linter for natural language
     codespell  # spell linter
@@ -413,7 +432,7 @@ rec {
   streaming-pkgs = [
     ytfzf  # `youtube` video finder
     yt-dlp  # `youtube` downloader
-    invidtui  # `tui` for `invidious`
+    # invidtui  # `tui` for `invidious`  FIX: broken
     twitch-dl  # `cli` tool for downloading videos from `twitch`
     # ytermusic  # `tui` based `youtube` music player FIX: depende on `alsa`
     ytui-music  # `youtube` client in terminal for music
@@ -458,6 +477,7 @@ rec {
     ++ just-pkgs
     ++ json-pkgs
     ++ toml-pkgs
+    ++ tmux-pkgs
     ++ yaml-pkgs
     ++ notes-pkgs
     ++ todos-pkgs

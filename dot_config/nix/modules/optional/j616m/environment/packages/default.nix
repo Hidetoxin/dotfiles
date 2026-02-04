@@ -10,41 +10,54 @@ rec {
     # opencode  # `tui` for using using an `ai` agent on the terminal
     # gemini-cli  # `tui` for using `gemini`
     # claude-code  # `tui` for using `claude`
-    copilot-language-server  # use `copilot` with any editor or ide via `lsp`
     github-copilot-cli  # chat for `copilot`
+    copilot-language-server  # use `copilot` with any editor or `ide` via `lsp`
   ];
 
 
   # Tooling for working with `azure` cloud
   azure-pkgs = [
     bicep # `cli` tool for working with `bicep` files
-    azure-cli  # `cli` for `microsoft azure`
     bicep-lsp  # `lsp` for `bicep`
-    azure-cli-extensions.alias  # support for command aliases
-    azure-cli-extensions.webapp # additional commands for `appservice`
-    azure-cli-extensions.eventgrid  # `eventgrid` command module
-    azure-cli-extensions.front-door  # manage networking `frontdoors`
-    azure-cli-extensions.interactive  # interactive shell
-    azure-cli-extensions.containerapp  # `containerapp` extension
-    azure-cli-extensions.staticwebapp  # `staticwebapp` extension
-    azure-cli-extensions.log-analytics  # `loganalytics` query capabilities
-    azure-cli-extensions.application-insights # managing `appinsights` components and querying metrics, events, and logs
-    azure-cli-extensions.log-analytics-solution  # support for `loganalytics` solution
+    (azure-cli.withExtensions [
+      azure-cli-extensions.alias  # support for command aliases
+      azure-cli-extensions.webapp # additional commands for `appservice`
+      azure-cli-extensions.eventgrid  # `eventgrid` command module
+      azure-cli-extensions.front-door  # manage networking `frontdoors`
+      azure-cli-extensions.interactive  # interactive shell
+      azure-cli-extensions.containerapp  # `containerapp` extension
+      azure-cli-extensions.staticwebapp  # `staticwebapp` extension
+      azure-cli-extensions.log-analytics  # `loganalytics` query capabilities
+      azure-cli-extensions.resource-graph  # query multiple subscriptions at once
+      azure-cli-extensions.application-insights # managing `appinsights` components and querying metrics, events, and logs
+      azure-cli-extensions.log-analytics-solution  # support for `loganalytics` solution
+    ])
   ];
 
   # Editor and tooling for working with code
   vscode-pkgs = [
-    vscode
-    vscode-extensions.vscodevim.vim
-    vscode-extensions.github.copilot
-    vscode-extensions.eamodio.gitlens
-    vscode-extensions.waderyan.gitblame
-    vscode-extensions.github.copilot-chat
-    vscode-extensions.bierner.markdown-mermaid
-    vscode-extensions.editorconfig.editorconfig
-    vscode-extensions.ms-azuretools.vscode-bicep
-    vscode-extensions.vscode-icons-team.vscode-icons
-    vscode-extensions.shd101wyy.markdown-preview-enhanced
+    (vscode-with-extensions.override {
+      vscodeExtensions = [
+        vscode-extensions.mkhl.shfmt  # format shell scripts
+        vscode-extensions.vscodevim.vim  # `vim` emulation for `vscode`
+        vscode-extensions.jetmartin.bats  # `lsp` for `bats`
+        vscode-extensions.github.copilot  # `ai` partner programmer
+        vscode-extensions.eamodio.gitlens  # `git` additional tools
+        vscode-extensions.ms-python.python  # `lsp` for `python`
+        vscode-extensions.waderyan.gitblame  # simple `git` blame tool
+        vscode-extensions.ms-python.debugpy  # debugger for `python`
+        vscode-extensions.jdinhlife.gruvbox  # add `gruvbox` theme
+        vscode-extensions.github.copilot-chat  # `ai` chat features powered by `copilot`
+        vscode-extensions.elijah-potter.harper  # grammar checker for developers
+        vscode-extensions.ms-vscode.powershell  # `lsp` for `powershell`
+        vscode-extensions.timonwong.shellcheck  # linter for shell scripts
+        vscode-extensions.bierner.markdown-mermaid  # add `mermaid` support to `markdown`
+        vscode-extensions.editorconfig.editorconfig  # add `editorconfig` support to `vsdcode`
+        vscode-extensions.ms-azuretools.vscode-bicep  # add `lsp` support for `bicep`
+        vscode-extensions.vscode-icons-team.vscode-icons  # improved development icons
+        vscode-extensions.shd101wyy.markdown-preview-enhanced  # quickly preview `markdown` files
+      ];
+    })
   ];
 
   # Tooling for working with the `python` scripting language

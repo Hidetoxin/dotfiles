@@ -67,6 +67,15 @@ rec {
     vault-ssh-plus  # automatically use `vault` `ssh` client key signing
   ];
 
+  docker_pkgs = [
+    oxker  # simple `tui` to view & control `docker` containers
+    hadolint  # `docker` file linter
+    dockerfmt  # `dockerfile` formatter, a modern `dockfmt`
+    lazydocker  # `docker` tui
+    gomanagedocker  # `tui` tool to manage your `docker` images, containers and volumes
+    dockerfile-language-server  # language server for ``dockerfiles`
+  ];
+
   # Tooling for working with `ansible` playbooks
   ansible-pkgs = [
     ansible  # simple automation
@@ -126,7 +135,6 @@ rec {
   # Tooling for working with `kubernetes`
   kubernetes-pkgs = [
     k9s # `tui` for `k8s`
-    oxker  # simple `tui` to view & control `docker` containers
     argocd  # declarative continuous deployment for `k8s`
     # cruise  # `tui` for managing containers
     helm-ls  # language server for `helm`
@@ -134,12 +142,8 @@ rec {
     kubectx  # tool to switch between `k8s` contexts
     kubetui  # `tui` tool for real-time monitoring and exploration of `k8s`
     helm-tui  # `tui` for `helm`
-    hadolint  # `docker` file linter
     # minikube # run `k8s` locally
     helm-docs  # generate documentation for `helm` charts
-    lazydocker  # `docker` tui
-    podman-tui  # `tui` for `podman`
-    gomanagedocker  # `tui` tool to manage your `docker` images, containers and volumes
     kubernetes-helm  # charts for `k8s`
   ];
 
@@ -168,6 +172,7 @@ rec {
     # ++ rust-pkgs
     # ++ nomad-pkgs
     # ++ vault-pkgs
+    # ++ docker-pkgs
     # ++ ansible-pkgs
     # ++ security-pkgs
     # ++ artifacts-pkgs

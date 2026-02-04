@@ -76,15 +76,11 @@ rec {
 
   # Tooling that I need to test to incorporate in my workflow
   test-pkgs = [
-    sesh  # session manager for `tmux`
-    smug  # `tmux` session manager
     ttyd  # share terminal over the web
     yank  # yank terminal output
-    tuios  # terminal-based window manager
     atuin  # `history` alternative
     pueue  # daemon for managing long running commands
     jobber  # alternative to `cron` with sophisticated status-reporting and error-handling
-    zellij  # `tmux` alternative
   ];
 
   all = []
