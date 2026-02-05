@@ -1,0 +1,19 @@
+{
+    "update.mode": "none",
+
+    "editor.fontSize": 14,
+    "editor.accessibilitySupport": "on",
+
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "github.copilot.nextEditSuggestions.enabled": true,
+
+    "gitlens.ai.model": "vscode",
+    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+
+    "workbench.iconTheme": "vscode-icons",
+
+    "chat.mcp.gallery.enabled": true,
+    "chat.viewSessions.orientation": "stacked"
+}
