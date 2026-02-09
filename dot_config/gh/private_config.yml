@@ -45,6 +45,14 @@ aliases:
   reldl: '!gh release download $1'
   relrm: '!gh release delete $1 --yes --cleanup-tag'
 
+  # Extensions related aliases
+  extb: extension browse
+  exti: '!yq --raw-output ".extensions[] | select(.install == true) | .name" ~/.config/gh/extensions.yml | xargs -I{} gh extension install "{}"'
+  extu: '!yq --raw-output ".extensions[] | select(.install == true) | .name" ~/.config/gh/extensions.yml | xargs -I{} gh extension upgrade "{}"'
+  extls: extension list
+  extrm: '!gh extension remove $1'
+
+
   # Identity related aliases
   creds: '!cd ~/.config/gh && ln -nfs hosts-$1.yml hosts.yml && cd ~/.config/gama && ln -nfs config-$1.yaml config.yaml && gh auth status'
 

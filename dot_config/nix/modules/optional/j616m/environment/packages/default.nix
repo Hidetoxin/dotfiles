@@ -58,6 +58,7 @@ rec {
         vscode-extensions.github.vscode-github-actions  # manage `github` workflows
         vscode-extensions.vscode-icons-team.vscode-icons  # improved development icons
         vscode-extensions.shd101wyy.markdown-preview-enhanced  # quickly preview `markdown` files
+        vscode-extensions.ms-dotnettools.vscode-dotnet-runtime  # dependency of the `bicep` extension
       ];
     })
   ];

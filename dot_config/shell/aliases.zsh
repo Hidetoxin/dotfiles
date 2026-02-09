@@ -9,7 +9,8 @@ alias .6='cd ../../../../../..'
 alias .7='cd ../../../../../../..'
 alias .8='cd ../../../../../../../..'
 alias .9='cd ../../../../../../../../..'
-alias mkdir='mkdir -p'
+alias mk='(){ mkdir --parents $1 && cd $1 }'
+alias mkdir='mkdir --parents'
 
 # Ad daliases to simulate `vim`
 alias :q='exit 0'
@@ -163,18 +164,22 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v delta)" ] \
     && alias d='delta'
 
+# If `ioreg is installed
+[ -n "$(command -v ioreg)" ] \
+    && alias umdl="ioreg -l | rg 'unique-model' | tr '[A-Z]' '[a-z]' | awk -F'\"' '{print \$4}'"
+
 # If `gping` is installed
 [ -n "$(command -v gping)" ] \
     && alias pii='gping 9.9.9.9'
+
+# If `xattr` is installed
+[ -n "$(command -v xattr)" ] \
+    && allow='sudo xattr -r -d com.apple.quarantine'
 
 # If `imgcat` is installed
 [ -n "$(command -v imgcat)" ] \
     && alias ic='imgcat'      \
     && alias icf='imgcat --width=$COLUMNS --heigh=$LINES"'
-
-# If `ioreg is installed
-[ -n "$(command -v ioreg)" ] \
-    && alias umdl="ioreg -l | rg 'unique-model' | tr '[A-Z]' '[a-z]' | awk -F'\"' '{print \$4}'"
 
 # If `afplay` is installed
 [ -n "$(command -v afplay)" ] \
@@ -191,6 +196,10 @@ alias tictactoe='telnet pixelomer.com'
 # If `awsume` is installed
 [ -n "$(command -v awsume)" ] \
     && alias awsume='. awsume'
+
+# If `batman` is installed
+[ -n "$(command -v batman)" ] \
+    && alias man='batman'
 
 # If `meteor` is installed
 [ -n "$(command -v meteor)" ] \
@@ -230,6 +239,10 @@ alias tictactoe='telnet pixelomer.com'
 [ -n "$(command -v lazygit)" ] \
     && alias lg='GIT_EDITOR="meteor --skip-intro --as-git-editor" lazygit'
 
+# If `netstat` is installed
+[ -n "$(command -v netstat)" ] \
+    && alias ports='netstat'
+
 # If `gpg-tui` is installed
 [ -n "$(command -v gpg-tui)" ] \
     && alias gpgt='gpg-tui --style colored'
@@ -246,6 +259,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias hmlyr='himalaya read'   \
     && alias hmlyre='himalaya reply' \
     && alias hmlyrm='himalaya delete'
+
+# If `watchgha` is installed
+[ -n "$(command -v watchgha)" ] \
+    && alias ghwa='watchgha'
 
 # If `gh-notify` is installed
 [ -n "$(command -v gh-notify)" ] \
@@ -330,7 +347,8 @@ alias tictactoe='telnet pixelomer.com'
 
 # If `nix-search` is installed
 [ -n "$(command -v nix-search)" ] \
-    && alias nixs='nix-search'
+    && alias nixs='nix-search'    \
+    && alias nixsd='nix-search --details'
 
 # If `terragrunt` is installed
 [ -n "$(command -v terragrunt)" ]                             \
@@ -375,9 +393,10 @@ alias tictactoe='telnet pixelomer.com'
     && alias tdocm='terraform-docs markdown table'
 
 # If `darwin-rebuild` is installed
-[ -n "$(command -v darwin-rebuild)" ]                                                                                  \
-    && alias dr='sudo darwin-rebuild'                                                                                  \
-    && alias drc='cd ~/.config/nix && sudo darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
-    && alias drs='cd ~/.config/nix && sudo darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
+[ -n "$(command -v darwin-rebuild)" ]                                                                                   \
+    && alias dr='sudo darwin-rebuild'                                                                                   \
+    && alias drc='cd ~/.config/nix && sudo darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"'  \
+    && alias drs='cd ~/.config/nix && sudo darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"' \
+    && alias drd='cd ~/.config/nix && sudo darwin-rebuild dry-build --flake ~/.config/nix#"$(scutil --get LocalHostName)"'
 
 # vim: et ts=4 sts=4 sw=4 syntax=sh

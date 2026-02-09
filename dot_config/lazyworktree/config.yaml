@@ -1,7 +1,6 @@
 ---
 
 sort_mode: switched  # Options: "path", "active" (commit date), "switched" (last accessed)
-show_icons: true
 worktree_dir: ~/.local/share/worktrees
 max_diff_chars: 200000
 auto_fetch_prs: false
@@ -13,10 +12,14 @@ theme: gruvbox-dark
 pager: "less --use-color --wordwrap -qcR -P 'Press q to exit..'"
 editor: nvim
 
-git_pager: delta
-git_pager_args:
-  - --syntax-theme
-  - Dracula
+icon_set: nerd-font-v3
+show_icons: true
+
+git_pager: diffnav
+git_pager_interactive: true
+# git_pager_args:
+#   - --syntax-theme
+#   - Dracula
 
 trust_mode: tofu # Options: "tofu" (default), "never", "always"
 merge_method: rebase # Options: "rebase" (default), "merge"

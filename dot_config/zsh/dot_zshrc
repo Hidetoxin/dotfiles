@@ -54,6 +54,10 @@ fi
 [[ ! -f "${XDG_CONFIG_HOME:-${HOME}/.config}/p10k/p10k.zsh" ]] \
     || source "${XDG_CONFIG_HOME:-${HOME}/.config}/p10k/p10k.zsh"
 
+# https://code.visualstudio.com/docs/terminal/shell-integration
+[[ "${TERM_PROGRAM}" == 'vscode' ]] \
+    && . "$(code --locate-shell-integration-path zsh)"
+
 # Keybindings
 bindkey -v
 # bindkey "ç" fzf-cd-widget                           \
@@ -85,7 +89,7 @@ setopt hist_find_no_dups
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 
-# Make sure brew utilities are first on the path
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+# Make sure brew utilities are last on the path
+export PATH="$PATH:/opt/homebrew/bin:/opt/homebrew/sbin"
 
 # vim: et ts=4 sts=4 sw=4 syntax=sh

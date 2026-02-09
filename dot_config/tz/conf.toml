@@ -1,0 +1,58 @@
+# https://en.wikipedia.org/wiki/list_of_tz_database_time_zones
+
+[[zones]]
+id   = "CST"
+name = "CST"
+
+[[zones]]
+id   = "EST"
+name = "EST"
+
+[[zones]]
+id   = "UTC"
+name = "UTC"
+
+[[zones]]
+id   = "India"
+name = "Asia/Kolkata"
+
+[[zones]]
+id   = "Poland"
+name = "Poland"
+
+[[zones]]
+id   = "Asia/Seoul"
+name = "South Korea"
+
+[[zones]]
+id   = "America/Mexico_City"
+name = "Mexico"
+
+[keymaps]
+now         = ["t"]
+help        = ["f1"]
+quit        = ["q", "esc", "ctrl+c"]
+open_web    = ["o", "x"]
+toggle_date = ["d"]
+
+prev_minute = ["-"]
+next_minute = ["+"]
+zero_minute = ["0"]
+
+prev_hour = ["h", "left"]
+next_hour = ["l", "right"]
+
+prev_day = ["k", "up"]
+next_day = ["j", "down"]
+
+prev_week = ["p", "<"]
+next_week = ["n", ">"]
+
+prev_line_select = [","]
+next_line_select = ["."]
+
+next_format_style = ["f"]
+prev_format_style = ["F"]
+
+next_zone_style = ["z"]
+prev_zone_style = ["Z"]

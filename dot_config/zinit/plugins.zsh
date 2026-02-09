@@ -20,6 +20,10 @@ zinit ice --lucid --wait=0 --if="[ -n $(command -v grc) ]" \
 zinit ice --lucid --if="[ -n $(command -v mise) ]" \
     && zinit light 'wintermi/zsh-mise'
 
+# Smart man page lookup for `zsh`
+zinit ice --lucid \
+ && zinit light 'tunacuma/zsh-vi-man'  # Ctrl+K
+
 # Add completions
 zinit ice --lucid --depht=1 \
     && zinit light 'jeffreytse/zsh-vi-mode'

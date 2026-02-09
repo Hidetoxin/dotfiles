@@ -35,6 +35,9 @@
 [ -n "$(command -v argocd)" ] \
     && eval "$(argocd completion zsh)"
 
+[ -n "$(command -v lazyworktree)" ] \
+    && eval "$(lazyworktree completion zsh --code)"
+
 [ -n "$(command -v pay-respects)" ] \
     && eval "$(pay-respects zsh)"
 

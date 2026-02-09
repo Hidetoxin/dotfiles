@@ -1,3 +1,4 @@
 theme = light:gruvbox-material-hard-light,dark:gruvbox-material-hard-dark
+font-size = 14
 background-image = /Cloud/iCloud/Wallpapers/Terminal/Gruvbox/background.jpg
-background-opacity = 0.9
+background-opacity = 0.8

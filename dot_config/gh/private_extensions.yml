@@ -1,0 +1,108 @@
+---
+
+extensions:
+  - name: joaom00/gh-b
+    desc: manage your branches
+    install: true
+
+  - name: jrnxf/gh-eco
+    desc: gh extension to explore the ecosystem
+    install: true
+
+  - name: k1low/gh-grep
+    desc: print lines matching a pattern in repositories using `github` api
+    install: true
+
+  - name: nektos/gh-act
+    desc: un your `github` actions locally
+    install: true
+
+  - name: dlvhdr/gh-dash
+    desc: dashboard `tui` for issues and pr's
+    install: false
+
+  - name: link-/gh-token
+    desc: creates an installation access token to make authenticated api requests
+    install: false
+
+  - name: chmouel/gh-news
+    desc: notifications `tui`
+    install: true
+
+  - name: kawarimidoll/gh-q
+    desc: extension to clone `github` repositories using `fzf` and `ghq`
+    install: true
+
+  - name: seachicken/gh-poi
+    desc: safely clean up local branches you no longer need
+    install: true
+
+  - name: agynio/gh-pr-review
+    desc: inline pr review comments to the terminal
+    install: true
+
+  - name: fchimpan/gh-slimify
+    desc: migrate workflows to `ubuntu-slim`
+    install: true
+
+  - name: meiji163/gh-notify
+    desc: view your `github` notifications
+    install: false
+
+  - name: gennaro-tedesco/gh-i
+    desc: search `github` issues interactively
+    install: true
+
+  - name: gennaro-tedesco/gh-f
+    desc: compact and snappy `fzf` extension for `gh`
+    install: true
+
+  - name: gennaro-tedesco/gh-s
+    desc: search repositories interactively
+    install: true
+
+  - name: sgoedecke/gh-standup
+    desc: generates `ai` powered standup reports using `github` activity data
+    install: true
+
+  - name: inditextech/gh-sherpa
+    desc: create branches and pull requests associated with any `github` or `jira` issue
+    install: true
+
+  - name: johnmanjiro13/gh-bump
+    desc: extension for bumping version of a repository
+    install: true
+
+  - name: kawarimidoll/gh-graph
+    desc: contribution graph in your terminal
+    install: true
+
+  - name: leereilly/gh-yule-log
+    desc: view your contributions as logs
+    install: true
+
+  - name: mintarchit/gh-contribs
+    desc: render your contribution graph to the terminal
+    install: true
+
+  - name: emmanuel-ferdman/gh-gonest
+    desc: automatically detects and removes phantom notifications
+    install: true
+
+  - name: dlvhdr/gh-enhance
+    desc: view run workflows on current pr
+    install: true
+
+  - name: fchimpan/gh-workflow-stats
+    desc: extension to calculate the success rate and execution time of workflows and jobs
+    install: true
+
+  - name: mona-actions/gh-repo-stats
+    desc: scans an organization or list of organizations for all repositories and gathers size statistics
+    install: true
+
+  - name: yusukebe/gh-markdown-preview
+    desc: preview `markdown` looks like `github`
+    install: true
+
+# vim: et ts=2 sts=2 sw=2 syntax=yaml
