@@ -214,6 +214,7 @@ alt-shift-v = ['move-node-to-workspace V', 'workspace V', 'exec-and-forget sketc
 # alt-shift-x = ['move-node-to-workspace X', 'workspace X', 'exec-and-forget sketchybar2 --trigger space_windows_change']
 # alt-shift-y = ['move-node-to-workspace Y', 'workspace Y', 'exec-and-forget sketchybar2 --trigger space_windows_change']
 # alt-shift-z = ['move-node-to-workspace Z', 'workspace Z', 'exec-and-forget sketchybar2 --trigger space_windows_change']
+alt-shift-space = ['layout floating tiling', 'mode main']
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
