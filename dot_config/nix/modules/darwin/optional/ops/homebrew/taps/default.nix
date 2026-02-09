@@ -3,6 +3,7 @@ rec {
   ai-pkgs = [
     "epilande/tap"  # `codegrab`
     "huseyinbabal/tap"  # `aiws`
+    "kavehtehrani/tap"  #  `cloudflare-speed-cli`
   ];
 
   aws-pkgs = [
@@ -11,7 +12,7 @@ rec {
   ];
 
   cloud-pkgs = [
-    "dhth/tap"  # `kplay`
+    "jonas-grgt/ktea"  # `ktea`
   ];
 
   terraform-pkgs = [

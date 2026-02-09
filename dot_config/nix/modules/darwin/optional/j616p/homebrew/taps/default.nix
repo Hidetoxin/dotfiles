@@ -5,7 +5,6 @@ rec {
   ];
 
   cli-pkgs = [
-    "dhth/tap"  # `punchout`
   ];
 
   # Add empty arrays for easily commenting the packages that I don't need

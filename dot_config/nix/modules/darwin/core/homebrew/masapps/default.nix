@@ -10,6 +10,7 @@ rec {
     #"Hyperduck" = 6444667067;  # `airdrop` alternative
     "Bitwarden" = 1352778147;  # password manager
     "Amphetamine" = 937984704;  # keep your mac from going to sleep
+    "LiquidFetch" = 6757637185  # show your system information
     "ExcalidrawZ" = 6636493997;  # `excalidraw` client
     # "ScanTexter" = 1635954549;  # image to text `ocr`
     # "Super Agent" = 1568262835;  # fills `cookies` acording to your preferences

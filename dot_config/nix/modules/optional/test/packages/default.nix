@@ -66,19 +66,12 @@ rec {
 
   # Extensions for the `github` command line that are not available on `nix`
   gh-pkgs = [
-    # kawarimidoll/gh-q
-    # gennaro-tedesco/gh-i
-    # redraw/gh-install
-    # kawarimidoll/gh-graph
-    # chelnak/gh-changelog
-    # korosuke613/gh-user-stars
   ];
 
   # Tooling that I need to test to incorporate in my workflow
   test-pkgs = [
     ttyd  # share terminal over the web
     yank  # yank terminal output
-    atuin  # `history` alternative
     pueue  # daemon for managing long running commands
     jobber  # alternative to `cron` with sophisticated status-reporting and error-handling
   ];

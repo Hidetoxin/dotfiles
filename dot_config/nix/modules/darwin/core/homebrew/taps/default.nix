@@ -2,14 +2,23 @@ rec {
 
   cli-pkgs = [
     # "k3ii/tap"  # `revq` / conze`
-    "dhth/tap"  # `omm` / `prs` / `act3` / `mult` / `hours`
+    "dhth/tap"  # `omm` / `prs` / `act3` / `mult` / `hours` / `kplay` / `cueitup` / `punchout`/ `unreleased`
+    "netmute/tap"  # `dol`
     "nnnkkk7/tap"  # `lazyactions`
+    "bahaaio/pomo"  # `pomo`
     # "ryu0118/kusa"  # `kusa`
+    "jackchuka/tap"  # `dutix`
     # "lihaoyun6/tap"  # `airbattery`
+    # "ll-nick/leadr"  # `leadr
     "hakky54/senzu"  # `senzu`
     # "loteoo/formulas"  # `ks`
     "antoniorodr/memo"  # `memo`
     "applegamer22/tap"  # `cocainate`
+    "bharath-code/tap"  # `git-scope`
+    "gromgit/brewtils"  # `taproom`
+    "alejandroqh/term39"  # `term39`
+    "projectamurat/murat"  # `mss` / `mfree` / `mlsblk` / `mwatch` / `mpstree` / `mfindmnt` / `fsnotifywait`
+    "phanorcoll/homebrew-muxie"  # `muxie`
   ];
 
   tui-pkgs = [
@@ -17,6 +26,8 @@ rec {
 
   gui-pkgs = [
     "tonisives/tap"  # `ovim`
+    "unsecretised/tap"  #  `rustcast`
+    "nickustinov/pinster"  # `pinster`
     # "notwadegrimridge/brew"  # `pingplace`
   ];
 

@@ -14,6 +14,8 @@ rec {
 
   cloud-pkgs = [
     "kplay" #  `tui` playground for `kafka`
+    "ktea"  # tool designed to simplify and accelerate interactions with `kafka` cluster
+    "cloudflare-speed-cli"  # `tui` for displaying network speed test results from `cloudflare`'s speed test
   ];
 
   container-pkgs= [

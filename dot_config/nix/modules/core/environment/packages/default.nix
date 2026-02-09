@@ -8,25 +8,28 @@ rec {
     act  # run your `github` actions locally
     ghr  # upload multiple artifacts to `github` release in parallel
     # eget  # install pre-built binaries from `github`
-    gh-f  # `fzf` extension
-    gh-s  # `fzf` extension
+    # gh-f  # `fzf` extension
+    # gh-s  # `fzf` extension
     gh-cal  # `github` contributions calender terminal viewer
-    gh-eco  # explore the ecosystem
-    gh-poi  # `github` extension to safely clean up your local branches
+    # gh-eco  # explore the ecosystem
+    # gh-poi  # `github` extension to safely clean up your local branches
     pinact  # pin `github` actions versions
     wrkflw  # `tui` for running local `github` workflows
     zizmor  # tool for finding security issues in `github` actions setups
     ghalint  # `github` actions linter for security best practice
     gh-dash  # display dashboar with requests and issues
     ghfetch  #  `github` fetch information
+    poutine  # security scanner that detects misconfigurations and vulnerabilities in build pipelines of repositories
     gama-tui # `tui` for running `github` workflows
     octoscan  # static vulnerability scanner for `github` action workflows
     watchgha  # live display of current `github` action runs
     git-hound  # reconnaissance tool for `github` code search
     gh-notify  # display `github` notifications
+    octofetch  # `github` user information on terminal
+    octosuite  # advanced `osint` framework for `github`
     actionlint  # linter for `github` workflows
     codeowners  # `cli` and `go` library for `github`'s codeowners file
-    gh-contribs  # `github` contribution graph `cli`
+    # gh-contribs  # `github` contribution graph `cli`
     star-history  # command line program to generate a graph showing number of `github` stars
     action-validator  # tool to validate `github` action and workflow `yaml` files
     github-commenter  # `cli` utility for creating `github` comments on commits, pull request reviews or issues
@@ -179,6 +182,8 @@ rec {
     sttr  # apply operations on strings
     yazi  # `tui` file manager
     cheat  # `tldr` alternative
+    atuin  # `history` alternative
+    broot  # interactive tree view, a fuzzy search, a balanced bfs descent and customizable commands
     gnupg  # privacy guard
     mcfly  # `history` alternative commnand
     p7zip  # `zip` alternative
@@ -188,6 +193,7 @@ rec {
     viddy  # `watch` alternative
     vivid  # `LS_COLORS` generator
     zinit  # `zsh` plugin manager
+    copier  # `cli` app for rendering project templates
     direnv  # environment manage
     gnused  # `gnu`version of sed 
     neovim  # `vim` alternative
@@ -252,6 +258,7 @@ rec {
   just-pkgs = [  # `shell` tooling
     just  # save and run project specific commands
     just-lsp  # `just` language server
+    just-formatter  # `just` languge formatter
   ];
 
   # Tooling for working with `json` files
@@ -259,6 +266,7 @@ rec {
     fx  # terminal `json` viewer
     jq  # `json` processor
     ijq  # `tui` for `jq`
+    jiq  #  `tui` for `jq`
     jnv  #  `tui` for `jq`
     jqp  # `tui` for `jq`
     gron  # make `json` greppable
@@ -388,9 +396,11 @@ rec {
     tshark  # `cli` for `wireshark`
     unbound  # validating, recursive, caching `dns` resolver
     # sniffnet  # monitor your internet traffic `gui`
+    bandwhich  # `cli` utility for displaying current network utilization
     termshark  # `tui` for `wireshark-cli`
     # opensnitch # application firewall
-    speedtest-cli  # check your internet speed
+    cfspeedtest  # unofficial cli for `speed.cloudflare.com`
+    ookla-speedtest  # internet speedtest tool by `ookla`
   ];
 
   # Tooling for visiting the internet
@@ -400,6 +410,7 @@ rec {
     browsh  # text-based browser, rendering to `tty` and browsers
     haylxon  # take screenshots of webpages
     is-fast  # check the internet as fast as possible
+    s-search  # web search
     wiki-tui  # simple and easy to use `wikipedia` text user interface
     gowitness  # website screenshot utility
     circumflex  # browsing `hacker news` in your terminal
@@ -408,6 +419,7 @@ rec {
 
   # Tooling for working with `markdown` files
   markdown-pkgs = [
+    mcat  # parse, convert and preview files
     glow  # render `markdown on the cli`
     mado  # `markdown` linter
     mdcat  # `cat` for `markdown`
@@ -424,6 +436,7 @@ rec {
     # vale  # syntax linter
     jiten  # japanese dict
     harper  # grammar checker `lsp`
+    hunspell  # spell checker
     textlint  # linter for natural language
     codespell  # spell linter
   ];
@@ -454,6 +467,7 @@ rec {
   monitoring-pkgs = [
     dua  # tool for disk usage of directories
     duf  # disk usage / free utility
+    gdu  # disk usage analyzer `tui`
     btop  # `top` alternative
     dust  # `du` command alternative
     # ttop  # `top` like system monitoring tool

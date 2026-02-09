@@ -39,6 +39,7 @@ rec {
     (vscode-with-extensions.override {
       vscodeExtensions = [
         vscode-extensions.mkhl.shfmt  # format shell scripts
+        vscode-extensions.skellock.just  # `lsp` and task launcher for `just`
         vscode-extensions.vscodevim.vim  # `vim` emulation for `vscode`
         vscode-extensions.jetmartin.bats  # `lsp` for `bats`
         vscode-extensions.github.copilot  # `ai` partner programmer
@@ -54,6 +55,7 @@ rec {
         vscode-extensions.bierner.markdown-mermaid  # add `mermaid` support to `markdown`
         vscode-extensions.editorconfig.editorconfig  # add `editorconfig` support to `vsdcode`
         vscode-extensions.ms-azuretools.vscode-bicep  # add `lsp` support for `bicep`
+        vscode-extensions.github.vscode-github-actions  # manage `github` workflows
         vscode-extensions.vscode-icons-team.vscode-icons  # improved development icons
         vscode-extensions.shd101wyy.markdown-preview-enhanced  # quickly preview `markdown` files
       ];
@@ -64,10 +66,12 @@ rec {
   python-pkgs = [
     uv  # `python` package installer
     ruff  # `python` linter
+    mypy  # optional static typing for `python`
     pipx  # `python` isolated script runner
     pyenv  # `python`` manager
     bandit  # security oriented static analyzer for `python`
     pyright  # `python` type checker
+    safety-cli  # checks installed dependencies for known vulnerabilities
   ];
 
   powershell-pkgs = [
