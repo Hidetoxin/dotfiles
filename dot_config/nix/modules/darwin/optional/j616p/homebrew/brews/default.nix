@@ -1,23 +1,19 @@
 rec {
 
-  na = [
-    "there"  # keep track of people's timezones
-    "punchout"  # log time in `jira`
-  ];  # na
-
-  fun = [
-  ];  # fun
-
-  cli = [
+  ai-pkgs = [
     "glean-cli"  # `cli` tool for `glean` ai
-  ];  # cli
+  ];
 
-  dev = [
-  ];  # dev
+  cli-pkgs = [
+    "punchout"  # log time in `jira`
+  ];
 
-  dmn = [
-  ];  # dmn
-
-  all = fun ++ cli ++ dev ++ dmn;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    # ++ ai-pkgs
+    # ++ cli-pkgs
+    ++ [];
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

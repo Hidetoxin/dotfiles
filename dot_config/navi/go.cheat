@@ -1,9 +1,9 @@
-# vim: syntax=sh
-
 # Initialize a new go module
 % go
-go mod init "<repo_url>"
+go mod init '<repo_url>'
 
 # Initialize testing
 % go
-go test -v <path>
+go test -v '<path>'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

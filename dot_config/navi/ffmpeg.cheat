@@ -1,9 +1,9 @@
-# vim: syntax=sh
-
 # Convert video
-% ffmpeg, convert, mp4 
-ffmpeg -i <in> -q:v 0 <out>
+% ffmpeg, convert, mp4
+ffmpeg -i '<in>' -q:v 0 '<out>'
 
 # Trim video
 % ffmpeg, trim 
-ffmpeg -ss <from> -to <to> -i <in> -codec copy <out>
+ffmpeg -ss '<from>' -to '<to>' -i '<in>' -codec copy '<out>'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

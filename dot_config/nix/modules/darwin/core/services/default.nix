@@ -2,22 +2,22 @@
 
   services = {
 
-    skhd = {  #  hotkey daemon for `macos`
-      enable = true;
-    };
+    # skhd = {  #  hotkey daemon for `macos`
+    #   enable = true;
+    # };
 
     # aerospace = {  # `i3` like tiling window manager for `macos`
     #     enable = true;
     # };
-    #
+
     # sketchybar = {  # customizable status bar for `macos`
     #   enable = true;
     # };
-    #
+
     # jankyborders = {  #  highlight the current active window
     #   enable = true;
     # };
-    #
+
     # karabiner-elements = {  # utility for keyboard customization 
     #   enable = true;
     # };
@@ -30,3 +30,5 @@
   };
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

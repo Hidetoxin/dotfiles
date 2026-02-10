@@ -1,9 +1,9 @@
 # vim: syntax=sh
 
-# Login into bw
+# Login into `bw`
 % bw, 2fa, pass, eval
-eval "$(bw login "$(pass show 'bw/user')" "$(pass show 'bw/pass')" --code "$(2fa 'bw')" | rg 'export' | sed 's/\$ //g')"
+eval "$(bw login "$(pass show 'self/bw/user')" "$(pass show 'self/bw/pass')" --code "$(2fa 'self/bw')" | rg 'export' | sed 's/\$ //g')"
 
-# search a bw item
+# Search a `bw` item
 % bw
 bw list items --search <item>

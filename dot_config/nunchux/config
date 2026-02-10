@@ -1,0 +1,143 @@
+[settings]
+icon_running = ●
+icon_stopped = ○
+
+menu_width = 60%
+menu_height = 50%
+popup_width = 90%
+popup_height = 90%
+
+# Apps for ai usage
+[menu:ai]
+desc = Tools for ai usage
+
+[app:ai/copilot]
+cmd  = copilot --banner --allow-all-paths
+desc = Check current ping
+
+# Apps for alternate shells
+[menu:sh]
+desc = Tools for alternate shells
+
+[app:sh/pwsh]
+cmd  = pwsh
+desc = Launch powershell
+
+# Apps for monitoring the network
+[menu:net]
+desc = Network monitoring
+
+[app:net/gping]
+cmd  = gping 9.9.9.9
+desc = Check current ping
+
+[app:net/bandwhich]
+cmd  = bandwhich
+desc = Bandwidth by process
+
+[app:net/speedtest]
+cmd  = speedtest
+desc = Test current speed
+
+# Apps for secrets management
+[menu:sec]
+desc = Secrets management
+
+[app:sec/gpg]
+cmd  = gpg-tui
+desc = Key management tui for gpg
+
+[app:sec/pass]
+cmd  = passepartui
+desc = Password management tui
+
+# Apps for monitoring the system
+[menu:sys]
+desc = System monitoring
+
+[app:sys/btm]
+cmd  = btm
+desc = Task manager
+
+[app:sys/duf]
+cmd  = duf -only local | less -R
+desc = Disk usage overview
+
+[app:sys/gdu]
+cmd  = gdu
+desc = Disk usage overview
+
+[app:sys/btop]
+cmd  = btop
+desc = Task manager
+
+[app:sys/dust]
+cmd  = dust
+desc = Disk usage overview
+
+[app:sys/nvtop]
+cmd  = nvtop 
+desc = Process monitor for gpu
+
+[app:sys/procs]
+cmd  = procs
+desc = Process manager
+
+[app:sys/macmon]
+cmd  = macmon
+desc = Performance monitor for apple silicon processors
+
+# Apps for interacting with the web
+[menu:web]
+desc = Web interacting tools
+
+[app:web/posting]
+cmd  = posting
+desc = Client for rest requests
+
+# Apps for interacting with repositories
+[menu:repo]
+desc = Repository browsing
+
+[app:repo/gi]
+cmd    = gi
+desc   = Commit emoji picker
+status = n=$(git status -s 2>/dev/null | wc -l | tr -d ' '); [[ $n -gt 0 ]] && echo "($n changed)"
+
+[app:repo/tgr]
+cmd    = tgr
+desc   = Explore github repos
+status = n=$(git status -s 2>/dev/null | wc -l | tr -d ' '); [[ $n -gt 0 ]] && echo "($n changed)"
+
+[app:repo/tig]
+cmd    = tig
+desc   = Repo management tui
+status = n=$(git status -s 2>/dev/null | wc -l | tr -d ' '); [[ $n -gt 0 ]] && echo "($n changed)"
+
+[app:repo/lazygit]
+cmd    = GIT_EDITOR='meteor --skip-intro --as-git-editor' lazygit
+desc   = Repo management tui
+status = n=$(git status -s 2>/dev/null | wc -l | tr -d ' '); [[ $n -gt 0 ]] && echo "($n changed)"
+
+[app:repo/gitlogue]
+cmd    = gitlogue --loop --commit $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@.*/@@")..$(git rev-parse --abbrev-ref HEAD)'
+desc   = Replay code changes
+status = n=$(git status -s 2>/dev/null | wc -l | tr -d ' '); [[ $n -gt 0 ]] && echo "($n changed)"
+
+[app:repo/gh-dash]
+cmd  = gh-dash
+desc = Repo management tui for github
+
+[app:repo/gh-notify]
+cmd  = gh-notify
+desc = Notification management tui for github
+
+# Apps for todos and note taking
+[menu:todo]
+desc = Tools for checking todos
+
+[app:todo/calcurse]
+cmd  = calcurse
+desc = Calendar tui
+
+# vim: et ts=2 sts=2 sw=2 syntax=dosini

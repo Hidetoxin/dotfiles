@@ -1,39 +1,63 @@
-[group('kv')]
-[group('azure')]
 [doc('Show the current subscription `kv`s.')]
+[group('azure')]
+[group('kv')]
 az-kv-ls NAME='':
-  az keyvault list --output 'json' \
-   | jq --raw-output '.[] | "\(.name) | \(.resourceGroup)"' \
-   | fzf \
-      --query '{{ NAME }}' \
-      --preview 'az keyvault show --name "$(echo {} | awk "{print \$1}")" --resource-group "$(echo {} | awk "{print \$3}")"'
+    KV="$( \
+      az keyvault list \
+          --query '[].name' \
+          --output 'tsv' | \
+      fzf \
+          --query '{{ NAME }}' \
+          --header 'Choose a keyvault to show' \
+          --prompt 'keyvault  ' \
+          --preview 'az keyvault show --name {}' \
+    )" && \
+    az keyvault secret list --output 'table' --vault-name "${KV}"
 
-[group('kv')]
+[doc('Show the current subscription `kv`s.')]
 [group('azure')]
-[doc('List secrets from the current subscription `kv`s.')]
-az-kv-sec-ls:
-  KV="$(az keyvault list --output 'json' \
-   | jq --raw-output '.[] | "\(.name) | \(.resourceGroup)"' \
-   | fzf \
-      --preview 'az keyvault show --name "$(echo {} | awk "{print \$1}")" --resource-group "$(echo {} | awk "{print \$3}")"' \
-  )" && \
-  KV="$(echo "${KV}" | awk '{print $1}')" && \
-  az keyvault secret list --output 'json' --vault-name "${KV}" \
-    | jq --raw-output '.[].name' \
-    | fzf --preview 'az keyvault secret show --name {} --vault-name "${KV}" --output table'
+[group('kv')]
+az-kv-ll:
+    KV="$( \
+      az keyvault list \
+          --query '[].name' \
+          --output 'tsv' | \
+      fzf \
+          --header 'Choose a keyvault' \
+          --prompt 'keyvault  ' \
+          --preview 'az keyvault show --name {}' \
+    )" && \
+    SEC="$( \
+      az keyvault secret list \
+          --query '[].name' \
+          --output 'tsv' \
+          --vault-name "${KV}" | \
+      fzf \
+          --header 'Choose a keyvault secret to view' \
+          --prompt 'secret  ' \
+          --preview "az keyvault secret show --name '{}' --vault-name '${KV}'" \
+    )" && \
+    az keyvault secret show \
+        --name "${SEC}" \
+        --output 'table' \
+        --vault-name "${KV}"
 
-[group('kv')]
+[doc('Add a secret to the selected keyvault.')]
 [group('azure')]
-[doc('Get a secret from the current subscription `kv`s.')]
-az-kv-sec-get:
-  KV="$(az keyvault list --output 'json' \
-   | jq --raw-output '.[] | "\(.name) | \(.resourceGroup)"' \
-   | fzf \
-      --preview 'az keyvault show --name "$(echo {} | awk "{print \$1}")" --resource-group "$(echo {} | awk "{print \$3}")"' \
-  )" && \
-  KV="$(echo "${KV}" | awk '{print $1}')" && \
-  SEC="$(az keyvault secret list --output 'json' --vault-name "${KV}" \
-    | jq --raw-output '.[].name' \
-    | fzf --preview 'az keyvault secret show --name {} --vault-name "${KV}" --output table' \
-  )" && \
-  az keyvault secret show --name "${SEC}" --vault-name "${KV}" --output 'table'
+[group('kv')]
+az-kv-add KEY='' VALUE='':
+    KV="$( \
+      az keyvault list \
+          --query '[].name' \
+          --output 'tsv' | \
+      fzf \
+          --header 'Choose a keyvault' \
+          --prompt 'keyvault  ' \
+          --preview 'az keyvault show --name {}' \
+    )" && \
+    az keyvault secret set \
+        --name '{{ KEY }}' \
+        --value '{{ VALUE }}' \
+        --vault-name "${KV}"
+
+# vim: et ts=4 sts=4 sw=4 syntax=just

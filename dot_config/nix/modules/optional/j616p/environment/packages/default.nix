@@ -2,23 +2,26 @@
 
 rec {
 
-  na = [
-  ];  # na
-
-  cli = [
-    slack-cli  # `cli` client for `slack`
+  # Tooling for working with `ai`
+  ai-pkgs = [
     gemini-cli  # `cli` for using `gemini`
-    jira-cli-go  # `cli` client for `jira`
+  ];
+
+  # Tooling for sending messages
+  messaging-pkgs = [
+    slack-cli  # `cli` client for `slack`
+  ];
+
+  # Tooling for managing passwords
+  passwords-pkgs = [
     _1password-cli  # `cli` for `1password`
-  ];  # cli
-
-  tui = [
-  ];  # tui
-
-  gui = [
     _1password-gui  # `gui` for `1password`
-  ]; # gui
+  ];
 
-  all = cli ++ tui ++ gui;
+  all = []
+    ++ ai-pkgs
+    ++ messaging-pkgs
+    ++ passwords-pkgs
+    ++ [];
 
 }  # rec

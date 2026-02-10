@@ -1,30 +1,32 @@
-# vim: syntax=sh
-
-# Change branch
+# Change `git` branch
 % git, branch
 $ branch: git branch | awk '{print $NF}'
 git checkout <branch>
 
-# Add a git submodule
+# Add a `git` submodule
 % git, submodule
 git submodule add -b "<branch>" "ssh://git@<server>/<repo>.git" "<path>"
 
-# Add gpg sign to a git repo
-% git, gpg, fzf
+# Add `gpg` sign to a `git` repo
+% git, gpg, fzf, config
 $ id: gpg --list-secret-keys | rg '[0-9A-Z]{40,40}' | sed 's/ //g' | awk '{print substr($1,length($1)-15) }' | fzf --preview 'gpg --list-secret-keys {}'
 git config --local gpg.program gpg          \
     && git config --local user.signkey <id> \
     && git config --local commit.gpgsign true
 
-# Rename a git branch
-% git
+# Rename a `git` branch
+% git, branch
 git switch <old>                      \
     && git branch -m <new>            \
     && git push origin --delete <old> \
     && git push origin -u <new>
 
-# Fork a public repo to a private repo
-% git, gh, ghq
+# Show current `git` user and email
+% git, config
+git config 'user.name' && git config 'user.email'
+
+# Fork a public `git` repo to a private repo
+% git, gh, ghq, fork
 gh repo create <private> --private                                  \
     && ghq get <private>                                            \
     && git clone --bare <public> /tmp/<public>                      \
@@ -32,3 +34,5 @@ gh repo create <private> --private                                  \
     && git push --mirror <private>                                  \
     && cd ~/Code/"$(echo '<private>' | sed 's#ssh://|https://##g')" \
     && git remode add public <public>
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

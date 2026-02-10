@@ -1,0 +1,121 @@
+---
+# yaml-language-server: $schema=https://dlvhdr.github.io/gh-dash/configuration/gh-dash/schema.json
+
+pager:
+  diff: diffnav
+
+theme:
+  ui:
+    table:
+      compact: false
+    sectionsShowCount: true
+
+  colors:
+    text:
+      faint: '#fbf1c7'  # beige
+      success: '#98971a'  # green
+      warning: '#d79921'  # yellow
+      primary: '#458588'  # blue
+      inverted: '#282828'  # black
+      secondary: '#b16286'  # purple
+
+    border:
+      faint: '#fbf1c7'  # beige
+      primary: '#fbf1c7'  # beige
+      secondary: '#fbf1c7'  # beige
+
+    background:
+      selected: '#3c3836'  # gray
+
+defaults:
+  view: prs
+  prsLimit: 20
+  issuesLimit: 20
+  refetchIntervalMinutes: 5
+
+  layout:
+    prs:
+      base:
+        hidden: true
+      repoName:
+        grow: true,
+        width: 10
+        hidden: false
+
+  preview:
+    open: true
+    width: 70
+
+repoPaths:
+  {{ .chezmoi.hostname }}/*: ~/Code/{{ .chezmoi.hostname }}.github.com/*
+
+keybindings:
+  prs:
+    - key: v
+      name: approve pr
+      command: >
+        gh pr review --repo {{ `{{ .RepoName }}` }} --approve --body "$(gum input --prompt='Approval Comment: ')"  {{ `{{ .PrNumber }}` }}
+    - key: T
+      name: pr workflows
+      command: >-
+        tmux display-popup -E -w 90% -h 80% '
+          ENHANCE_THEME='gruvbox_dark' gh enhance --repo {{ `{{ .RepoName }}` }} {{ `{{ .PrNumber }}` }}
+        '
+
+  issues:
+    - key: P
+      name: pin issue
+      command: >
+        gh issue pin {{ `{{ .RepoPath }}` }} --repo {{ `{{ .RepoName }}` }}
+    - key: E
+      name: edit issue
+      command: >-
+        tmux display-popup -E -w 90% -h 80% '
+        cd {{ `{{ .RepoPath }}` }} && gh issue edit {{ `{{ .IssueNumber }}` }}
+        '
+  universal:
+    - key: g
+      name: lazygit
+      command: >
+        cd {{ `{{ .RepoPath }}` }} && lazygit
+
+prSections:
+  - title: Ready 
+    filters: >-
+      is:open
+      author:@me
+      -is:draft
+
+  - title: Drafts 
+    filters: >-
+      is:open
+      is:draft
+      author:@me
+
+  - title: Review 
+    filters: >-
+      is:open
+      review-requested:@me
+      -is:draft
+
+issuesSections:
+  - title: Me 
+    filters: >-
+      is:open
+      assignee:@me
+      -status:Done
+
+  - title: All 
+    filters: >-
+      is:open
+      is:private
+      label:in-progress
+      -label:paused
+      -label:backlog
+      -status:Done
+  - title: Created 󰙏
+    filters: >-
+      is:open
+      author:@me
+
+# vim: et ts=2 sts=2 sw=2 syntax=yaml

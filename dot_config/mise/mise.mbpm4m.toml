@@ -1,0 +1,4 @@
+[tools]
+
+# Tooling for `docker`
+"github:keilerkonzept/dockerfile-json" = "latest" # tool for parsing `docker` files to `json`

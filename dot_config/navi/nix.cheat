@@ -1,0 +1,17 @@
+# Check `nix` configuration
+% nix, sudo, macos
+sudo darwin-rebuild check --flake ~/.config/nix#"$(scutil --get LocalHostName)"
+
+# Run `nix` configuration
+% nix, sudo, macos
+sudo darwin-rebuild switch --flake ~/.config/nix#"$(scutil --get LocalHostName)"
+
+# Update `nix` packages
+% nix, sudo, macos
+nix flake update
+
+# Delete old installations of `nix`
+% nix, sudo, macos
+sudo nix-collect-garbage --delete-old
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

@@ -1,0 +1,5 @@
+[tools]
+
+# Tooling for `github`
+"github:jjournet/tgr" = "latest"
+"github:dev-ben-nisien/lazyactions" = "latest"

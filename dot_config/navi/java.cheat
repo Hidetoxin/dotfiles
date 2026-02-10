@@ -1,21 +1,21 @@
-# vim: syntax=sh
-
-# Check cacerts works on JVM
-% java, keytool
-[ !-f httpclienttest-1.0.2.jar ] \
-    && wget https://bitbucket.org/atlassianlabs/httpclienttest/downloads/httpclienttest-1.0.2.jar
+# Check cacerts works on `jvm`
+% java, wget, keytool
+[ !-f 'httpclienttest-1.0.2.jar' ] \
+    && wget 'https://bitbucket.org/atlassianlabs/httpclienttest/downloads/httpclienttest-1.0.2.jar'
     && java \
-       -Djavax.net.debug=all \
-       -Djavax.net.ssl.trustStore=\"/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/security/cacerts\" \
-       -jar httpclienttest-1.0.2.jar https://<alias>.<subdomain>.astrazeneca.com \
+         -Djavax.net.debug='all' \
+         -Djavax.net.ssl.trustStore='/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/security/cacerts' \
+         -jar 'httpclienttest-1.0.2.jar' '<url>' \
     > /tmp/httpclienttest 2>&1
 
-# Add cacerts into the JVM
+# Add cacerts into the `jvm`
 % java, keytool
-  sudo keytool \
-      -import \
-      -alias <alias> \
-      -file <file> \
-      -keystore "Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/security/cacerts" \
-      -storepass "changeit" \
-      -trustcacerts
+sudo keytool \
+    -import \
+    -alias '<alias>' \
+    -file '<file>' \
+    -keystore 'Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home/jre/lib/security/cacerts' \
+    -storepass 'changeit' \
+    -trustcacerts
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

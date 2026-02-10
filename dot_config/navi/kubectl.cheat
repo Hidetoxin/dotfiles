@@ -1,13 +1,13 @@
-# vim: syntax=sh
-
 # Fetch secret
 % k8s, secret
-$ secret: kubectl get secrets | sed '1d' | awk '{print $1}' | fzf --preview "kubectl get secret {} -o json | jq -r '.data.password' | base64 --decode"
+$ secret: kubectl get secrets | sed '1d' | awk '{print $1}' | fzf --header 'Choose a `k8s` secret' --prompt 'k8s secret  ' --preview "kubectl get secret {} -o json | jq -r '.data.password' | base64 --decode"
 $ namespace: kubectl config view --minify --output 'jsonpath={..namespace}'
 kubectl get secret '<secret>' --namespace '<namespace>' --output 'json' | jq -r '.data.password' | base64 --decode
 
 # Login into a pod
 % k8s, pods
-$ pod: kubectl get pods | sed '1d' | awk '{print $1}' | fzf --preview "kubectl describe pod {}"
+$ pod: kubectl get pods | sed '1d' | awk '{print $1}' | fzf  --header 'Choose a `k8s` pod' --prompt 'k8s pod  '--preview "kubectl describe pod {}"
 $ namespace: kubectl config view --minify --output 'jsonpath={..namespace}'
-kubectl exec --tty --stdin '<pod>' --namespace '<namespace>' -- /bin/sh
+kubectl exec --tty --stdin '<pod>' --namespace '<namespace>' -- '/bin/sh'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

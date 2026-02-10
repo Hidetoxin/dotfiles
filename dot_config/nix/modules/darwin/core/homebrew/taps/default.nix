@@ -1,42 +1,50 @@
 rec {
 
-  na = [
-    "ynqa/tap"  # `sigrs`
-    "k3ii/tap"  # `revq` / conze`
-    "dhth/tap"  # `omm` / `prs` / `mult` / `hours`
-    "ryu0118/kusa"  # `kusa`
-    "lihaoyun6/tap"  # `airbattery`
-    "loteoo/formulas"  # `ks`
-    "koekeishiya/formulae/skhd"  # `skhd`
-    "koekeishiya/formulae/yabai"  # `yabai`
-  ];  # na
-
-  cli = [
+  cli-pkgs = [
+    # "k3ii/tap"  # `revq` / conze`
+    "dhth/tap"  # `omm` / `prs` / `act3` / `mult` / `hours` / `kplay` / `cueitup` / `punchout`/ `unreleased`
+    "netmute/tap"  # `dol`
+    "nnnkkk7/tap"  # `lazyactions`
+    "bahaaio/pomo"  # `pomo`
+    # "ryu0118/kusa"  # `kusa`
+    "jackchuka/tap"  # `dutix`
+    # "lihaoyun6/tap"  # `airbattery`
+    # "ll-nick/leadr"  # `leadr
     "hakky54/senzu"  # `senzu`
+    # "loteoo/formulas"  # `ks`
     "antoniorodr/memo"  # `memo`
     "applegamer22/tap"  # `cocainate`
-  ];  #cli
+    "bharath-code/tap"  # `git-scope`
+    "gromgit/brewtils"  # `taproom`
+    "alejandroqh/term39"  # `term39`
+    "projectamurat/murat"  # `mss` / `mfree` / `mlsblk` / `mwatch` / `mpstree` / `mfindmnt` / `fsnotifywait`
+    "phanorcoll/homebrew-muxie"  # `muxie`
+  ];
 
-  tui = [
-    "magic-jd/tap"  #  `is-fast`
-  ];  # tui
+  tui-pkgs = [
+  ];
 
-  gui = [
-    "notwadegrimridge/brew"  # `pingplace`
-  ];  # gui
+  gui-pkgs = [
+    "tonisives/tap"  # `ovim`
+    "unsecretised/tap"  #  `rustcast`
+    "nickustinov/pinster"  # `pinster`
+    # "notwadegrimridge/brew"  # `pingplace`
+  ];
 
-  dmn = [
+  dmn-pkgs = [
     "nikitabobko/tap"  # `aerospace`
+    "asmvik/formulae"  # `skhd` / `yabai`
     "felixkratz/formulae"  # `svim` / `jankyborders` / `sketchybar`
-  ];  # dmn
+  ];
 
-  brew = [  # `homebrew` default taps
-    # "homebrew/core"  # not needed anymore
-    # "homebrew/cask"  # not needed anymore
-    # "homebrew/bundle"  # not needed anymore
-    # "homebrew/services"  # not needed anymore
-  ];  # brew
-
-  all = cli ++ gui ++ tui ++ dmn ++ brew;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    ++ cli-pkgs
+    ++ gui-pkgs
+    ++ tui-pkgs
+    ++ dmn-pkgs
+    ++ [];
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

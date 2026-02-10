@@ -1,5 +1,3 @@
-# vim: syntax=gitconfig
-
 [user]
     name    = "{{ (bitwarden "item" .bw.mbam1.id).identity.firstName }} {{ (bitwarden "item" .bw.mbam1.id).identity.middleName }}"
     email   = "{{ (bitwarden "item" .bw.mbam1.id).identity.email }}"
@@ -30,3 +28,5 @@
 	insteadOf = "https://codeberg.org/"
 [url "ssh://git@mbam1.codeberg.org/"]
 	insteadOf = "ssh://git@codeberg.org/"
+
+# vim: et ts=4 sts=4 sw=4 syntax=gitconfig

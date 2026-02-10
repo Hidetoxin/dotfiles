@@ -1,29 +1,20 @@
 rec {
 
-  na = [
-  ];  # na
+  cli-pkgs = [
+  ];
 
-  cli = [
-  ];  #cli
+  gui-pkgs = [
+  ];
 
-  gui = [
-  ];  # gui
+  dmn-pkgs = [
+  ];
 
-  dmn = [
-  ];  # dmn
-
-  brew = [  # `homebrew` default taps
-  ];  # brew
-
-
-  # devops = [
-  #   "env0/terratag"  # `terratag`
-  #   "huseyinbabal/tap"  # `aiws`
-  #   "isan-rivkin/toolbox"  # `surf`
-  #   "humanlogio/homebrew-tap" . # `humanlog`
-  #   "santiago-labs/telophasecli"  # `telophasecli`
-  # ];  # devops
-
-  all = cli ++ gui ++ dmn ++ brew;
+  all = []
+    ++ cli-pkgs
+    ++ gui-pkgs
+    ++ dmn-pkgs
+    ++ [];
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

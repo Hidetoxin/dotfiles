@@ -1,0 +1,25 @@
+# gitlogue configuration file
+# All settings are optional and will use defaults if not specified
+
+# Theme to use for syntax highlighting
+theme = 'gruvbox'
+
+# Typing speed in milliseconds per character
+speed = 50
+
+# Show background colors (set to false for transparent background)
+background = true
+
+# Commit playback order: random, asc, or desc
+order = 'asc'
+
+# Loop the animation continuously
+loop = false
+
+# Ignore patterns (gitignore syntax)
+# Examples: ['*.ipynb', 'poetry.lock', 'docs/api/**']
+ignore_patterns = []
+
+# Speed rules for different file types (pattern:milliseconds)
+# Examples: ['*.java:50', '*.xml:5', '*.rs:30']
+speed_rules = []

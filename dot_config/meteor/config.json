@@ -1,0 +1,20 @@
+{
+  "commitBodyCharLimit": 60,
+  "commitTitleCharLimit": 60,
+  "commitBodyLineLength": 40,
+  "readContributorsFromGit": true,
+  "prefixes": [
+    { "type": "ci", "description": "changes to our CI configuration files and scripts" },
+    { "type": "bug", "description":  "introducing a bug"},
+    { "type": "fix", "description": "a bug fix"},
+    { "type": "feat", "description": "a new feature"},
+    { "type": "docs", "description": "documentation only changes" },
+    { "type": "perf", "description": "a code change that improves performance" },
+    { "type": "test", "description": "adding missing tests or correcting existing tests" },
+    { "type": "build", "description": "changes that affect the build system or external dependencies" },
+    { "type": "chore", "description": "changes to the build process or auxiliary tools and libraries" },
+    { "type": "style", "description": "changes that do not affect the meaning of the code" },
+    { "type": "revert", "description": "reverts a previous commit" },
+    { "type": "refactor", "description": "a code change that neither fixes a bug nor adds a feature" }
+  ]
+}

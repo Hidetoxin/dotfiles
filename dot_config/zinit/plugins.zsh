@@ -16,10 +16,22 @@ zinit ice --lucid --if="[ -n $(command -v fzf) ]" \
 zinit ice --lucid --wait=0 --if="[ -n $(command -v grc) ]" \
     && zinit light 'unixorn/warhol.plugin.zsh'
 
-# Add completion
+# Add `fzf` for tab completion
+zinit ice --lucid --if="[ -n $(command -v mise) ]" \
+    && zinit light 'wintermi/zsh-mise'
+
+# Smart man page lookup for `zsh`
+zinit ice --lucid \
+ && zinit light 'tunacuma/zsh-vi-man'  # Ctrl+K
+
+# Add completions
+zinit ice --lucid --depht=1 \
+    && zinit light 'jeffreytse/zsh-vi-mode'
+
+# Add completions
 zinit ice --lucid \
     && zinit light 'zsh-users/zsh-completions'
-    # zicompinit; zicdreplay  # fix fzf-tab
+    # zicompinit; zicdreplay  # FIX: fzf-tab
 
 # Suggest a command based on previous history
 zinit ice --lucid \

@@ -1,8 +1,8 @@
-# vim: syntax=sh
-
-# Stop macOS services
+# Stop `macos` services
 % macos, skhd, svim, yabai, sketchybar
-brew services <action> svim         \
-    && brew services <action> skhd  \
-    && brew services <action> yabai \
-    && brew services <action> sketchybar
+brew services <action> 'svim'         \
+    && brew services <action> 'skhd'  \
+    && brew services <action> 'yabai' \
+    && brew services <action> 'sketchybar'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

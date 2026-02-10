@@ -1,5 +1,3 @@
-# vim: syntax=sh
-#
 # https://unix.stackexchange.com/questions/71253/what-should-shouldnt-go-in-zshenv-zshrc-zlogin-zprofile-zlogout
 #
 # .zshenv is always sourced. It often contains exported variables that should
@@ -46,12 +44,13 @@ export SAVEHIST="$HISTSIZE"
 export HISTFILE="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh/history"
  
 # Add user scripts to path
-export PATH="$PATH:$XDG_DATA_HOME/../bin"
+export PATH="$PATH:${XDG_DATA_HOME:-${HOME}/.local/share}/bin"
 
 # Setup language settings
 export LANG='en_US.UTF-8'
 
 # Setup editing settings
+export TERM='xterm-256color'
 export PAGER='bat'
 export EDITOR='nvim'
 
@@ -79,7 +78,7 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v gpg)" ] \
     && export GNUPGHOME="${XDG_DATA_HOME:-${HOME}/.local/sahre}/gnupg"
 
-[ -n "$(command -v aws)" ]                                                    \
+[ -n "$(command -v aws)" ]                                                     \
     && export AWS_CONFIG_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/aws/config" \
     && export AWS_SHARED_CREDENTIALS_FILE="${XDG_CONFIG_HOME:-${HOME}/.config}/aws/credentials"
 
@@ -103,11 +102,17 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export FZF_DEFAULT_COMMAND='fd --type f'                                                  \
     && export FZF_COMPLETION_TRIGGER='**'
 
-[ -n "$(command -v pass)" ] \
-    && export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME}/.config}/pass"
+[ -n "$(command -v code)" ] \
+    && export VSCODE_PORTABLE="${XDG_DATA_HOME:-${HOME}/.local/share}/vscode"
+
+[ -n "$(command -v mise)" ] \
+    && export MISE_ENV="{{ .chezmoi.hostname }}"
 
 [ -n "$(command -v navi)" ] \
     && export NAVI_PATH="${XDG_CONFIG_HOME:-${HOME}/.config}/navi"
+
+[ -n "$(command -v pass)" ] \
+    && export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-${HOME}/.config}/pass"
 
 [ -n "$(command -v mcfly)" ]                \
     && export MCFLY_FUZZY=true              \
@@ -134,9 +139,6 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export NODENV_ROOT="${XDG_DATA_HOME:-${HOME}/.local/share}/nodenv" \
     && export NODE_OPTIONS='--no-deprecation'
 
-[ -n "$(command -v argocd)" ] \
-    && eval "$(argocd completion zsh)"
-
 [ -n "$(command -v packer)" ]                                    \
     && export PACKER_CONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/packer/packer.json" \
     && export PACKER_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/packer"
@@ -146,6 +148,12 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 
 [ -n "$(command -v zellij)" ] \
     && export ZELLIJ_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/zellij"
+
+[ -n "$(command -v zoxide)" ] \
+    && export ZOXIDE_CMD_OVERRIDE='cd'
+
+[ -n "$(command -v copilot)" ] \
+    && export COPILOT_CLI_CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}/copilot"
 
 [ -n "$(command -v kubectl)" ]                                             \
     && export KUBECONFIG="${XDG_CONFIG_HOME:-${HOME}/.config}/kube/config" \
@@ -158,13 +166,10 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
     && export PASSAGE_DIR="${XDG_DATA_HOME:-${HOME}/.local/share}/passage"  \
     && export PASSAGE_IDENTITIES_FILE="${XDG_DATA_HOME:-${HOME}/.local/share}/passage/identities"
 
-[ -n "$(command -v aws-vault)" ]                                      \
-    && export AWS_VAULT_BACKEND='pass'                                \
-    && export AWS_VAULT_PASS_PREFIX='aws'                             \
-    && export AWS_VAULT_PASS_PASSWORD_STORE_DIR="$PASSWORD_STORE_DIR"
-
-[ -n "$(command -v pay-respects)" ] \
-    && eval "$(pay-respects zsh)"
+[ -n "$(command -v aws-vault)" ]          \
+    && export AWS_VAULT_BACKEND='pass'    \
+    && export AWS_VAULT_PASS_PREFIX='aws' \
+    && export AWS_VAULT_PASS_PASSWORD_STORE_DIR="${PASSWORD_STORE_DIR}"
 
 {{- if (eq .chezmoi.hostname "mbpm4p") }}
 [ -n "$(command -v jira)" ] \
@@ -175,3 +180,5 @@ export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
 [ -n "$(command -v gemini)" ] \
     && export GEMINI_API_KEY='{{ (bitwardenFields "item" .bw.mbpm4p.id).GeminiToken.value }}'
 {{- end }}
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

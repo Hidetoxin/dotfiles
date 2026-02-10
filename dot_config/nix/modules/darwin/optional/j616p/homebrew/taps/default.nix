@@ -1,22 +1,18 @@
 rec {
 
-  na = [
-    "dhth/tap"  # `punchout`
-  ];  # na
-
-  cli = [
+  ai-pkgs = [
     "scalvert/tap/glean-cli"  # `glean-cli`
-  ];  #cli
+  ];
 
-  gui = [
-  ];  # gui
+  cli-pkgs = [
+  ];
 
-  dmn = [
-  ];  # dmn
-
-  brew = [
-  ];  # brew
-
-  all = cli ++ gui ++ dmn ++ brew;
+  # Add empty arrays for easily commenting the packages that I don't need
+  all = []
+    # ++ ai-pkgs
+    # ++ cli-pkgs
+    ++ []
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix

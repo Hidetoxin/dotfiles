@@ -4,10 +4,6 @@
 # - https://github.com/ohmyzsh/ohmyzsh/wiki/plugins
 # - https://zdharma-continuum.github.io/zinit/wiki/example-oh-my-zsh-setup/
 
-# Add `go` completion and aliases
-# zinit ice --lucid --wait=0 --if="[ -n $(command -v go) ]" \
-#     && zinit snippet 'OMZ::plugins/golang/golang.plugin.zsh'
-
 # Add `gh` completion
 zinit ice --lucid --wait=0 --if="[ -n $(command -v gh) ]" \
     && zinit snippet 'OMZ::plugins/gh/gh.plugin.zsh'
@@ -46,10 +42,6 @@ zinit ice --lucid --wait=0 --if="[ -n $(command -v ssh) ]" \
 zinit ice --lucid --wait=0 --if="[ -n $(command -v helm) ]" \
     && zinit snippet 'OMZ::plugins/helm/helm.plugin.zsh'
 
-# Add `pass` completion
-# zinit ice --lucid --wait=0 --if="[ -n $(command -v pass) ]" \
-#     && zinit snippet 'OMZ::plugins/pass/_pass'
-
 # Add `brew aliases
 zinit ice --lucid --wait=0 --if="[ -n $(command -v brew) ]" \
     && zinit snippet 'OMZ::plugins/brew/brew.plugin.zsh'
@@ -62,25 +54,9 @@ zinit ice --lucid --wait=0 --if="[ -n $(command -v tmux) ]" \
 zinit ice --lucid --wait=0 --if="[ -n $(command -v tofu) ]" \
     && zinit snippet 'OMZ::plugins/opentofu/opentofu.plugin.zsh'
 
-# Provide macos utilities
-# zinit ice --lucid --wait=0 \
-#     && zinit snippet 'OMZ::plugins/macos/macos.plugin.zsh'
-
-# Add `jfrog-cli` completion
-zinit ice --lucid --wait=0 --if="[ -n $(command -v jfrog-cli) ]" \
-    && zinit snippet 'OMZ::plugins/jfrog/jfrog.plugin.zsh'
-
 # Add `procs` completion
 zinit ice --lucid --wait=0 --if="[ -n $(command -v procs) ]" \
     && zinit snippet 'OMZ::plugins/procs/procs.plugin.zsh'
-
-# Add `docker` completion and aliases
-# zinit ice --lucid --wait=0 --if="[ -n $(command -v docker) ]" \
-#     && zinit snippet 'OMZ::plugins/docker/docker.plugin.zsh'
-
-# Add `poetry` aliases and completion
-zinit ice --lucid --wait=0 --if="[ -n $(command -v poetry) ]" \
-    && zinit snippet 'OMZ::plugins/poetry/poetry.plugin.zsh'
 
 # Add `kubectl` completion and aliases
 zinit ice --lucid --wait=0 --if="[ -n $(command -v kubectl) ]" \
@@ -146,3 +122,5 @@ zinit ice --lucid --wait=0  \
 # Suggest packages to be installed if a commnand cannot be found
 zinit ice --lucid --wait=0  \
     && zinit snippet 'OMZ::plugins/command-not-found/command-not-found.plugin.zsh'
+
+# vim: et ts=4 sts=4 sw=4 syntax=sh

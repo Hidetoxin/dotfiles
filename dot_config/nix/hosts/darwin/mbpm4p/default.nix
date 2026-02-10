@@ -6,6 +6,9 @@
     ../../../modules/optional/ops  # install `devops` tooling
     ../../../modules/optional/j616p  # specific tooling for `j616p`
     ../../../modules/darwin/optional/ops  # install `devops` tooling for `darwin`
+    ../../../modules/darwin/optional/j616p  # install host specific tooling for `darwin`
   ];
 
 }
+
+# vim: et ts=2 sts=2 sw=2 syntax=nix
